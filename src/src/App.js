@@ -10,6 +10,8 @@ import trees from './trees.json';
 import tiga from './tiga.json';
 import population from './population.json';
 
+import config from './testconfig.json';
+
 
 
 
@@ -39,6 +41,28 @@ function Map() {
     return data;
   });
 
+  // Map Population
+React.useEffect(() => {
+
+  dispatch(
+    addDataToMap({
+      datasets: {
+        info: {
+          label: "Population",
+          id: "pop"
+        },
+        data: population
+      },
+      option: {
+        centerMap: true,
+        readOnly: false
+      },
+      config: config
+    })
+  );
+
+}, [dispatch, data]);
+
   // Map trees
   React.useEffect(() => {
 
@@ -53,7 +77,7 @@ function Map() {
           },
           option: {
             centerMap: true,
-            readOnly: true
+            readOnly: false
           },
           config: {}
         })
@@ -68,42 +92,24 @@ function Map() {
       addDataToMap({
         datasets: {
           info: {
+            title: "TEST",
             label: "Tiga",
             id: "tiga"
           },
           data: tiga
         },
         option: {
-          centerMap: true,
-          readOnly: true
+          centerMap: false,
+          readOnly: false
         },
         config: {}
       })
     );
   
 }, [dispatch, data]);
-// Map Population
-React.useEffect(() => {
 
-  dispatch(
-    addDataToMap({
-      datasets: {
-        info: {
-          label: "Population",
-          id: "pop"
-        },
-        data: population
-      },
-      option: {
-        centerMap: true,
-        readOnly: true
-      },
-      config: {}
-    })
-  );
-
-}, [dispatch, data]);
-
+/*const configToSave = KeplerGlSchema.getConfigToSave(state.keplerGl.foo);
+console.log(configToSave)*/
 
   return (
     <KeplerGl
