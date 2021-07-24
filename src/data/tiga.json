@@ -1,1 +1,994 @@
-{"type":"FeatureCollection","features":[{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dda","geometry":{"type":"Point","coordinates":[4.8712086,45.7617805]},"geometry_name":"geom","properties":{"id":"062335a8-7f62-4450-b74c-83065d22834a","longitude":4.8712086,"latitude":45.7617805,"expertise":"{Autres}","gouvernance":"Industrie","country":"{France}","public":null,"web":"https://www.leprogres.fr/visite-journal","offre":"{\"Tourisme industriel\"}","title":"Le Progrès"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dd9","geometry":{"type":"Point","coordinates":[4.8252204,45.7507322]},"geometry_name":"geom","properties":{"id":"1029a417-c302-4452-b00f-ecc6e61a6827","longitude":4.8252204,"latitude":45.7507322,"expertise":"{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}","gouvernance":"Société (hors industrie)","country":"{France}","public":null,"web":"https://www.pulsalys.fr/","offre":"{\"Accompagnement à l'innovation\"}","title":"PULSALYS"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dd8","geometry":{"type":"Point","coordinates":[4.8701634,45.7847622]},"geometry_name":"geom","properties":{"id":"21cccb15-0c4c-4aca-8ad8-8ac27e3b3e9e","longitude":4.8701634,"latitude":45.7847622,"expertise":"{\"Numérique / Electronique\"}","gouvernance":"Société (hors industrie)","country":"{France}","public":null,"web":"https://www.ateliermaquettes.fr/presentation/","offre":"{Prototypage}","title":"Make-it L'atelier Maquettes"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dd7","geometry":{"type":"Point","coordinates":[4.8364637,45.7645907]},"geometry_name":"geom","properties":{"id":"223b2459-1b86-4e11-8a5d-6cc4bc8cf9e0","longitude":4.8364637,"latitude":45.7645907,"expertise":"{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}","gouvernance":"Société (hors industrie)","country":"{France}","public":null,"web":"http://www.axeleo.com/","offre":"{\"Accompagnement à l'innovation\"}","title":"Axeleo"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dd6","geometry":{"type":"Point","coordinates":[4.8253299,45.7429667]},"geometry_name":"geom","properties":{"id":"2c603223-155d-4749-8dfb-3a2130eae2c3","longitude":4.8253299,"latitude":45.7429667,"expertise":"{\"Numérique / Electronique\",\"Education / Formation\"}","gouvernance":null,"country":"{France}","public":null,"web":"http://littlebitslyon.fr/","offre":"{\"Programmation éducative\"}","title":"LITTLE Bits Ly on"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dd5","geometry":{"type":"Point","coordinates":[1.444209,43.604652]},"geometry_name":"geom","properties":{"id":"2d2d19ad-aefc-4ee3-8bac-f121a85b6e05","longitude":1.444209,"latitude":43.604652,"expertise":"{\"Ingénierie / Mécanique\"}","gouvernance":"Industrie","country":"{France}","public":null,"web":"http://www.groupeseb.com/fr/content/politique-et-enjeux","offre":"{Prototypage}","title":"SEB Lab"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dd4","geometry":{"type":"Point","coordinates":[2.2364918,48.8964851]},"geometry_name":"geom","properties":{"id":"3b6067c6-a3a1-4ba2-8a1a-9e1ff36ed791","longitude":2.2364918,"latitude":48.8964851,"expertise":"{\"Arts / Culture\"}","gouvernance":"Association","country":"{France}","public":null,"web":"http://www.grame.fr/","offre":"{\"Innovation ouverte\"}","title":"Grame"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dd3","geometry":{"type":"Point","coordinates":[4.7238065,46.1020406]},"geometry_name":"geom","properties":{"id":"4a1bd4a2-4803-4d7a-bd93-cef70216400f","longitude":4.7238065,"latitude":46.1020406,"expertise":"{\"Ingénierie / Mécanique\"}","gouvernance":"Industrie","country":"{France}","public":null,"web":"https://www.apr-plastiques.fr/","offre":"{Prototypage}","title":"APR"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dd2","geometry":{"type":"Point","coordinates":[4.8783188,45.7328352]},"geometry_name":"geom","properties":{"id":"4c4880aa-2985-4c68-84fa-42cae44d8c44","longitude":4.8783188,"latitude":45.7328352,"expertise":"{\"Ingénierie / Mécanique\"}","gouvernance":"Autres","country":"{France}","public":null,"web":"https://www.allize-plasturgie.org/partenaire/materiautech-lyon-allize-plasturgie","offre":"{\"Animation / Réseau\"}","title":"Allizé-Plasturgie / Materiotech"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dd1","geometry":{"type":"Point","coordinates":[4.8263565,45.643614]},"geometry_name":"geom","properties":{"id":"5046faeb-b84b-4c4a-8b14-c13ad84acb87","longitude":4.8263565,"latitude":45.643614,"expertise":"{\"Numérique / Electronique\"}","gouvernance":"Association","country":"{France}","public":null,"web":"https://lesbricodeurs.fr/","offre":"{\"Dispositifs de médiation\"}","title":"Les Bricodeurs"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dd0","geometry":{"type":"Point","coordinates":[4.9817932,45.7184345]},"geometry_name":"geom","properties":{"id":"53027903-6955-4470-aa1c-f6b2881e7aa0","longitude":4.9817932,"latitude":45.7184345,"expertise":"{\"Ingénierie / Mécanique\"}","gouvernance":"Industrie","country":"{France}","public":null,"web":"http://www.amdi.fr/","offre":"{Prototypage}","title":"AMDI"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dcf","geometry":{"type":"Point","coordinates":[4.8618544,45.7702348]},"geometry_name":"geom","properties":{"id":"636ee721-f4f4-45ca-ba06-c1647721d82b","longitude":4.8618544,"latitude":45.7702348,"expertise":"{\"Ingénierie / Mécanique\"}","gouvernance":"Industrie","country":"{France}","public":null,"web":"https://www.plasticomnium.com/fr/","offre":"{Prototypage}","title":"Plastic Omnium"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dce","geometry":{"type":"Point","coordinates":[-71.2767275,46.8006868]},"geometry_name":"geom","properties":{"id":"83772d3f-4ce6-4fa8-927a-ce45fb76069d","longitude":-71.2767275,"latitude":46.8006868,"expertise":"{\"Ingénierie / Mécanique\"}","gouvernance":"Industrie","country":"{France}","public":null,"web":"https://www.sintex-np.com/","offre":"{Prototypage}","title":"SINTEX NP"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dcd","geometry":{"type":"Point","coordinates":[4.835659,45.764043]},"geometry_name":"geom","properties":{"id":"8484450a-d2a2-4c46-b2a7-cf6b03bd177d","longitude":4.835659,"latitude":45.764043,"expertise":"{\"Ingénierie / Mécanique\"}","gouvernance":"Industrie","country":"{France}","public":null,"web":"https://silex3dprint.fr/","offre":"{Prototypage}","title":"Silex3DPrint"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dcc","geometry":{"type":"Point","coordinates":[4.8901709,45.771944]},"geometry_name":"geom","properties":{"id":"87ca19de-d3d5-4440-a405-8805ed33b009","longitude":4.8901709,"latitude":45.771944,"expertise":"{\"Numérique / Electronique\"}","gouvernance":"Société (hors industrie)","country":"{France}","public":null,"web":"http://xaviersrobotik.fr","offre":"{\"Programmation éducative\"}","title":"Xavier's Robotik"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dcb","geometry":{"type":"Point","coordinates":[4.8424508,45.7673324]},"geometry_name":"geom","properties":{"id":"88ca0f8a-1f26-4c63-ab86-5500697f9398","longitude":4.8424508,"latitude":45.7673324,"expertise":"{Autres}","gouvernance":"Association","country":"{France}","public":null,"web":"http://vivelatase.blogspot.com","offre":"{\"Dispositifs de médiation\"}","title":"Vive la TASE"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dca","geometry":{"type":"Point","coordinates":[4.8365932,45.7485059]},"geometry_name":"geom","properties":{"id":"a7c503e1-ebdf-43e4-93cd-b93333ec5c04","longitude":4.8365932,"latitude":45.7485059,"expertise":"{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}","gouvernance":"Société (hors industrie)","country":"{France}","public":null,"web":"http://boostinlyon.fr/","offre":"{\"Accompagnement à l'innovation\"}","title":"BILotière - BoostIn Lyon"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dc9","geometry":{"type":"Point","coordinates":[4.3852507,45.4471431]},"geometry_name":"geom","properties":{"id":"abb08643-3aa2-4461-88b9-8082097ea9c2","longitude":4.3852507,"latitude":45.4471431,"expertise":"{\"Arts / Culture| Autres\"}","gouvernance":"Association","country":"{France}","public":null,"web":"https://www.frichmarket.org/","offre":"{\"Economie circulaire\"}","title":"FRICH'MARKET"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dc8","geometry":{"type":"Point","coordinates":[4.5930123,45.8148243]},"geometry_name":"geom","properties":{"id":"ac1579b8-050e-41a7-be7b-881ad209991c","longitude":4.5930123,"latitude":45.8148243,"expertise":"{\"Urbanisme / Environnement\"}","gouvernance":"Métropole","country":"{France}","public":null,"web":"http://www.appeldes30.fr/","offre":"{\"Dispositifs de médiation\"}","title":"L'appel des 30"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dc7","geometry":{"type":"Point","coordinates":[4.8737496,45.7795945]},"geometry_name":"geom","properties":{"id":"b6a7fe85-c5f3-4d71-a0f4-147d2fe74644","longitude":4.8737496,"latitude":45.7795945,"expertise":"{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}","gouvernance":"Métropole","country":"{France}","public":null,"web":"http://www.novacite.com","offre":"{\"Accompagnement à l'innovation\"}","title":"Novacité"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dc6","geometry":{"type":"Point","coordinates":[4.841811,45.75601]},"geometry_name":"geom","properties":{"id":"c2026b1e-8d31-4477-80fd-1038985911ee","longitude":4.841811,"latitude":45.75601,"expertise":"{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}","gouvernance":"Société (hors industrie)","country":"{France}","public":null,"web":"https://1kubator.com/incubateur-lyon/","offre":"{\"Accompagnement à l'innovation\"}","title":"1Kubator"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dc5","geometry":{"type":"Point","coordinates":[4.8418112,45.7560104]},"geometry_name":"geom","properties":{"id":"dff371a4-398c-4e49-91b2-9d7163fde26f","longitude":4.8418112,"latitude":45.7560104,"expertise":"{\"Urbanisme / Environnement\",\"Usages / Société\"}","gouvernance":"Métropole","country":"{France}","public":null,"web":"http://lerize.villeurbanne.fr/","offre":"{\"Dispositifs de médiation\"}","title":"RIZE"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dc4","geometry":{"type":"Point","coordinates":[4.8263565,45.643614]},"geometry_name":"geom","properties":{"id":"e9d0e0a5-c153-4dbe-a455-92dfe6c2febc","longitude":4.8263565,"latitude":45.643614,"expertise":"{Autres}","gouvernance":"Industrie","country":"{France}","public":null,"web":"https://www.ninkasi.fr/biere/visite-fabrique-biere-distillerie.html","offre":"{\"Tourisme industriel\"}","title":"Ninkasi"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dc3","geometry":{"type":"Point","coordinates":[4.8716964,45.7801143]},"geometry_name":"geom","properties":{"id":"eb7c537e-e756-43d1-9ca0-a2515d573134","longitude":4.8716964,"latitude":45.7801143,"expertise":"{\"Numérique / Electronique\"}","gouvernance":"Industrie","country":"{France}","public":null,"web":"https://www.digital.sncf.com/transformation-numerique/les-574","offre":"{Prototypage}","title":"574 (SNCF)"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dc2","geometry":{"type":"Point","coordinates":[4.8478031,45.7542094]},"geometry_name":"geom","properties":{"id":"f1e6c325-6453-4f7f-9427-8580d8d16fb5","longitude":4.8478031,"latitude":45.7542094,"expertise":"{}","gouvernance":null,"country":"{France}","public":null,"web":"","offre":"{\"Programmation éducative\",Prototypage}","title":"Pôle Universtiaire Léonard de Vinci"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dc1","geometry":{"type":"Point","coordinates":[4.739682,45.8404706]},"geometry_name":"geom","properties":{"id":"f7340e02-076f-476a-b790-8f3072c55cd4","longitude":4.739682,"latitude":45.8404706,"expertise":"{\"Ingénierie / Mécanique\"}","gouvernance":"Industrie","country":"{France}","public":null,"web":"http://attom.eu/","offre":"{Prototypage}","title":"ATTOM"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dc0","geometry":{"type":"Point","coordinates":[4.913702,45.7568082]},"geometry_name":"geom","properties":{"id":"fcc8c051-bfc6-4eab-8a2c-3b370cde363f","longitude":4.913702,"latitude":45.7568082,"expertise":"{\"Arts / Culture\"}","gouvernance":"Association","country":"{France}","public":null,"web":"http://aadn.org/","offre":"{\"Innovation ouverte\",\"Dispositifs de médiation\"}","title":"AADN"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dbf","geometry":{"type":"Point","coordinates":[4.739682,45.8404706]},"geometry_name":"geom","properties":{"id":"fe07501e-97eb-4fdf-92cc-6e4f67baa711","longitude":4.739682,"latitude":45.8404706,"expertise":"{\"Ingénierie / Mécanique\"}","gouvernance":"Industrie","country":"{France}","public":null,"web":"","offre":"{Prototypage}","title":"Modellus"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dbe","geometry":{"type":"Point","coordinates":[4.7641329,45.7864448]},"geometry_name":"geom","properties":{"id":"41076340-5c2a-4529-87b4-e22752652797","longitude":4.7641329,"latitude":45.7864448,"expertise":"{\"Education / Formation\"}","gouvernance":"Association","country":"{France}","public":null,"web":"https://www.jobirl.com/","offre":"{\"Programmation éducative\",\"Dispositifs de médiation\"}","title":"JobIRL"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dbd","geometry":{"type":"Point","coordinates":[4.835659,45.764043]},"geometry_name":"geom","properties":{"id":"5c934ae4-3cac-4012-9ee5-ed6d1ed5e06e","longitude":4.835659,"latitude":45.764043,"expertise":"{\"Usages / Société\"}","gouvernance":"Association","country":"{France}","public":null,"web":"http://www.tuba-lyon.com/","offre":"{\"Innovation ouverte\",\"Dispositifs de médiation\"}","title":"TUBA"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dbc","geometry":{"type":"Point","coordinates":[2.3472917,48.9239779]},"geometry_name":"geom","properties":{"id":"fd74d2e7-00b7-4f58-bd81-0e146488775b","longitude":2.3472917,"latitude":48.9239779,"expertise":"{\"Urbanisme / Environnement\"}","gouvernance":"Association","country":"{France}","public":null,"web":"https://www.axel-one.com/","offre":"{\"Innovation ouverte\"}","title":"AXEL'ONE"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dbb","geometry":{"type":"Point","coordinates":[1.4701789,48.867332]},"geometry_name":"geom","properties":{"id":"e8f51955-74fd-48c1-a8d3-4c96e02ebcea","longitude":1.4701789,"latitude":48.867332,"expertise":"{\"Ingénierie / Mécanique\"}","gouvernance":"Industrie","country":"{France}","public":null,"web":"","offre":"{Prototypage}","title":"Technicentre SNCF d'Oulins"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dba","geometry":{"type":"Point","coordinates":[4.9361149,45.6940175]},"geometry_name":"geom","properties":{"id":"62adec71-6910-4998-9553-6e00c2b8071d","longitude":4.9361149,"latitude":45.6940175,"expertise":"{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}","gouvernance":"Association","country":"{France}","public":null,"web":"http://www.fablab-lyon.fr/","offre":"{Prototypage}","title":"Fabrique d'Objets Libres"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5db9","geometry":{"type":"Point","coordinates":[4.855928,45.7541108]},"geometry_name":"geom","properties":{"id":"79eee430-9e81-42c0-a2c2-9bf21289a14f","longitude":4.855928,"latitude":45.7541108,"expertise":"{Autres}","gouvernance":"Association","country":"{France}","public":null,"web":"http://www.patrimoineaurhalpin.org/ensembles/","offre":"{\"Dispositifs de médiation\"}","title":"Ensembles industriels remarquables"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5db8","geometry":{"type":"Point","coordinates":[4.841811,45.75601]},"geometry_name":"geom","properties":{"id":"07bdcb29-6640-4942-b3d6-e703cdae7fef","longitude":4.841811,"latitude":45.75601,"expertise":"{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}","gouvernance":"Université","country":"{France}","public":null,"web":"http://incub.em-lyon.com/","offre":"{\"Accompagnement à l'innovation\"}","title":"Incubateur & Accélérateur emlyon"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5db7","geometry":{"type":"Point","coordinates":[4.835659,45.764043]},"geometry_name":"geom","properties":{"id":"ccf0321a-6586-449f-ac58-aa675907ee64","longitude":4.835659,"latitude":45.764043,"expertise":"{\"Arts / Culture\"}","gouvernance":"Association","country":"{France}","public":null,"web":"https://www.grrrndzero.org/","offre":"{Prototypage,\"Innovation ouverte\"}","title":"GRRRND ZERO"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5db6","geometry":{"type":"Point","coordinates":[4.879992,45.6352037]},"geometry_name":"geom","properties":{"id":"dae76913-68e5-4df5-90d3-d16f26085360","longitude":4.879992,"latitude":45.6352037,"expertise":"{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}","gouvernance":"Société (hors industrie)","country":"{France}","public":null,"web":"https://www.belaircamp.org/","offre":"{Prototypage,\"Accompagnement à l'innovation\"}","title":"Bel Air Camp"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5db5","geometry":{"type":"Point","coordinates":[4.8099045,45.7710699]},"geometry_name":"geom","properties":{"id":"2b4e5391-5b1f-40c2-a67d-f7ff3d02f481","longitude":4.8099045,"latitude":45.7710699,"expertise":"{\"Urbanisme / Environnement\"}","gouvernance":"Association","country":"{France}","public":null,"web":"https://www.axel-one.com/","offre":"{\"Innovation ouverte\"}","title":"AXEL'ONE"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5db4","geometry":{"type":"Point","coordinates":[2.3472917,48.9239779]},"geometry_name":"geom","properties":{"id":"470a8cf1-e75f-4fe4-88cf-51fe4fdb4e35","longitude":2.3472917,"latitude":48.9239779,"expertise":"{\"Urbanisme / Environnement\"}","gouvernance":"Association","country":"{France}","public":null,"web":"https://www.axel-one.com/","offre":"{\"Innovation ouverte\"}","title":"AXEL'ONE"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5db3","geometry":{"type":"Point","coordinates":[4.7641329,45.7864448]},"geometry_name":"geom","properties":{"id":"27bb4097-29b1-4c9f-a5e3-8ae41f88a084","longitude":4.7641329,"latitude":45.7864448,"expertise":"{\"Numérique / Electronique\",\"Usages / Société\"}","gouvernance":"Association","country":"{France}","public":null,"web":"https://www.lamyne.org/","offre":"{Prototypage}","title":"La MYNE"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5db2","geometry":{"type":"Point","coordinates":[4.8253817,45.7430024]},"geometry_name":"geom","properties":{"id":"ac887dec-8f74-46b3-94dd-b0f4eb8a0dcd","longitude":4.8253817,"latitude":45.7430024,"expertise":"{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}","gouvernance":"Association","country":"{France}","public":null,"web":"https://labolyon.fr/","offre":"{Prototypage}","title":"LOL (Laboratoire Ouvert Lyonnais) / LOV"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5db1","geometry":{"type":"Point","coordinates":[4.8350883,45.7589345]},"geometry_name":"geom","properties":{"id":"4ae4e36e-a6a9-4600-ae16-c8cd58de95d1","longitude":4.8350883,"latitude":45.7589345,"expertise":"{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}","gouvernance":"Autres","country":"{France}","public":null,"web":"https://hub-recherche.fr/","offre":"{\"Innovation ouverte\"}","title":"Hub Recherche"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5db0","geometry":{"type":"Point","coordinates":[4.9264158,45.7030036]},"geometry_name":"geom","properties":{"id":"3fa6532d-bf9e-487a-8a69-505a4d6a4f64","longitude":4.9264158,"latitude":45.7030036,"expertise":"{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}","gouvernance":"Métropole","country":"{France}","public":null,"web":"http://www.erasme.org/","offre":"{\"Innovation ouverte\",\"Programmation éducative\",Prototypage}","title":"UrbanLab ERASME II"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5daf","geometry":{"type":"Point","coordinates":[4.739682,45.8404706]},"geometry_name":"geom","properties":{"id":"e5704a60-0429-4f6f-b5e7-2ad5218877f8","longitude":4.739682,"latitude":45.8404706,"expertise":"{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}","gouvernance":"Industrie","country":"{France}","public":null,"web":"http://www.prodium.fr/","offre":"{Prototypage}","title":"PRODIUM"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dae","geometry":{"type":"Point","coordinates":[4.7225011,46.1003241]},"geometry_name":"geom","properties":{"id":"95a2025b-3006-4efc-ba23-2ad60df59082","longitude":4.7225011,"latitude":46.1003241,"expertise":"{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}","gouvernance":"Industrie","country":"{France}","public":null,"web":"http://vg-sens.e-monsite.com/","offre":"{Prototypage}","title":"VG Sens"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dad","geometry":{"type":"Point","coordinates":[4.8955197,45.7557698]},"geometry_name":"geom","properties":{"id":"f5adbdcf-866a-470e-995f-abfda9fd0e44","longitude":4.8955197,"latitude":45.7557698,"expertise":"{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}","gouvernance":"Université","country":"{France}","public":null,"web":"http://makerslab.em-lyon.com/","offre":"{Prototypage}","title":"makers' lab emlyon"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dac","geometry":{"type":"Point","coordinates":[4.8263565,45.643614]},"geometry_name":"geom","properties":{"id":"a34854fe-5c66-44a3-8621-67ba94fa594e","longitude":4.8263565,"latitude":45.643614,"expertise":"{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}","gouvernance":"Université","country":"{France}","public":null,"web":"https://popsciences.universite-lyon.fr/","offre":"{\"Programmation éducative\",\"Dispositifs de médiation\"}","title":"Pop'Sciences"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5dab","geometry":{"type":"Point","coordinates":[4.9360911,45.6940265]},"geometry_name":"geom","properties":{"id":"13800bb0-1c5c-4d3a-a5a2-15bbe1d4b37e","longitude":4.9360911,"latitude":45.6940265,"expertise":"{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}","gouvernance":"Université","country":"{France}","public":null,"web":"https://www.universite-lyon.fr/innovation-entrepreneurship/the-innovation-factory-innovating-and-approaching-entrepreneurship-differently-/la-fabrique-de-l-innovation-innover-et-entreprendre-autrement-avec-l-universite-de-lyon-972.kjsp","offre":"{Prototypage,\"Innovation ouverte\"}","title":"Fabrique de l'Innovation"}},{"type":"Feature","id":"carto.fid--32658009_17a0a9e5b88_-5daa","geometry":{"type":"Point","coordinates":[4.898742,45.758268]},"geometry_name":"geom","properties":{"id":"1d6a754e-e21e-4632-b27d-74d60904b27c","longitude":4.898742,"latitude":45.758268,"expertise":"{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}","gouvernance":"Association","country":"{France}","public":null,"web":"http://youfactory.co/","offre":"{Prototypage}","title":"YOUFACTORY"}}],"totalFeatures":49,"numberMatched":49,"numberReturned":49,"timeStamp":"2021-07-06T12:21:18.287Z","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:EPSG::2154"}}}
+{
+    "type": "FeatureCollection",
+    "features": [{
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dda",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8712086, 45.7617805]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "062335a8-7f62-4450-b74c-83065d22834a",
+            "longitude": 4.8712086,
+            "latitude": 45.7617805,
+            "expertise": "{Autres}",
+            "gouvernance": "Industrie",
+            "country": "{France}",
+            "public": null,
+            "web": "https://www.leprogres.fr/visite-journal",
+            "offre": "{\"Tourisme industriel\"}",
+            "title": "Le Progrès"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dd9",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8252204, 45.7507322]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "1029a417-c302-4452-b00f-ecc6e61a6827",
+            "longitude": 4.8252204,
+            "latitude": 45.7507322,
+            "expertise": "{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Société (hors industrie)",
+            "country": "{France}",
+            "public": null,
+            "web": "https://www.pulsalys.fr/",
+            "offre": "{\"Accompagnement à l'innovation\"}",
+            "title": "PULSALYS"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dd8",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8701634, 45.7847622]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "21cccb15-0c4c-4aca-8ad8-8ac27e3b3e9e",
+            "longitude": 4.8701634,
+            "latitude": 45.7847622,
+            "expertise": "{\"Numérique / Electronique\"}",
+            "gouvernance": "Société (hors industrie)",
+            "country": "{France}",
+            "public": null,
+            "web": "https://www.ateliermaquettes.fr/presentation/",
+            "offre": "{Prototypage}",
+            "title": "Make-it L'atelier Maquettes"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dd7",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8364637, 45.7645907]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "223b2459-1b86-4e11-8a5d-6cc4bc8cf9e0",
+            "longitude": 4.8364637,
+            "latitude": 45.7645907,
+            "expertise": "{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Société (hors industrie)",
+            "country": "{France}",
+            "public": null,
+            "web": "http://www.axeleo.com/",
+            "offre": "{\"Accompagnement à l'innovation\"}",
+            "title": "Axeleo"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dd6",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8253299, 45.7429667]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "2c603223-155d-4749-8dfb-3a2130eae2c3",
+            "longitude": 4.8253299,
+            "latitude": 45.7429667,
+            "expertise": "{\"Numérique / Electronique\",\"Education / Formation\"}",
+            "gouvernance": null,
+            "country": "{France}",
+            "public": null,
+            "web": "http://littlebitslyon.fr/",
+            "offre": "{\"Programmation éducative\"}",
+            "title": "LITTLE Bits Ly on"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dd5",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [1.444209, 43.604652]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "2d2d19ad-aefc-4ee3-8bac-f121a85b6e05",
+            "longitude": 1.444209,
+            "latitude": 43.604652,
+            "expertise": "{\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Industrie",
+            "country": "{France}",
+            "public": null,
+            "web": "http://www.groupeseb.com/fr/content/politique-et-enjeux",
+            "offre": "{Prototypage}",
+            "title": "SEB Lab"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dd4",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [2.2364918, 48.8964851]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "3b6067c6-a3a1-4ba2-8a1a-9e1ff36ed791",
+            "longitude": 2.2364918,
+            "latitude": 48.8964851,
+            "expertise": "{\"Arts / Culture\"}",
+            "gouvernance": "Association",
+            "country": "{France}",
+            "public": null,
+            "web": "http://www.grame.fr/",
+            "offre": "{\"Innovation ouverte\"}",
+            "title": "Grame"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dd3",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.7238065, 46.1020406]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "4a1bd4a2-4803-4d7a-bd93-cef70216400f",
+            "longitude": 4.7238065,
+            "latitude": 46.1020406,
+            "expertise": "{\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Industrie",
+            "country": "{France}",
+            "public": null,
+            "web": "https://www.apr-plastiques.fr/",
+            "offre": "{Prototypage}",
+            "title": "APR"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dd2",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8783188, 45.7328352]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "4c4880aa-2985-4c68-84fa-42cae44d8c44",
+            "longitude": 4.8783188,
+            "latitude": 45.7328352,
+            "expertise": "{\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Autres",
+            "country": "{France}",
+            "public": null,
+            "web": "https://www.allize-plasturgie.org/partenaire/materiautech-lyon-allize-plasturgie",
+            "offre": "{\"Animation / Réseau\"}",
+            "title": "Allizé-Plasturgie / Materiotech"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dd1",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8263565, 45.643614]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "5046faeb-b84b-4c4a-8b14-c13ad84acb87",
+            "longitude": 4.8263565,
+            "latitude": 45.643614,
+            "expertise": "{\"Numérique / Electronique\"}",
+            "gouvernance": "Association",
+            "country": "{France}",
+            "public": null,
+            "web": "https://lesbricodeurs.fr/",
+            "offre": "{\"Dispositifs de médiation\"}",
+            "title": "Les Bricodeurs"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dd0",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.9817932, 45.7184345]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "53027903-6955-4470-aa1c-f6b2881e7aa0",
+            "longitude": 4.9817932,
+            "latitude": 45.7184345,
+            "expertise": "{\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Industrie",
+            "country": "{France}",
+            "public": null,
+            "web": "http://www.amdi.fr/",
+            "offre": "{Prototypage}",
+            "title": "AMDI"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dcf",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8618544, 45.7702348]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "636ee721-f4f4-45ca-ba06-c1647721d82b",
+            "longitude": 4.8618544,
+            "latitude": 45.7702348,
+            "expertise": "{\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Industrie",
+            "country": "{France}",
+            "public": null,
+            "web": "https://www.plasticomnium.com/fr/",
+            "offre": "{Prototypage}",
+            "title": "Plastic Omnium"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dce",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-71.2767275, 46.8006868]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "83772d3f-4ce6-4fa8-927a-ce45fb76069d",
+            "longitude": -71.2767275,
+            "latitude": 46.8006868,
+            "expertise": "{\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Industrie",
+            "country": "{France}",
+            "public": null,
+            "web": "https://www.sintex-np.com/",
+            "offre": "{Prototypage}",
+            "title": "SINTEX NP"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dcd",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.835659, 45.764043]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "8484450a-d2a2-4c46-b2a7-cf6b03bd177d",
+            "longitude": 4.835659,
+            "latitude": 45.764043,
+            "expertise": "{\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Industrie",
+            "country": "{France}",
+            "public": null,
+            "web": "https://silex3dprint.fr/",
+            "offre": "{Prototypage}",
+            "title": "Silex3DPrint"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dcc",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8901709, 45.771944]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "87ca19de-d3d5-4440-a405-8805ed33b009",
+            "longitude": 4.8901709,
+            "latitude": 45.771944,
+            "expertise": "{\"Numérique / Electronique\"}",
+            "gouvernance": "Société (hors industrie)",
+            "country": "{France}",
+            "public": null,
+            "web": "http://xaviersrobotik.fr",
+            "offre": "{\"Programmation éducative\"}",
+            "title": "Xavier's Robotik"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dcb",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8424508, 45.7673324]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "88ca0f8a-1f26-4c63-ab86-5500697f9398",
+            "longitude": 4.8424508,
+            "latitude": 45.7673324,
+            "expertise": "{Autres}",
+            "gouvernance": "Association",
+            "country": "{France}",
+            "public": null,
+            "web": "http://vivelatase.blogspot.com",
+            "offre": "{\"Dispositifs de médiation\"}",
+            "title": "Vive la TASE"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dca",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8365932, 45.7485059]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "a7c503e1-ebdf-43e4-93cd-b93333ec5c04",
+            "longitude": 4.8365932,
+            "latitude": 45.7485059,
+            "expertise": "{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Société (hors industrie)",
+            "country": "{France}",
+            "public": null,
+            "web": "http://boostinlyon.fr/",
+            "offre": "{\"Accompagnement à l'innovation\"}",
+            "title": "BILotière - BoostIn Lyon"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dc9",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.3852507, 45.4471431]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "abb08643-3aa2-4461-88b9-8082097ea9c2",
+            "longitude": 4.3852507,
+            "latitude": 45.4471431,
+            "expertise": "{\"Arts / Culture| Autres\"}",
+            "gouvernance": "Association",
+            "country": "{France}",
+            "public": null,
+            "web": "https://www.frichmarket.org/",
+            "offre": "{\"Economie circulaire\"}",
+            "title": "FRICH'MARKET"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dc8",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.5930123, 45.8148243]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "ac1579b8-050e-41a7-be7b-881ad209991c",
+            "longitude": 4.5930123,
+            "latitude": 45.8148243,
+            "expertise": "{\"Urbanisme / Environnement\"}",
+            "gouvernance": "Métropole",
+            "country": "{France}",
+            "public": null,
+            "web": "http://www.appeldes30.fr/",
+            "offre": "{\"Dispositifs de médiation\"}",
+            "title": "L'appel des 30"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dc7",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8737496, 45.7795945]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "b6a7fe85-c5f3-4d71-a0f4-147d2fe74644",
+            "longitude": 4.8737496,
+            "latitude": 45.7795945,
+            "expertise": "{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Métropole",
+            "country": "{France}",
+            "public": null,
+            "web": "http://www.novacite.com",
+            "offre": "{\"Accompagnement à l'innovation\"}",
+            "title": "Novacité"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dc6",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.841811, 45.75601]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "c2026b1e-8d31-4477-80fd-1038985911ee",
+            "longitude": 4.841811,
+            "latitude": 45.75601,
+            "expertise": "{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Société (hors industrie)",
+            "country": "{France}",
+            "public": null,
+            "web": "https://1kubator.com/incubateur-lyon/",
+            "offre": "{\"Accompagnement à l'innovation\"}",
+            "title": "1Kubator"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dc5",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8418112, 45.7560104]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "dff371a4-398c-4e49-91b2-9d7163fde26f",
+            "longitude": 4.8418112,
+            "latitude": 45.7560104,
+            "expertise": "{\"Urbanisme / Environnement\",\"Usages / Société\"}",
+            "gouvernance": "Métropole",
+            "country": "{France}",
+            "public": null,
+            "web": "http://lerize.villeurbanne.fr/",
+            "offre": "{\"Dispositifs de médiation\"}",
+            "title": "RIZE"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dc4",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8263565, 45.643614]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "e9d0e0a5-c153-4dbe-a455-92dfe6c2febc",
+            "longitude": 4.8263565,
+            "latitude": 45.643614,
+            "expertise": "{Autres}",
+            "gouvernance": "Industrie",
+            "country": "{France}",
+            "public": null,
+            "web": "https://www.ninkasi.fr/biere/visite-fabrique-biere-distillerie.html",
+            "offre": "{\"Tourisme industriel\"}",
+            "title": "Ninkasi"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dc3",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8716964, 45.7801143]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "eb7c537e-e756-43d1-9ca0-a2515d573134",
+            "longitude": 4.8716964,
+            "latitude": 45.7801143,
+            "expertise": "{\"Numérique / Electronique\"}",
+            "gouvernance": "Industrie",
+            "country": "{France}",
+            "public": null,
+            "web": "https://www.digital.sncf.com/transformation-numerique/les-574",
+            "offre": "{Prototypage}",
+            "title": "574 (SNCF)"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dc2",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8478031, 45.7542094]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "f1e6c325-6453-4f7f-9427-8580d8d16fb5",
+            "longitude": 4.8478031,
+            "latitude": 45.7542094,
+            "expertise": "{}",
+            "gouvernance": null,
+            "country": "{France}",
+            "public": null,
+            "web": "",
+            "offre": "{\"Programmation éducative\",Prototypage}",
+            "title": "Pôle Universtiaire Léonard de Vinci"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dc1",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.739682, 45.8404706]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "f7340e02-076f-476a-b790-8f3072c55cd4",
+            "longitude": 4.739682,
+            "latitude": 45.8404706,
+            "expertise": "{\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Industrie",
+            "country": "{France}",
+            "public": null,
+            "web": "http://attom.eu/",
+            "offre": "{Prototypage}",
+            "title": "ATTOM"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dc0",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.913702, 45.7568082]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "fcc8c051-bfc6-4eab-8a2c-3b370cde363f",
+            "longitude": 4.913702,
+            "latitude": 45.7568082,
+            "expertise": "{\"Arts / Culture\"}",
+            "gouvernance": "Association",
+            "country": "{France}",
+            "public": null,
+            "web": "http://aadn.org/",
+            "offre": "{\"Innovation ouverte\",\"Dispositifs de médiation\"}",
+            "title": "AADN"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dbf",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.739682, 45.8404706]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "fe07501e-97eb-4fdf-92cc-6e4f67baa711",
+            "longitude": 4.739682,
+            "latitude": 45.8404706,
+            "expertise": "{\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Industrie",
+            "country": "{France}",
+            "public": null,
+            "web": "",
+            "offre": "{Prototypage}",
+            "title": "Modellus"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dbe",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.7641329, 45.7864448]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "41076340-5c2a-4529-87b4-e22752652797",
+            "longitude": 4.7641329,
+            "latitude": 45.7864448,
+            "expertise": "{\"Education / Formation\"}",
+            "gouvernance": "Association",
+            "country": "{France}",
+            "public": null,
+            "web": "https://www.jobirl.com/",
+            "offre": "{\"Programmation éducative\",\"Dispositifs de médiation\"}",
+            "title": "JobIRL"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dbd",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.835659, 45.764043]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "5c934ae4-3cac-4012-9ee5-ed6d1ed5e06e",
+            "longitude": 4.835659,
+            "latitude": 45.764043,
+            "expertise": "{\"Usages / Société\"}",
+            "gouvernance": "Association",
+            "country": "{France}",
+            "public": null,
+            "web": "http://www.tuba-lyon.com/",
+            "offre": "{\"Innovation ouverte\",\"Dispositifs de médiation\"}",
+            "title": "TUBA"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dbc",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [2.3472917, 48.9239779]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "fd74d2e7-00b7-4f58-bd81-0e146488775b",
+            "longitude": 2.3472917,
+            "latitude": 48.9239779,
+            "expertise": "{\"Urbanisme / Environnement\"}",
+            "gouvernance": "Association",
+            "country": "{France}",
+            "public": null,
+            "web": "https://www.axel-one.com/",
+            "offre": "{\"Innovation ouverte\"}",
+            "title": "AXEL'ONE"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dbb",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [1.4701789, 48.867332]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "e8f51955-74fd-48c1-a8d3-4c96e02ebcea",
+            "longitude": 1.4701789,
+            "latitude": 48.867332,
+            "expertise": "{\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Industrie",
+            "country": "{France}",
+            "public": null,
+            "web": "",
+            "offre": "{Prototypage}",
+            "title": "Technicentre SNCF d'Oulins"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dba",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.9361149, 45.6940175]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "62adec71-6910-4998-9553-6e00c2b8071d",
+            "longitude": 4.9361149,
+            "latitude": 45.6940175,
+            "expertise": "{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Association",
+            "country": "{France}",
+            "public": null,
+            "web": "http://www.fablab-lyon.fr/",
+            "offre": "{Prototypage}",
+            "title": "Fabrique d'Objets Libres"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5db9",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.855928, 45.7541108]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "79eee430-9e81-42c0-a2c2-9bf21289a14f",
+            "longitude": 4.855928,
+            "latitude": 45.7541108,
+            "expertise": "{Autres}",
+            "gouvernance": "Association",
+            "country": "{France}",
+            "public": null,
+            "web": "http://www.patrimoineaurhalpin.org/ensembles/",
+            "offre": "{\"Dispositifs de médiation\"}",
+            "title": "Ensembles industriels remarquables"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5db8",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.841811, 45.75601]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "07bdcb29-6640-4942-b3d6-e703cdae7fef",
+            "longitude": 4.841811,
+            "latitude": 45.75601,
+            "expertise": "{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Université",
+            "country": "{France}",
+            "public": null,
+            "web": "http://incub.em-lyon.com/",
+            "offre": "{\"Accompagnement à l'innovation\"}",
+            "title": "Incubateur & Accélérateur emlyon"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5db7",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.835659, 45.764043]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "ccf0321a-6586-449f-ac58-aa675907ee64",
+            "longitude": 4.835659,
+            "latitude": 45.764043,
+            "expertise": "{\"Arts / Culture\"}",
+            "gouvernance": "Association",
+            "country": "{France}",
+            "public": null,
+            "web": "https://www.grrrndzero.org/",
+            "offre": "{Prototypage,\"Innovation ouverte\"}",
+            "title": "GRRRND ZERO"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5db6",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.879992, 45.6352037]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "dae76913-68e5-4df5-90d3-d16f26085360",
+            "longitude": 4.879992,
+            "latitude": 45.6352037,
+            "expertise": "{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Société (hors industrie)",
+            "country": "{France}",
+            "public": null,
+            "web": "https://www.belaircamp.org/",
+            "offre": "{Prototypage,\"Accompagnement à l'innovation\"}",
+            "title": "Bel Air Camp"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5db5",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8099045, 45.7710699]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "2b4e5391-5b1f-40c2-a67d-f7ff3d02f481",
+            "longitude": 4.8099045,
+            "latitude": 45.7710699,
+            "expertise": "{\"Urbanisme / Environnement\"}",
+            "gouvernance": "Association",
+            "country": "{France}",
+            "public": null,
+            "web": "https://www.axel-one.com/",
+            "offre": "{\"Innovation ouverte\"}",
+            "title": "AXEL'ONE"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5db4",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [2.3472917, 48.9239779]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "470a8cf1-e75f-4fe4-88cf-51fe4fdb4e35",
+            "longitude": 2.3472917,
+            "latitude": 48.9239779,
+            "expertise": "{\"Urbanisme / Environnement\"}",
+            "gouvernance": "Association",
+            "country": "{France}",
+            "public": null,
+            "web": "https://www.axel-one.com/",
+            "offre": "{\"Innovation ouverte\"}",
+            "title": "AXEL'ONE"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5db3",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.7641329, 45.7864448]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "27bb4097-29b1-4c9f-a5e3-8ae41f88a084",
+            "longitude": 4.7641329,
+            "latitude": 45.7864448,
+            "expertise": "{\"Numérique / Electronique\",\"Usages / Société\"}",
+            "gouvernance": "Association",
+            "country": "{France}",
+            "public": null,
+            "web": "https://www.lamyne.org/",
+            "offre": "{Prototypage}",
+            "title": "La MYNE"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5db2",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8253817, 45.7430024]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "ac887dec-8f74-46b3-94dd-b0f4eb8a0dcd",
+            "longitude": 4.8253817,
+            "latitude": 45.7430024,
+            "expertise": "{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Association",
+            "country": "{France}",
+            "public": null,
+            "web": "https://labolyon.fr/",
+            "offre": "{Prototypage}",
+            "title": "LOL (Laboratoire Ouvert Lyonnais) / LOV"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5db1",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8350883, 45.7589345]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "4ae4e36e-a6a9-4600-ae16-c8cd58de95d1",
+            "longitude": 4.8350883,
+            "latitude": 45.7589345,
+            "expertise": "{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Autres",
+            "country": "{France}",
+            "public": null,
+            "web": "https://hub-recherche.fr/",
+            "offre": "{\"Innovation ouverte\"}",
+            "title": "Hub Recherche"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5db0",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.9264158, 45.7030036]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "3fa6532d-bf9e-487a-8a69-505a4d6a4f64",
+            "longitude": 4.9264158,
+            "latitude": 45.7030036,
+            "expertise": "{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Métropole",
+            "country": "{France}",
+            "public": null,
+            "web": "http://www.erasme.org/",
+            "offre": "{\"Innovation ouverte\",\"Programmation éducative\",Prototypage}",
+            "title": "UrbanLab ERASME II"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5daf",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.739682, 45.8404706]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "e5704a60-0429-4f6f-b5e7-2ad5218877f8",
+            "longitude": 4.739682,
+            "latitude": 45.8404706,
+            "expertise": "{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Industrie",
+            "country": "{France}",
+            "public": null,
+            "web": "http://www.prodium.fr/",
+            "offre": "{Prototypage}",
+            "title": "PRODIUM"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dae",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.7225011, 46.1003241]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "95a2025b-3006-4efc-ba23-2ad60df59082",
+            "longitude": 4.7225011,
+            "latitude": 46.1003241,
+            "expertise": "{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Industrie",
+            "country": "{France}",
+            "public": null,
+            "web": "http://vg-sens.e-monsite.com/",
+            "offre": "{Prototypage}",
+            "title": "VG Sens"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dad",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8955197, 45.7557698]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "f5adbdcf-866a-470e-995f-abfda9fd0e44",
+            "longitude": 4.8955197,
+            "latitude": 45.7557698,
+            "expertise": "{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Université",
+            "country": "{France}",
+            "public": null,
+            "web": "http://makerslab.em-lyon.com/",
+            "offre": "{Prototypage}",
+            "title": "makers' lab emlyon"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dac",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.8263565, 45.643614]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "a34854fe-5c66-44a3-8621-67ba94fa594e",
+            "longitude": 4.8263565,
+            "latitude": 45.643614,
+            "expertise": "{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Université",
+            "country": "{France}",
+            "public": null,
+            "web": "https://popsciences.universite-lyon.fr/",
+            "offre": "{\"Programmation éducative\",\"Dispositifs de médiation\"}",
+            "title": "Pop'Sciences"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5dab",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.9360911, 45.6940265]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "13800bb0-1c5c-4d3a-a5a2-15bbe1d4b37e",
+            "longitude": 4.9360911,
+            "latitude": 45.6940265,
+            "expertise": "{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Université",
+            "country": "{France}",
+            "public": null,
+            "web": "https://www.universite-lyon.fr/innovation-entrepreneurship/the-innovation-factory-innovating-and-approaching-entrepreneurship-differently-/la-fabrique-de-l-innovation-innover-et-entreprendre-autrement-avec-l-universite-de-lyon-972.kjsp",
+            "offre": "{Prototypage,\"Innovation ouverte\"}",
+            "title": "Fabrique de l'Innovation"
+        }
+    }, {
+        "type": "Feature",
+        "id": "carto.fid--32658009_17a0a9e5b88_-5daa",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.898742, 45.758268]
+        },
+        "geometry_name": "geom",
+        "properties": {
+            "id": "1d6a754e-e21e-4632-b27d-74d60904b27c",
+            "longitude": 4.898742,
+            "latitude": 45.758268,
+            "expertise": "{\"Numérique / Electronique\",\"Ingénierie / Mécanique\"}",
+            "gouvernance": "Association",
+            "country": "{France}",
+            "public": null,
+            "web": "http://youfactory.co/",
+            "offre": "{Prototypage}",
+            "title": "YOUFACTORY"
+        }
+    }],
+    "totalFeatures": 49,
+    "numberMatched": 49,
+    "numberReturned": 49,
+    "timeStamp": "2021-07-06T12:21:18.287Z",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:EPSG::2154"
+        }
+    }
+}
