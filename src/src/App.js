@@ -1,19 +1,33 @@
 import React from "react";
+
+// Imports custom component styling
+import './index.css';
+
 import keplerGlReducer from "kepler.gl/reducers";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { taskMiddleware } from "react-palm/tasks";
 import { Provider, useDispatch } from "react-redux";
-import KeplerGl from "kepler.gl";
+//import KeplerGl from "kepler.gl";
+import KeplerGlSchema from 'kepler.gl/schemas';
 import { addDataToMap } from "kepler.gl/actions";
+//import {injectComponents, PanelHeaderFactory} from 'kepler.gl/components';
 import useSwr from "swr";
+
 // Add a contribute button
 import Crowdsourcing from './components/Crowdsourcing';
 
+// Loads json Data files (trees tiga population)
+//import trees from './trees.json';
 import tiga from './tiga.json';
 import population from './population.json';
+import mediation from './mediation.json';
 
+
+// Loads the default display configuration
 import config from './testconfig.json';
 
+// Imports ThemeProvider who helps to change the css styling of the components
+import {ThemeProvider} from 'styled-components';
 
 // Injects new items into the panel Header
 import {replacePanelHeader} from './factories/panel-header';
@@ -22,7 +36,18 @@ const KeplerGl = require('kepler.gl/components').injectComponents([
 ]);
 
 
-console.log(trees)
+
+
+// Injects the new styling into the components
+//const white = '#ffffff';
+const customTheme = {
+  textColor: "white",
+  sidePanelBg: '#d91f16',
+  titleTextColor: '#000000',
+  sidePanelHeaderBg: 'black',
+  subtextColorActive: '#2473bd'
+};
+
 const reducers = combineReducers({
   keplerGl: keplerGlReducer
 });
@@ -32,7 +57,8 @@ const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
 export default function App() {
   return (
     <Provider store={store}>
-      <Map />
+      <Map >
+      </ Map>
     </Provider>
   );
 }
@@ -74,57 +100,36 @@ React.useEffect(() => {
   // Map Mediation
   React.useEffect(() => {
 
-      dispatch(
-        addDataToMap({
-          datasets: {
-            info: {
-            label: "Mediation",
-            id: "mediation"
-            },
-          data: mediation
-          },
-          option: {
-          centerMap: false,
-            readOnly: false
-          },
-        })
-      );
-    
-  }, [dispatch, data]);
-
-  // Map TIGA
-  React.useEffect(() => {
-
     dispatch(
       addDataToMap({
         datasets: {
           info: {
-            title: "TEST",
-            label: "Tiga",
-            id: "tiga"
+            label: "Mediation",
+            id: "mediation"
           },
-          data: tiga
+          data: mediation
         },
         option: {
           centerMap: false,
           readOnly: false
         },
-        config: {}
       })
     );
   
-}, [dispatch, data]);
+  }, [dispatch, data]);
+
+
 
 /*const configToSave = KeplerGlSchema.getConfigToSave(state.keplerGl.foo);
 console.log(configToSave)*/
 
   return (
     <ThemeProvider theme={customTheme}>
-    <KeplerGl
-      id="covid"
-      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API}
-      width={window.innerWidth}
-      height={window.innerHeight}
+      <KeplerGl
+        id="covid"
+        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API}
+        width={window.innerWidth}
+        height={window.innerHeight}
       >
       </KeplerGl>
       <Crowdsourcing />
