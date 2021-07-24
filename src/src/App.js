@@ -6,7 +6,8 @@ import { Provider, useDispatch } from "react-redux";
 import KeplerGl from "kepler.gl";
 import { addDataToMap } from "kepler.gl/actions";
 import useSwr from "swr";
-import trees from './trees.json';
+// Add a contribute button
+import Crowdsourcing from './components/Crowdsourcing';
 import tiga from './tiga.json';
 import population from './population.json';
 
@@ -112,11 +113,16 @@ React.useEffect(() => {
 console.log(configToSave)*/
 
   return (
+    <ThemeProvider theme={customTheme}>
     <KeplerGl
       id="covid"
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API}
       width={window.innerWidth}
       height={window.innerHeight}
-    />
+      >
+      </KeplerGl>
+      <Crowdsourcing />
+    </ThemeProvider>
+
   );
 }
