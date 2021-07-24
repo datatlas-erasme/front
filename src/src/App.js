@@ -8,6 +8,7 @@ import { addDataToMap } from "kepler.gl/actions";
 import useSwr from "swr";
 // Add a contribute button
 import Crowdsourcing from './components/Crowdsourcing';
+
 import tiga from './tiga.json';
 import population from './population.json';
 
@@ -69,23 +70,23 @@ React.useEffect(() => {
 
 }, [dispatch, data]);
 
-  // Map trees
+
+  // Map Mediation
   React.useEffect(() => {
 
       dispatch(
         addDataToMap({
           datasets: {
             info: {
-              label: "Arbres alignements",
-              id: "arbres_metropole"
+            label: "Mediation",
+            id: "mediation"
             },
-            data: trees
+          data: mediation
           },
           option: {
-            centerMap: true,
+          centerMap: false,
             readOnly: false
           },
-          config: {}
         })
       );
     
