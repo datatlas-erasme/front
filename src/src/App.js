@@ -14,6 +14,11 @@ import population from './population.json';
 import config from './testconfig.json';
 
 
+// Injects new items into the panel Header
+import {replacePanelHeader} from './factories/panel-header';
+const KeplerGl = require('kepler.gl/components').injectComponents([
+  replacePanelHeader()
+]);
 
 
 console.log(trees)
