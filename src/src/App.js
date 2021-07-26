@@ -9,12 +9,15 @@ import { taskMiddleware } from "react-palm/tasks";
 import { Provider, useDispatch } from "react-redux";
 //import KeplerGl from "kepler.gl";
 import KeplerGlSchema from 'kepler.gl/schemas';
-import { addDataToMap } from "kepler.gl/actions";
+import { addDataToMap , updateMap } from "kepler.gl/actions";
 //import {injectComponents, PanelHeaderFactory} from 'kepler.gl/components';
 import useSwr from "swr";
 
 // Add a contribute button
 import Crowdsourcing from './components/Crowdsourcing';
+
+
+
 
 // Loads json Data files (trees tiga population)
 //import trees from './trees.json';
@@ -42,10 +45,9 @@ const KeplerGl = require('kepler.gl/components').injectComponents([
 //const white = '#ffffff';
 const customTheme = {
   textColor: "white",
-  sidePanelBg: '#d91f16',
-  titleTextColor: '#000000',
   sidePanelHeaderBg: 'black',
-  subtextColorActive: '#2473bd'
+  subtextColorActive: '#2473bd',
+  layerPanelHeaderHeight: '80',
 };
 
 const reducers = combineReducers({
@@ -88,7 +90,8 @@ React.useEffect(() => {
       },
       option: {
         centerMap: true,
-        readOnly: false
+        readOnly: false,
+        
       },
       config: config
     })
@@ -119,14 +122,27 @@ React.useEffect(() => {
   }, [dispatch, data]);
 
 
+  //config.config.visState.layers[1].config.isVisible = true
 
 /*const configToSave = KeplerGlSchema.getConfigToSave(state.keplerGl.foo);
 console.log(configToSave)*/
 
+
+React.useEffect(() => {
+
+  dispatch(
+    updateMap({"latitude": 45.764043,"longitude": 4.835659, "zoom" : 12})
+  );
+
+}, [dispatch, data]);
+
+
+
+
   return (
     <ThemeProvider theme={customTheme}>
       <KeplerGl
-        id="covid"
+        id="datatlas"
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API}
         width={window.innerWidth}
         height={window.innerHeight}
