@@ -42,7 +42,7 @@
           "type": "point",
           "config": {
             "dataId": "mediation",
-            "label": "Mediation",
+            "label": "Mediation Industrielle",
             "color": [
               240,
               237,
@@ -94,26 +94,7 @@
               "filled": true
             },
             "hidden": false,
-            "textLabel": [
-              {
-                "field": {
-                  "name": "title",
-                  "type": "string"
-                },
-                "color": [
-                  255,
-                  255,
-                  255
-                ],
-                "size": 17,
-                "offset": [
-                  0,
-                  0
-                ],
-                "anchor": "middle",
-                "alignment": "top"
-              }
-            ]
+            "textLabel": []
           },
           "visualChannels": {
             "colorField": {
@@ -141,9 +122,9 @@
             "columns": {
               "geojson": "Polygon"
             },
-            "isVisible": true,
+            "isVisible": false,
             "visConfig": {
-              "opacity": 0.8,
+              "opacity": 0.66,
               "strokeOpacity": 0.8,
               "thickness": 0.5,
               "strokeColor": [
@@ -194,7 +175,7 @@
               "enableElevationZoomFactor": true,
               "stroked": true,
               "filled": true,
-              "enable3d": false,
+              "enable3d": true,
               "wireframe": false
             },
             "hidden": false,
@@ -217,13 +198,19 @@
             ]
           },
           "visualChannels": {
-            "colorField": null,
+            "colorField": {
+              "name": "pop2018",
+              "type": "integer"
+            },
             "colorScale": "quantile",
             "strokeColorField": null,
             "strokeColorScale": "quantile",
             "sizeField": null,
             "sizeScale": "linear",
-            "heightField": null,
+            "heightField": {
+              "name": "pop2018",
+              "type": "integer"
+            },
             "heightScale": "linear",
             "radiusField": null,
             "radiusScale": "linear"
@@ -303,24 +290,16 @@
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 46.26431495,
-      "longitude": -33.147467150000004,
+      "latitude": 45.75287862648888,
+      "longitude": 4.825940205429515,
       "pitch": 0,
-      "zoom": 4,
+      "zoom": 11.786589175515632,
       "isSplit": false
     },
     "mapStyle": {
-      "styleType": "light",
+      "styleType": "satellite",
       "topLayerGroups": {},
-      "visibleLayerGroups": {
-        "label": true,
-        "road": true,
-        "border": false,
-        "building": true,
-        "water": true,
-        "land": true,
-        "3d building": false
-      },
+      "visibleLayerGroups": {},
       "threeDBuildingColor": [
         218.82023004728686,
         223.47597962276103,
