@@ -38,8 +38,8 @@
       ],
       "layers": [
         {
-          "id": "h9vxvp",
-          "type": "point",
+          "id": "85p2b4i",
+          "type": "icon",
           "config": {
             "dataId": "mediation",
             "label": "Mediation Industrielle",
@@ -51,6 +51,7 @@
             "columns": {
               "lat": "latitude",
               "lng": "longitude",
+              "icon": "icon",
               "altitude": null
             },
             "isVisible": true,
@@ -58,9 +59,6 @@
               "radius": 31.6,
               "fixedRadius": false,
               "opacity": 0.99,
-              "outline": false,
-              "thickness": 2,
-              "strokeColor": null,
               "colorRange": {
                 "name": "Uber Viz Diverging 1.5",
                 "type": "diverging",
@@ -74,24 +72,10 @@
                   "#C22E00"
                 ]
               },
-              "strokeColorRange": {
-                "name": "Global Warming",
-                "type": "sequential",
-                "category": "Uber",
-                "colors": [
-                  "#5A1846",
-                  "#900C3F",
-                  "#C70039",
-                  "#E3611C",
-                  "#F1920E",
-                  "#FFC300"
-                ]
-              },
               "radiusRange": [
                 0,
                 50
-              ],
-              "filled": true
+              ]
             },
             "hidden": false,
             "textLabel": []
@@ -102,8 +86,6 @@
               "type": "string"
             },
             "colorScale": "ordinal",
-            "strokeColorField": null,
-            "strokeColorScale": "quantile",
             "sizeField": null,
             "sizeScale": "linear"
           }
@@ -290,10 +272,10 @@
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 45.75287862648888,
-      "longitude": 4.825940205429515,
+      "latitude": 45.76578525963499,
+      "longitude": 4.832039441412367,
       "pitch": 0,
-      "zoom": 11.786589175515632,
+      "zoom": 15.172314108543405,
       "isSplit": false
     },
     "mapStyle": {

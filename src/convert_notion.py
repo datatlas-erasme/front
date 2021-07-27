@@ -25,6 +25,7 @@ formatData = {
         {"name": "expertise", "format": "", "type":"string"},
         {"name": "latitude", "format": "", "type":"number"},
         {"name": "longitude", "format": "", "type":"number"},
+        {"name": "icon", "format": "", "type":"string"},
 
     ],
     "rows" : [
@@ -63,6 +64,7 @@ for i in data:
             8 : expertise,
             9 : latitude,
             10 : longitude,
+            11 : "place"
         }
     )
     '''if loop == 5:
