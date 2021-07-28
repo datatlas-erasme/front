@@ -65,16 +65,22 @@ export default function App() {
   );
 }
 
+
+
+
+
 function Map() {
   const dispatch = useDispatch();
   const { data } = useSwr("covid", async () => {
     const response = await fetch(
-      "https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=abr_arbres_alignement.abrarbre&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:4171&startIndex=0"
+      "https://download.data.grandlyon.com/ws/grandlyon/all.json"
     );
     const data = await response.json();
 
-    return data;
+    //return data;
   });
+
+
 
   // Map Population
 React.useEffect(() => {
