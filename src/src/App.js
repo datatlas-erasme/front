@@ -3,46 +3,47 @@ import React from "react";
 // Imports custom component styling
 import './index.css';
 
+
+// Imports Kepler.gl
 import keplerGlReducer from "kepler.gl/reducers";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { taskMiddleware } from "react-palm/tasks";
 import { Provider, useDispatch } from "react-redux";
-//import KeplerGl from "kepler.gl";
 import KeplerGlSchema from 'kepler.gl/schemas';
 import { addDataToMap , updateMap } from "kepler.gl/actions";
-//import {injectComponents, PanelHeaderFactory} from 'kepler.gl/components';
+
+
 import useSwr from "swr";
 
-// Add a contribute button
+////////////////////////// COMPONENT IMPORT /////////////////////////////////////////
+import Filters from './components/Filters';
 import Crowdsourcing from './components/Crowdsourcing';
 
+////////////////////////// HELPERS IMPORT /////////////////////////////////////////
 import openDataLyon from "./helpers/openDataLyon";
 import geoserver from "./helpers/geoserver";
 
 
-//Import helpers
-//import { getData} from "./helpers/openDataLyon";
-
-// Loads json Data files (trees tiga population)
-//import trees from './trees.json';
-//import tiga from './static/datasets/tiga.json';
-import population from './static/datasets/population.json';
-
-
-
-// Loads the default display configuration
-import config from './static/defaultDisplayConf.json';
-
-import customTheme from './static/themeConf.json';
-
-
+////////////////////////// COMPONENT INJECTION ////////////////////////////////////
 // Imports ThemeProvider who helps to change the css styling of the components
 import {ThemeProvider} from 'styled-components';
 
 // Injects new items into the panel Header
 import {replacePanelHeader} from './factories/panel-header';
 
-//import {replaceLoadDataModal} from './factories/load-data-modal';
+
+// Imports static datasets
+import population from './static/datasets/population.json';
+
+
+
+////////////////////////// CONFIG FILES IMPORT ////////////////////////////////////
+import mapConfig from './static/defaultDisplayConf.json';
+import customTheme from './static/themeConf.json';
+import instanceConf from './static/instanceConf.json';
+
+
+//Injects new panelHeader Component
 const KeplerGl = require('kepler.gl/components').injectComponents([
   replacePanelHeader()
 ]);
@@ -56,6 +57,7 @@ const reducers = combineReducers({
 
 const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
 
+
 export default function App() {
   return (
     <Provider store={store}>
@@ -66,23 +68,65 @@ export default function App() {
 }
 
 
-
-
 // Geojson formating
 function Map() {
   const dispatch = useDispatch();
-  const { data } = useSwr("covid", async () => {
+  const { data } = useSwr("data", async () => {
     const response = await fetch(
       "https://download.data.grandlyon.com/wfs/ldata?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=velov.stations&outputFormat=application/json;%20subtype=geojson&SRSNAME=EPSG:4171&startIndex=0&count=10"
     );
     const data = await response.json();
   });
 
+  console.log(instanceConf.layersDataUrl)
+
+  const { layer1 } = useSwr("layer1", async () => {
+    const layer1 = await openDataLyon.formatData(instanceConf.layers.layer1.url)
+    console.log(layer1)
+    dispatch(
+      addDataToMap({
+        datasets: {
+          info: {
+            label: instanceConf.layers.layer1.name,
+            id: "1"
+          },
+          data: layer1
+        },
+        option: {
+          centerMap: true,
+          readOnly: false,
+          
+        },
+      })
+    );
+  });
+
+  const { layer2 } = useSwr("layer2", async () => {
+    //TODO change helper method based on server type
+    const layer2 = await openDataLyon.formatData(instanceConf.layers.layer2.url)
+    console.log(layer2)
+    dispatch(
+      addDataToMap({
+        datasets: {
+          info: {
+            label: instanceConf.layers.layer2.name,
+            id: "2"
+          },
+          data: layer2
+        },
+        option: {
+          centerMap: true,
+          readOnly: false,
+          
+        },
+      })
+    );
+  });
 
 
 
   // Load Velov station from OpenDataLyon
-  const { velo } = useSwr("velo", async () => {
+  /*const { velo } = useSwr("velo", async () => {
     const velo = await openDataLyon.formatData("https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=pvo_patrimoine_voirie.pvostationvelov&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:4171&startIndex=0&count=100")
     console.log(velo)
     dispatch(
@@ -101,12 +145,11 @@ function Map() {
         },
       })
     );
-  });
+  });*/
 
   // Load Mediation BDD from geoserver
-  const { mediation } = useSwr("mediation", async () => {
+  /*const { mediation } = useSwr("mediation", async () => {
     const mediation = await geoserver.formatData("http://geoserver.ud-reproducibility.datagora.erasme.org/geoserver/erasme/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=erasme%3Amediation&maxFeatures=50&outputFormat=application%2Fjson")
-    console.log(velo)
     dispatch(
       addDataToMap({
         datasets: {
@@ -123,7 +166,9 @@ function Map() {
         },
       })
     );
-  });
+  });*/
+
+  
 
 
   // Map Population
@@ -179,6 +224,7 @@ React.useEffect(() => {
         version="0.1"
       >
       </KeplerGl>
+      <Filters title='Structures médiation' />
       <Crowdsourcing />
     </ThemeProvider>
 

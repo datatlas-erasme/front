@@ -1,0 +1,16 @@
+{
+    "layers": {
+        "layer1" : {
+            "name" : "velov",
+            "server" : "openDataLyon",
+            "url" : "https://download.data.grandlyon.com/wfs/ldata?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=velov.stations&outputFormat=application/json;%20subtype=geojson&SRSNAME=EPSG:4171&startIndex=0&count=100"
+
+        },
+        "layer2" : {
+            "name" : "mediation",
+            "server" : "geoserver",
+            "url" : "http://geoserver.ud-reproducibility.datagora.erasme.org/geoserver/erasme/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=erasme%3Amediation&maxFeatures=50&outputFormat=application%2Fjson"
+
+        }
+    }
+  }
