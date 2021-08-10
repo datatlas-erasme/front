@@ -7,7 +7,8 @@ import * as serviceWorker from './serviceWorker';
 import { render } from 'react-dom'
 import {
     HashRouter,
-    Route
+    Route,
+    Switch
 } from 'react-router-dom'
 
 import {
@@ -17,16 +18,17 @@ import {
     Contact
 } from './page_test_dev'
 
+import {AdminPage} from "./components/AdminPage";
+
 window.React = React
 render(
     <HashRouter>
+        <Switch>
         <div className="main">
             <Route exact path="/" component={App} />
-            <Route path="/about" component={About} />
-            <Route path="/events" component={Events} />
-            <Route path="/products" component={Products} />
-            <Route path="/contact" component={Contact} />
+            <Route path="/admin" component={AdminPage} />
         </div>
+        </Switch>
     </HashRouter>,
     document.getElementById('root')
 )
