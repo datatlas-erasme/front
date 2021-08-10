@@ -29,7 +29,7 @@ export function CustomPanelHeaderFactory(...deps) {
   const defaultActionItems = PanelHeader.defaultProps.actionItems;
   PanelHeader.defaultProps = {
     ...PanelHeader.defaultProps,
-    logoComponent: AppLogo.defaultProps = "null",
+    
     actionItems: [
       {
         id: 'bug',
