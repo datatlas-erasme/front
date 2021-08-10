@@ -12,5 +12,5 @@ services:
     command: npm start
     stdin_open: true
     environment:
-        REACT_APP_MAPBOX_API: "YOURMAPBOXAPIKEY"
+        REACT_APP_MAPBOX_API: "pk.eyJ1IjoicGFyYWNpbmUiLCJhIjoiY2txN3N0aDBrMDRzNzJ2b2V1bmhzaTJoaSJ9.Yk49weLWWzcyf2u9htDDyw"
       
