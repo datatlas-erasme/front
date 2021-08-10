@@ -4,14 +4,29 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import { render } from 'react-dom'
+import {
+    HashRouter,
+    Route
+} from 'react-router-dom'
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import {
+    About,
+    Events,
+    Products,
+    Contact
+} from './page_test_dev'
+
+window.React = React
+render(
+    <HashRouter>
+        <div className="main">
+            <Route exact path="/" component={App} />
+            <Route path="/about" component={About} />
+            <Route path="/events" component={Events} />
+            <Route path="/products" component={Products} />
+            <Route path="/contact" component={Contact} />
+        </div>
+    </HashRouter>,
+    document.getElementById('root')
+)
