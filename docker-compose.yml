@@ -1,16 +1,19 @@
-version: '3'
+version: '3.7'
 services:
   keplergl:
     build:
       context: .
       dockerfile: Dockerfile
+      target: dev
     restart: always
     ports:
-      - 0.0.0.0:5005:3000
+      - 0.0.0.0:5007:3000
     volumes:
       - ./src:/src/src
+      - /src/src/node_modules
+      - /src/src/build
     command: npm start
     stdin_open: true
     environment:
-        REACT_APP_MAPBOX_API: "YOURMAPBOXAPIKEY"
+        REACT_APP_MAPBOX_API: ${REACT_APP_MAPBOX_API}
       
