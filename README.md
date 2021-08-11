@@ -1,14 +1,21 @@
 # Datagora Viz Tool
 
-# Setup 
 
-## Localy
+# TODO
+- [ ] On dockerfile if target dev do not compile for build
+
+# Setup
+
+## Production
+> docker run erasme/datatlas
+## Developpement
 
 ### Docker
 The easiest way to launch the datagora project can be by using docker-compose
 
-Edit the file **docker-compose.yml**
-Change the **REACT_APP_MAPBOX_API** value and add your own Mapbox API Token
+copy the file **.env.example** and rename it **.env**
+In the **.env** file change the **REACT_APP_MAPBOX_API** value and add your own Mapbox API Token
+
 
 > docker-compose up
 
@@ -52,4 +59,3 @@ For now you can only define a defined number of dataset, this wont be the case i
 
 ```
 
-.
