@@ -1,5 +1,9 @@
 # Datagora Viz Tool
 
+
+# TODO
+- [ ] On dockerfile if target dev do not compile for build
+
 # Setup
 
 ## Production
