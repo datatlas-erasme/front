@@ -81,7 +81,7 @@ function Map() {
   console.log(instanceConf.layersDataUrl)
 
   const { layer1 } = useSwr("layer1", async () => {
-    const layer1 = await openDataLyon.formatData(instanceConf.layers.layer1.url)
+    const layer1 = await helpers.formatData(instanceConf.layers.layer1.url, instanceConf.layers.layer1.type)
     console.log(layer1)
     dispatch(
       addDataToMap({
@@ -103,7 +103,7 @@ function Map() {
 
   const { layer2 } = useSwr("layer2", async () => {
     //TODO change helper method based on server type
-    const layer2 = await openDataLyon.formatData(instanceConf.layers.layer2.url)
+    const layer2 = await helpers.formatData(instanceConf.layers.layer2.url, instanceConf.layers.layer2.type)
     console.log(layer2)
     dispatch(
       addDataToMap({
@@ -120,6 +120,9 @@ function Map() {
           
         },
       })
+    );
+    dispatch(
+      updateMap({"latitude": 45.764043,"longitude": 4.835659, "zoom" : 12})
     );
   });
 
@@ -202,14 +205,6 @@ React.useEffect(() => {
 console.log(configToSave)*/
 
 
-React.useEffect(() => {
-
-  dispatch(
-    updateMap({"latitude": 45.764043,"longitude": 4.835659, "zoom" : 12})
-  );
-
-}, [dispatch, data]);
-
 
 
 
@@ -224,7 +219,7 @@ React.useEffect(() => {
         version="0.1"
       >
       </KeplerGl>
-      <Filters title='Structures médiation' />
+      <Filters title='Filtres' />
       <Crowdsourcing />
     </ThemeProvider>
 
