@@ -6,14 +6,17 @@ import Button from './Button'
 
 const Filters = ({title}) => {
 
-    const onClick = () => {
+    const onClick = (layerNb) => {
         console.log("Click")
+        //return config.config.visState.layers[layerNb].config.isVisible = true
     }
 
     return (
         <div className='filters'>
             <h1>{title}</h1>
-            <Button color='green' text='Add' onClick={onClick}/>
+            <Button color='black' text='Add' onClick={onClick(0)}/>
+            <Button color='black' text='Add' onClick={onClick(1)}/>
+            <Button color='black' text='Add' onClick={onClick(2)}/>
         </div>
     )
 }

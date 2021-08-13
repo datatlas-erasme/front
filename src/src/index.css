@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.filters {
+  position: absolute;
+  top: 80px;
+  right: 90px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.filters button {
+  font-size: 20px;
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  border: none;
+  margin: 15px;
+}
