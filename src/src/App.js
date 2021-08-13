@@ -20,8 +20,8 @@ import Filters from './components/Filters';
 import Crowdsourcing from './components/Crowdsourcing';
 
 ////////////////////////// HELPERS IMPORT /////////////////////////////////////////
-import openDataLyon from "./helpers/openDataLyon";
-import geoserver from "./helpers/geoserver";
+import helpers from "./helpers/main";
+
 
 
 ////////////////////////// COMPONENT INJECTION ////////////////////////////////////
