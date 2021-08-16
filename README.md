@@ -1,6 +1,8 @@
 # Datagora Viz Tool
 
 
+[![build-publish-master-container](https://github.com/urbanlab/datagora_kepler/actions/workflows/push_docker_master.yml/badge.svg)](https://github.com/urbanlab/datagora_kepler/actions/workflows/push_docker_master.yml)
+
 [![build-publish-dev-container](https://github.com/urbanlab/datagora_kepler/actions/workflows/push_docker_dev.yml/badge.svg)](https://github.com/urbanlab/datagora_kepler/actions/workflows/push_docker_dev.yml)
 
 
