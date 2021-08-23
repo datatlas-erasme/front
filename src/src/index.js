@@ -24,11 +24,25 @@ import {
     Contact
 } from './page_test_dev'
 
+
+////////////////////////// COMPONENT IMPORT /////////////////////////////////////////
 import {AdminPage} from "./components/AdminPage";
+
+
+
+const customizedKeplerGlReducer = keplerGlReducer.initialState({
+    uiState: {
+      // hide side panel when mounted
+      activeSidePanel: null,
+      // hide all modals when mounted
+      currentModal: null
+    }
+  });
+
 
 // Injects the new styling into the components
 const reducers = combineReducers({
-    keplerGl: keplerGlReducer
+    keplerGl: customizedKeplerGlReducer
   });
   
 

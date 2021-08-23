@@ -11,7 +11,7 @@ import { taskMiddleware } from "react-palm/tasks";
 import { Provider, useDispatch } from "react-redux";
 import {connect} from 'react-redux';
 import KeplerGlSchema from 'kepler.gl/schemas';
-import { addDataToMap , updateMap, toggleSidePanel, showDatasetTable, removeLayer } from "kepler.gl/actions";
+import { addDataToMap , updateMap, toggleSidePanel, showDatasetTable, removeLayer,mapStyleChange, toggleModal } from "kepler.gl/actions";
 import {EDITOR_MODES} from 'kepler.gl/constants';
 
 import useSwr from "swr";
@@ -54,6 +54,7 @@ const KeplerGl = require('kepler.gl/components').injectComponents([
   const layer1 = await helpers.formatData(instanceConf.layers.layer1.url, instanceConf.layers.layer1.type)
 });*/
 
+
 class App extends Component {
     state = {
       showBanner: false,
@@ -74,7 +75,7 @@ class App extends Component {
             },
             option: {
               centerMap: true,
-              readOnly: false,
+              readOnly: true,
               
             },
           })
@@ -83,6 +84,7 @@ class App extends Component {
         this.props.dispatch(
           //showDatasetTable("1"),
           //toggleSidePanel("filter"),
+          mapStyleChange("satellite"),
           removeLayer(0)
           )
     }
@@ -101,6 +103,7 @@ class App extends Component {
                 top: 0
               }}
             >
+               <Filters/>
               <AutoSizer>
                 {({height, width}) => (
                   <KeplerGl
@@ -119,6 +122,7 @@ class App extends Component {
               </AutoSizer>
             </div>
         </ThemeProvider>
+        
       );
     }
   }
