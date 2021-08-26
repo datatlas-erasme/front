@@ -11,7 +11,7 @@ import { taskMiddleware } from "react-palm/tasks";
 import { Provider, useDispatch } from "react-redux";
 import {connect} from 'react-redux';
 import KeplerGlSchema from 'kepler.gl/schemas';
-import { addDataToMap , updateMap, toggleSidePanel, showDatasetTable, removeLayer,mapStyleChange, toggleModal } from "kepler.gl/actions";
+import { addDataToMap , updateMap,mapStyleChange, setFilter, removeFilter } from "kepler.gl/actions";
 import {EDITOR_MODES} from 'kepler.gl/constants';
 
 import useSwr from "swr";
@@ -19,7 +19,8 @@ import useSwr from "swr";
 ////////////////////////// COMPONENT IMPORT /////////////////////////////////////////
 import Filters from './components/Filters';
 import Crowdsourcing from './components/Crowdsourcing';
-
+import Logo from './components/Logo'
+import FilterSidePanel from './components/FilterSidePanel'
 ////////////////////////// HELPERS IMPORT /////////////////////////////////////////
 import helpers from "./helpers/main";
 
@@ -54,39 +55,71 @@ const KeplerGl = require('kepler.gl/components').injectComponents([
   const layer1 = await helpers.formatData(instanceConf.layers.layer1.url, instanceConf.layers.layer1.type)
 });*/
 
+/*const addData= () => {
+  const data = {latitude: 37.75043, longitude: -122.34679, width: 800, height: 1200}; 
+  dispatch(updateMap(data));
+ };
+*/
+
+
 
 class App extends Component {
     state = {
       showBanner: false,
       width: window.innerWidth,
-      height: window.innerHeight
+      height: window.innerHeight,
+      layer1: {}
     };
+
 
   
     componentDidMount() {   
+      helpers.formatData(instanceConf.layers.layer1.url, instanceConf.layers.layer1.type).then((data) => {
+        this.setState({layer1: data})
+        console.log(data)
         this.props.dispatch(
           addDataToMap({
             datasets: {
               info: {
-                label: "instanceConf.layers.layer1.name",
+                label: instanceConf.layers.layer1.name,
                 id: "1"
               },
-              data: population
+              data: data
             },
-            option: {
-              centerMap: true,
-              readOnly: true,
-              
-            },
-          })
-        );
 
+          }),
+        );
+      })
+
+
+      helpers.formatData(instanceConf.layers.layer2.url, instanceConf.layers.layer2.type).then((data) => {
+        //this.setState({layer2: data})
+        console.log(data)
         this.props.dispatch(
-          //showDatasetTable("1"),
-          //toggleSidePanel("filter"),
-          mapStyleChange("satellite"),
-          removeLayer(0)
-          )
+          addDataToMap({
+            datasets: {
+              info: {
+                label: instanceConf.layers.layer2.name,
+                id: "2"
+              },
+              data: data
+            },
+            config : mapConfig
+          }),
+        );
+      })
+
+
+
+      this.props.dispatch(
+        //showDatasetTable("1"),
+        //toggleSidePanel("filter"),
+        mapStyleChange("satellite"),
+        
+        //removeLayer(0)
+        //setFilter(0,"activites", "{\"Accompagnement à l'innovation\"}")
+        //removeFilter(0)
+      )
     }
   
 
@@ -103,23 +136,19 @@ class App extends Component {
                 top: 0
               }}
             >
-               <Filters/>
-              <AutoSizer>
-                {({height, width}) => (
-                  <KeplerGl
-                    mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API}
-                    id="map"
-                    /*
-                     * Specify path to keplerGl state, because it is not mount at the root
-                     */
-                    //getState={keplerGlGetState}
-                    width={width}
-                    height={height}
-                    
-  
-                  />
-                )}
-              </AutoSizer>
+            <KeplerGl
+              mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API}
+              id="map"
+              /*
+                * Specify path to keplerGl state, because it is not mount at the root
+                */
+              //getState={keplerGlGetState}
+              width={window.innerWidth}
+              height={window.innerHeight}
+            />
+            <Logo/>
+            <Filters/>
+            <Crowdsourcing/>
             </div>
         </ThemeProvider>
         
@@ -130,4 +159,4 @@ class App extends Component {
   const mapStateToProps = state => state;
   const dispatchToProps = dispatch => ({dispatch});
 
-  export default connect(dispatchToProps)(App);
+  export default connect(mapStateToProps,dispatchToProps)(App);

@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -12,20 +12,89 @@ code {
     monospace;
 }
 
+
+.gl-logo img {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 200px;
+}
+
+/*TODO FIX hide trough kepler injections*/
+.map-control {
+  display: none;
+}
+
+.FilterSidePanel {
+  position: absolute;
+  background: white;
+  top: 0;
+  width: 500px;
+  height: 500px;
+}
+
+
 .filters {
   position: absolute;
   top: 80px;
-  right: 90px;
+  right: 30px;
   display: flex;
   flex-direction: column;
 }
 
+/*.filters .filter-parent {
+  overflow: hidden;
+  height: 53px;
+  transition: height ease-in-out 0.3s;
+}
 
-.filters button {
-  font-size: 20px;
+.filters .filter-parent.active {
+  height: 100%;
+  transition: height ease-in-out 0.3s;
+}
+*/
+
+.button {
+  font-size: 15px;
   color: white;
-  padding: 15px;
-  border-radius: 12px;
+  border-radius: 5px;
   border: none;
-  margin: 15px;
+  margin: 0px 0px 5px 0px;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+  font-weight: 400;
+}
+.button:hover {
+  transition: all ease-in-out 0.2s;
+}
+
+.filters ul {
+  padding: 0;
+}
+
+.filters ul li {
+  list-style: none;
+}
+
+.filters .filter-child button {
+  font-size: 10px;
+  padding: 10px 10px 10px 10px;
+}
+.filters button {
+  font-size: 15px;
+  color: white;
+  padding: 15px 10px 15px 10px;
+  border-radius: 5px;
+  border: none;
+  margin: 0px 0px 5px 0px;
+  background-color: #d91f16;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+
+.filters button:hover {
+  background-color: #ff241a;
+  transition: all ease-in-out 0.2s;
 }
