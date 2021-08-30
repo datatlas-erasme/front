@@ -17,7 +17,6 @@ import {EDITOR_MODES} from 'kepler.gl/constants';
 import useSwr from "swr";
 
 ////////////////////////// COMPONENT IMPORT /////////////////////////////////////////
-import Filters from './components/Filters';
 import Crowdsourcing from './components/Crowdsourcing';
 import Logo from './components/Logo'
 import FilterSidePanel from './components/FilterSidePanel'
@@ -74,6 +73,7 @@ class App extends Component {
 
   
     componentDidMount() {   
+      
       helpers.formatData(instanceConf.layers.layer1.url, instanceConf.layers.layer1.type).then((data) => {
         this.setState({layer1: data})
         console.log(data)
@@ -106,21 +106,15 @@ class App extends Component {
             },
             config : mapConfig
           }),
+          //setFilter(0,"value", ["{\"Accompagnement à l'innovation\"}"]),
+          
         );
       })
 
 
 
-      this.props.dispatch(
-        //showDatasetTable("1"),
-        //toggleSidePanel("filter"),
-        mapStyleChange("satellite"),
-        
-        //removeLayer(0)
-        //setFilter(0,"activites", "{\"Accompagnement à l'innovation\"}")
-        //removeFilter(0)
-      )
-    }
+    // TODO Clean remove the timeout function 
+    setTimeout(()=> {this.props.dispatch(updateMap({"latitude": 45.764043,"longitude": 4.835659, "zoom" : 12}))},1000)}
   
 
     render() {
@@ -147,7 +141,7 @@ class App extends Component {
               height={window.innerHeight}
             />
             <Logo/>
-            <Filters/>
+            <FilterSidePanel/>
             <Crowdsourcing/>
             </div>
         </ThemeProvider>
