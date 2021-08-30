@@ -1,9 +1,10 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types'
 
-const Button = ({text,style, action}) => {
+const Button = ({text,style, onClick}) => {
     return  (
     <button 
+    onClick={onClick}
     style={{backgroundColor : style.bg , fontSize : style.fontSize}} 
     className="btn">{text}</button>
     )
@@ -19,7 +20,8 @@ Button.defaultProps = {
 Button.propTypes = {
     text: PropTypes.string,
     style: PropTypes.object,
-    action: PropTypes.object
+    action: PropTypes.object,
+    onClick: PropTypes.func
 }
 
 export default Button
