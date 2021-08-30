@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
 
 import keplerGlReducer from "kepler.gl/reducers";
-import { createStore, combineReducers, applyMiddleware } from "redux";
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { taskMiddleware } from "react-palm/tasks";
 //import store from './store';
 
@@ -38,15 +38,35 @@ const customizedKeplerGlReducer = keplerGlReducer.initialState({
       currentModal: null
     }
   });
+  const middlewares = [taskMiddleware];
+  const enhancers = [applyMiddleware(...middlewares)];
 
-
-// Injects the new styling into the components
-const reducers = combineReducers({
-    keplerGl: customizedKeplerGlReducer
-  });
+  const initialState = {};
   
-
-const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
+  // eslint-disable-next-line prefer-const
+  let composeEnhancers = compose;
+  
+  /**
+   * comment out code below to enable Redux Devtools
+   */
+  
+  if (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
+    composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+      actionsBlacklist: [
+        '@@kepler.gl/MOUSE_MOVE',
+        '@@kepler.gl/UPDATE_MAP',
+        '@@kepler.gl/LAYER_HOVER'
+      ]
+    });
+  }
+  // Injects the new styling into the components
+  const reducers = combineReducers({
+      keplerGl: customizedKeplerGlReducer
+    });
+    
+  
+  const store = createStore(reducers, initialState, composeEnhancers(...enhancers));
+  
 
 window.React = React
 render(
