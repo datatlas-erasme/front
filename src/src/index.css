@@ -25,6 +25,21 @@ code {
   display: none;
 }
 
+
+/**/
+.PointSidePanel {
+  position: absolute;
+  top: 0;
+  width: 30%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  z-index: 99;
+  padding: 15px;
+  }
+
+
 .FilterSidePanel {
   position: absolute;
   background: white;

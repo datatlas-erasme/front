@@ -20,6 +20,7 @@ import useSwr from "swr";
 import Crowdsourcing from './components/Crowdsourcing';
 import Logo from './components/Logo'
 import FilterSidePanel from './components/FilterSidePanel'
+import PointSidePanel from './components/PointSidePanel'
 ////////////////////////// HELPERS IMPORT /////////////////////////////////////////
 import helpers from "./helpers/main";
 
@@ -142,6 +143,7 @@ class App extends Component {
               width={window.innerWidth}
               height={window.innerHeight}
             />
+            <PointSidePanel/>
             <Logo/>
             <FilterSidePanel/>
             <Crowdsourcing/>
