@@ -13,7 +13,7 @@ import {connect} from 'react-redux';
 import KeplerGlSchema from 'kepler.gl/schemas';
 import { addDataToMap , updateMap,mapStyleChange, setFilter, removeFilter } from "kepler.gl/actions";
 import {EDITOR_MODES} from 'kepler.gl/constants';
-
+import  {MapPopoverFactory,injectComponents} from 'kepler.gl/components';
 import useSwr from "swr";
 
 ////////////////////////// COMPONENT IMPORT /////////////////////////////////////////
@@ -36,6 +36,7 @@ import {ThemeProvider} from 'styled-components';
 // Injects new items into the panel Header
 import {replacePanelHeader} from './factories/panel-header';
 
+import CustomMapPopoverFactory from './factories/map-popover';
 
 // Imports static datasets
 import population from './static/datasets/population.json';
@@ -44,8 +45,9 @@ import population from './static/datasets/population.json';
 
 
 //Injects new panelHeader Component
-const KeplerGl = require('kepler.gl/components').injectComponents([
-  replacePanelHeader()
+// Inject custom components
+const KeplerGl = injectComponents([
+  [MapPopoverFactory, CustomMapPopoverFactory]
 ]);
 
 //const layer1 = helpers.formatData(instanceConf.layers.layer1.url, instanceConf.layers.layer1.type)
@@ -114,7 +116,7 @@ class App extends Component {
 
 
     // TODO Clean remove the timeout function 
-    setTimeout(()=> {this.props.dispatch(updateMap({"latitude": 45.764043,"longitude": 4.835659, "zoom" : 12}))},1000)}
+    setTimeout(()=> {this.props.dispatch(updateMap({"latitude": 45.764043,"longitude": 4.835659, "zoom" : 12}))},2000)}
   
 
     render() {
