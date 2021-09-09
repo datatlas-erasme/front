@@ -39,6 +39,7 @@ import {replacePanelHeader} from './factories/panel-header';
 
 import CustomMapPopoverFactory from './factories/map-popover';
 
+
 // Imports static datasets
 import population from './static/datasets/population.json';
 
@@ -143,7 +144,6 @@ class App extends Component {
               width={window.innerWidth}
               height={window.innerHeight}
             />
-            <PointSidePanel/>
             <Logo/>
             <FilterSidePanel/>
             <Crowdsourcing/>
