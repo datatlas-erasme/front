@@ -18,7 +18,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import {PanelHeaderFactory, Icons, AppLogo} from 'kepler.gl/components';
+import {PanelHeaderFactory, Icons} from 'kepler.gl/components';
 import {BUG_REPORT_LINK, USER_GUIDE_DOC} from 'kepler.gl/constants';
 //import KeplerGlLogo from '../components/Logo';
 
@@ -55,8 +55,7 @@ export function CustomPanelHeaderFactory(...deps) {
         tooltip: 'Share'
       },
     ],
-    //appName : "Carto"
-    //logoComponent: KeplerGlLogo()
+
   };
   return PanelHeader;
 }
