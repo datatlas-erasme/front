@@ -1,5 +1,5 @@
-import React, { Component, useState, useEffect } from 'react'
-import { Provider, useDispatch, connect } from "react-redux";
+import React, { useState, useEffect } from 'react'
+import {Provider, useDispatch, connect } from "react-redux";
 
 import {setFilter} from "kepler.gl/actions";
 
@@ -9,14 +9,31 @@ import Button from './filter-side-panel/Button'
 
 const FilterSidePanel = () => {
 
-    
+
     const dispatch = useDispatch()
     const [filtercat, setFiltercat] = useState("hi");
     useEffect(() => {
-        dispatch(setFilter(0,"value", [filtercat]))
+        const filters = []
+        if (filters.includes(filtercat)) {
+            //console.log("Already in array")
+            filters = filters.filter(filtercat)
+        }
+        else {
+            console.log("Pushing into array")
+            filters.push(filtercat)
+        }
+        dispatch(setFilter(0,"value", filters))
+        /*filters.map((item) => {
+            dispatch(setFilter(0,"value", [item]))
+        })*/
+        
         //console.log("Click" + filtercat)
         console.log(filtercat)
+        //dispatch(setFilter(0,"value", [filtercat]))
+        //dispatch(setFilter(0,"value", ["{\"Accompagnement à l'innovation\"}","{\"Animation / événements / réseaux\"}"]))
+
     }, [filtercat])
+
 
     return (
         <div className='filters'>

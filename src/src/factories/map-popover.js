@@ -20,9 +20,9 @@
 
 import React from 'react';
 import {MapPopoverFactory} from 'kepler.gl/components';
-import {layerHoverProp, LayerHoverInfo} from 'kepler.gl/components';
 
-import CustomLayerHoverInfo from "./CustomLayerHoverInfo"
+
+//import CustomLayerHoverInfo from "./CustomLayerHoverInfo"
 
 
 

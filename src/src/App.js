@@ -1,20 +1,13 @@
 import React, {Component} from 'react';
-import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 // Imports custom component styling
 import './index.css';
 
 
 // Imports Kepler.gl
-import keplerGlReducer from "kepler.gl/reducers";
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import { taskMiddleware } from "react-palm/tasks";
-import { Provider, useDispatch } from "react-redux";
+
 import {connect} from 'react-redux';
-import KeplerGlSchema from 'kepler.gl/schemas';
-import { addDataToMap , updateMap,mapStyleChange, setFilter, removeFilter } from "kepler.gl/actions";
-import {EDITOR_MODES} from 'kepler.gl/constants';
+import { addDataToMap , updateMap } from "kepler.gl/actions";
 import  {MapPopoverFactory,injectComponents} from 'kepler.gl/components';
-import useSwr from "swr";
 
 ////////////////////////// COMPONENT IMPORT /////////////////////////////////////////
 import Crowdsourcing from './components/Crowdsourcing';
@@ -80,7 +73,7 @@ class App extends Component {
       
       helpers.formatData(instanceConf.layers.layer1.url, instanceConf.layers.layer1.type).then((data) => {
         this.setState({layer1: data})
-        console.log(data)
+        //console.log(data)
         this.props.dispatch(
           addDataToMap({
             datasets: {
@@ -98,7 +91,7 @@ class App extends Component {
 
       helpers.formatData(instanceConf.layers.layer2.url, instanceConf.layers.layer2.type).then((data) => {
         //this.setState({layer2: data})
-        console.log(data)
+        //console.log(data)
         this.props.dispatch(
           addDataToMap({
             datasets: {

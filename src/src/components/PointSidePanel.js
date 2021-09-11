@@ -7,7 +7,7 @@ import {layerHoverProp, LayerHoverInfo} from 'kepler.gl/components';
 const PointSidePanel = () => {
     return (
         <div className="PointSidePanel">
-            <img src="https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
+            <img src="https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt=""/>
             <h1>Modellus</h1>
             <LayerHoverInfo {...layerHoverProp} />
             <div className="text-container">
