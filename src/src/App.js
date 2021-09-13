@@ -34,7 +34,7 @@ import CustomMapPopoverFactory from './factories/map-popover';
 
 
 // Imports static datasets
-//import population from './static/datasets/population.json';
+import mediation from './static/datasets/mediation.json';
 
 
 
@@ -42,7 +42,9 @@ import CustomMapPopoverFactory from './factories/map-popover';
 //Injects new panelHeader Component
 // Inject custom components
 const KeplerGl = injectComponents([
-  [MapPopoverFactory, CustomMapPopoverFactory]
+  [MapPopoverFactory, CustomMapPopoverFactory],
+  [PanelHeaderFactory, replacePanelHeader]
+
 ]);
 
 //const layer1 = helpers.formatData(instanceConf.layers.layer1.url, instanceConf.layers.layer1.type)
@@ -88,7 +90,6 @@ class App extends Component {
         );
       })
 
-
       helpers.formatData(instanceConf.layers.layer2.url, instanceConf.layers.layer2.type).then((data) => {
         //this.setState({layer2: data})
         //console.log(data)
@@ -103,8 +104,6 @@ class App extends Component {
             },
             config : mapConfig
           }),
-          //setFilter(0,"value", ["{\"Accompagnement à l'innovation\"}"]),
-          
         );
       })
 

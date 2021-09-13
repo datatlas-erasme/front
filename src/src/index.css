@@ -21,7 +21,7 @@ code {
 }
 
 /*TODO FIX hide trough kepler injections*/
-.map-control {
+.map-control, side-panel--container {
   display: none;
 }
 
@@ -57,31 +57,30 @@ code {
   flex-direction: column;
 }
 
-/*.filters .filter-parent {
+
+.filter-parent ul {
+  max-height: 0;
   overflow: hidden;
-  height: 53px;
-  transition: height ease-in-out 0.3s;
-}
-
-.filters .filter-parent.active {
-  height: 100%;
-  transition: height ease-in-out 0.3s;
-}
-*/
-
-.button {
-  font-size: 15px;
-  color: white;
-  border-radius: 5px;
-  border: none;
-  margin: 0px 0px 5px 0px;
-  transition: all ease-in-out 0.2s;
-  cursor: pointer;
-  font-weight: 400;
-}
-.button:hover {
   transition: all ease-in-out 0.2s;
 }
+
+.filter-parent .active {
+  max-height: 1000px;
+  overflow: auto;
+  transition: all ease-in-out 0.2s;
+}
+
+.filter-parent .filter-child {
+  display: flex;
+  justify-content: right;
+}
+
+.filter-parent .filter-child ul {
+  max-height: max-content;
+  overflow: auto;
+  display: flex;
+}
+
 
 .filters ul {
   padding: 0;
@@ -94,6 +93,7 @@ code {
 .filters .filter-child button {
   font-size: 10px;
   padding: 10px 10px 10px 10px;
+  margin: 0 10px 10px 0;
 }
 .filters button {
   font-size: 15px;
@@ -111,5 +111,20 @@ code {
 
 .filters button:hover {
   background-color: #ff241a;
+  transition: all ease-in-out 0.2s;
+}
+
+
+.button {
+  font-size: 15px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  margin: 0px 0px 5px 0px;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+  font-weight: 400;
+}
+.button:hover {
   transition: all ease-in-out 0.2s;
 }
