@@ -11,28 +11,38 @@ const FilterSidePanel = () => {
 
 
     const dispatch = useDispatch()
-    const [filtercat, setFiltercat] = useState("hi");
+    const [filtersarray, setFiltersarray] = useState([])
+    const [filtercat, setFiltercat] = useState();
     useEffect(() => {
-        const filters = []
-        if (filters.includes(filtercat)) {
-            //console.log("Already in array")
-            filters = filters.filter(filtercat)
-        }
-        else {
-            console.log("Pushing into array")
-            filters.push(filtercat)
-        }
-        dispatch(setFilter(0,"value", filters))
+        setFiltersarray(prevArray => [...prevArray, filtercat])
+        //console.log(filtersarray)
+        
+        //let finalArray = filtersarray.includes(filtercat) 
+
+       // if (filtersarray.includes(filtercat)) {
+         //   console.log("Already in array")
+            //setFiltersarray(filtersarray.filter(filtercat))
+
+            //console.log(filtersarray)
+           
+       // }
+        //dispatch(setFilter(0,"value", filters))
         /*filters.map((item) => {
             dispatch(setFilter(0,"value", [item]))
         })*/
         
         //console.log("Click" + filtercat)
-        console.log(filtercat)
-        //dispatch(setFilter(0,"value", [filtercat]))
+        //console.log(filtercat)
+        //dispatch(setFilter(0,"value", filtersarray))
         //dispatch(setFilter(0,"value", ["{\"Accompagnement à l'innovation\"}","{\"Animation / événements / réseaux\"}"]))
 
-    }, [filtercat])
+    })
+
+    const test = (e) => {
+        setFiltercat(e)
+        dispatch(setFilter(0,"value", filtersarray))
+
+    }
 
 
     return (
@@ -46,8 +56,8 @@ const FilterSidePanel = () => {
                         <li className="filter-child">
                             <button>Types d'activites</button>
                             <ul>
-                                <li><Button text="Accompagnement à l'innovation" onClick={(e) => setFiltercat("{\"Accompagnement à l'innovation\"}")} /></li>
-                                <li><Button text="Anim event réseaux " onClick={(e) => setFiltercat("{\"Animation / événements / réseaux\"}")} /></li>
+                                <li><Button text="Accompagnement à l'innovation" onClick={(e) => test("{\"Accompagnement à l'innovation\"}")} /></li>
+                                <li><Button text="Anim event réseaux " onClick={(e) => test("{\"Animation / événements / réseaux\"}")} /></li>
                                 <li> <button>Activité 2</button></li>
                             </ul>
                             </li>

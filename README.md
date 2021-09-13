@@ -3,6 +3,7 @@
 
 # TODO
 - [ ] On dockerfile if target dev do not compile for build
+- [ ] Remove the first src folder not usefull 
 
 # Setup
 

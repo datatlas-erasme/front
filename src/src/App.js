@@ -34,7 +34,7 @@ import CustomMapPopoverFactory from './factories/map-popover';
 
 
 // Imports static datasets
-import population from './static/datasets/population.json';
+//import population from './static/datasets/population.json';
 
 
 
