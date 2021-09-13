@@ -29,22 +29,26 @@ import {MapPopoverFactory} from 'kepler.gl/components';
 
 const CustomMapPopoverFactory = (...deps) => {
   const MapSidepanel = props => {
-    console.log("#### HI")
-    console.log(props.layerHoverProp)
+    //console.log("#### HI")
+    //console.log(props.layerHoverProp)
+    //console.log(props.layerHoverProp.data[13])
     return  (
       <div className="PointSidePanel">
-      <img src="https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
-      <h1>{props.layerHoverProp.data[0]}</h1>
+      <img src={props.layerHoverProp.data[15] ? props.layerHoverProp.data[15] : "https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"}/>
+      <h1>{props.layerHoverProp.data[3]}</h1>
   
       <div className="text-container">
-          <p>Modellus est un service de conception, prototypage rapide et production par fabrication additive (impression 3D). Notre service de prototypage rapide vous permet d'obtenir vos éléments fonctionnels sous 24/72H dans une [...] Modellus est un service de conception.</p>
+          <p>{props.layerHoverProp.data[4]}</p>
       </div>
       
       <div className="cat-container">
-          <p>Expertise : Ingénierie / Mécanique</p>
-          <p>Gouvernance : Industrie</p>
-          <p>Offre : Prototypage</p>
-          <p>Public cible : Industrie</p>
+        <h2>Catégories</h2>
+          <p>Adresse : {props.layerHoverProp.data[6]}</p>
+          <p>Url : <a href={props.layerHoverProp.data[5]}>{props.layerHoverProp.data[5]}</a></p>
+          <p>Mail : {props.layerHoverProp.data[7]}</p>
+          <p>Tel : {props.layerHoverProp.data[8]}</p>
+          <p>Réseaux Sociaux : {props.layerHoverProp.data[9]}</p>
+
           
       </div>
 

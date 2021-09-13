@@ -7,7 +7,7 @@ import './index.css';
 
 import {connect} from 'react-redux';
 import { addDataToMap , updateMap } from "kepler.gl/actions";
-import  {MapPopoverFactory,injectComponents} from 'kepler.gl/components';
+import  {PanelHeaderFactory, MapPopoverFactory,injectComponents} from 'kepler.gl/components';
 
 ////////////////////////// COMPONENT IMPORT /////////////////////////////////////////
 import Crowdsourcing from './components/Crowdsourcing';
@@ -36,29 +36,16 @@ import CustomMapPopoverFactory from './factories/map-popover';
 // Imports static datasets
 import mediation from './static/datasets/mediation.json';
 
-
+import useSwr from "swr";
 
 
 //Injects new panelHeader Component
 // Inject custom components
 const KeplerGl = injectComponents([
   [MapPopoverFactory, CustomMapPopoverFactory],
-  [PanelHeaderFactory, replacePanelHeader]
+  //[PanelHeaderFactory, replacePanelHeader]
 
 ]);
-
-//const layer1 = helpers.formatData(instanceConf.layers.layer1.url, instanceConf.layers.layer1.type)
-
-/*const { layer1 } = useSwr("layer1", async () => {
-  const layer1 = await helpers.formatData(instanceConf.layers.layer1.url, instanceConf.layers.layer1.type)
-});*/
-
-/*const addData= () => {
-  const data = {latitude: 37.75043, longitude: -122.34679, width: 800, height: 1200}; 
-  dispatch(updateMap(data));
- };
-*/
-
 
 
 class App extends Component {
@@ -69,10 +56,30 @@ class App extends Component {
       layer1: {}
     };
 
-
+    
   
     componentDidMount() {   
       
+      fetch('http://back.datatlas.datagora.erasme.org/api/data/notion/notion_tiga/')
+      .then(res => res.json())
+      .then(
+        (data) => {
+        console.log(data)
+        //this.setState({data: data})
+        this.props.dispatch(
+          addDataToMap({
+            datasets: {
+              info: {
+                label: "test",
+                id: "2"
+              },
+              data: data
+            },
+
+          }),
+        );
+      })
+
       helpers.formatData(instanceConf.layers.layer1.url, instanceConf.layers.layer1.type).then((data) => {
         this.setState({layer1: data})
         //console.log(data)
@@ -85,12 +92,12 @@ class App extends Component {
               },
               data: data
             },
-
+            config : mapConfig
           }),
         );
       })
 
-      helpers.formatData(instanceConf.layers.layer2.url, instanceConf.layers.layer2.type).then((data) => {
+      /*helpers.formatData(instanceConf.layers.layer2.url, instanceConf.layers.layer2.type).then((data) => {
         //this.setState({layer2: data})
         //console.log(data)
         this.props.dispatch(
@@ -105,7 +112,7 @@ class App extends Component {
             config : mapConfig
           }),
         );
-      })
+      })*/
 
 
 

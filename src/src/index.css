@@ -13,11 +13,21 @@ code {
 }
 
 
-.gl-logo img {
+.top-left-logo img {
   position: absolute;
   top: 50px;
   left: 50px;
   width: 200px;
+  pointer-events: none;
+}
+
+
+.bottom-left-logo img {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  width: 200px;
+  pointer-events: none;
 }
 
 /*TODO FIX hide trough kepler injections*/
@@ -37,6 +47,8 @@ code {
   background: white;
   z-index: 99;
   padding: 15px;
+  overflow: scroll;
+  overflow-x: hidden;
   }
 
 

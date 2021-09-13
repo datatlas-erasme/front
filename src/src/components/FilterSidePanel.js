@@ -18,13 +18,13 @@ const FilterSidePanel = () => {
 
 
     const switchToggle = () => {
-        console.log("HOHOHO")
+        //console.log("HOHOHO")
         setTogglestate(!togglestate)
-        console.log(togglestate)
+        //console.log(togglestate)
     }
 
 
-    const [filtercat, setFiltercat] = useState("hi");
+    //const [filtercat, setFiltercat] = useState("hi");
     useEffect(() => {
         setFiltersarray(prevArray => [...prevArray, filtercat])
         //console.log(filtersarray)
@@ -45,16 +45,16 @@ const FilterSidePanel = () => {
         
         //console.log("Click" + filtercat)
         //console.log(filtercat)
-        //dispatch(setFilter(0,"value", filtersarray))
+        dispatch(setFilter(0,"value", filtercat))
         //dispatch(setFilter(0,"value", ["{\"Accompagnement à l'innovation\"}","{\"Animation / événements / réseaux\"}"]))
 
-    })
+    }, [filtercat])
 
-    const test = (e) => {
+    /*const test = (e) => {
         setFiltercat(e)
         dispatch(setFilter(0,"value", filtersarray))
 
-    }
+    }*/
 
 
     return (
