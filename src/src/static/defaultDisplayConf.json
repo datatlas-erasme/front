@@ -9,7 +9,7 @@
           ],
           "id": "lpxv4qirm",
           "name": [
-            "activites"
+            "type_structure"
           ],
           "type": "multiSelect",
           "value": [],
@@ -31,6 +31,12 @@
               210,
               0,
               0
+            ],
+            "highlightColor": [
+              252,
+              242,
+              26,
+              255
             ],
             "columns": {
               "lat": "latitude",
@@ -115,6 +121,12 @@
               59,
               30,
               177
+            ],
+            "highlightColor": [
+              252,
+              242,
+              26,
+              255
             ],
             "columns": {
               "lat": "latitude",
@@ -217,23 +229,11 @@
             ],
             "2": [
               {
-                "name": "id",
-                "format": null
-              },
-              {
                 "name": "statut",
                 "format": null
               },
               {
-                "name": "nomstructure",
-                "format": null
-              },
-              {
                 "name": "description",
-                "format": null
-              },
-              {
-                "name": "web",
                 "format": null
               }
             ]
@@ -263,10 +263,10 @@
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 46.92966588175001,
-      "longitude": 3.705331371137027,
+      "latitude": 45.764043,
+      "longitude": 4.835659,
       "pitch": 0,
-      "zoom": 6.882648681842828,
+      "zoom": 12,
       "isSplit": false
     },
     "mapStyle": {
