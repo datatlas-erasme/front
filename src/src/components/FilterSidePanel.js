@@ -10,34 +10,24 @@ import styled from 'styled-components';
 
 const FilterSidePanel = () => {
 
-
-    const dispatch = useDispatch()
-    const [filtersarray, setFiltersarray] = useState([])
-    const [filtercat, setFiltercat] = useState();
-    const [togglestate, setTogglestate] = useState("false") 
-
-
+    
     const switchToggle = () => {
         //console.log("HOHOHO")
         setTogglestate(!togglestate)
         //console.log(togglestate)
     }
 
-
+    const dispatch = useDispatch()
+    const [filtersarray, setFiltersarray] = useState([])
+    //const [filtercat, setFiltercat] = useState();
+    const [togglestate, setTogglestate] = useState("false") 
     //const [filtercat, setFiltercat] = useState("hi");
-    useEffect(() => {
-        setFiltersarray(prevArray => [...prevArray, filtercat])
-        //console.log(filtersarray)
+    //useEffect(() => {
         
         //let finalArray = filtersarray.includes(filtercat) 
 
-       // if (filtersarray.includes(filtercat)) {
-         //   console.log("Already in array")
-            //setFiltersarray(filtersarray.filter(filtercat))
+       
 
-            //console.log(filtersarray)
-           
-       // }
         //dispatch(setFilter(0,"value", filters))
         /*filters.map((item) => {
             dispatch(setFilter(0,"value", [item]))
@@ -45,30 +35,41 @@ const FilterSidePanel = () => {
         
         //console.log("Click" + filtercat)
         //console.log(filtercat)
-        dispatch(setFilter(0,"value", filtercat))
+        //dispatch(setFilter(0,"value", filtersarray))
         //dispatch(setFilter(0,"value", ["{\"Accompagnement à l'innovation\"}","{\"Animation / événements / réseaux\"}"]))
 
-    }, [filtercat])
+    //}, )
 
-    /*const test = (e) => {
-        setFiltercat(e)
+    const test = (filtercat) => {
+        if (filtersarray.includes(filtercat)) {
+            console.log("Already in array")
+            setFiltersarray(filtersarray.filter((cat)=>{ return cat != filtercat }))
+            
+
+            //console.log(filtersarray)
+           
+        }
+        else {
+            setFiltersarray(prevArray => [...prevArray, filtercat])
+            console.log(filtersarray)
+        }
         dispatch(setFilter(0,"value", filtersarray))
 
-    }*/
+    }
 
 
     return (
         <div className='filters'>
         <ul>
             <li id="filter-parent-1" className="filter-parent">
-                <button onClick={(e) => switchToggle}>Structures Mediation</button>
+                <button onClick={switchToggle}>Structures Mediation</button>
                     <ul className={togglestate ? 'active' : ''}>
                         <li className="filter-child"><button>Types de structures</button></li>
                         <li className="filter-child"><button>Publics concernes</button></li>
                         <li className="filter-child">
                             <ul>
-                                <li><Button fontSize="12" text="Accompagnement à l'innovation" onClick={(e) => setFiltercat("{\"Accompagnement à l'innovation\"}")} /></li>
-                                <li><Button fontSize="12" text="Anim event réseaux " onClick={(e) => setFiltercat("{\"Animation / événements / réseaux\"}")} /></li>
+                                <li><Button fontSize="12" text="Association ou syndicat professionnel" onClick={(e) => test("Association ou syndicat professionnel")} /></li>
+                                <li><Button fontSize="12" text="Autre" onClick={(e) => test("Autre")} /></li>
                                 <li> <button>Activité 2</button></li>
                             </ul>
                             <button>Types d'activites</button>
