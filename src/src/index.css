@@ -63,7 +63,7 @@ code {
 
 .filters {
   position: absolute;
-  top: 80px;
+  top: 50px;
   right: 30px;
   display: flex;
   flex-direction: column;
@@ -80,6 +80,7 @@ code {
   max-height: 1000px;
   overflow: auto;
   transition: all ease-in-out 0.2s;
+  overflow-y: hidden;
 }
 
 .filter-parent .filter-child {
@@ -107,7 +108,22 @@ code {
   padding: 10px 10px 10px 10px;
   margin: 0 10px 10px 0;
 }
-.filters button {
+
+.filters button:hover {
+  background-color: #ff241a;
+  transition: all ease-in-out 0.2s;
+}
+
+.crowdsourcing {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+button {
   font-size: 15px;
   color: white;
   padding: 15px 10px 15px 10px;
@@ -121,22 +137,6 @@ code {
 }
 
 
-.filters button:hover {
-  background-color: #ff241a;
-  transition: all ease-in-out 0.2s;
-}
-
-
-.button {
-  font-size: 15px;
-  color: white;
-  border-radius: 5px;
-  border: none;
-  margin: 0px 0px 5px 0px;
-  transition: all ease-in-out 0.2s;
-  cursor: pointer;
-  font-weight: 400;
-}
 .button:hover {
   transition: all ease-in-out 0.2s;
 }
