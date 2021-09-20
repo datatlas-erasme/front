@@ -7,7 +7,7 @@
           "dataId": [
             "2"
           ],
-          "id": "lpxv4qirm",
+          "id": "uc8sy50bk",
           "name": [
             "type_structure"
           ],
@@ -22,15 +22,15 @@
       ],
       "layers": [
         {
-          "id": "e5e2izm",
-          "type": "point",
+          "id": "7zg2pr",
+          "type": "icon",
           "config": {
-            "dataId": "1",
-            "label": "Vélov",
+            "dataId": "2",
+            "label": "Mediation",
             "color": [
-              210,
-              0,
-              0
+              255,
+              254,
+              230
             ],
             "highlightColor": [
               252,
@@ -41,30 +41,14 @@
             "columns": {
               "lat": "latitude",
               "lng": "longitude",
-              "altitude": null
+              "icon": "icon"
             },
             "isVisible": true,
             "visConfig": {
-              "radius": 19.1,
+              "radius": 45.4,
               "fixedRadius": false,
               "opacity": 0.8,
-              "outline": false,
-              "thickness": 2,
-              "strokeColor": null,
               "colorRange": {
-                "name": "Global Warming",
-                "type": "sequential",
-                "category": "Uber",
-                "colors": [
-                  "#5A1846",
-                  "#900C3F",
-                  "#C70039",
-                  "#E3611C",
-                  "#F1920E",
-                  "#FFC300"
-                ]
-              },
-              "strokeColorRange": {
                 "name": "Global Warming",
                 "type": "sequential",
                 "category": "Uber",
@@ -80,8 +64,7 @@
               "radiusRange": [
                 0,
                 50
-              ],
-              "filled": true
+              ]
             },
             "hidden": false,
             "textLabel": [
@@ -105,22 +88,91 @@
           "visualChannels": {
             "colorField": null,
             "colorScale": "quantile",
-            "strokeColorField": null,
-            "strokeColorScale": "quantile",
             "sizeField": null,
             "sizeScale": "linear"
           }
         },
         {
-          "id": "k4ij92g",
+          "id": "t6sbk6c",
+          "type": "icon",
+          "config": {
+            "dataId": "3",
+            "label": "Event",
+            "color": [
+              255,
+              254,
+              230
+            ],
+            "highlightColor": [
+              252,
+              242,
+              26,
+              255
+            ],
+            "columns": {
+              "lat": "latitude",
+              "lng": "longitude",
+              "icon": "icon"
+            },
+            "isVisible": true,
+            "visConfig": {
+              "radius": 44.7,
+              "fixedRadius": false,
+              "opacity": 0.8,
+              "colorRange": {
+                "name": "Global Warming",
+                "type": "sequential",
+                "category": "Uber",
+                "colors": [
+                  "#5A1846",
+                  "#900C3F",
+                  "#C70039",
+                  "#E3611C",
+                  "#F1920E",
+                  "#FFC300"
+                ]
+              },
+              "radiusRange": [
+                0,
+                50
+              ]
+            },
+            "hidden": false,
+            "textLabel": [
+              {
+                "field": null,
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "size": 18,
+                "offset": [
+                  0,
+                  0
+                ],
+                "anchor": "start",
+                "alignment": "center"
+              }
+            ]
+          },
+          "visualChannels": {
+            "colorField": null,
+            "colorScale": "quantile",
+            "sizeField": null,
+            "sizeScale": "linear"
+          }
+        },
+        {
+          "id": "rhlz9tf",
           "type": "point",
           "config": {
-            "dataId": "2",
-            "label": "Médiation",
+            "dataId": "1",
+            "label": "Velov",
             "color": [
-              59,
-              30,
-              177
+              218,
+              0,
+              0
             ],
             "highlightColor": [
               252,
@@ -135,7 +187,7 @@
             },
             "isVisible": true,
             "visConfig": {
-              "radius": 25,
+              "radius": 14.5,
               "fixedRadius": false,
               "opacity": 0.8,
               "outline": false,
@@ -229,7 +281,41 @@
             ],
             "2": [
               {
+                "name": "date-ajout",
+                "format": null
+              },
+              {
+                "name": "saisie interne ou externe ?",
+                "format": null
+              },
+              {
                 "name": "statut",
+                "format": null
+              },
+              {
+                "name": "nom-structure",
+                "format": null
+              },
+              {
+                "name": "description",
+                "format": null
+              }
+            ],
+            "3": [
+              {
+                "name": "date-ajout",
+                "format": null
+              },
+              {
+                "name": "saisie interne ou externe ?",
+                "format": null
+              },
+              {
+                "name": "statut",
+                "format": null
+              },
+              {
+                "name": "nom-evenement",
                 "format": null
               },
               {
@@ -263,10 +349,10 @@
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 45.764043,
-      "longitude": 4.835659,
+      "latitude": 45.763935509861355,
+      "longitude": 4.850253901904381,
       "pitch": 0,
-      "zoom": 12,
+      "zoom": 12.63292294464736,
       "isSplit": false
     },
     "mapStyle": {
