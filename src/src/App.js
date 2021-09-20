@@ -59,7 +59,33 @@ class App extends Component {
     
   
     componentDidMount() {   
+
+
+      // Fetch Event Notion Data
+      /*fetch('http://back.datatlas.datagora.erasme.org/api/data/notion/notion_mediation/')
+      .then(res => res.json())
+      .then(
+        (data) => {
+        console.log(data)
+        //this.setState({data: data})
+        this.props.dispatch(
+          addDataToMap({
+            datasets: {
+              info: {
+                label: "Event",
+                id: "3"
+              },
+              data: data
+            },
+
+          }),
+        );
+      })*/
+
+
+
       
+      // Fetch Mediation Notion Data
       fetch('http://back.datatlas.datagora.erasme.org/api/data/notion/notion_tiga/')
       .then(res => res.json())
       .then(
@@ -70,7 +96,7 @@ class App extends Component {
           addDataToMap({
             datasets: {
               info: {
-                label: "test",
+                label: "Mediation",
                 id: "2"
               },
               data: data
@@ -79,6 +105,7 @@ class App extends Component {
           }),
         );
       })
+
 
       helpers.formatData(instanceConf.layers.layer1.url, instanceConf.layers.layer1.type).then((data) => {
         this.setState({layer1: data})
