@@ -26,6 +26,7 @@ formatData = {
         {"name": "latitude", "format": "", "type":"number"},
         {"name": "longitude", "format": "", "type":"number"},
         {"name": "icon", "format": "", "type":"string"},
+        {"name": "img", "format": "", "type":"string"},
 
     ],
     "rows" : [
@@ -37,17 +38,18 @@ formatData = {
 loop = 0
 for i in data:
     loop = loop +1 
-    title = i['title']
+    title = i['nom-structure']
     description = i['description']
-    adress = i['adress']
-    web = i['web']
-    email = i['email structure']
-    tel = i['téléphone structure']
-    structType = i['type de structure']
-    activities = i['activités']
+    adress = i['adresse']
+    web = i['site-web']
+    email = i['email-structure']
+    tel = i['telephone-structure']
+    structType = i['type-structure']
+    activities = i['activites']
     expertise = i['expertise']
     latitude = i['latitude']
     longitude = i['longitude']
+    img = i['image du lieu']
 
 
 
@@ -64,7 +66,7 @@ for i in data:
             8 : expertise,
             9 : latitude,
             10 : longitude,
-            11 : "place"
+            11 : img
         }
     )
     '''if loop == 5:
