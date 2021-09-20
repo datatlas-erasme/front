@@ -70,7 +70,10 @@ const FilterSidePanel = () => {
                             <ul>
                                 <li><Button fontSize="12" text="Association ou syndicat professionnel" onClick={(e) => test("Association ou syndicat professionnel")} /></li>
                                 <li><Button fontSize="12" text="Autre" onClick={(e) => test("Autre")} /></li>
-                                <li> <button>Activité 2</button></li>
+                                <li><Button fontSize="12" text="Ecole / université / enseignement supérieur" onClick={(e) => test("Ecole / université / enseignement supérieur")} /></li>
+                                <li><Button fontSize="12" text="Entreprise de droit privé ou fondation" onClick={(e) => test("Entreprise de droit privé ou fondation")} /></li>
+                                <li><Button fontSize="12" text="Structure publique ou parapublique" onClick={(e) => test("Structure publique ou parapublique")} /></li>
+
                             </ul>
                             <button>Types d'activites</button>
                             </li>
