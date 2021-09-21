@@ -2,35 +2,89 @@
   "version": "v1",
   "config": {
     "visState": {
-      "filters": [
-        {
-          "dataId": [
-            "2"
-          ],
-          "id": "uc8sy50bk",
-          "name": [
-            "type_structure"
-          ],
-          "type": "multiSelect",
-          "value": [],
-          "enlarged": false,
-          "plotType": "histogram",
-          "animationWindow": "free",
-          "yAxis": null,
-          "speed": 1
-        }
-      ],
+      "filters": [],
       "layers": [
         {
-          "id": "7zg2pr",
+          "id": "o54ssb",
+          "type": "icon",
+          "config": {
+            "dataId": "3",
+            "label": "Event",
+            "color": [
+              72,
+              43,
+              189
+            ],
+            "highlightColor": [
+              252,
+              242,
+              26,
+              255
+            ],
+            "columns": {
+              "lat": "latitude",
+              "lng": "longitude",
+              "icon": "icon"
+            },
+            "isVisible": true,
+            "visConfig": {
+              "radius": 41.4,
+              "fixedRadius": false,
+              "opacity": 0.8,
+              "colorRange": {
+                "name": "Global Warming",
+                "type": "sequential",
+                "category": "Uber",
+                "colors": [
+                  "#5A1846",
+                  "#900C3F",
+                  "#C70039",
+                  "#E3611C",
+                  "#F1920E",
+                  "#FFC300"
+                ]
+              },
+              "radiusRange": [
+                0,
+                50
+              ]
+            },
+            "hidden": false,
+            "textLabel": [
+              {
+                "field": null,
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "size": 18,
+                "offset": [
+                  0,
+                  0
+                ],
+                "anchor": "start",
+                "alignment": "center"
+              }
+            ]
+          },
+          "visualChannels": {
+            "colorField": null,
+            "colorScale": "quantile",
+            "sizeField": null,
+            "sizeScale": "linear"
+          }
+        },
+        {
+          "id": "l4mpm5u",
           "type": "icon",
           "config": {
             "dataId": "2",
             "label": "Mediation",
             "color": [
               255,
-              254,
-              230
+              248,
+              213
             ],
             "highlightColor": [
               252,
@@ -45,7 +99,7 @@
             },
             "isVisible": true,
             "visConfig": {
-              "radius": 45.4,
+              "radius": 53.9,
               "fixedRadius": false,
               "opacity": 0.8,
               "colorRange": {
@@ -93,82 +147,11 @@
           }
         },
         {
-          "id": "t6sbk6c",
-          "type": "icon",
-          "config": {
-            "dataId": "3",
-            "label": "Event",
-            "color": [
-              255,
-              254,
-              230
-            ],
-            "highlightColor": [
-              252,
-              242,
-              26,
-              255
-            ],
-            "columns": {
-              "lat": "latitude",
-              "lng": "longitude",
-              "icon": "icon"
-            },
-            "isVisible": true,
-            "visConfig": {
-              "radius": 44.7,
-              "fixedRadius": false,
-              "opacity": 0.8,
-              "colorRange": {
-                "name": "Global Warming",
-                "type": "sequential",
-                "category": "Uber",
-                "colors": [
-                  "#5A1846",
-                  "#900C3F",
-                  "#C70039",
-                  "#E3611C",
-                  "#F1920E",
-                  "#FFC300"
-                ]
-              },
-              "radiusRange": [
-                0,
-                50
-              ]
-            },
-            "hidden": false,
-            "textLabel": [
-              {
-                "field": null,
-                "color": [
-                  255,
-                  255,
-                  255
-                ],
-                "size": 18,
-                "offset": [
-                  0,
-                  0
-                ],
-                "anchor": "start",
-                "alignment": "center"
-              }
-            ]
-          },
-          "visualChannels": {
-            "colorField": null,
-            "colorScale": "quantile",
-            "sizeField": null,
-            "sizeScale": "linear"
-          }
-        },
-        {
-          "id": "rhlz9tf",
+          "id": "fdnfxkl",
           "type": "point",
           "config": {
             "dataId": "1",
-            "label": "Velov",
+            "label": "Annuaire",
             "color": [
               218,
               0,
@@ -187,7 +170,7 @@
             },
             "isVisible": true,
             "visConfig": {
-              "radius": 14.5,
+              "radius": 28.3,
               "fixedRadius": false,
               "opacity": 0.8,
               "outline": false,
@@ -259,23 +242,23 @@
           "fieldsToShow": {
             "1": [
               {
-                "name": "procedure",
+                "name": "identifiant",
                 "format": null
               },
               {
-                "name": "description",
+                "name": "nom",
                 "format": null
               },
               {
-                "name": "offering",
+                "name": "code_siret",
                 "format": null
               },
               {
-                "name": "url_graph",
+                "name": "structure",
                 "format": null
               },
               {
-                "name": "last_update",
+                "name": "insee",
                 "format": null
               }
             ],
@@ -349,10 +332,10 @@
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 45.763935509861355,
-      "longitude": 4.850253901904381,
+      "latitude": 45.757731643195804,
+      "longitude": 4.85018229094957,
       "pitch": 0,
-      "zoom": 12.63292294464736,
+      "zoom": 12.609370779874702,
       "isSplit": false
     },
     "mapStyle": {
