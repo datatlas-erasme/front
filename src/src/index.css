@@ -83,7 +83,7 @@ code {
   overflow-y: hidden;
 }
 
-.filter-parent .filter-child {
+/*.filter-parent .filter-child {
   display: flex;
   justify-content: right;
 }
@@ -92,7 +92,7 @@ code {
   max-height: max-content;
   overflow: auto;
   display: flex;
-}
+}*/
 
 
 .filters ul {
@@ -104,7 +104,7 @@ code {
 }
 
 .filters .filter-child button {
-  font-size: 10px;
+  /*font-size: 10px;*/
   padding: 10px 10px 10px 10px;
   margin: 0 10px 10px 0;
 }
@@ -124,7 +124,7 @@ code {
 
 
 button {
-  font-size: 15px;
+  /*font-size: 15px;*/
   color: white;
   padding: 15px 10px 15px 10px;
   border-radius: 5px;
