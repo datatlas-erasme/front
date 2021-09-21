@@ -34,7 +34,7 @@ import CustomMapPopoverFactory from './factories/map-popover';
 
 
 // Imports static datasets
-import mediation from './static/datasets/mediation.json';
+import mediation from './static/datasets/notion_mediation.json';
 
 import useSwr from "swr";
 
@@ -59,10 +59,12 @@ class App extends Component {
     
   
     componentDidMount() {   
+      // Defining page Title
+      document.title = "DatAtlas"
 
 
       // Fetch Event Notion Data
-      /*fetch('http://back.datatlas.datagora.erasme.org/api/data/notion/notion_mediation/')
+      fetch('https://back-datatlas.datagora.erasme.org/api/data/notion/notion_mediation/')
       .then(res => res.json())
       .then(
         (data) => {
@@ -80,17 +82,17 @@ class App extends Component {
 
           }),
         );
-      })*/
+      })
 
 
 
       
       // Fetch Mediation Notion Data
-      fetch('http://back.datatlas.datagora.erasme.org/api/data/notion/notion_tiga/')
+      fetch('https://back-datatlas.datagora.erasme.org/api/data/notion/notion_tiga/')
       .then(res => res.json())
       .then(
         (data) => {
-        console.log(data)
+        console.log(data.rows)
         //this.setState({data: data})
         this.props.dispatch(
           addDataToMap({
@@ -105,6 +107,20 @@ class App extends Component {
           }),
         );
       })
+
+
+      /*this.props.dispatch(
+        addDataToMap({
+          datasets: {
+            info: {
+              label: "Mediation",
+              id: "2"
+            },
+            data: mediation
+          },
+
+        }),
+      );*/
 
 
       helpers.formatData(instanceConf.layers.layer1.url, instanceConf.layers.layer1.type).then((data) => {
@@ -144,7 +160,7 @@ class App extends Component {
 
 
     // TODO Clean remove the timeout function 
-    setTimeout(()=> {this.props.dispatch(updateMap({"latitude": 45.764043,"longitude": 4.835659, "zoom" : 12}))},2000)}
+    setTimeout(()=> {this.props.dispatch(updateMap({"latitude": 45.764043,"longitude": 4.835659, "zoom" : 12}))},3000)}
   
 
     render() {
