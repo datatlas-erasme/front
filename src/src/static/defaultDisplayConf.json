@@ -2,7 +2,24 @@
   "version": "v1",
   "config": {
     "visState": {
-      "filters": [],
+      "filters": [
+        {
+          "dataId": [
+            "2"
+          ],
+          "id": "wk7s88qr",
+          "name": [
+            "type_structure"
+          ],
+          "type": "multiSelect",
+          "value": [],
+          "enlarged": false,
+          "plotType": "histogram",
+          "animationWindow": "free",
+          "yAxis": null,
+          "speed": 1
+        }
+      ],
       "layers": [
         {
           "id": "o54ssb",
@@ -24,7 +41,8 @@
             "columns": {
               "lat": "latitude",
               "lng": "longitude",
-              "icon": "icon"
+              "icon": "icon",
+              "altitude": null
             },
             "isVisible": true,
             "visConfig": {
@@ -95,7 +113,8 @@
             "columns": {
               "lat": "latitude",
               "lng": "longitude",
-              "icon": "icon"
+              "icon": "icon",
+              "altitude": null
             },
             "isVisible": true,
             "visConfig": {
@@ -151,7 +170,7 @@
           "type": "point",
           "config": {
             "dataId": "1",
-            "label": "Annuaire",
+            "label": "Annuaire pour les professionnels de solutions de réduction et gestion des déchets de la Métropole de Lyon ",
             "color": [
               218,
               0,
@@ -332,10 +351,10 @@
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 45.757731643195804,
-      "longitude": 4.85018229094957,
+      "latitude": 45.764043,
+      "longitude": 4.835659,
       "pitch": 0,
-      "zoom": 12.609370779874702,
+      "zoom": 12,
       "isSplit": false
     },
     "mapStyle": {
