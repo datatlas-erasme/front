@@ -2,74 +2,46 @@
   "version": "v1",
   "config": {
     "visState": {
-      "filters": [
-        {
-          "dataId": [
-            "mediation"
-          ],
-          "id": "36yow8i8",
-          "name": [
-            "type de structure"
-          ],
-          "type": "multiSelect",
-          "value": [],
-          "enlarged": false,
-          "plotType": "histogram",
-          "animationWindow": "free",
-          "yAxis": null,
-          "speed": 1
-        },
-        {
-          "dataId": [
-            "mediation"
-          ],
-          "id": "7m8y62w0b",
-          "name": [
-            "expertise"
-          ],
-          "type": "multiSelect",
-          "value": [],
-          "enlarged": false,
-          "plotType": "histogram",
-          "animationWindow": "free",
-          "yAxis": null,
-          "speed": 1
-        }
-      ],
+      "filters": [],
       "layers": [
         {
-          "id": "85p2b4i",
+          "id": "o54ssb",
           "type": "icon",
           "config": {
-            "dataId": "mediation",
-            "label": "Mediation Industrielle",
+            "dataId": "3",
+            "label": "Event",
             "color": [
-              240,
-              237,
-              234
+              72,
+              43,
+              189
+            ],
+            "highlightColor": [
+              252,
+              242,
+              26,
+              255
             ],
             "columns": {
               "lat": "latitude",
               "lng": "longitude",
-              "icon": "icon",
-              "altitude": null
+              "icon": "icon"
             },
             "isVisible": true,
             "visConfig": {
-              "radius": 31.6,
+              "radius": 41.4,
               "fixedRadius": false,
-              "opacity": 0.99,
+              "opacity": 0.8,
               "colorRange": {
-                "name": "Uber Viz Diverging 1.5",
-                "type": "diverging",
+                "name": "Global Warming",
+                "type": "sequential",
                 "category": "Uber",
                 "colors": [
-                  "#00939C",
-                  "#5DBABF",
-                  "#BAE1E2",
-                  "#F8C0AA",
-                  "#DD7755",
-                  "#C22E00"
+                  "#5A1846",
+                  "#900C3F",
+                  "#C70039",
+                  "#E3611C",
+                  "#F1920E",
+                  "#FFC300"
                 ]
               },
               "radiusRange": [
@@ -78,42 +50,132 @@
               ]
             },
             "hidden": false,
-            "textLabel": []
+            "textLabel": [
+              {
+                "field": null,
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "size": 18,
+                "offset": [
+                  0,
+                  0
+                ],
+                "anchor": "start",
+                "alignment": "center"
+              }
+            ]
           },
           "visualChannels": {
-            "colorField": {
-              "name": "expertise",
-              "type": "string"
-            },
-            "colorScale": "ordinal",
+            "colorField": null,
+            "colorScale": "quantile",
             "sizeField": null,
             "sizeScale": "linear"
           }
         },
         {
-          "id": "jnknq79",
-          "type": "geojson",
+          "id": "l4mpm5u",
+          "type": "icon",
           "config": {
-            "dataId": "pop",
-            "label": "Population",
+            "dataId": "2",
+            "label": "Mediation",
             "color": [
-              18,
-              147,
-              154
+              255,
+              248,
+              213
+            ],
+            "highlightColor": [
+              252,
+              242,
+              26,
+              255
             ],
             "columns": {
-              "geojson": "Polygon"
+              "lat": "latitude",
+              "lng": "longitude",
+              "icon": "icon"
             },
-            "isVisible": false,
+            "isVisible": true,
             "visConfig": {
-              "opacity": 0.66,
-              "strokeOpacity": 0.8,
-              "thickness": 0.5,
-              "strokeColor": [
-                221,
-                178,
-                124
-              ],
+              "radius": 53.9,
+              "fixedRadius": false,
+              "opacity": 0.8,
+              "colorRange": {
+                "name": "Global Warming",
+                "type": "sequential",
+                "category": "Uber",
+                "colors": [
+                  "#5A1846",
+                  "#900C3F",
+                  "#C70039",
+                  "#E3611C",
+                  "#F1920E",
+                  "#FFC300"
+                ]
+              },
+              "radiusRange": [
+                0,
+                50
+              ]
+            },
+            "hidden": false,
+            "textLabel": [
+              {
+                "field": null,
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "size": 18,
+                "offset": [
+                  0,
+                  0
+                ],
+                "anchor": "start",
+                "alignment": "center"
+              }
+            ]
+          },
+          "visualChannels": {
+            "colorField": null,
+            "colorScale": "quantile",
+            "sizeField": null,
+            "sizeScale": "linear"
+          }
+        },
+        {
+          "id": "fdnfxkl",
+          "type": "point",
+          "config": {
+            "dataId": "1",
+            "label": "Annuaire",
+            "color": [
+              218,
+              0,
+              0
+            ],
+            "highlightColor": [
+              252,
+              242,
+              26,
+              255
+            ],
+            "columns": {
+              "lat": "latitude",
+              "lng": "longitude",
+              "altitude": null
+            },
+            "isVisible": true,
+            "visConfig": {
+              "radius": 28.3,
+              "fixedRadius": false,
+              "opacity": 0.8,
+              "outline": false,
+              "thickness": 2,
+              "strokeColor": null,
               "colorRange": {
                 "name": "Global Warming",
                 "type": "sequential",
@@ -140,25 +202,11 @@
                   "#FFC300"
                 ]
               },
-              "radius": 10,
-              "sizeRange": [
-                0,
-                10
-              ],
               "radiusRange": [
                 0,
                 50
               ],
-              "heightRange": [
-                0,
-                500
-              ],
-              "elevationScale": 5,
-              "enableElevationZoomFactor": true,
-              "stroked": true,
-              "filled": true,
-              "enable3d": true,
-              "wireframe": false
+              "filled": true
             },
             "hidden": false,
             "textLabel": [
@@ -180,69 +228,81 @@
             ]
           },
           "visualChannels": {
-            "colorField": {
-              "name": "pop2018",
-              "type": "integer"
-            },
+            "colorField": null,
             "colorScale": "quantile",
             "strokeColorField": null,
             "strokeColorScale": "quantile",
             "sizeField": null,
-            "sizeScale": "linear",
-            "heightField": {
-              "name": "pop2018",
-              "type": "integer"
-            },
-            "heightScale": "linear",
-            "radiusField": null,
-            "radiusScale": "linear"
+            "sizeScale": "linear"
           }
         }
       ],
       "interactionConfig": {
         "tooltip": {
           "fieldsToShow": {
-            "pop": [
+            "1": [
               {
-                "name": "commune",
+                "name": "identifiant",
                 "format": null
               },
               {
-                "name": "pop2018",
+                "name": "nom",
                 "format": null
               },
               {
-                "name": "pop2017",
+                "name": "code_siret",
                 "format": null
               },
               {
-                "name": "pop2016",
+                "name": "structure",
                 "format": null
               },
               {
-                "name": "pop2015",
+                "name": "insee",
                 "format": null
               }
             ],
-            "mediation": [
+            "2": [
               {
-                "name": "title",
+                "name": "date-ajout",
+                "format": null
+              },
+              {
+                "name": "saisie interne ou externe ?",
+                "format": null
+              },
+              {
+                "name": "statut",
+                "format": null
+              },
+              {
+                "name": "nom-structure",
                 "format": null
               },
               {
                 "name": "description",
                 "format": null
-              },
+              }
+            ],
+            "3": [
               {
-                "name": "adress",
+                "name": "date-ajout",
                 "format": null
               },
               {
-                "name": "web",
+                "name": "saisie interne ou externe ?",
                 "format": null
               },
               {
-                "name": "email structure",
+                "name": "statut",
+                "format": null
+              },
+              {
+                "name": "nom-evenement",
+                "format": null
+              },
+              {
+                "name": "description",
                 "format": null
               }
             ]
@@ -272,10 +332,10 @@
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 45.76578525963499,
-      "longitude": 4.832039441412367,
+      "latitude": 45.757731643195804,
+      "longitude": 4.85018229094957,
       "pitch": 0,
-      "zoom": 15.172314108543405,
+      "zoom": 12.609370779874702,
       "isSplit": false
     },
     "mapStyle": {
@@ -283,9 +343,9 @@
       "topLayerGroups": {},
       "visibleLayerGroups": {},
       "threeDBuildingColor": [
-        218.82023004728686,
-        223.47597962276103,
-        223.47597962276103
+        3.7245996603793508,
+        6.518049405663864,
+        13.036098811327728
       ],
       "mapStyles": {}
     }

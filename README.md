@@ -9,6 +9,7 @@
 
 # TODO
 - [ ] On dockerfile if target dev do not compile for build
+- [ ] Remove the first src folder not usefull 
 
 # Setup
 
@@ -64,4 +65,5 @@ For now you can only define a defined number of dataset, this wont be the case i
 
 
 ```
+.
 
