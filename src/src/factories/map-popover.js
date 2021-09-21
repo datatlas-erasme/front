@@ -21,7 +21,6 @@
 import React from 'react';
 import {MapPopoverFactory} from 'kepler.gl/components';
 
-
 //import CustomLayerHoverInfo from "./CustomLayerHoverInfo"
 
 
@@ -30,37 +29,78 @@ import {MapPopoverFactory} from 'kepler.gl/components';
 const CustomMapPopoverFactory = (...deps) => {
   const MapSidepanel = props => {
     //console.log("#### HI")
+    console.log(props.layerHoverProp.layer.config.dataId)
+    /*if (props.layerHoverProp.data[15] == Object) {
+
+    }*/
     //console.log(props.layerHoverProp)
     //console.log(props.layerHoverProp.data[13])
-    return  (
-      <div className="PointSidePanel">
-      <img src={props.layerHoverProp.data[15] ? props.layerHoverProp.data[15] : "https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"}/>
-      <h1>{props.layerHoverProp.data[3]}</h1>
-  
-      <div className="text-container">
-          <p>{props.layerHoverProp.data[4]}</p>
+
+    if(props.layerHoverProp.layer.config.dataId == 2) {
+      return  (
+        <div className="PointSidePanel">
+        <img src={props.layerHoverProp.data[15] ? props.layerHoverProp.data[15] : "https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"}/>
+        <h1>{props.layerHoverProp.data[3]}</h1>
+
+        <div className="text-container">
+            <p>{props.layerHoverProp.data[4]}</p>
+        </div>
+
+        <div className="cat-container">
+          <h2>Catégories</h2>
+            <p>Adresse : {props.layerHoverProp.data[6]}</p>
+            <p>Url : <a href={props.layerHoverProp.data[5]}>{props.layerHoverProp.data[5]}</a></p>
+            <p>Mail : {props.layerHoverProp.data[7]}</p>
+            <p>Tel : {props.layerHoverProp.data[8]}</p>
+            <p>Réseaux Sociaux : {props.layerHoverProp.data[9]}</p>
+
+
+        </div>
+
+
+
+
       </div>
-      
-      <div className="cat-container">
-        <h2>Catégories</h2>
-          <p>Adresse : {props.layerHoverProp.data[6]}</p>
-          <p>Url : <a href={props.layerHoverProp.data[5]}>{props.layerHoverProp.data[5]}</a></p>
-          <p>Mail : {props.layerHoverProp.data[7]}</p>
-          <p>Tel : {props.layerHoverProp.data[8]}</p>
-          <p>Réseaux Sociaux : {props.layerHoverProp.data[9]}</p>
+        )
+    }
+    //TODO REMOVE - DIsplays Event Sidepanel
+    else if(props.layerHoverProp.layer.config.dataId == 3) {
+      return  (
+        <div className="PointSidePanel">
+        <img src={props.layerHoverProp.data[13] ? props.layerHoverProp.data[13] : "https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"}/>
+        <h1>{props.layerHoverProp.data[3]}</h1>
 
-          
+        <div className="text-container">
+            <p>{props.layerHoverProp.data[4]}</p>
+        </div>
+
+        <div className="cat-container">
+          <h2>Catégories</h2>
+            <p>Adresse : {props.layerHoverProp.data[6]}</p>
+            <p>Url : <a href={props.layerHoverProp.data[5]}>{props.layerHoverProp.data[5]}</a></p>
+            <p>Mail : {props.layerHoverProp.data[7]}</p>
+            <p>Tel : {props.layerHoverProp.data[8]}</p>
+
+        </div>
+
+
+
+
       </div>
+        )
+    }
+
+    else {
+      const MapPopover = MapPopoverFactory(...deps);
+      return <MapPopover {...props} />;
+    }
 
 
 
-  
-    </div>
-      )
+
   }
-
-
   return MapSidepanel;
+  
 };
 CustomMapPopoverFactory.deps = MapPopoverFactory.deps;
 export default CustomMapPopoverFactory;
