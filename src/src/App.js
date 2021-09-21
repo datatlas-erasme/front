@@ -34,7 +34,7 @@ import CustomMapPopoverFactory from './factories/map-popover';
 
 
 // Imports static datasets
-import mediation from './static/datasets/notion_mediation.json';
+//import mediation from './static/datasets/notion_mediation.json';
 
 import useSwr from "swr";
 
