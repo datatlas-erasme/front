@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {Provider, useDispatch, connect } from "react-redux";
 
-import {setFilter} from "kepler.gl/actions";
+import {setFilter, removeLayer} from "kepler.gl/actions";
 
 import Button from './filter-side-panel/Button'
 import styled from 'styled-components';
@@ -11,16 +11,20 @@ import styled from 'styled-components';
 const FilterSidePanel = () => {
 
     
-    const switchToggle = () => {
-        //console.log("HOHOHO")
-        setTogglestate(!togglestate)
-        //console.log(togglestate)
-    }
+    const switchparent1 = () => {setParent1(!parent1)}
+    const switchparent2 = () => {setParent2(!parent2)}
+
+
 
     const dispatch = useDispatch()
     const [filtersarray, setFiltersarray] = useState([])
     //const [filtercat, setFiltercat] = useState();
-    const [togglestate, setTogglestate] = useState("false") 
+    const [togglestate, setTogglestate] = useState("true") 
+
+    const [parent1, setParent1] = useState("false") 
+    const [parent2, setParent2] = useState("false") 
+
+
     //const [filtercat, setFiltercat] = useState("hi");
     //useEffect(() => {
         
@@ -45,7 +49,6 @@ const FilterSidePanel = () => {
             console.log("Already in array")
             setFiltersarray(filtersarray.filter((cat)=>{ return cat != filtercat }))
             
-
             //console.log(filtersarray)
            
         }
@@ -57,38 +60,43 @@ const FilterSidePanel = () => {
 
     }
 
+    const disableLayer = () => {
+        dispatch(removeLayer(1))
+    }
+
 
     return (
         <div className='filters'>
         <ul>
             <li id="filter-parent-1" className="filter-parent">
-                <button onClick={switchToggle}>Structures Mediation</button>
-                    <ul className={togglestate ? 'active' : ''}>
-                        <li className="filter-child"><button>Types de structures</button></li>
-                        <li className="filter-child"><button>Publics concernes</button></li>
+                <button onClick={switchparent1}>Structures Mediation</button>
+                    <ul className={!parent1 ? 'active' : ''}>
+                        <li className="filter-child"><Button textSize="12px"  bg="#d91f16" text="Types de structures" /></li>
+                        <li className="filter-child"><Button textSize="12px"  bg="#d91f16" text="Publics concernes" /></li>
                         <li className="filter-child">
-                            <ul>
-                                <li><Button fontSize="12" text="Association ou syndicat professionnel" onClick={(e) => test("Association ou syndicat professionnel")} /></li>
-                                <li><Button fontSize="12" text="Autre" onClick={(e) => test("Autre")} /></li>
-                                <li><Button fontSize="12" text="Ecole / université / enseignement supérieur" onClick={(e) => test("Ecole / université / enseignement supérieur")} /></li>
-                                <li><Button fontSize="12" text="Entreprise de droit privé ou fondation" onClick={(e) => test("Entreprise de droit privé ou fondation")} /></li>
-                                <li><Button fontSize="12" text="Structure publique ou parapublique" onClick={(e) => test("Structure publique ou parapublique")} /></li>
+                            <ul className={!parent1 ? 'active' : ''}>
+                                <li><Button textSize="10px" bg="#d91f16" text="Association ou syndicat professionnel" onClick={(e) => test("Association ou syndicat professionnel")} /></li>
+                                <li><Button textSize="10px" bg="#d91f16" text="Autre" onClick={(e) => test("Autre")} /></li>
+                                <li><Button textSize="10px" bg="#d91f16" text="Ecole / université / enseignement supérieur" onClick={(e) => test("Ecole / université / enseignement supérieur")} /></li>
+                                <li><Button textSize="10px" bg="#d91f16" text="Entreprise de droit privé ou fondation" onClick={(e) => test("Entreprise de droit privé ou fondation")} /></li>
+                                <li><Button textSize="10px" bg="#d91f16" text="Structure publique ou parapublique" onClick={(e) => test("Structure publique ou parapublique")} /></li>
 
                             </ul>
-                            <button>Types d'activites</button>
+
                             </li>
+                        <li className="filter-child"><Button textSize="12px"  bg="#d91f16" text="Types d'activites" /></li>
                     </ul>
-                
                 </li>
 
             <li id="filter-parent-2" className="filter-parent">
-                <button onClick={switchToggle}>Evenements</button>
-                <ul className={togglestate ? 'active' : ''}>
+                <button onClick={switchparent2}>Evenements</button>
+                <ul className={!parent2 ? 'active' : ''}>
                     <li className="filter-child"><button>Conférences</button></li>
                     <li className="filter-child"><button>Ateliers</button></li>
                     <li className="filter-child"><button>Portes ouvertes</button></li>
                 </ul>
             </li>
+            <li className="filter-child"><Button onClick={disableLayer} bg="black" text="Calque de données" /></li>
         </ul>
     </div>
     )
