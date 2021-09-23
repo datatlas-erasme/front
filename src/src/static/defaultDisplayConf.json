@@ -28,9 +28,9 @@
             "dataId": "3",
             "label": "Event",
             "color": [
-              72,
-              43,
-              189
+              255,
+              254,
+              230
             ],
             "highlightColor": [
               252,
@@ -351,10 +351,10 @@
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 45.764043,
-      "longitude": 4.835659,
+      "latitude": 45.74664148458008,
+      "longitude": 4.903465221244867,
       "pitch": 0,
-      "zoom": 12,
+      "zoom": 12.125103947903398,
       "isSplit": false
     },
     "mapStyle": {
