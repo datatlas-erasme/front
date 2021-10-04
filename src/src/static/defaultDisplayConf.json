@@ -2,7 +2,24 @@
   "version": "v1",
   "config": {
     "visState": {
-      "filters": [],
+      "filters": [
+        {
+          "dataId": [
+            "2"
+          ],
+          "id": "1d7t4hw6r",
+          "name": [
+            "type_structure"
+          ],
+          "type": "multiSelect",
+          "value": [],
+          "enlarged": false,
+          "plotType": "histogram",
+          "animationWindow": "free",
+          "yAxis": null,
+          "speed": 1
+        }
+      ],
       "layers": [
         {
           "id": "o54ssb",
@@ -11,9 +28,9 @@
             "dataId": "3",
             "label": "Event",
             "color": [
-              72,
-              43,
-              189
+              255,
+              254,
+              230
             ],
             "highlightColor": [
               252,
@@ -24,7 +41,8 @@
             "columns": {
               "lat": "latitude",
               "lng": "longitude",
-              "icon": "icon"
+              "icon": "icon",
+              "altitude": null
             },
             "isVisible": true,
             "visConfig": {
@@ -95,7 +113,8 @@
             "columns": {
               "lat": "latitude",
               "lng": "longitude",
-              "icon": "icon"
+              "icon": "icon",
+              "altitude": null
             },
             "isVisible": true,
             "visConfig": {
@@ -170,7 +189,7 @@
             },
             "isVisible": true,
             "visConfig": {
-              "radius": 28.3,
+              "radius": 18.4,
               "fixedRadius": false,
               "opacity": 0.8,
               "outline": false,
@@ -332,16 +351,24 @@
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 45.757731643195804,
-      "longitude": 4.85018229094957,
+      "latitude": 45.704776950438884,
+      "longitude": 4.879242745710109,
       "pitch": 0,
-      "zoom": 12.609370779874702,
+      "zoom": 10.626021638751551,
       "isSplit": false
     },
     "mapStyle": {
-      "styleType": "satellite",
+      "styleType": "dark",
       "topLayerGroups": {},
-      "visibleLayerGroups": {},
+      "visibleLayerGroups": {
+        "label": true,
+        "road": true,
+        "border": false,
+        "building": true,
+        "water": true,
+        "land": true,
+        "3d building": false
+      },
       "threeDBuildingColor": [
         3.7245996603793508,
         6.518049405663864,
