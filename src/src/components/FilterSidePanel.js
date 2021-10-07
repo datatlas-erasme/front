@@ -6,15 +6,16 @@ import {setFilter, removeLayer} from "kepler.gl/actions";
 import Button from './filter-side-panel/Button'
 import styled from 'styled-components';
 
+const buttonColorRange = ["#D9B8D7", "#7451A6" , "#D0E2F2", "#F2EA7E", "#F2EA7E", "#BF8A8A"]
+
 
 
 const FilterSidePanel = () => {
 
-    
+    const buttonColor = buttonColorRange[Math.floor(Math.random() * 5 )]
+
     const switchparent1 = () => {setParent1(!parent1)}
     const switchparent2 = () => {setParent2(!parent2)}
-
-
 
     const dispatch = useDispatch()
     const [filtersarray, setFiltersarray] = useState([])
@@ -23,6 +24,8 @@ const FilterSidePanel = () => {
 
     const [parent1, setParent1] = useState("false") 
     const [parent2, setParent2] = useState("false") 
+
+  
 
 
     //const [filtercat, setFiltercat] = useState("hi");
@@ -69,7 +72,7 @@ const FilterSidePanel = () => {
         <div className='filters'>
         <ul>
             <li id="filter-parent-1" className="filter-parent">
-                <button onClick={switchparent1}>Structures Mediation</button>
+                <Button borderColor="green" icon="X" bg={buttonColor}text="Structures Mediation" onClick={switchparent1}/>
                     <ul className={!parent1 ? 'active' : ''}>
                         <li className="filter-child"><Button textSize="12px"  bg="#d91f16" text="Types de structures" /></li>
                         <li className="filter-child"><Button textSize="12px"  bg="#d91f16" text="Publics concernes" /></li>
@@ -89,26 +92,20 @@ const FilterSidePanel = () => {
                 </li>
 
             <li id="filter-parent-2" className="filter-parent">
-                <button onClick={switchparent2}>Evenements</button>
+                <Button bg={buttonColor} onClick={switchparent2} text="Evenements"/>
                 <ul className={!parent2 ? 'active' : ''}>
                     <li className="filter-child"><button>Conférences</button></li>
                     <li className="filter-child"><button>Ateliers</button></li>
                     <li className="filter-child"><button>Portes ouvertes</button></li>
                 </ul>
             </li>
-            <li className="filter-child"><Button onClick={disableLayer} bg="black" text="Calque de données" /></li>
+            <Button bg={buttonColor} onClick={disableLayer} bg="black" text="Calque de données" />
         </ul>
     </div>
     )
 
 }
 
-
-
-function Example() {
-  
-
-}
 
 const dispatchToProps = dispatch => ({dispatch});
 
