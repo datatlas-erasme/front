@@ -107,6 +107,7 @@ code {
   /*font-size: 10px;*/
   padding: 10px 10px 10px 10px;
   margin: 0 10px 10px 0;
+  border-radius: 5px;
 }
 
 .filters button:hover {
@@ -123,14 +124,33 @@ code {
 }
 
 
+
+.btn-parent {
+  width: max-content;
+  padding-left: 12px;
+  border-radius: 7px;
+  margin-bottom: 5px;
+}
+
+.btn-child {
+  width: max-content;
+  padding-left: 12px;
+  border-radius: 7px;
+  margin-bottom: 5px;
+}
+
+.btn-child button {
+  margin: 0;
+}
+
 button {
   /*font-size: 15px;*/
   color: white;
   padding: 15px 10px 15px 10px;
-  border-radius: 5px;
+  border-radius: 0px 5px 5px 0px;
   border: none;
-  margin: 0px 0px 5px 0px;
-  background-color: #d91f16;
+  margin: 0;
+  background-color: #24435f;
   transition: all ease-in-out 0.2s;
   cursor: pointer;
   font-weight: 400;
@@ -139,4 +159,5 @@ button {
 
 .button:hover {
   transition: all ease-in-out 0.2s;
+  background-color: #172a3b;
 }

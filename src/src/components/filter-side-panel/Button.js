@@ -9,20 +9,46 @@ import ScatterplotIconLayer from "kepler.gl"
       }),
 ]}*/
 
-const Button = ({text,bg,textSize, onClick, icon, borderColor}) => {
-    return  (
-    <button 
-    onClick={onClick}
-    style={{backgroundColor : bg , fontSize : textSize}} 
-    className="btn">
-    <span style={{backgroundColor : borderColor, }}>{icon}</span>
-    {text}
-    </button>
+const Button = ({text,bg,textSize, onClick, btnType}) => {
+    if (btnType === "parent") {
+        return  (
+            <div className="btn-parent" style={{backgroundColor : bg , fontSize : textSize}} >
+                <button 
+                onClick={onClick}
+                
+                className="btn">
+                {text}
+                </button>
+            </div>
+    
+        )
+    } 
+    else if (btnType === "child") {
+        return  (
+            <button 
+            onClick={onClick}
+            
+            className="btn">
+            <span>></span>
+            {text}
+            </button>
+        )
 
+    }
+    else if (btnType === "sub-child") {
 
-
-
-    )
+    }
+    else {
+        return  (
+            <button 
+            onClick={onClick}
+            
+            className="btn">
+            {text}
+            </button>
+        )
+    }
+  
 }
 
 Button.defaultProps = {
@@ -37,8 +63,7 @@ Button.propTypes = {
     fontSize: PropTypes.string,
     action: PropTypes.object,
     onClick: PropTypes.func,
-    icon: PropTypes.string,
-    borderColor: PropTypes.string
+    type: PropTypes.string
 }
 
 export default Button

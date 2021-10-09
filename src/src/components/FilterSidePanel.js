@@ -6,13 +6,12 @@ import {setFilter, removeLayer} from "kepler.gl/actions";
 import Button from './filter-side-panel/Button'
 import styled from 'styled-components';
 
-const buttonColorRange = ["#D9B8D7", "#7451A6" , "#D0E2F2", "#F2EA7E", "#F2EA7E", "#BF8A8A"]
+const buttonColorRange = ["#dc7e6d", "#69b59d" , "#c3c356", ]
 
 
 
 const FilterSidePanel = () => {
 
-    const buttonColor = buttonColorRange[Math.floor(Math.random() * 5 )]
 
     const switchparent1 = () => {setParent1(!parent1)}
     const switchparent2 = () => {setParent2(!parent2)}
@@ -72,9 +71,9 @@ const FilterSidePanel = () => {
         <div className='filters'>
         <ul>
             <li id="filter-parent-1" className="filter-parent">
-                <Button borderColor="green" icon="X" bg={buttonColor}text="Structures Mediation" onClick={switchparent1}/>
+                <Button btnType="parent" bg={buttonColorRange[0]}icon="X" text="Structures Mediation" onClick={switchparent1}/>
                     <ul className={!parent1 ? 'active' : ''}>
-                        <li className="filter-child"><Button textSize="12px"  bg="#d91f16" text="Types de structures" /></li>
+                        <li className="filter-child"><Button btnType="child" textSize="12px" text="Types de structures" /></li>
                         <li className="filter-child"><Button textSize="12px"  bg="#d91f16" text="Publics concernes" /></li>
                         <li className="filter-child">
                             <ul className={!parent1 ? 'active' : ''}>
@@ -87,19 +86,19 @@ const FilterSidePanel = () => {
                             </ul>
 
                             </li>
-                        <li className="filter-child"><Button textSize="12px"  bg="#d91f16" text="Types d'activites" /></li>
+                        <li className="filter-child"><Button btnType="child" textSize="12px"  bg="#d91f16" text="Types d'activites" /></li>
                     </ul>
                 </li>
 
             <li id="filter-parent-2" className="filter-parent">
-                <Button bg={buttonColor} onClick={switchparent2} text="Evenements"/>
+                <Button btnType="parent" bg={buttonColorRange[1]}  onClick={switchparent2} text="Evenements"/>
                 <ul className={!parent2 ? 'active' : ''}>
                     <li className="filter-child"><button>Conférences</button></li>
                     <li className="filter-child"><button>Ateliers</button></li>
                     <li className="filter-child"><button>Portes ouvertes</button></li>
                 </ul>
             </li>
-            <Button bg={buttonColor} onClick={disableLayer} bg="black" text="Calque de données" />
+            <Button btnType="parent"  bg={buttonColorRange[2]} onClick={disableLayer}  text="Calque de données" />
         </ul>
     </div>
     )

@@ -28,9 +28,9 @@
             "dataId": "3",
             "label": "Event",
             "color": [
-              255,
-              254,
-              230
+              98,
+              206,
+              173
             ],
             "highlightColor": [
               252,
@@ -100,9 +100,9 @@
             "dataId": "2",
             "label": "Mediation",
             "color": [
-              255,
-              248,
-              213
+              245,
+              153,
+              153
             ],
             "highlightColor": [
               252,
@@ -172,9 +172,9 @@
             "dataId": "1",
             "label": "Annuaire",
             "color": [
-              218,
-              0,
-              0
+              255,
+              254,
+              230
             ],
             "highlightColor": [
               252,
@@ -351,10 +351,10 @@
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 45.704776950438884,
-      "longitude": 4.879242745710109,
+      "latitude": 45.758691841843074,
+      "longitude": 4.820627909639724,
       "pitch": 0,
-      "zoom": 10.626021638751551,
+      "zoom": 10.984362006512075,
       "isSplit": false
     },
     "mapStyle": {
