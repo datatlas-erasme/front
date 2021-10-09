@@ -71,22 +71,22 @@ const FilterSidePanel = () => {
         <div className='filters'>
         <ul>
             <li id="filter-parent-1" className="filter-parent">
-                <Button btnType="parent" bg={buttonColorRange[0]}icon="X" text="Structures Mediation" onClick={switchparent1}/>
+                <Button btnType="parent" bg={buttonColorRange[0]} text="Structures Mediation" onClick={switchparent1}/>
                     <ul className={!parent1 ? 'active' : ''}>
-                        <li className="filter-child"><Button btnType="child" textSize="12px" text="Types de structures" /></li>
-                        <li className="filter-child"><Button textSize="12px"  bg="#d91f16" text="Publics concernes" /></li>
-                        <li className="filter-child">
+                        <li className="filter-child"><Button btnType="child" bg={buttonColorRange[0]} textSize="12px" text="Types de structures" /></li>
+                        <li className="filter-child"><Button isActive="true" btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Publics concernes" /></li>
+                        <li className="filter-sub-child">
                             <ul className={!parent1 ? 'active' : ''}>
-                                <li><Button textSize="10px" bg="#d91f16" text="Association ou syndicat professionnel" onClick={(e) => test("Association ou syndicat professionnel")} /></li>
-                                <li><Button textSize="10px" bg="#d91f16" text="Autre" onClick={(e) => test("Autre")} /></li>
-                                <li><Button textSize="10px" bg="#d91f16" text="Ecole / université / enseignement supérieur" onClick={(e) => test("Ecole / université / enseignement supérieur")} /></li>
-                                <li><Button textSize="10px" bg="#d91f16" text="Entreprise de droit privé ou fondation" onClick={(e) => test("Entreprise de droit privé ou fondation")} /></li>
-                                <li><Button textSize="10px" bg="#d91f16" text="Structure publique ou parapublique" onClick={(e) => test("Structure publique ou parapublique")} /></li>
+                                <li><Button textSize="10px" bg={buttonColorRange[0]} text="Association ou syndicat professionnel" onClick={(e) => test("Association ou syndicat professionnel")} /></li>
+                                <li><Button textSize="10px" bg={buttonColorRange[0]} text="Autre" onClick={(e) => test("Autre")} /></li>
+                                <li><Button textSize="10px" bg={buttonColorRange[0]} text="Ecole / université / enseignement supérieur" onClick={(e) => test("Ecole / université / enseignement supérieur")} /></li>
+                                <li><Button textSize="10px" bg={buttonColorRange[0]} text="Entreprise de droit privé ou fondation" onClick={(e) => test("Entreprise de droit privé ou fondation")} /></li>
+                                <li><Button textSize="10px" bg={buttonColorRange[0]} text="Structure publique ou parapublique" onClick={(e) => test("Structure publique ou parapublique")} /></li>
 
                             </ul>
 
                             </li>
-                        <li className="filter-child"><Button btnType="child" textSize="12px"  bg="#d91f16" text="Types d'activites" /></li>
+                        <li className="filter-child"><Button btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Types d'activites" /></li>
                     </ul>
                 </li>
 

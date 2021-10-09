@@ -3,13 +3,17 @@ import PropTypes from 'prop-types'
 import ScatterplotIconLayer from "kepler.gl"
 
 
+import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+
 /*const SvgIcon = () => {[
     new ScatterplotIconLayer({
         id: "place",
       }),
 ]}*/
 
-const Button = ({text,bg,textSize, onClick, btnType}) => {
+const Button = ({text,bg,textSize, onClick, btnType, isActive}) => {
     if (btnType === "parent") {
         return  (
             <div className="btn-parent" style={{backgroundColor : bg , fontSize : textSize}} >
@@ -27,9 +31,9 @@ const Button = ({text,bg,textSize, onClick, btnType}) => {
         return  (
             <button 
             onClick={onClick}
-            
-            className="btn">
-            <span>></span>
+            style={{backgroundColor : bg , fontSize : textSize}}
+            className={isActive ? "btn active" : "btn"}>
+            <span><FontAwesomeIcon icon={faChevronRight} /> </span>
             {text}
             </button>
         )

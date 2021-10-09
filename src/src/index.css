@@ -83,17 +83,6 @@ code {
   overflow-y: hidden;
 }
 
-/*.filter-parent .filter-child {
-  display: flex;
-  justify-content: right;
-}
-
-.filter-parent .filter-child ul {
-  max-height: max-content;
-  overflow: auto;
-  display: flex;
-}*/
-
 
 .filters ul {
   padding: 0;
@@ -106,12 +95,21 @@ code {
 .filters .filter-child button {
   /*font-size: 10px;*/
   padding: 10px 10px 10px 10px;
-  margin: 0 10px 10px 0;
+  margin: 0 10px 5px 0;
   border-radius: 5px;
+  width: 100%;
+  text-align: left;
+}
+
+filters .filter-child button .active span {
+  transform: rotate(90deg);
+}
+.filters .filter-sub-child button{
+  padding: 8px 10px;
+  margin-bottom: 3px;
 }
 
 .filters button:hover {
-  background-color: #ff241a;
   transition: all ease-in-out 0.2s;
 }
 
@@ -126,10 +124,14 @@ code {
 
 
 .btn-parent {
-  width: max-content;
+  width: 100%;
   padding-left: 12px;
   border-radius: 7px;
   margin-bottom: 5px;
+}
+
+.btn-parent button {
+  width: 100%;
 }
 
 .btn-child {
