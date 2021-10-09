@@ -10,6 +10,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@tippyjs/react": "^4.2.5",
+    "gl-matrix": "^3.4.3",
     "history": "^4.10.1",
     "kepler.gl": "^2.0.1",
     "react": "^16.13.1",

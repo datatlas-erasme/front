@@ -6559,10 +6559,10 @@
   dependencies:
     "readable-stream" "~1.1.9"
 
-"gl-matrix@^3.0.0", "gl-matrix@^3.2.1":
-  "integrity" "sha512-n7fF4meQ6jbBSw91jGmP83I/wkQud5kIRSW/dr5z+9YJdQz61GWpgmRK9k7c4O/1QsXaIXu9o2vf/q2Gu3Ybow=="
-  "resolved" "https://registry.npmjs.org/gl-matrix/-/gl-matrix-3.4.0.tgz"
-  "version" "3.4.0"
+"gl-matrix@^3.0.0", "gl-matrix@^3.2.1", "gl-matrix@^3.4.3":
+  "integrity" "sha512-wcCp8vu8FT22BnvKVPjXa/ICBWRq/zjFfdofZy1WSpQZpphblv12/bOQLBC1rMM7SGOFS9ltVmKOHil5+Ml7gA=="
+  "resolved" "https://registry.npmjs.org/gl-matrix/-/gl-matrix-3.4.3.tgz"
+  "version" "3.4.3"
 
 "glob-parent@^3.1.0":
   "integrity" "sha1-nmr2KZ2NO9K9QEMIMr0RPfkGxa4="
