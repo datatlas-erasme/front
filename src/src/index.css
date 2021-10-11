@@ -31,12 +31,12 @@ code {
 }
 
 /*TODO FIX hide trough kepler injections*/
-.map-control, side-panel--container {
-  display: none;
+.map-control, .side-panel--container {
+  display: none !important;
 }
 
 
-/**/
+/********************** POI SIDE PANEL **************************/
 .PointSidePanel {
   position: absolute;
   top: 0;
@@ -52,6 +52,7 @@ code {
   }
 
 
+  /********************** FILTERS SIDE PANEL *********************/
 .FilterSidePanel {
   position: absolute;
   background: white;
@@ -101,12 +102,16 @@ code {
   text-align: left;
 }
 
-filters .filter-child button .active span {
-  transform: rotate(90deg);
+filters .filter-child button.active span {
+  transform: rotate(90deg) !important;
 }
 .filters .filter-sub-child button{
   padding: 8px 10px;
   margin-bottom: 3px;
+}
+
+.filters .filter-sub-child button.active{
+  opacity: 0.5;
 }
 
 .filters button:hover {
