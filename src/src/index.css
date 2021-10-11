@@ -114,6 +114,8 @@ filters .filter-child button.active span {
   opacity: 0.5;
 }
 
+
+
 .filters button:hover {
   transition: all ease-in-out 0.2s;
 }

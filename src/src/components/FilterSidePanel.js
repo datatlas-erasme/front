@@ -73,8 +73,8 @@ const FilterSidePanel = () => {
             <li id="filter-parent-1" className="filter-parent">
                 <Button btnType="parent" bg={buttonColorRange[0]} text="Structures Mediation" onClick={switchparent1}/>
                     <ul className={!parent1 ? 'active' : ''}>
-                        <li className="filter-child"><Button btnType="child" bg={buttonColorRange[0]} textSize="12px" text="Types de structures" /></li>
-                        <li className="filter-child"><Button isActive="true" btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Publics concernes" /></li>
+                    <li className="filter-child"><Button btnType="child" bg={buttonColorRange[0]} textSize="12px" text=" Publics concernes" /></li>
+                        <li className="filter-child"><Button isActive="true" btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Types de structures" /></li>
                         <li className="filter-sub-child">
                             <ul className={!parent1 ? 'active' : ''}>
                                 <li><Button textSize="10px" bg={buttonColorRange[0]} text="Association ou syndicat professionnel" onClick={(e) => test("Association ou syndicat professionnel")} /></li>
@@ -93,9 +93,8 @@ const FilterSidePanel = () => {
             <li id="filter-parent-2" className="filter-parent">
                 <Button btnType="parent" bg={buttonColorRange[1]}  onClick={switchparent2} text="Evenements"/>
                 <ul className={!parent2 ? 'active' : ''}>
-                    <li className="filter-child"><button>Conférences</button></li>
-                    <li className="filter-child"><button>Ateliers</button></li>
-                    <li className="filter-child"><button>Portes ouvertes</button></li>
+                    <li className="filter-child"><Button btnType="child" textSize="12px" bg={buttonColorRange[1]} text="Type" /></li>
+                    <li className="filter-child"><Button btnType="child" textSize="12px" bg={buttonColorRange[1]} text="Publics" /></li>
                 </ul>
             </li>
             <Button btnType="parent"  bg={buttonColorRange[2]} onClick={disableLayer}  text="Calque de données" />
