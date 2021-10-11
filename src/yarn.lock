@@ -8584,6 +8584,11 @@
     "prelude-ls" "~1.1.2"
     "type-check" "~0.3.2"
 
+"lighten-darken-color@^1.0.0":
+  "integrity" "sha512-rKToRUNvcIJGuT+Zd/ljNb83wwJPc4V4HNxYuqIdizQHt3avilV6H1rq2feaxruJBpAIbE1ZJ8wX7BKjTylIsA=="
+  "resolved" "https://registry.npmjs.org/lighten-darken-color/-/lighten-darken-color-1.0.0.tgz"
+  "version" "1.0.0"
+
 "lines-and-columns@^1.1.6":
   "integrity" "sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA="
   "resolved" "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.1.6.tgz"

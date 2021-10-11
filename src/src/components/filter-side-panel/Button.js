@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
+import { LightenDarkenColor } from 'lighten-darken-color'; 
 /*const SvgIcon = () => {[
     new ScatterplotIconLayer({
         id: "place",
@@ -40,7 +41,7 @@ const Button = ({text,bg,textSize, onClick, btnType}) => {
             <button 
             onClick={onClick}
             onClick={isActiveState}
-            style={{backgroundColor : bg , fontSize : textSize}}
+            style={{backgroundColor : LightenDarkenColor(bg, -10) , fontSize : textSize}}
             className={isActive ? "btn active" : "btn"}>
             <span><FontAwesomeIcon icon={isActive ? faChevronRight : faChevronDown} /> </span>
             {text}
@@ -56,6 +57,7 @@ const Button = ({text,bg,textSize, onClick, btnType}) => {
             <button 
             onClick={onClick}
             onClick={isActiveState}
+            style={{backgroundColor : LightenDarkenColor(bg, -30) , fontSize : textSize}}
             className={isActive ? "btn active" : "btn"}>
             {text}
             </button>
