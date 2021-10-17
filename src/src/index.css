@@ -31,7 +31,7 @@ code {
 }
 
 /*TODO FIX hide trough kepler injections*/
-.map-control, .side-panel--container {
+.map-control, side-panel--container {
   display: none !important;
 }
 
@@ -79,9 +79,10 @@ code {
 
 .filter-parent .active {
   max-height: 1000px;
-  overflow: auto;
+  /*overflow: auto;*/
   transition: all ease-in-out 0.2s;
   overflow-y: hidden;
+  border-radius: 3px;
 }
 
 
@@ -98,7 +99,6 @@ code {
   padding: 10px 10px 10px 10px;
   margin: 0 10px 5px 0;
   border-radius: 5px;
-  width: 100%;
   text-align: left;
 }
 
@@ -108,6 +108,7 @@ filters .filter-child button.active span {
 .filters .filter-sub-child button{
   padding: 8px 10px;
   margin-bottom: 3px;
+  margin-right: 0;
 }
 
 .filters .filter-sub-child button.active{
@@ -122,8 +123,8 @@ filters .filter-child button.active span {
 
 .crowdsourcing {
   position: absolute;
-  bottom: 0;
-  right: 20px;
+  bottom: 70px;
+  right: 30px;
   display: flex;
   flex-direction: column;
 }
@@ -131,15 +132,11 @@ filters .filter-child button.active span {
 
 
 .btn-parent {
-  width: 100%;
   padding-left: 12px;
-  border-radius: 7px;
+  border-radius: 5px;
   margin-bottom: 5px;
 }
 
-.btn-parent button {
-  width: 100%;
-}
 
 .btn-child {
   width: max-content;
@@ -163,6 +160,7 @@ button {
   transition: all ease-in-out 0.2s;
   cursor: pointer;
   font-weight: 400;
+  width: 100%;
 }
 
 
