@@ -1,212 +1,121 @@
-import React, {Component} from 'react';
-// Imports custom component styling
-import './index.css';
-
-
-// Imports Kepler.gl
-
-import {connect} from 'react-redux';
-import { addDataToMap , updateMap } from "kepler.gl/actions";
-import  {PanelHeaderFactory, MapPopoverFactory,injectComponents} from 'kepler.gl/components';
-
-////////////////////////// COMPONENT IMPORT /////////////////////////////////////////
-import Crowdsourcing from './components/Crowdsourcing';
-import Logo from './components/Logo'
-import FilterSidePanel from './components/FilterSidePanel'
-////////////////////////// HELPERS IMPORT /////////////////////////////////////////
-import helpers from "./helpers/main";
-
-
-////////////////////////// CONFIG FILES IMPORT ////////////////////////////////////
-import mapConfig from './static/defaultDisplayConf.json';
-import customTheme from './static/themeConf.json';
-import instanceConf from './static/instanceConf.json';
-
-////////////////////////// COMPONENT INJECTION ////////////////////////////////////
-// Imports ThemeProvider who helps to change the css styling of the components
-import {ThemeProvider} from 'styled-components';
-
-// Injects new items into the panel Header
-import {replacePanelHeader} from './factories/panel-header';
-
-import CustomMapPopoverFactory from './factories/map-popover';
-
-
-// Imports static datasets
-//import mediation from './static/datasets/notion_mediation.json';
-
-import useSwr from "swr";
-
+import React, {useEffect, useState} from "react";
 import keplerGlReducer from "kepler.gl/reducers";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { taskMiddleware } from "react-palm/tasks";
+import { Provider, useDispatch } from "react-redux";
+import KeplerGl from "kepler.gl";
+import { addDataToMap, updateMap } from "kepler.gl/actions";
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+import helpers from "./helpers/main";
+
+import mapConfig from './static/defaultDisplayConf.json';
 
 const reducers = combineReducers({
-    keplerGl: keplerGlReducer
-  });
-  
-  const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
+  keplerGl: keplerGlReducer
+});
+
+//const store = createStore(reducers, {}, composeWithDevTools(applyMiddleware(taskMiddleware)));
+
+const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
 
 
-//Injects new panelHeader Component
-// Inject custom components
-const KeplerGl = injectComponents([
-  [MapPopoverFactory, CustomMapPopoverFactory],
-  //[PanelHeaderFactory, replacePanelHeader]
+export default function App() {
+  return (
+    <Provider store={store}>
+      <Map />
+    </Provider>
+  );
+}
 
-]);
+function Map() {
 
-
-class App extends Component {
-    state = {
-      showBanner: false,
-      width: window.innerWidth,
-      height: window.innerHeight,
-      layer1: {}
-    };
-
+    const [mediationData, setMediationData] = useState([]);
+    const [tigaData, setTigaData] = useState([]);
+    const [otherData, setOtherData] = useState([]);
     
-  
-    componentDidMount() {   
-      // Defining page Title
-      document.title = "DatAtlas"
+    const [dataLoaded, setDataLoaded] = useState(false);
+    const [mapUpdated, setMapUpdated] = useState(false);
 
 
-      // Fetch Event Notion Data
-      fetch('https://back-datatlas.datagora.erasme.org/api/data/notion/notion_mediation/')
-      .then(res => res.json())
-      .then(
-        (data) => {
-        console.log(data)
-        //this.setState({data: data})
-        this.props.dispatch(
-          addDataToMap({
-            datasets: {
-              info: {
-                label: "Event",
-                id: "3"
-              },
-              data: data
-            },
 
-          }),
-        );
-      })
 
+
+    const dispatch = useDispatch();
+    useEffect(() => {
 
         // Fetch Event Notion Data
-        fetch('https://back-datatlas.datagora.erasme.org/api/data/notion/notion_tiga/')
+        fetch('https://back-datatlas.datagora.erasme.org/api/data/notion/notion_mediation/')
         .then(res => res.json())
         .then(
-          (data) => {
-          console.log(data)
-          //this.setState({data: data})
-          this.props.dispatch(
-            addDataToMap({
-              datasets: {
-                info: {
-                  label: "Event",
-                  id: "2"
-                },
-                data: data
-              },
-  
-            }),
-          );
+        (data) => {
+            setMediationData(data)
         })
 
+         // Fetch Tiga Notion Data
+         fetch('https://back-datatlas.datagora.erasme.org/api/data/notion/notion_tiga/')
+         .then(res => res.json())
+         .then(
+         (data) => {
+            setTigaData(data)
+         })
 
-      
-      // Fetch Mediation Notion Data
-      helpers.formatData(instanceConf.layers[2].url, instanceConf.layers[2].type).then((data) => {
-        this.setState({layer1: data})
-        //console.log(data)
-        this.props.dispatch(
-          addDataToMap({
-            datasets: {
-              info: {
-                label: instanceConf.layers[2].name,
-                id: "1"
-              },
-              data: data
-            },
-            config : mapConfig
-          }),
-        );
-      })
+        // Fetch Tiga Notion Data
+        helpers.formatData("https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=eco_ecologie.ecoannuproducteur_latest&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:4171&startIndex=0", "openDataLyon").then((data) => {
+            setOtherData(data)
+        })
 
+        setDataLoaded(true)
 
-      /*this.props.dispatch(
-        addDataToMap({
-          datasets: {
-            info: {
-              label: "Mediation",
-              id: "2"
-            },
-            data: mediation
-          },
-        }),
-      );*/
+    }, []);
 
+    useEffect(() => {
+        if (dataLoaded) {
+            dispatch(
+                addDataToMap({
+                  datasets: [
+                    {
+                      info: {
+                        label: 'Event',
+                        id: "3"
+                      },
+                      data: mediationData
+                    },
+                    {
+                        info: {
+                          label: 'Tiga',
+                          id: '2'
+                        },
+                        data: tigaData
+                    },
+                    {
+                        info: {
+                          label: 'Annuaire',
+                          id: '1'
+                        },
+                        data: otherData
+                    },
+                  ],
+                  option: {
+                    centerMap: false
+                  },
+                  config: mapConfig
+                })
+              );
+        }
+        dispatch(updateMap({"latitude": 45.764043,"longitude": 4.835659, "zoom" : 12}))
+        setMapUpdated(true);
 
+    }, [dispatch,mediationData, tigaData, otherData]);
 
-      /*helpers.formatData(instanceConf.layers.layer2.url, instanceConf.layers.layer2.type).then((data) => {
-        //this.setState({layer2: data})
-        //console.log(data)
-        this.props.dispatch(
-          addDataToMap({
-            datasets: {
-              info: {
-                label: instanceConf.layers.layer2.name,
-                id: "2"
-              },
-              data: data
-            },
-            config : mapConfig
-          }),
-        );
-      })*/
-
-
-
-    // TODO Clean remove the timeout function 
-    setTimeout(()=> {this.props.dispatch(updateMap({"latitude": 45.764043,"longitude": 4.835659, "zoom" : 12}))},3000)}
-  
-
-    render() {
-      return (
-        <ThemeProvider theme={customTheme}>
-            <div
-              style={{
-                transition: 'margin 1s, height 1s',
-                position: 'absolute',
-                width: '100%',
-                height: '100%',
-                left: 0,
-                top: 0
-              }}
-            >
-            <KeplerGl
-              mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API}
-              id="map"
-              /*
-                * Specify path to keplerGl state, because it is not mount at the root
-                */
-              //getState={keplerGlGetState}
-              width={window.innerWidth}
-              height={window.innerHeight}
-            />
-            <Logo/>
-            <FilterSidePanel/>
-            <Crowdsourcing/>
-            </div>
-        </ThemeProvider>
-        
-      );
-    }
-  }
-
-  const mapStateToProps = state => state;
-  const dispatchToProps = dispatch => ({dispatch});
-
-  export default connect(mapStateToProps,dispatchToProps)(App);
+    return (
+        mapUpdated ? (
+    <KeplerGl
+        id="map"
+        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API}
+        width={window.innerWidth}
+        height={window.innerHeight}
+    />
+        ) : ""
+    );
+}

@@ -5,6 +5,7 @@ import {Provider} from 'react-redux';
 import keplerGlReducer from "kepler.gl/reducers";
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { taskMiddleware } from "react-palm/tasks";
+import ReactDOM from 'react-dom';
 
 import { composeWithDevTools } from 'redux-devtools-extension'
 
@@ -24,18 +25,9 @@ import {
 import {AdminPage} from "./components/AdminPage";
 
 
-const reducers = combineReducers({
-    keplerGl: keplerGlReducer
-  });
-  
-  const store = createStore(reducers, {},  composeWithDevTools(applyMiddleware(taskMiddleware)));
- 
-  
 
-
-  window.React = React
+/*window.React = React
 render(
-    <Provider store={store}>
     <HashRouter>
         <Switch>
         <div className="main">
@@ -43,7 +35,13 @@ render(
             <Route path="/admin" component={AdminPage} />
         </div>
         </Switch>
-    </HashRouter>
-    </Provider>,
+    </HashRouter>,
     document.getElementById('root')
-)
+)*/
+
+ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
