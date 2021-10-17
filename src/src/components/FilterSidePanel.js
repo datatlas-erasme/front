@@ -11,7 +11,7 @@ const buttonColorRange = ["#dc7e6d", "#69b59d" , "#c3c356", ]
 
 
 const FilterSidePanel = () => {
-
+    //console.log(props.props.keplerGl.map)
 
     const switchparent1 = () => {setParent1(!parent1)}
     const switchparent2 = () => {setParent2(!parent2)}
@@ -73,28 +73,18 @@ const FilterSidePanel = () => {
             <li id="filter-parent-1" className="filter-parent">
                 <Button btnType="parent" bg={buttonColorRange[0]} text="Structures Mediation" onClick={switchparent1}/>
                     <ul className={!parent1 ? 'active' : ''}>
-                    <li className="filter-child"><Button btnType="child" bg={buttonColorRange[0]} textSize="12px" text=" Publics concernes" /></li>
-                        <li className="filter-child"><Button isActive="true" btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Types de structures" /></li>
-                        <li className="filter-sub-child">
-                            <ul className={!parent1 ? 'active' : ''}>
-                                <li><Button textSize="10px" bg={buttonColorRange[0]} text="Association ou syndicat professionnel" onClick={(e) => test("Association ou syndicat professionnel")} /></li>
-                                <li><Button textSize="10px" bg={buttonColorRange[0]} text="Autre" onClick={(e) => test("Autre")} /></li>
-                                <li><Button textSize="10px" bg={buttonColorRange[0]} text="Ecole / université / enseignement supérieur" onClick={(e) => test("Ecole / université / enseignement supérieur")} /></li>
-                                <li><Button textSize="10px" bg={buttonColorRange[0]} text="Entreprise de droit privé ou fondation" onClick={(e) => test("Entreprise de droit privé ou fondation")} /></li>
-                                <li><Button textSize="10px" bg={buttonColorRange[0]} text="Structure publique ou parapublique" onClick={(e) => test("Structure publique ou parapublique")} /></li>
+                    <li className="filter-child"><Button btnType="child" bg={buttonColorRange[0]} textSize="12px" text=" Publics cible" /></li>
+                        <li className="filter-child"><Button isActive="true" btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Types de structures"  listNames={["Association ou syndicat professionnel", "Autre", "Ecole / université / enseignement supérieur", "Entreprise de droit privé ou fondation", "Structure publique ou parapublique"]} text="Publics"/></li>
+                        <li className="filter-child"><Button btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Activites" /></li>
+                        <li className="filter-child"><Button btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Expertises" /></li>
 
-                            </ul>
-
-                            </li>
-                        <li className="filter-child"><Button btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Types d'activites" /></li>
                     </ul>
                 </li>
 
             <li id="filter-parent-2" className="filter-parent">
                 <Button btnType="parent" bg={buttonColorRange[1]}  onClick={switchparent2} text="Evenements"/>
                 <ul className={!parent2 ? 'active' : ''}>
-                    <li className="filter-child"><Button btnType="child" textSize="12px" bg={buttonColorRange[1]} text="Type" /></li>
-                    <li className="filter-child"><Button btnType="child" textSize="12px" bg={buttonColorRange[1]} text="Publics" /></li>
+                    <li className="filter-child"><Button btnType="child" textSize="12px" bg={buttonColorRange[1]} listNames={["hey1", "hey2"]} text="Publics" /></li>
                 </ul>
             </li>
             <Button btnType="parent"  bg={buttonColorRange[2]} onClick={disableLayer}  text="Calque de données" />

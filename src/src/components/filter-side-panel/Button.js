@@ -2,19 +2,27 @@ import React, {useState}  from 'react';
 import PropTypes from 'prop-types'
 import ScatterplotIconLayer from "kepler.gl"
 
+import List from './List'
 
 import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 import { LightenDarkenColor } from 'lighten-darken-color'; 
+
+
+
+
+
 /*const SvgIcon = () => {[
     new ScatterplotIconLayer({
         id: "place",
       }),
 ]}*/
 
-const Button = ({text,bg,textSize, onClick, btnType}) => {
+const Button = ({text,bg,textSize, onClick, btnType, listNames}) => {
+
+
 
     const [isActive, setIsActive] = useState("false") 
     const isActiveState = () => {setIsActive(!isActive)}
@@ -23,6 +31,9 @@ const Button = ({text,bg,textSize, onClick, btnType}) => {
 
     }
 
+
+
+    
 
     if (btnType === "parent") {
         return  (
@@ -38,14 +49,18 @@ const Button = ({text,bg,textSize, onClick, btnType}) => {
     } 
     else if (btnType === "child") {
         return  (
+            <div>
             <button 
             onClick={onClick}
             onClick={isActiveState}
             style={{backgroundColor : LightenDarkenColor(bg, -10) , fontSize : textSize}}
-            className={isActive ? "btn active" : "btn"}>
-            <span><FontAwesomeIcon icon={isActive ? faChevronRight : faChevronDown} /> </span>
+            className={!isActive ? "btn active" : "btn"}>
+            <span><FontAwesomeIcon icon={!isActive ? faChevronRight : faChevronDown} /> </span>
             {text}
             </button>
+            {isActive && <List bg ={LightenDarkenColor(bg, -10)} listNames = {listNames}/> }
+            </div>
+        
         )
 
     }
@@ -59,7 +74,7 @@ const Button = ({text,bg,textSize, onClick, btnType}) => {
             onClick={isActiveState}
             style={{backgroundColor : LightenDarkenColor(bg, -30) , fontSize : textSize}}
             className={isActive ? "btn active" : "btn"}>
-            {text}
+            {text.substring(0,30)}
             </button>
         )
     }
