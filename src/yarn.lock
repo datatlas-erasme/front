@@ -1908,6 +1908,14 @@
     "@babel/runtime" "^7.12.0"
     "gl-matrix" "^3.0.0"
 
+"@math.gl/core@3.5.6":
+  "integrity" "sha512-UGCKtJUBA9MBswclK6l8DuZqLcEnqlSfI57WzSDUB/Nki4tHfmdImJyhp8ky9W4cIahV1YLMhHRK1oRpLeC1sw=="
+  "resolved" "https://registry.npmjs.org/@math.gl/core/-/core-3.5.6.tgz"
+  "version" "3.5.6"
+  dependencies:
+    "@babel/runtime" "^7.12.0"
+    "gl-matrix" "~3.3.0"
+
 "@math.gl/culling@^3.2.1", "@math.gl/culling@^3.3.0":
   "integrity" "sha512-rFZHNJ/mQblNkpQW3TJlksHRk+qHAou99yD5PCOVufpV1J9ih+55isAbFpVRKQuqGCqMOJOPAxpD5vaT8hmmaA=="
   "resolved" "https://registry.npmjs.org/@math.gl/culling/-/culling-3.5.5.tgz"
@@ -6564,6 +6572,11 @@
   "resolved" "https://registry.npmjs.org/gl-matrix/-/gl-matrix-3.4.3.tgz"
   "version" "3.4.3"
 
+"gl-matrix@~3.3.0":
+  "integrity" "sha512-COb7LDz+SXaHtl/h4LeaFcNdJdAQSDeVqjiIihSXNrkWObZLhDI4hIkZC11Aeqp7bcE72clzB0BnDXr2SmslRA=="
+  "resolved" "https://registry.npmjs.org/gl-matrix/-/gl-matrix-3.3.0.tgz"
+  "version" "3.3.0"
+
 "glob-parent@^3.1.0":
   "integrity" "sha1-nmr2KZ2NO9K9QEMIMr0RPfkGxa4="
   "resolved" "https://registry.npmjs.org/glob-parent/-/glob-parent-3.1.0.tgz"
@@ -8919,12 +8932,12 @@
   "resolved" "https://registry.npmjs.org/material-colors/-/material-colors-1.2.6.tgz"
   "version" "1.2.6"
 
-"math.gl@^3.2.0", "math.gl@^3.2.1":
-  "integrity" "sha512-fM8hPCJiNogjbdNhVpgDaenonAlSXqIvInOib8jGtEfo+G8gxw9Fj0Bk/9JmDLjrrTO30BKx9wAnqWLs8kx3sQ=="
-  "resolved" "https://registry.npmjs.org/math.gl/-/math.gl-3.5.5.tgz"
-  "version" "3.5.5"
+"math.gl@^3.2.0", "math.gl@^3.2.1", "math.gl@^3.5.6":
+  "integrity" "sha512-+IzdFaQk46iYU85XObRNqnb5NUQon+rWDPnCoEIOKOKdykr2gJ15BcVjEs0ZvH4EDv5K/JVmLkWzY/6DCEx2Fw=="
+  "resolved" "https://registry.npmjs.org/math.gl/-/math.gl-3.5.6.tgz"
+  "version" "3.5.6"
   dependencies:
-    "@math.gl/core" "3.5.5"
+    "@math.gl/core" "3.5.6"
 
 "md5.js@^1.3.4":
   "integrity" "sha512-xitP+WxNPcTTOgnTJcrhM0xvdPepipPSf3I8EIpGKeFLjt3PlJLIDG3u8EX53ZIubkb+5U2+3rELYpEhHhzdkg=="
