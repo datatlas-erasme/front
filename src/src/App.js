@@ -13,7 +13,6 @@ import  {PanelHeaderFactory, MapPopoverFactory,injectComponents} from 'kepler.gl
 import Crowdsourcing from './components/Crowdsourcing';
 import Logo from './components/Logo'
 import FilterSidePanel from './components/FilterSidePanel'
-import PointSidePanel from './components/PointSidePanel'
 ////////////////////////// HELPERS IMPORT /////////////////////////////////////////
 import helpers from "./helpers/main";
 
@@ -37,6 +36,16 @@ import CustomMapPopoverFactory from './factories/map-popover';
 //import mediation from './static/datasets/notion_mediation.json';
 
 import useSwr from "swr";
+
+import keplerGlReducer from "kepler.gl/reducers";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { taskMiddleware } from "react-palm/tasks";
+
+const reducers = combineReducers({
+    keplerGl: keplerGlReducer
+  });
+  
+  const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
 
 
 //Injects new panelHeader Component
@@ -85,25 +94,43 @@ class App extends Component {
       })
 
 
+        // Fetch Event Notion Data
+        fetch('https://back-datatlas.datagora.erasme.org/api/data/notion/notion_tiga/')
+        .then(res => res.json())
+        .then(
+          (data) => {
+          console.log(data)
+          //this.setState({data: data})
+          this.props.dispatch(
+            addDataToMap({
+              datasets: {
+                info: {
+                  label: "Event",
+                  id: "2"
+                },
+                data: data
+              },
+  
+            }),
+          );
+        })
+
 
       
       // Fetch Mediation Notion Data
-      fetch('https://back-datatlas.datagora.erasme.org/api/data/notion/notion_tiga/')
-      .then(res => res.json())
-      .then(
-        (data) => {
-        console.log(data.rows)
-        //this.setState({data: data})
+      helpers.formatData(instanceConf.layers[2].url, instanceConf.layers[2].type).then((data) => {
+        this.setState({layer1: data})
+        //console.log(data)
         this.props.dispatch(
           addDataToMap({
             datasets: {
               info: {
-                label: "Mediation",
-                id: "2"
+                label: instanceConf.layers[2].name,
+                id: "1"
               },
               data: data
             },
-
+            config : mapConfig
           }),
         );
       })
@@ -118,27 +145,10 @@ class App extends Component {
             },
             data: mediation
           },
-
         }),
       );*/
 
 
-      helpers.formatData(instanceConf.layers.layer1.url, instanceConf.layers.layer1.type).then((data) => {
-        this.setState({layer1: data})
-        //console.log(data)
-        this.props.dispatch(
-          addDataToMap({
-            datasets: {
-              info: {
-                label: instanceConf.layers.layer1.name,
-                id: "1"
-              },
-              data: data
-            },
-            config : mapConfig
-          }),
-        );
-      })
 
       /*helpers.formatData(instanceConf.layers.layer2.url, instanceConf.layers.layer2.type).then((data) => {
         //this.setState({layer2: data})
