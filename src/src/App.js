@@ -1,23 +1,59 @@
 import React, {useEffect, useState} from "react";
 import keplerGlReducer from "kepler.gl/reducers";
-import { createStore, combineReducers, applyMiddleware } from "redux";
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { taskMiddleware } from "react-palm/tasks";
 import { Provider, useDispatch } from "react-redux";
-import KeplerGl from "kepler.gl";
 import { addDataToMap, updateMap } from "kepler.gl/actions";
 import { composeWithDevTools } from 'redux-devtools-extension';
+import {enhanceReduxMiddleware} from 'kepler.gl/middleware';
+import  {MapPopoverFactory,injectComponents} from 'kepler.gl/components';
+import CustomMapPopoverFactory from './factories/map-popover';
 
 import helpers from "./helpers/main";
-
 import mapConfig from './static/defaultDisplayConf.json';
 
-const reducers = combineReducers({
-  keplerGl: keplerGlReducer
+
+////////////////////////// COMPONENT IMPORT /////////////////////////////////////////
+import Crowdsourcing from './components/Crowdsourcing';
+import Logo from './components/Logo'
+import FilterSidePanel from './components/FilterSidePanel'
+
+const customizedKeplerGlReducer = keplerGlReducer.initialState({
+  uiState: {
+    // hide side panel when mounted
+    activeSidePanel: null,
+    // hide all modals when mounted
+    currentModal: null
+  }
 });
 
-//const store = createStore(reducers, {}, composeWithDevTools(applyMiddleware(taskMiddleware)));
+
+// Inject the point sidepanel component
+const KeplerGl = injectComponents([
+  [MapPopoverFactory, CustomMapPopoverFactory],
+]);
+
+
+
+
+const reducers = combineReducers({
+  keplerGl: customizedKeplerGlReducer
+});
+
+
+const middlewares = enhanceReduxMiddleware([]);
+const enhancers = [applyMiddleware(...middlewares)];
+
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+
+
+//const store = createStore(reducers, {},  composeEnhancers(...enhancers));
 
 const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
+//const store = createStore(reducers, {}, composeWithDevTools(applyMiddleware(taskMiddleware)));
+
 
 
 export default function App() {
@@ -110,12 +146,19 @@ function Map() {
 
     return (
         mapUpdated ? (
-    <KeplerGl
-        id="map"
-        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API}
-        width={window.innerWidth}
-        height={window.innerHeight}
-    />
+        <div>
+            <KeplerGl
+                id="map"
+                mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API}
+                width={window.innerWidth}
+                height={window.innerHeight}
+            />
+            <Logo/>
+            <FilterSidePanel/>
+            <Crowdsourcing/>
+        </div>
+    
         ) : ""
+
     );
 }
