@@ -9,7 +9,39 @@
           ],
           "id": "wk7s88qr",
           "name": [
-            "type_structure"
+            "activites"
+          ],
+          "type": "multiSelect",
+          "value": [],
+          "enlarged": false,
+          "plotType": "histogram",
+          "animationWindow": "free",
+          "yAxis": null,
+          "speed": 1
+        },
+        {
+          "dataId": [
+            "2"
+          ],
+          "id": "71alpuzlu",
+          "name": [
+            "expertise"
+          ],
+          "type": "multiSelect",
+          "value": [],
+          "enlarged": false,
+          "plotType": "histogram",
+          "animationWindow": "free",
+          "yAxis": null,
+          "speed": 1
+        },
+        {
+          "dataId": [
+            "2"
+          ],
+          "id": "dzf6dm82m",
+          "name": [
+            "public-cible"
           ],
           "type": "multiSelect",
           "value": [],
@@ -351,16 +383,24 @@
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 45.74664148458008,
-      "longitude": 4.903465221244867,
+      "latitude": 45.76021075541906,
+      "longitude": 4.8651847568341235,
       "pitch": 0,
-      "zoom": 12.125103947903398,
+      "zoom": 12,
       "isSplit": false
     },
     "mapStyle": {
-      "styleType": "satellite",
+      "styleType": "dark",
       "topLayerGroups": {},
-      "visibleLayerGroups": {},
+      "visibleLayerGroups": {
+        "label": true,
+        "road": true,
+        "border": false,
+        "building": true,
+        "water": true,
+        "land": true,
+        "3d building": false
+      },
       "threeDBuildingColor": [
         3.7245996603793508,
         6.518049405663864,
