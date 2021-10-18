@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {Provider, useDispatch, connect } from "react-redux";
+import {Provider, useDispatch, connect, useSelector } from "react-redux";
 
 import {setFilter, removeLayer} from "kepler.gl/actions";
 
@@ -11,7 +11,11 @@ const buttonColorRange = ["#dc7e6d", "#69b59d" , "#c3c356", ]
 
 
 const FilterSidePanel = () => {
-    //console.log(props.props.keplerGl.map)
+    
+    const filters = useSelector((state) => state.keplerGl.map)
+    //console.log("STATE")
+    //console.log(filters)
+
 
     const switchparent1 = () => {setParent1(!parent1)}
     const switchparent2 = () => {setParent2(!parent2)}
@@ -73,10 +77,38 @@ const FilterSidePanel = () => {
             <li id="filter-parent-1" className="filter-parent">
                 <Button btnType="parent" bg={buttonColorRange[0]} text="Structures Mediation" onClick={switchparent1}/>
                     <ul className={!parent1 ? 'active' : ''}>
-                    <li className="filter-child"><Button btnType="child" bg={buttonColorRange[0]} textSize="12px" text=" Publics cible" /></li>
-                        <li className="filter-child"><Button isActive="true" btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Types de structures"  listNames={["Association ou syndicat professionnel", "Autre", "Ecole / université / enseignement supérieur", "Entreprise de droit privé ou fondation", "Structure publique ou parapublique"]} text="Publics"/></li>
-                        <li className="filter-child"><Button btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Activites" /></li>
-                        <li className="filter-child"><Button btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Expertises" /></li>
+                    <li className="filter-child"><Button btnType="child" bg={buttonColorRange[0]} textSize="12px" text=" Publics cible" listNames={
+                [
+                    'Entreprises / professionnels',
+                    'Etudiants',
+                    'Grand public',
+                    'Porteurs de projet / start-ups',
+                    'Scolaires',
+                    'Universités / enseignement supérieur'
+                ]
+            }
+       /></li>
+                        <li className="filter-child"><Button isActive="true" btnType="child" textSize="12px"  bg={buttonColorRange[0]} listNames={["Association ou syndicat professionnel", "Autre", "Ecole / université / enseignement supérieur", "Entreprise de droit privé ou fondation", "Structure publique ou parapublique"]}  text="Types de structures" /></li>
+                        <li className="filter-child"><Button btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Activites" listNames={[
+                                'Accompagnement à l\'innovation',
+                                'Développement durable / économie circulaire',
+                                'Enseignement / formation',
+                                'Innovation ouverte',
+                                'Médiation (entreprise culture sciences...)',
+                                'Prototypage',
+                                'Tourisme industriel'
+                        ]}/></li>
+                        <li className="filter-child"><Button btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Expertises" listNames={
+                            [
+                                'Arts / culture',
+                                'Autre',
+                                'Education / formation',
+                                'Environnement',
+                                'Ingénierie',
+                                'Numérique / électronique',
+                                'Sciences humaines / usages / société'
+                            ]
+                            }/></li>
 
                     </ul>
                 </li>
