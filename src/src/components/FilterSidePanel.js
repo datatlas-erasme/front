@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import {Provider, useDispatch, connect, useSelector } from "react-redux";
 
-import {setFilter, removeLayer} from "kepler.gl/actions";
+import {setFilter, removeLayer, toggleModal} from "kepler.gl/actions";
 
 import Button from './filter-side-panel/Button'
 import styled from 'styled-components';
 
+
+import mapConfig from '../static/defaultDisplayConf.json';
 const buttonColorRange = ["#dc7e6d", "#69b59d" , "#c3c356", ]
 
 
 
 const FilterSidePanel = () => {
     
-    const filters = useSelector((state) => state.keplerGl.map)
-    //console.log("STATE")
-    //console.log(filters)
+    /*const {map} = useSelector((state) => state.keplerGl)
+    useEffect(() => {
+        console.log(map)
+    }, [map])*/
+
+    /*console.log("STATE")
+    console.log(filters)*/
+
 
 
     const switchparent1 = () => {setParent1(!parent1)}
@@ -23,10 +30,10 @@ const FilterSidePanel = () => {
     const dispatch = useDispatch()
     const [filtersarray, setFiltersarray] = useState([])
     //const [filtercat, setFiltercat] = useState();
-    const [togglestate, setTogglestate] = useState("true") 
+    const [togglestate, setTogglestate] = useState(true) 
 
-    const [parent1, setParent1] = useState("false") 
-    const [parent2, setParent2] = useState("false") 
+    const [parent1, setParent1] = useState(true) 
+    const [parent2, setParent2] = useState(true) 
 
   
 
@@ -50,7 +57,7 @@ const FilterSidePanel = () => {
 
     //}, )
 
-    const test = (filtercat) => {
+    /*const test = (filtercat) => {
         if (filtersarray.includes(filtercat)) {
             console.log("Already in array")
             setFiltersarray(filtersarray.filter((cat)=>{ return cat != filtercat }))
@@ -64,10 +71,20 @@ const FilterSidePanel = () => {
         }
         dispatch(setFilter(0,"value", filtersarray))
 
-    }
+    }*/
 
     const disableLayer = () => {
         dispatch(removeLayer(1))
+    }
+
+    const openAddData  = () => {
+        dispatch(toggleModal("addData"))
+    }
+
+    const hideLayer = () => {
+        console.log("hey")
+        mapConfig.config.visState.layers[3].config.isVisible = false
+        //console.log(mapConfig.config.visState.layers[0].config.isVisible)
     }
 
 
@@ -88,8 +105,8 @@ const FilterSidePanel = () => {
                 ]
             }
        /></li>
-                        <li className="filter-child"><Button isActive="true" btnType="child" textSize="12px"  bg={buttonColorRange[0]} listNames={["Association ou syndicat professionnel", "Autre", "Ecole / université / enseignement supérieur", "Entreprise de droit privé ou fondation", "Structure publique ou parapublique"]}  text="Types de structures" /></li>
-                        <li className="filter-child"><Button btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Activites" listNames={[
+                        <li className="filter-child"><Button isActive={true} btnType="child" textSize="12px"  bg={buttonColorRange[0]} filterId={0} listNames={["Association ou syndicat professionnel", "Autre", "Ecole / université / enseignement supérieur", "Entreprise de droit privé ou fondation", "Structure publique ou parapublique"]}  text="Types de structures" /></li>
+                        <li className="filter-child"><Button btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Activites" filterId={0} listNames={[
                                 'Accompagnement à l\'innovation',
                                 'Développement durable / économie circulaire',
                                 'Enseignement / formation',
@@ -119,7 +136,8 @@ const FilterSidePanel = () => {
                     <li className="filter-child"><Button btnType="child" textSize="12px" bg={buttonColorRange[1]} listNames={["hey1", "hey2"]} text="Publics" /></li>
                 </ul>
             </li>
-            <Button btnType="parent"  bg={buttonColorRange[2]} onClick={disableLayer}  text="Calque de données" />
+
+            <Button btnType="parent"  bg="blue" onClick={openAddData} text="Ajouter un calque" />
         </ul>
     </div>
     )

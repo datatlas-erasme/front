@@ -1,4 +1,4 @@
-import React, {useState, useEffect}  from 'react'
+import React, {useState, useEffect, useCallback}  from 'react'
 
 import PropTypes from 'prop-types'
 
@@ -8,31 +8,28 @@ import {Provider, useDispatch, connect } from "react-redux";
 
 import Button from './Button'
 
-export const List = (listNames, backgroundColor) => {
+export const List = (listNames, backgroundColor, filterId) => {
     //console.log(listNames)
 
     const dispatch = useDispatch()
 
-    const [filterValue, setFilterValue] = useState("Autre")
+    //const [filterValue, setFilterValue] = useState()
 
-    useEffect(() => {
+    /*useEffect(() => {
         console.log(filterValue)
-        dispatch(setFilter(0,"value", filterValue))
-    }, [filterValue])
+        dispatch(setFilter(0,"value", [filterValue]))
+    }, [filterValue])*/
 
-   /* const setFilter = (filtercat) => {
+    const setFilterValue = (item) => {
         console.log("GJFHF")
-        dispatch(setFilter(0,"value", filtercat))
-    }*/
-
-    const [isActive, setIsActive] = useState("false") 
-    const isActiveState = () => {setIsActive(!isActive)}
+        dispatch(setFilter(0,"value", [item]))
+    }
 
 
     const items = listNames.listNames.map((item) =>    <li onClick={() => setFilterValue(item)}><Button textSize="12px" bg={backgroundColor} text={item}/></li>  );
     return (
         <div>
-            <ul className={isActive ? "btn active" : "btn"}>
+            <ul className="btn active">
                 {items ? items : ""}
             </ul>
         </div>
@@ -42,7 +39,8 @@ export const List = (listNames, backgroundColor) => {
 
 List.defaultProps = {
 
-    listNames : ["1","2"]
+    listNames : ["1","2"],
+    filterId: 0
 
 }
 

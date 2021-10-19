@@ -20,11 +20,11 @@ import { LightenDarkenColor } from 'lighten-darken-color';
       }),
 ]}*/
 
-const Button = ({text,bg,textSize, onClick, btnType, listNames}) => {
+const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilters}) => {
 
 
 
-    const [isActive, setIsActive] = useState("false") 
+    const [isActive, setIsActive] = useState(false) 
     const isActiveState = () => {setIsActive(!isActive)}
 
     const lightColor = (bg) => {
@@ -55,10 +55,10 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames}) => {
             onClick={isActiveState}
             style={{backgroundColor : LightenDarkenColor(bg, -10) , fontSize : textSize}}
             className={!isActive ? "btn active" : "btn"}>
-            <span><FontAwesomeIcon icon={!isActive ? faChevronRight : faChevronDown} /> </span>
+            <span><FontAwesomeIcon icon={isActive ? faChevronRight : faChevronDown} /> </span>
             {text}
             </button>
-            {isActive && <List bg ={LightenDarkenColor(bg, -10)} listNames = {listNames}/> }
+            {!isActive && <List  listNames = {listNames} idFilters ={idFilters}/> }
             </div>
         
         )
