@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
-import keplerGlReducer from "kepler.gl/reducers";
+import keplerGlReducer, {visStateReducer} from "kepler.gl/reducers";
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { taskMiddleware } from "react-palm/tasks";
-import { Provider, useDispatch } from "react-redux";
-import { addDataToMap, updateMap } from "kepler.gl/actions";
+import { Provider, useDispatch, connect } from "react-redux";
+import { addDataToMap, updateMap, toggleModal, wrapTo, layerConfigChange } from "kepler.gl/actions";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import {enhanceReduxMiddleware} from 'kepler.gl/middleware';
 import  {MapPopoverFactory,injectComponents} from 'kepler.gl/components';
@@ -18,6 +18,14 @@ import Crowdsourcing from './components/Crowdsourcing';
 import Logo from './components/Logo'
 import FilterSidePanel from './components/FilterSidePanel'
 
+
+// Inject the point sidepanel component
+const KeplerGl = injectComponents([
+  [MapPopoverFactory, CustomMapPopoverFactory],
+]);
+
+
+
 const customizedKeplerGlReducer = keplerGlReducer.initialState({
   uiState: {
     // hide side panel when mounted
@@ -28,10 +36,6 @@ const customizedKeplerGlReducer = keplerGlReducer.initialState({
 });
 
 
-// Inject the point sidepanel component
-const KeplerGl = injectComponents([
-  [MapPopoverFactory, CustomMapPopoverFactory],
-]);
 
 
 
@@ -52,11 +56,13 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 //const store = createStore(reducers, {},  composeEnhancers(...enhancers));
 
 const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
-//const store = createStore(reducers, {}, composeWithDevTools(applyMiddleware(taskMiddleware)));
-
+//const store = createStore(reducers, {}, composeWithDevTools())
+const mapStateToProps = state => state;
+const dispatchToProps = dispatch => ({dispatch});
 
 
 export default function App() {
+  connect(mapStateToProps,dispatchToProps)(App)
   return (
     <Provider store={store}>
       <Map />
@@ -140,9 +146,10 @@ function Map() {
               );
         }
         dispatch(updateMap({"latitude": 45.764043,"longitude": 4.835659, "zoom" : 12}))
+        //dispatch(wrapTo("1",layerConfigChange({isVisible: false})))
         setMapUpdated(true);
 
-    }, [dispatch,mediationData, tigaData, otherData]);
+    }, [dispatch,mediationData, tigaData, otherData, setMapUpdated]);
 
     return (
         mapUpdated ? (
@@ -162,3 +169,4 @@ function Map() {
 
     );
 }
+
