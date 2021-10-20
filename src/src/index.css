@@ -70,6 +70,7 @@ code {
   flex-direction: column;
   height: 70vh;
   overflow: auto;
+  width: 16%;
 }
 
 
@@ -132,12 +133,14 @@ filters .filter-child button.active span {
 .crowdsourcing {
   position: absolute;
   bottom: 70px;
-  right: 30px;
+  right: 35px;
   display: flex;
   flex-direction: column;
 }
 
-
+.crowdsourcing button {
+  margin: 5px;
+}
 
 .btn-parent {
   padding-left: 12px;
