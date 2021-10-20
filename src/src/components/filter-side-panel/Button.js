@@ -27,6 +27,7 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilters}) => {
     const [isActive, setIsActive] = useState(false) 
     const isActiveState = () => {setIsActive(!isActive)}
 
+
     const lightColor = (bg) => {
 
     }
@@ -55,10 +56,10 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilters}) => {
             onClick={isActiveState}
             style={{backgroundColor : LightenDarkenColor(bg, -10) , fontSize : textSize}}
             className={!isActive ? "btn active" : "btn"}>
-            <span><FontAwesomeIcon icon={isActive ? faChevronRight : faChevronDown} /> </span>
+            <span><FontAwesomeIcon icon={!isActive ? faChevronRight : faChevronDown} /> </span>
             {text}
             </button>
-            {!isActive && <List  listNames = {listNames} idFilters ={idFilters}/> }
+            {isActive && <List listNames = {listNames} testNumber = {idFilters} backgroundColor={bg} /> }
             </div>
         
         )
@@ -73,7 +74,7 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilters}) => {
             onClick={onClick}
             onClick={isActiveState}
             style={{backgroundColor : LightenDarkenColor(bg, -30) , fontSize : textSize}}
-            className={isActive ? "btn active" : "btn"}>
+            className={"btn"}>
             {text.substring(0,30)}
             </button>
         )
