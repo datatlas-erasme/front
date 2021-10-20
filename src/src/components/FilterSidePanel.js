@@ -96,6 +96,8 @@ const FilterSidePanel = () => {
                     <ul className={!parent1 ? 'active' : ''}>
                     <li className="filter-child"><Button btnType="child" bg={buttonColorRange[0]} textSize="12px" text=" Publics cible" listNames={
                 [
+                    '2',
+                    'Tous les éléments ',
                     'Entreprises / professionnels',
                     'Etudiants',
                     'Grand public',
@@ -105,8 +107,10 @@ const FilterSidePanel = () => {
                 ]
             }
        /></li>
-                        <li className="filter-child"><Button isActive={true} btnType="child" textSize="12px"  bg={buttonColorRange[0]} filterId={0} listNames={["Association ou syndicat professionnel", "Autre", "Ecole / université / enseignement supérieur", "Entreprise de droit privé ou fondation", "Structure publique ou parapublique"]}  text="Types de structures" /></li>
-                        <li className="filter-child"><Button btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Activites" filterId={0} listNames={[
+                        <li className="filter-child"><Button isActive={true} btnType="child" textSize="12px"  bg={buttonColorRange[0]} idFilters={0} listNames={["3",'Tous les éléments ',"Association ou syndicat professionnel", "Autre", "Ecole / université / enseignement supérieur", "Entreprise de droit privé ou fondation", "Structure publique ou parapublique"]}  text="Types de structures" /></li>
+                        <li className="filter-child"><Button btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Activites" idFilters={0} listNames={[
+                                "0",
+                                'Tous les éléments ',
                                 'Accompagnement à l\'innovation',
                                 'Développement durable / économie circulaire',
                                 'Enseignement / formation',
@@ -117,6 +121,8 @@ const FilterSidePanel = () => {
                         ]}/></li>
                         <li className="filter-child"><Button btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Expertises" listNames={
                             [
+                                '1',
+                                'Tous les éléments ',
                                 'Arts / culture',
                                 'Autre',
                                 'Education / formation',
@@ -133,10 +139,26 @@ const FilterSidePanel = () => {
             <li id="filter-parent-2" className="filter-parent">
                 <Button btnType="parent" bg={buttonColorRange[1]}  onClick={switchparent2} text="Evenements"/>
                 <ul className={!parent2 ? 'active' : ''}>
-                    <li className="filter-child"><Button btnType="child" textSize="12px" bg={buttonColorRange[1]} listNames={["hey1", "hey2"]} text="Publics" /></li>
+                    <li className="filter-child"><Button btnType="child" textSize="12px" bg={buttonColorRange[1]} idFilters={0} listNames={
+                        [
+                            '5',
+                            'Tous les éléments ',
+                            'Entreprises / professionnels',
+                            'Grand public / habitants / citoyens'
+                        ]
+                    } text="Publics" /></li>
+                    <li className="filter-child"><Button btnType="child" textSize="12px" bg={buttonColorRange[1]} idFilters={0} listNames={
+                        [
+                            '4',
+                            'Tous les éléments ',
+                            'L\'industrie',
+                            'La médiation industrielle'
+                        ]
+                    } text="Type d'évenement" /></li>
                 </ul>
             </li>
-
+            <Button btnType="parent"  bg={buttonColorRange[2]}  text="Agences Pôle Emploi" />
+        
             <Button btnType="parent"  bg="blue" onClick={openAddData} text="Ajouter un calque" />
         </ul>
     </div>
