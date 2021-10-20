@@ -31,7 +31,7 @@ code {
 }
 
 /*TODO FIX hide trough kepler injections*/
-.map-control, side-panel--container {
+.map-control, .side-panel--container {
   display: none !important;
 }
 
@@ -68,6 +68,8 @@ code {
   right: 30px;
   display: flex;
   flex-direction: column;
+  height: 70vh;
+  overflow: auto;
 }
 
 
@@ -105,6 +107,12 @@ code {
 filters .filter-child button.active span {
   transform: rotate(90deg) !important;
 }
+
+.filters .filter-child .enable {
+  opacity: 0.7;
+  transition: all ease-in-out 0.2s;
+}
+
 .filters .filter-sub-child button{
   padding: 8px 10px;
   margin-bottom: 3px;
