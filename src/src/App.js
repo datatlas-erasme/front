@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-
+import keplerGlReducer, {visStateReducer} from "kepler.gl/reducers";
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { taskMiddleware } from "react-palm/tasks";
 import { Provider, useDispatch, connect } from "react-redux";
@@ -10,7 +10,7 @@ import  {MapPopoverFactory,LayerHoverInfoFactory,injectComponents} from 'kepler.
 import CustomMapPopoverFactory from './factories/map-popover';
 import CustomLayerHoverInfo from './factories/CustomLayerHoverInfo';
 import { replaceLayerHoverInfo } from "./factories/layer-hover-info"
-import store from "./store"
+//import store from "./store"
 
 import helpers from "./helpers/main";
 import mapConfig from './static/defaultDisplayConf.json';
@@ -24,12 +24,41 @@ import FilterSidePanel from './components/FilterSidePanel'
 
 // Inject the point sidepanel component
 const KeplerGl = injectComponents([
-  //[MapPopoverFactory, CustomMapPopoverFactory],
-  //[CustomLayerHoverInfo, LayerHoverInfoFactory],
-  replaceLayerHoverInfo()
-
+  [MapPopoverFactory, CustomMapPopoverFactory],
 ]);
 
+
+
+const customizedKeplerGlReducer = keplerGlReducer.initialState({
+  uiState: {
+    // hide side panel when mounted
+    activeSidePanel: null,
+    // hide all modals when mounted
+    currentModal: null
+  }
+});
+
+
+
+
+
+
+const reducers = combineReducers({
+  keplerGl: customizedKeplerGlReducer
+});
+
+
+const middlewares = enhanceReduxMiddleware([]);
+const enhancers = [applyMiddleware(...middlewares)];
+
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+
+
+//const store = createStore(reducers, {},  composeEnhancers(...enhancers));
+
+const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
 
 
 //const store = createStore(reducers, {},  composeEnhancers(...enhancers));
@@ -57,9 +86,8 @@ function Map() {
 
     const dispatch = useDispatch();
     
-
     useEffect(() => {
-
+      
           // Fetch Event Notion Data
           fetch('https://back-datatlas.datagora.erasme.org/api/data/notion/notion_mediation/')
           .then(res => res.json())
@@ -82,43 +110,47 @@ function Map() {
           })
   
           setDataLoaded(true)
+    }, [])
 
-
-            dispatch(
-                addDataToMap({
-                  datasets: [
-                    {
-                      info: {
-                        label: 'Event',
-                        id: "3"
-                      },
-                      data: mediationData
-                    },
-                    {
-                        info: {
-                          label: 'Tiga',
-                          id: '2'
-                        },
-                        data: tigaData
-                    },
-                    {
-                        info: {
-                          label: 'Annuaire',
-                          id: '1'
-                        },
-                        data: otherData
-                    },
-                  ],
-                  option: {
-                    centerMap: false
+    useEffect(() => {
+      if (dataLoaded) {
+        dispatch(
+          addDataToMap({
+            datasets: [
+              {
+                info: {
+                  label: 'Event',
+                  id: "3"
+                },
+                data: mediationData
+              },
+              {
+                  info: {
+                    label: 'Tiga',
+                    id: '2'
                   },
-                  config: mapConfig
-                })
-              );
-        
-        dispatch(updateMap({"latitude": 45.764043,"longitude": 4.835659, "zoom" : 12}))
-        //dispatch(wrapTo("1",layerConfigChange({isVisible: false})))
-        setMapUpdated(true);
+                  data: tigaData
+              },
+              {
+                  info: {
+                    label: 'Annuaire',
+                    id: '1'
+                  },
+                  data: otherData
+              },
+            ],
+            option: {
+              centerMap: false
+            },
+            config: mapConfig
+          })
+        );
+  
+  dispatch(updateMap({"latitude": 45.764043,"longitude": 4.835659, "zoom" : 12}))
+  //dispatch(wrapTo("1",layerConfigChange({isVisible: false})))
+  setMapUpdated(true);
+      }
+
 
     }, [dispatch,mediationData, tigaData, otherData, setMapUpdated]);
 

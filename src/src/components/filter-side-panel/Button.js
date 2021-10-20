@@ -5,10 +5,10 @@ import ScatterplotIconLayer from "kepler.gl"
 import List from './List'
 
 import ReactDOM from 'react-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+//import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
-import { LightenDarkenColor } from 'lighten-darken-color'; 
+//import { LightenDarkenColor } from 'lighten-darken-color'; 
 
 
 
@@ -53,9 +53,9 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilters}) => {
             <button 
             onClick={onClick}
             onClick={isActiveState}
-            style={{backgroundColor : LightenDarkenColor(bg, -10) , fontSize : textSize}}
+            style={{  fontSize : textSize}}
             className={!isActive ? "btn active" : "btn"}>
-            <span><FontAwesomeIcon icon={isActive ? faChevronRight : faChevronDown} /> </span>
+            <span> </span>
             {text}
             </button>
             {!isActive && <List  listNames = {listNames} idFilters ={idFilters}/> }
@@ -72,7 +72,7 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilters}) => {
             <button 
             onClick={onClick}
             onClick={isActiveState}
-            style={{backgroundColor : LightenDarkenColor(bg, -30) , fontSize : textSize}}
+            style={{  fontSize : textSize}}
             className={isActive ? "btn active" : "btn"}>
             {text.substring(0,30)}
             </button>
