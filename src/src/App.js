@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import keplerGlReducer, {visStateReducer} from "kepler.gl/reducers";
+import keplerGlReducer from "kepler.gl/reducers";
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { taskMiddleware } from "react-palm/tasks";
 import { Provider, useDispatch, connect } from "react-redux";
