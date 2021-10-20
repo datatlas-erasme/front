@@ -53,11 +53,11 @@ const CustomMapPopoverFactory = (...deps) => {
 
         <div className="cat-container">
           <h2>Catégories</h2>
-            <p>Adresse : {props.layerHoverProp.data[6]}</p>
+            {props.layerHoverProp.data[6] && <p>Adresse : {props.layerHoverProp.data[6]}</p>}
             <p>Url : <a href={props.layerHoverProp.data[5]}>{props.layerHoverProp.data[5]}</a></p>
-            <p>Mail : {props.layerHoverProp.data[7]}</p>
-            <p>Tel : {props.layerHoverProp.data[8]}</p>
-            <p>Réseaux Sociaux : {props.layerHoverProp.data[9]}</p>
+            {props.layerHoverProp.data[7] && <p>Mail : {props.layerHoverProp.data[7]}</p>}
+            {props.layerHoverProp.data[8] && <p>Tel : {props.layerHoverProp.data[8]}</p>}
+            {props.layerHoverProp.data[9] && <p>Réseaux Sociaux : {props.layerHoverProp.data[9]}</p>}
 
 
         </div>
