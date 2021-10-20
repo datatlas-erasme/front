@@ -28,8 +28,13 @@ import {MapPopoverFactory} from 'kepler.gl/components';
 
 const CustomMapPopoverFactory = (...deps) => {
   const MapSidepanel = props => {
-    //console.log("#### HI")
-    console.log(props.layerHoverProp.layer.config.dataId)
+    //console.log('deps', deps)
+    //console.log('props', props)
+   /* console.log(props.layerHoverProp.layer.config.dataId)
+    console.log(props.layerHoverProp)*/
+
+    //console.log(props.layerHoverProp)
+
     /*if (props.layerHoverProp.data[15] == Object) {
 
     }*/
