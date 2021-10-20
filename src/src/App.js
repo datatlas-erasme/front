@@ -7,6 +7,7 @@ import { addDataToMap, updateMap, toggleModal, wrapTo, layerConfigChange } from 
 import { composeWithDevTools } from 'redux-devtools-extension';
 import {enhanceReduxMiddleware} from 'kepler.gl/middleware';
 import  {MapPopoverFactory,LayerHoverInfoFactory,injectComponents} from 'kepler.gl/components';
+import {processGeojson} from 'kepler.gl/processors';
 import CustomMapPopoverFactory from './factories/map-popover';
 import CustomLayerHoverInfo from './factories/CustomLayerHoverInfo';
 import { replaceLayerHoverInfo } from "./factories/layer-hover-info"
@@ -21,6 +22,8 @@ import Crowdsourcing from './components/Crowdsourcing';
 import Logo from './components/Logo'
 import FilterSidePanel from './components/FilterSidePanel'
 
+
+import insertionEmploi from './static/datasets/ins_insertion_emploi.commissionlocale.json'
 
 // Inject the point sidepanel component
 const KeplerGl = injectComponents([
@@ -56,14 +59,10 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 
 
-//const store = createStore(reducers, {},  composeEnhancers(...enhancers));
+
 
 const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
 
-
-//const store = createStore(reducers, {},  composeEnhancers(...enhancers));
-
-//const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
 //const store = createStore(reducers, {}, composeWithDevTools())
 const mapStateToProps = state => state;
 const dispatchToProps = dispatch => ({dispatch});
@@ -76,6 +75,8 @@ function Map() {
     const [mediationData, setMediationData] = useState([]);
     const [tigaData, setTigaData] = useState([]);
     const [otherData, setOtherData] = useState([]);
+    //const [insertionEmploi, setInsertionEmploi] = useState([]);
+
     
     const [dataLoaded, setDataLoaded] = useState(false);
     const [mapUpdated, setMapUpdated] = useState(false);
@@ -104,8 +105,8 @@ function Map() {
               setTigaData(data)
            })
   
-          // Fetch Tiga Notion Data
-          helpers.formatData("https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=eco_ecologie.ecoannuproducteur_latest&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:4171&startIndex=0", "openDataLyon").then((data) => {
+          // Fetch OpenDataLyon Data
+          helpers.formatData("https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=eco_economie.ecoagencepolemploi_latest&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:4171&startIndex=0", "openDataLyon").then((data) => {
               setOtherData(data)
           })
   
@@ -138,6 +139,13 @@ function Map() {
                   },
                   data: otherData
               },
+              {
+                info: {
+                  label: 'Insertion Emploi',
+                  id: '4'
+                },
+                data:  processGeojson(insertionEmploi)
+            },
             ],
             option: {
               centerMap: false

@@ -50,6 +50,54 @@
           "animationWindow": "free",
           "yAxis": null,
           "speed": 1
+        },
+        {
+          "dataId": [
+            "2"
+          ],
+          "id": "ndzm6xs9k",
+          "name": [
+            "type_structure"
+          ],
+          "type": "multiSelect",
+          "value": [],
+          "enlarged": false,
+          "plotType": "histogram",
+          "animationWindow": "free",
+          "yAxis": null,
+          "speed": 1
+        },
+        {
+          "dataId": [
+            "3"
+          ],
+          "id": "b8daj1h1",
+          "name": [
+            "type_event"
+          ],
+          "type": "multiSelect",
+          "value": [],
+          "enlarged": false,
+          "plotType": "histogram",
+          "animationWindow": "free",
+          "yAxis": null,
+          "speed": 1
+        },
+        {
+          "dataId": [
+            "3"
+          ],
+          "id": "x0p3jk7li",
+          "name": [
+            "publics"
+          ],
+          "type": "multiSelect",
+          "value": [],
+          "enlarged": false,
+          "plotType": "histogram",
+          "animationWindow": "free",
+          "yAxis": null,
+          "speed": 1
         }
       ],
       "layers": [
@@ -60,9 +108,9 @@
             "dataId": "3",
             "label": "Event",
             "color": [
-              255,
-              254,
-              230
+              98,
+              206,
+              173
             ],
             "highlightColor": [
               252,
@@ -132,9 +180,9 @@
             "dataId": "2",
             "label": "Mediation",
             "color": [
-              255,
-              248,
-              213
+              240,
+              109,
+              109
             ],
             "highlightColor": [
               252,
@@ -202,11 +250,11 @@
           "type": "point",
           "config": {
             "dataId": "1",
-            "label": "Annuaire pour les professionnels de solutions de réduction et gestion des déchets de la Métropole de Lyon ",
+            "label": "Agences Pôle Emploi de la Métropole de Lyon ",
             "color": [
-              218,
-              0,
-              0
+              219,
+              231,
+              101
             ],
             "highlightColor": [
               252,
@@ -286,6 +334,114 @@
             "sizeField": null,
             "sizeScale": "linear"
           }
+        },
+        {
+          "id": "awew9mw",
+          "type": "geojson",
+          "config": {
+            "dataId": "4",
+            "label": "Commissions locales d’Insertion de la Métropole de Lyon",
+            "color": [
+              34,
+              63,
+              154
+            ],
+            "highlightColor": [
+              252,
+              242,
+              26,
+              255
+            ],
+            "columns": {
+              "geojson": "_geojson"
+            },
+            "isVisible": true,
+            "visConfig": {
+              "opacity": 0.53,
+              "strokeOpacity": 0.8,
+              "thickness": 2.6,
+              "strokeColor": [
+                19,
+                37,
+                89
+              ],
+              "colorRange": {
+                "name": "Global Warming",
+                "type": "sequential",
+                "category": "Uber",
+                "colors": [
+                  "#5A1846",
+                  "#900C3F",
+                  "#C70039",
+                  "#E3611C",
+                  "#F1920E",
+                  "#FFC300"
+                ]
+              },
+              "strokeColorRange": {
+                "name": "Global Warming",
+                "type": "sequential",
+                "category": "Uber",
+                "colors": [
+                  "#5A1846",
+                  "#900C3F",
+                  "#C70039",
+                  "#E3611C",
+                  "#F1920E",
+                  "#FFC300"
+                ]
+              },
+              "radius": 10,
+              "sizeRange": [
+                0,
+                10
+              ],
+              "radiusRange": [
+                0,
+                50
+              ],
+              "heightRange": [
+                0,
+                500
+              ],
+              "elevationScale": 5,
+              "enableElevationZoomFactor": true,
+              "stroked": true,
+              "filled": false,
+              "enable3d": false,
+              "wireframe": false
+            },
+            "hidden": false,
+            "textLabel": [
+              {
+                "field": null,
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "size": 18,
+                "offset": [
+                  0,
+                  0
+                ],
+                "anchor": "start",
+                "alignment": "center"
+              }
+            ]
+          },
+          "visualChannels": {
+            "colorField": null,
+            "colorScale": "quantile",
+            "strokeColorField": null,
+            "strokeColorScale": "quantile",
+            "sizeField": null,
+            "sizeScale": "linear",
+            "heightField": null,
+            "heightScale": "linear",
+            "radiusField": null,
+            "radiusScale": "linear"
+          }
         }
       ],
       "interactionConfig": {
@@ -293,19 +449,7 @@
           "fieldsToShow": {
             "1": [
               {
-                "name": "identifiant",
-                "format": null
-              },
-              {
                 "name": "nom",
-                "format": null
-              },
-              {
-                "name": "code_siret",
-                "format": null
-              },
-              {
-                "name": "structure",
                 "format": null
               },
               {
@@ -356,6 +500,20 @@
                 "name": "description",
                 "format": null
               }
+            ],
+            "4": [
+              {
+                "name": "nom",
+                "format": null
+              },
+              {
+                "name": "communesdintervention",
+                "format": null
+              },
+              {
+                "name": "gid",
+                "format": null
+              }
             ]
           },
           "compareMode": false,
@@ -383,10 +541,10 @@
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 45.76021075541906,
-      "longitude": 4.8651847568341235,
+      "latitude": 45.77899069304391,
+      "longitude": 4.785287771270335,
       "pitch": 0,
-      "zoom": 12,
+      "zoom": 10.984362006512075,
       "isSplit": false
     },
     "mapStyle": {
