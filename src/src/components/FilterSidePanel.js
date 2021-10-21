@@ -159,7 +159,7 @@ const FilterSidePanel = () => {
             </li>
             <Button btnType="parent"  bg={buttonColorRange[2]}  text="Agences Pôle Emploi" />
         
-            <Button btnType="parent"  bg="blue" onClick={openAddData} text="Ajouter un calque" />
+            <Button btnType="parent"  bg="#5a8aa5" onClick={openAddData} text="Ajouter un calque" />
         </ul>
     </div>
     )

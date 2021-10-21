@@ -269,7 +269,7 @@
             },
             "isVisible": true,
             "visConfig": {
-              "radius": 28.3,
+              "radius": 19.1,
               "fixedRadius": false,
               "opacity": 0.8,
               "outline": false,
@@ -355,7 +355,7 @@
             "columns": {
               "geojson": "_geojson"
             },
-            "isVisible": true,
+            "isVisible": false,
             "visConfig": {
               "opacity": 0.53,
               "strokeOpacity": 0.8,
@@ -541,10 +541,10 @@
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 45.77899069304391,
-      "longitude": 4.785287771270335,
+      "latitude": 45.764043,
+      "longitude": 4.835659,
       "pitch": 0,
-      "zoom": 10.984362006512075,
+      "zoom": 12,
       "isSplit": false
     },
     "mapStyle": {
