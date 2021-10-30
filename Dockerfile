@@ -1,4 +1,4 @@
-FROM node:latest AS dev
+FROM node:lts AS dev
 COPY . /src
 WORKDIR /src/src
 RUN ls
