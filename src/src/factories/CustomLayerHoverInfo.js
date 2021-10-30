@@ -4,8 +4,7 @@ import { CenterFlexbox } from "kepler.gl/dist/components/common/styled-component
 import { Layers } from "kepler.gl/dist/components/common/icons";
 import PropTypes from "prop-types";
 import { parseFieldValue } from "kepler.gl/dist/utils/data-utils";
-//import BarChartViewer from "../BarChartViewer/BarChartViewer";
-
+import {LayerHoverInfoFactory} from 'kepler.gl/components';
 
 export const StyledLayerName = styled(CenterFlexbox)`
   color: ${(props) => props.theme.textColorHl};
@@ -70,7 +69,7 @@ const CellInfo = ({ data, layer }) => {
 
   return (
     <tbody>
-      <h1>HIIIIIII</h1>
+      <h1>HEEEEEEEE</h1>
       <Row
         name={"total points"}
         key="count"
@@ -95,13 +94,13 @@ const CellInfo = ({ data, layer }) => {
 };
 
 
-
 const CustomLayerHoverInfo = (props) => {
   const { data, layer } = props;
 
   if (!data || !layer) {
     return null;
   }
+  console.log(props)
 
   return (
     <div className="map-popover__layer-info">
@@ -130,4 +129,6 @@ CustomLayerHoverInfo.propTypes = {
   ]),
 };
 
+
+CustomLayerHoverInfo.deps = LayerHoverInfoFactory.deps;
 export default CustomLayerHoverInfo;

@@ -9,7 +9,87 @@
           ],
           "id": "wk7s88qr",
           "name": [
+            "activites"
+          ],
+          "type": "multiSelect",
+          "value": [],
+          "enlarged": false,
+          "plotType": "histogram",
+          "animationWindow": "free",
+          "yAxis": null,
+          "speed": 1
+        },
+        {
+          "dataId": [
+            "2"
+          ],
+          "id": "71alpuzlu",
+          "name": [
+            "expertise"
+          ],
+          "type": "multiSelect",
+          "value": [],
+          "enlarged": false,
+          "plotType": "histogram",
+          "animationWindow": "free",
+          "yAxis": null,
+          "speed": 1
+        },
+        {
+          "dataId": [
+            "2"
+          ],
+          "id": "dzf6dm82m",
+          "name": [
+            "public-cible"
+          ],
+          "type": "multiSelect",
+          "value": [],
+          "enlarged": false,
+          "plotType": "histogram",
+          "animationWindow": "free",
+          "yAxis": null,
+          "speed": 1
+        },
+        {
+          "dataId": [
+            "2"
+          ],
+          "id": "ndzm6xs9k",
+          "name": [
             "type_structure"
+          ],
+          "type": "multiSelect",
+          "value": [],
+          "enlarged": false,
+          "plotType": "histogram",
+          "animationWindow": "free",
+          "yAxis": null,
+          "speed": 1
+        },
+        {
+          "dataId": [
+            "3"
+          ],
+          "id": "b8daj1h1",
+          "name": [
+            "type_event"
+          ],
+          "type": "multiSelect",
+          "value": [],
+          "enlarged": false,
+          "plotType": "histogram",
+          "animationWindow": "free",
+          "yAxis": null,
+          "speed": 1
+        },
+        {
+          "dataId": [
+            "3"
+          ],
+          "id": "x0p3jk7li",
+          "name": [
+            "publics"
           ],
           "type": "multiSelect",
           "value": [],
@@ -22,15 +102,123 @@
       ],
       "layers": [
         {
+          "id": "awew9mw",
+          "type": "geojson",
+          "config": {
+            "dataId": "4",
+            "label": "Commissions locales d’Insertion de la Métropole de Lyon",
+            "color": [
+              34,
+              63,
+              154
+            ],
+            "highlightColor": [
+              252,
+              242,
+              26,
+              255
+            ],
+            "columns": {
+              "geojson": "_geojson"
+            },
+            "isVisible": false,
+            "visConfig": {
+              "opacity": 0.53,
+              "strokeOpacity": 0.8,
+              "thickness": 2.6,
+              "strokeColor": [
+                19,
+                37,
+                89
+              ],
+              "colorRange": {
+                "name": "Global Warming",
+                "type": "sequential",
+                "category": "Uber",
+                "colors": [
+                  "#5A1846",
+                  "#900C3F",
+                  "#C70039",
+                  "#E3611C",
+                  "#F1920E",
+                  "#FFC300"
+                ]
+              },
+              "strokeColorRange": {
+                "name": "Global Warming",
+                "type": "sequential",
+                "category": "Uber",
+                "colors": [
+                  "#5A1846",
+                  "#900C3F",
+                  "#C70039",
+                  "#E3611C",
+                  "#F1920E",
+                  "#FFC300"
+                ]
+              },
+              "radius": 10,
+              "sizeRange": [
+                0,
+                10
+              ],
+              "radiusRange": [
+                0,
+                50
+              ],
+              "heightRange": [
+                0,
+                500
+              ],
+              "elevationScale": 5,
+              "enableElevationZoomFactor": true,
+              "stroked": true,
+              "filled": false,
+              "enable3d": false,
+              "wireframe": false
+            },
+            "hidden": false,
+            "textLabel": [
+              {
+                "field": null,
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "size": 18,
+                "offset": [
+                  0,
+                  0
+                ],
+                "anchor": "start",
+                "alignment": "center"
+              }
+            ]
+          },
+          "visualChannels": {
+            "colorField": null,
+            "colorScale": "quantile",
+            "strokeColorField": null,
+            "strokeColorScale": "quantile",
+            "sizeField": null,
+            "sizeScale": "linear",
+            "heightField": null,
+            "heightScale": "linear",
+            "radiusField": null,
+            "radiusScale": "linear"
+          }
+        },
+        {
           "id": "o54ssb",
           "type": "icon",
           "config": {
             "dataId": "3",
             "label": "Event",
             "color": [
-              255,
-              254,
-              230
+              98,
+              206,
+              173
             ],
             "highlightColor": [
               252,
@@ -100,9 +288,9 @@
             "dataId": "2",
             "label": "Mediation",
             "color": [
-              255,
-              248,
-              213
+              240,
+              109,
+              109
             ],
             "highlightColor": [
               252,
@@ -166,15 +354,15 @@
           }
         },
         {
-          "id": "fdnfxkl",
-          "type": "point",
+          "id": "6odf9pk",
+          "type": "geojson",
           "config": {
             "dataId": "1",
-            "label": "Annuaire pour les professionnels de solutions de réduction et gestion des déchets de la Métropole de Lyon ",
+            "label": "Agence Pole Emploi",
             "color": [
-              218,
-              0,
-              0
+              119,
+              110,
+              87
             ],
             "highlightColor": [
               252,
@@ -183,16 +371,12 @@
               255
             ],
             "columns": {
-              "lat": "latitude",
-              "lng": "longitude",
-              "altitude": null
+              "geojson": "_geojson"
             },
             "isVisible": true,
             "visConfig": {
-              "radius": 28.3,
-              "fixedRadius": false,
               "opacity": 0.8,
-              "outline": false,
+              "strokeOpacity": 0.8,
               "thickness": 2,
               "strokeColor": null,
               "colorRange": {
@@ -221,11 +405,25 @@
                   "#FFC300"
                 ]
               },
+              "radius": 10,
+              "sizeRange": [
+                0,
+                10
+              ],
               "radiusRange": [
                 0,
                 50
               ],
-              "filled": true
+              "heightRange": [
+                0,
+                500
+              ],
+              "elevationScale": 5,
+              "enableElevationZoomFactor": true,
+              "stroked": true,
+              "filled": true,
+              "enable3d": false,
+              "wireframe": false
             },
             "hidden": false,
             "textLabel": [
@@ -252,7 +450,11 @@
             "strokeColorField": null,
             "strokeColorScale": "quantile",
             "sizeField": null,
-            "sizeScale": "linear"
+            "sizeScale": "linear",
+            "heightField": null,
+            "heightScale": "linear",
+            "radiusField": null,
+            "radiusScale": "linear"
           }
         }
       ],
@@ -261,19 +463,7 @@
           "fieldsToShow": {
             "1": [
               {
-                "name": "identifiant",
-                "format": null
-              },
-              {
                 "name": "nom",
-                "format": null
-              },
-              {
-                "name": "code_siret",
-                "format": null
-              },
-              {
-                "name": "structure",
                 "format": null
               },
               {
@@ -324,6 +514,20 @@
                 "name": "description",
                 "format": null
               }
+            ],
+            "4": [
+              {
+                "name": "nom",
+                "format": null
+              },
+              {
+                "name": "communesdintervention",
+                "format": null
+              },
+              {
+                "name": "gid",
+                "format": null
+              }
             ]
           },
           "compareMode": false,
@@ -351,16 +555,24 @@
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 45.74664148458008,
-      "longitude": 4.903465221244867,
+      "latitude": 45.764043,
+      "longitude": 4.835659,
       "pitch": 0,
-      "zoom": 12.125103947903398,
+      "zoom": 12,
       "isSplit": false
     },
     "mapStyle": {
-      "styleType": "satellite",
+      "styleType": "dark",
       "topLayerGroups": {},
-      "visibleLayerGroups": {},
+      "visibleLayerGroups": {
+        "label": true,
+        "road": true,
+        "border": false,
+        "building": true,
+        "water": true,
+        "land": true,
+        "3d building": false
+      },
       "threeDBuildingColor": [
         3.7245996603793508,
         6.518049405663864,

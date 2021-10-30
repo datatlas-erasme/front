@@ -1,16 +1,27 @@
 {
-    "layers": {
-        "layer1" : {
-            "name" : "Annuaire pour les professionnels de solutions de réduction et gestion des déchets de la Métropole de Lyon ",
-            "type" : "openDataLyon",
-            "url" : "https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=eco_ecologie.ecoannuproducteur_latest&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:4171&startIndex=0"
+    "layers": 
+        [
+            {
+                "name" : "tiga",
+                "type" : "geoserver",
+                "url" : "https://back-datatlas.datagora.erasme.org/api/data/notion/notion_tiga/",
+                "id" : 0
+    
+            },
+            {
+                "name" : "mediation",
+                "type" : "geoserver",
+                "url" : "https://back-datatlas.datagora.erasme.org/api/data/notion/notion_mediation/",
+                "id" : 1
+    
+            },
+            {
+                "name" : "Annuaire pour les professionnels de solutions de réduction et gestion des déchets de la Métropole de Lyon ",
+                "type" : "openDataLyon",
+                "url" : "https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=eco_ecologie.ecoannuproducteur_latest&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:4171&startIndex=0",
+                "id" : 2
+            }
+        ]
 
-        },
-        "layer2" : {
-            "name" : "mediation",
-            "type" : "geoserver",
-            "url" : "http://geoserver.ud-reproducibility.datagora.erasme.org/geoserver/erasme/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=erasme%3Amediation&maxFeatures=50&outputFormat=application%2Fjson"
-
-        }
-    }
+    
   }

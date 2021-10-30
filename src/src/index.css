@@ -31,12 +31,12 @@ code {
 }
 
 /*TODO FIX hide trough kepler injections*/
-.map-control, side-panel--container {
-  display: none;
+.map-control, .side-panel--container {
+  display: none !important;
 }
 
 
-/**/
+/********************** POI SIDE PANEL **************************/
 .PointSidePanel {
   position: absolute;
   top: 0;
@@ -52,6 +52,7 @@ code {
   }
 
 
+  /********************** FILTERS SIDE PANEL *********************/
 .FilterSidePanel {
   position: absolute;
   background: white;
@@ -67,6 +68,9 @@ code {
   right: 30px;
   display: flex;
   flex-direction: column;
+  height: 70vh;
+  overflow: auto;
+  width: 11%;
 }
 
 
@@ -78,21 +82,11 @@ code {
 
 .filter-parent .active {
   max-height: 1000px;
-  overflow: auto;
+  /*overflow: auto;*/
   transition: all ease-in-out 0.2s;
   overflow-y: hidden;
+  border-radius: 3px;
 }
-
-/*.filter-parent .filter-child {
-  display: flex;
-  justify-content: right;
-}
-
-.filter-parent .filter-child ul {
-  max-height: max-content;
-  overflow: auto;
-  display: flex;
-}*/
 
 
 .filters ul {
@@ -106,37 +100,82 @@ code {
 .filters .filter-child button {
   /*font-size: 10px;*/
   padding: 10px 10px 10px 10px;
-  margin: 0 10px 10px 0;
+  margin: 0 10px 5px 0;
+  border-radius: 5px;
+  text-align: left;
 }
 
+filters .filter-child button.active span {
+  transform: rotate(90deg) !important;
+}
+
+.filters .filter-child .enable {
+  opacity: 0.7;
+  transition: all ease-in-out 0.2s;
+}
+
+.filters .filter-sub-child button{
+  padding: 8px 10px;
+  margin-bottom: 3px;
+  margin-right: 0;
+}
+
+.filters .filter-sub-child button.active{
+  opacity: 0.5;
+}
+
+
+
 .filters button:hover {
-  background-color: #ff241a;
   transition: all ease-in-out 0.2s;
 }
 
 .crowdsourcing {
   position: absolute;
-  bottom: 0;
-  right: 20px;
+  bottom: 70px;
+  right: 35px;
   display: flex;
   flex-direction: column;
 }
 
+.crowdsourcing button {
+  margin: 5px;
+}
+
+.btn-parent {
+  padding-left: 12px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+
+.btn-child {
+  width: max-content;
+  padding-left: 12px;
+  border-radius: 7px;
+  margin-bottom: 5px;
+}
+
+.btn-child button {
+  margin: 0;
+}
 
 button {
   /*font-size: 15px;*/
   color: white;
   padding: 15px 10px 15px 10px;
-  border-radius: 5px;
+  border-radius: 0px 5px 5px 0px;
   border: none;
-  margin: 0px 0px 5px 0px;
-  background-color: #d91f16;
+  margin: 0;
+  background-color: #24435f;
   transition: all ease-in-out 0.2s;
   cursor: pointer;
   font-weight: 400;
+  width: 100%;
 }
 
 
 .button:hover {
   transition: all ease-in-out 0.2s;
+  background-color: #172a3b;
 }

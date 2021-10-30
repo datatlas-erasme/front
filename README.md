@@ -1,69 +1,54 @@
-# Datagora Viz Tool
+# 🌍 DatAtlas Front Client
+React Front  using [kepler.gl]()
 
 
-[![build-publish-master-container](https://github.com/urbanlab/datagora_kepler/actions/workflows/push_docker_master.yml/badge.svg)](https://github.com/urbanlab/datagora_kepler/actions/workflows/push_docker_master.yml)
-
-[![build-publish-dev-container](https://github.com/urbanlab/datagora_kepler/actions/workflows/push_docker_dev.yml/badge.svg)](https://github.com/urbanlab/datagora_kepler/actions/workflows/push_docker_dev.yml)
-
-
-
-# TODO
-- [ ] On dockerfile if target dev do not compile for build
-- [ ] Remove the first src folder not usefull 
 
 # Setup
 
-## Production
-> docker run erasme/datatlas
-## Developpement
+##  Using docker
+The easiest way to launch datAtlas can be by using docker-compose
 
-### Docker
-The easiest way to launch the datagora project can be by using docker-compose
+1. Clone the repo 
+> https://github.com/datatlas-erasme/front.git
 
-copy the file **.env.example** and rename it **.env**
-In the **.env** file change the **REACT_APP_MAPBOX_API** value and add your own Mapbox API Token
-
-
+1. Copy **env.example** and rename it into **.env**
+2. Put your mapbox token in the **.env** file
+3. Launch DatAtlas
 > docker-compose up
 
 Now you can access the server trough http://localhost:5007
 
- 
+## Manually
 
- # Instance config
- [WIP]
- The default display can be configured trough two files
- 
- **themeConf.json**
- This file can modifify the primary colors for bg/panels/text sections
+**Requirements**
+- [nodejs](https://nodejs.org/en/)
+- [a mapbox api access token](https://docs.mapbox.com/help/glossary/access-token/)
 
- **defaultDisplay.conf**
- This file defines how and wich data layers are displayed and filtered by default
+1. Clone the repo 
+> https://github.com/datatlas-erasme/front.git
 
+2. Copy env.example and rename it into .env
+3. Put your mapbox token in the .env file
 
-**instanceConf.json**
-For now you can only define a defined number of dataset, this wont be the case in future updates
+[WIP TODO]
+- Change the backend var URl
 
-```json
+4. Install and start npm
+> npm install
+> npm start
 
-{
-    "layers": {
-        "layer1" : {
-            "name" : "velov",
-            "server" : "openDataLyon",
-            "url" : "https://download.data.grandlyon.com/wfs/ldata?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=velov.stations&outputFormat=application/json;%20subtype=geojson&SRSNAME=EPSG:4171&startIndex=0&count=100"
+[WIP TODO]
+- Go to /admin
+- add the data layers
+- change styling
+- change theme
+- Hit the save button
 
-        },
-        "layer2" : {
-            "name" : "mediation",
-            "server" : "geoserver",
-            "url" : "http://geoserver.ud-reproducibility.datagora.erasme.org/geoserver/erasme/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=erasme%3Amediation&maxFeatures=50&outputFormat=application%2Fjson"
-
-        }
-    }
-  }
+Voila :D
 
 
-```
-.
+## Production
+DatAtlas is not ready yet for production
+
+
 
