@@ -28,15 +28,15 @@ const FilterSidePanel = () => {
 
   
 
-
-    //const [filtercat, setFiltercat] = useState("hi");
-    //useEffect(() => {
+    //const [filtercat, setFiltercat] = useState();
+    const [filtercat, setFiltercat] = useState("hi");
+    useEffect(() => {
         
         //let finalArray = filtersarray.includes(filtercat) 
 
        
 
-        //dispatch(setFilter(0,"value", filters))
+        dispatch(setFilter(0,"value", [filtercat]))
         /*filters.map((item) => {
             dispatch(setFilter(0,"value", [item]))
         })*/
@@ -46,7 +46,7 @@ const FilterSidePanel = () => {
         //dispatch(setFilter(0,"value", filtersarray))
         //dispatch(setFilter(0,"value", ["{\"Accompagnement à l'innovation\"}","{\"Animation / événements / réseaux\"}"]))
 
-    //}, )
+    }, [filtercat])
 
     /*const test = (filtercat) => {
         if (filtersarray.includes(filtercat)) {
@@ -60,12 +60,14 @@ const FilterSidePanel = () => {
             setFiltersarray(prevArray => [...prevArray, filtercat])
             console.log(filtersarray)
         }
-        dispatch(setFilter(0,"value", filtersarray))
+        dispatch(setFilter(0,"value", filtercat))
 
     }*/
 
+    //console.log(mapConfig.config.visState.layers[0])
+
     const disableLayer = () => {
-        dispatch(removeLayer(1))
+        //dispatch(layerVisConfigChange(mapConfig.config.visState.layers[0], {isVisible:false}))
     }
 
     const openAddData  = () => {
