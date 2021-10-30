@@ -102,6 +102,114 @@
       ],
       "layers": [
         {
+          "id": "awew9mw",
+          "type": "geojson",
+          "config": {
+            "dataId": "4",
+            "label": "Commissions locales d’Insertion de la Métropole de Lyon",
+            "color": [
+              34,
+              63,
+              154
+            ],
+            "highlightColor": [
+              252,
+              242,
+              26,
+              255
+            ],
+            "columns": {
+              "geojson": "_geojson"
+            },
+            "isVisible": false,
+            "visConfig": {
+              "opacity": 0.53,
+              "strokeOpacity": 0.8,
+              "thickness": 2.6,
+              "strokeColor": [
+                19,
+                37,
+                89
+              ],
+              "colorRange": {
+                "name": "Global Warming",
+                "type": "sequential",
+                "category": "Uber",
+                "colors": [
+                  "#5A1846",
+                  "#900C3F",
+                  "#C70039",
+                  "#E3611C",
+                  "#F1920E",
+                  "#FFC300"
+                ]
+              },
+              "strokeColorRange": {
+                "name": "Global Warming",
+                "type": "sequential",
+                "category": "Uber",
+                "colors": [
+                  "#5A1846",
+                  "#900C3F",
+                  "#C70039",
+                  "#E3611C",
+                  "#F1920E",
+                  "#FFC300"
+                ]
+              },
+              "radius": 10,
+              "sizeRange": [
+                0,
+                10
+              ],
+              "radiusRange": [
+                0,
+                50
+              ],
+              "heightRange": [
+                0,
+                500
+              ],
+              "elevationScale": 5,
+              "enableElevationZoomFactor": true,
+              "stroked": true,
+              "filled": false,
+              "enable3d": false,
+              "wireframe": false
+            },
+            "hidden": false,
+            "textLabel": [
+              {
+                "field": null,
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "size": 18,
+                "offset": [
+                  0,
+                  0
+                ],
+                "anchor": "start",
+                "alignment": "center"
+              }
+            ]
+          },
+          "visualChannels": {
+            "colorField": null,
+            "colorScale": "quantile",
+            "strokeColorField": null,
+            "strokeColorScale": "quantile",
+            "sizeField": null,
+            "sizeScale": "linear",
+            "heightField": null,
+            "heightScale": "linear",
+            "radiusField": null,
+            "radiusScale": "linear"
+          }
+        },
+        {
           "id": "o54ssb",
           "type": "icon",
           "config": {
@@ -246,105 +354,15 @@
           }
         },
         {
-          "id": "fdnfxkl",
-          "type": "point",
-          "config": {
-            "dataId": "1",
-            "label": "Agences Pôle Emploi de la Métropole de Lyon ",
-            "color": [
-              219,
-              231,
-              101
-            ],
-            "highlightColor": [
-              252,
-              242,
-              26,
-              255
-            ],
-            "columns": {
-              "lat": "latitude",
-              "lng": "longitude",
-              "altitude": null
-            },
-            "isVisible": true,
-            "visConfig": {
-              "radius": 19.1,
-              "fixedRadius": false,
-              "opacity": 0.8,
-              "outline": false,
-              "thickness": 2,
-              "strokeColor": null,
-              "colorRange": {
-                "name": "Global Warming",
-                "type": "sequential",
-                "category": "Uber",
-                "colors": [
-                  "#5A1846",
-                  "#900C3F",
-                  "#C70039",
-                  "#E3611C",
-                  "#F1920E",
-                  "#FFC300"
-                ]
-              },
-              "strokeColorRange": {
-                "name": "Global Warming",
-                "type": "sequential",
-                "category": "Uber",
-                "colors": [
-                  "#5A1846",
-                  "#900C3F",
-                  "#C70039",
-                  "#E3611C",
-                  "#F1920E",
-                  "#FFC300"
-                ]
-              },
-              "radiusRange": [
-                0,
-                50
-              ],
-              "filled": true
-            },
-            "hidden": false,
-            "textLabel": [
-              {
-                "field": null,
-                "color": [
-                  255,
-                  255,
-                  255
-                ],
-                "size": 18,
-                "offset": [
-                  0,
-                  0
-                ],
-                "anchor": "start",
-                "alignment": "center"
-              }
-            ]
-          },
-          "visualChannels": {
-            "colorField": null,
-            "colorScale": "quantile",
-            "strokeColorField": null,
-            "strokeColorScale": "quantile",
-            "sizeField": null,
-            "sizeScale": "linear"
-          }
-        },
-        {
-          "id": "awew9mw",
+          "id": "6odf9pk",
           "type": "geojson",
           "config": {
-            "dataId": "4",
-            "label": "Commissions locales d’Insertion de la Métropole de Lyon",
+            "dataId": "1",
+            "label": "Agence Pole Emploi",
             "color": [
-              34,
-              63,
-              154
+              119,
+              110,
+              87
             ],
             "highlightColor": [
               252,
@@ -355,16 +373,12 @@
             "columns": {
               "geojson": "_geojson"
             },
-            "isVisible": false,
+            "isVisible": true,
             "visConfig": {
-              "opacity": 0.53,
+              "opacity": 0.8,
               "strokeOpacity": 0.8,
-              "thickness": 2.6,
-              "strokeColor": [
-                19,
-                37,
-                89
-              ],
+              "thickness": 2,
+              "strokeColor": null,
               "colorRange": {
                 "name": "Global Warming",
                 "type": "sequential",
@@ -407,7 +421,7 @@
               "elevationScale": 5,
               "enableElevationZoomFactor": true,
               "stroked": true,
-              "filled": false,
+              "filled": true,
               "enable3d": false,
               "wireframe": false
             },

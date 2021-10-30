@@ -12,30 +12,13 @@ import { LightenDarkenColor } from 'lighten-darken-color';
 
 
 
-
-
-/*const SvgIcon = () => {[
-    new ScatterplotIconLayer({
-        id: "place",
-      }),
-]}*/
-
 const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilters}) => {
 
-
-
+    // Toggle the visibility of buttons parent list
     const [isActive, setIsActive] = useState(false) 
     const isActiveState = () => {setIsActive(!isActive)}
 
-
-    const lightColor = (bg) => {
-
-    }
-
-
-
-    
-
+    // Big button style
     if (btnType === "parent") {
         return  (
             <div className="btn-parent" style={{backgroundColor : bg , fontSize : textSize}} >
@@ -48,6 +31,7 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilters}) => {
     
         )
     } 
+    // Medium button styling + lits display
     else if (btnType === "child") {
         return  (
             <div>
@@ -65,9 +49,6 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilters}) => {
         )
 
     }
-    else if (btnType === "sub-child") {
-
-    }
     else {
         return  (
             <button 
@@ -83,7 +64,6 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilters}) => {
 }
 
 Button.defaultProps = {
-
     bg : "#ff241a",
     fontSize : 20,
 }

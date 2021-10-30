@@ -14,15 +14,6 @@ const buttonColorRange = ["#dc7e6d", "#69b59d" , "#c3c356", ]
 
 const FilterSidePanel = () => {
     
-    /*const {map} = useSelector((state) => state.keplerGl)
-    useEffect(() => {
-        console.log(map)
-    }, [map])*/
-
-    /*console.log("STATE")
-    console.log(filters)*/
-
-
 
     const switchparent1 = () => {setParent1(!parent1)}
     const switchparent2 = () => {setParent2(!parent2)}
@@ -80,13 +71,6 @@ const FilterSidePanel = () => {
     const openAddData  = () => {
         dispatch(toggleModal("addData"))
     }
-
-    const hideLayer = () => {
-        console.log("hey")
-        mapConfig.config.visState.layers[3].config.isVisible = false
-        //console.log(mapConfig.config.visState.layers[0].config.isVisible)
-    }
-
 
     return (
         <div className='filters'>
@@ -165,7 +149,6 @@ const FilterSidePanel = () => {
     )
 
 }
-
 
 const dispatchToProps = dispatch => ({dispatch});
 

@@ -1,21 +1,22 @@
 import React, {useEffect, useState} from "react";
-import keplerGlReducer from "kepler.gl/reducers";
-import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { taskMiddleware } from "react-palm/tasks";
+
+////////////////////////// REDUX IMPORT /////////////////////////////////////////
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { Provider, useDispatch, connect } from "react-redux";
-import { addDataToMap, updateMap, toggleModal, wrapTo, layerConfigChange } from "kepler.gl/actions";
 import { composeWithDevTools } from 'redux-devtools-extension';
+
+////////////////////////// KEPLER.GL IMPORT /////////////////////////////////////////
+import keplerGlReducer from "kepler.gl/reducers";
+import { addDataToMap, updateMap, toggleModal, wrapTo, layerConfigChange } from "kepler.gl/actions";
+
 import {enhanceReduxMiddleware} from 'kepler.gl/middleware';
 import  {MapPopoverFactory,LayerHoverInfoFactory,injectComponents} from 'kepler.gl/components';
 import {processGeojson} from 'kepler.gl/processors';
-import CustomMapPopoverFactory from './factories/map-popover';
-import CustomLayerHoverInfo from './factories/CustomLayerHoverInfo';
-import { replaceLayerHoverInfo } from "./factories/layer-hover-info"
-//import store from "./store"
 
-import helpers from "./helpers/main";
+
 import mapConfig from './static/defaultDisplayConf.json';
-
+import CustomMapPopoverFactory from './factories/map-popover';
 
 ////////////////////////// COMPONENT IMPORT /////////////////////////////////////////
 import Crowdsourcing from './components/Crowdsourcing';
@@ -42,14 +43,9 @@ const customizedKeplerGlReducer = keplerGlReducer.initialState({
 });
 
 
-
-
-
-
 const reducers = combineReducers({
   keplerGl: customizedKeplerGlReducer
 });
-
 
 const middlewares = enhanceReduxMiddleware([]);
 const enhancers = [applyMiddleware(...middlewares)];
@@ -58,16 +54,9 @@ const enhancers = [applyMiddleware(...middlewares)];
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 
-
-
-
 const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
 
 //const store = createStore(reducers, {}, composeWithDevTools())
-const mapStateToProps = state => state;
-const dispatchToProps = dispatch => ({dispatch});
-
-
 
 
 function Map() {
@@ -106,13 +95,19 @@ function Map() {
            })
   
           // Fetch OpenDataLyon Data
-          helpers.formatData("https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=eco_economie.ecoagencepolemploi_latest&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:4171&startIndex=0", "openDataLyon").then((data) => {
-              setOtherData(data)
+
+          fetch('https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=eco_economie.ecoagencepolemploi_latest&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:4171&startIndex=0')
+          .then(res => res.json())
+          .then(
+          (data) => {
+            setOtherData(data)
           })
-  
+
+
           setDataLoaded(true)
     }, [])
 
+    // Add Data Layers to map
     useEffect(() => {
       if (dataLoaded) {
         dispatch(
@@ -137,7 +132,7 @@ function Map() {
                     label: 'Annuaire',
                     id: '1'
                   },
-                  data: otherData
+                  data: processGeojson(otherData)
               },
               {
                 info: {
@@ -154,12 +149,9 @@ function Map() {
           })
         );
   
-  dispatch(updateMap({"latitude": 45.764043,"longitude": 4.835659, "zoom" : 12}))
-  //dispatch(wrapTo("1",layerConfigChange({isVisible: false})))
-  setMapUpdated(true);
+      dispatch(updateMap({"latitude": 45.764043,"longitude": 4.835659, "zoom" : 12}))
+      setMapUpdated(true);
       }
-
-
     }, [dispatch,mediationData, tigaData, otherData, setMapUpdated]);
 
     return (

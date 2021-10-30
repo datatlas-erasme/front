@@ -10,11 +10,9 @@ import Button from './Button'
 
 
 
-
-
 export const List = (listNames, backgroundColor, idFilters) => {
 
-
+    // If another button is clicked remove active class on precedent button and apply it to active button
     function Child({ item, onClick, selected }) {
         return (
           <li className={selected ? "enable" : ""} onClick={onClick} >
@@ -23,7 +21,6 @@ export const List = (listNames, backgroundColor, idFilters) => {
         );
       }
 
-    //console.log(listNames)
 
     const dispatch = useDispatch()
     const [isActive, setIsActive] = useState(false) 
@@ -42,8 +39,7 @@ export const List = (listNames, backgroundColor, idFilters) => {
 
     }
 
-    //console.log(idFilters)
-    //const items = listNames.listNames.map((item, index) =>    <li onClick={isActiveState} className={isActive ? "enable" : ""} onClick={() => setFilterValue(item, listNames.listNames[0])}><Button textSize="12px" bg={backgroundColor} text={item}/></li>  );
+    // TODO remove this dirty fix => pass the 
     const filteredListNames = listNames.listNames.filter(function(item){
       if(item == "0" || item == "1" || item == "2" || item == "3" || item == "4" || item == "5") {
         console.log("skipped")
@@ -55,7 +51,6 @@ export const List = (listNames, backgroundColor, idFilters) => {
     })
     return (
         <div>
-            
             {filteredListNames.map((item, index) => (
             <Child
                 item={item}
@@ -69,9 +64,7 @@ export const List = (listNames, backgroundColor, idFilters) => {
 
 
 List.defaultProps = {
-
     listNames : ["1","2"]
-
 }
 
 export default List
