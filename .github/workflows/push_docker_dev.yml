@@ -19,5 +19,5 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: erasme/datatlas-dev
           tags: latest
-          secrets: |
+          build-args: |
           REACT_APP_MAPBOX_TOKEN=${{ secrets.REACT_APP_MAPBOX_TOKEN }}
