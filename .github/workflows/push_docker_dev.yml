@@ -27,4 +27,4 @@ jobs:
           push: true
           tags: erasme/datatlas-dev:latest
           secrets: |
-            "REACT_APP_MAPBOX_TOKEN=${{ secrets.REACT_APP_MAPBOX_TOKEN }}""
+            "REACT_APP_MAPBOX_TOKEN=${{ secrets.REACT_APP_MAPBOX_TOKEN }}"
