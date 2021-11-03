@@ -1,0 +1,11 @@
+FROM node:lts as prod
+COPY . /src
+WORKDIR /src/src
+RUN ls
+RUN npm install
+#COPY ./docker-entrypoint.sh /
+#RUN chmod +x /docker-entrypoint.sh
+#ENTRYPOINT ["/docker-entrypoint.sh"]
+WORKDIR /src/src
+CMD [ "npm", "start" ]
+EXPOSE 3000
