@@ -26,4 +26,5 @@ jobs:
         with:
           push: true
           tags: erasme/datatlas-dev:latest
-          build-args: REACT_APP_MAPBOX_TOKEN=${{ secrets.REACT_APP_MAPBOX_TOKEN }}
+          build-args: |
+            REACT_APP_MAPBOX_TOKEN=${{ secrets.REACT_APP_MAPBOX_TOKEN }}
