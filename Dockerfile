@@ -1,11 +1,12 @@
 FROM node:lts as prod
+ARG REACT_APP_MAPBOX_TOKEN
 COPY . /src
 WORKDIR /src/src
 RUN ls
 RUN npm install
 
-RUN --mount=type=secret,id=REACT_APP_MAPBOX_TOKEN \
-    export REACT_APP_MAPBOX_TOKEN=$(cat /run/secrets/REACT_APP_MAPBOX_TOKEN)
+#RUN --mount=type=secret,id=REACT_APP_MAPBOX_TOKEN \
+#    export REACT_APP_MAPBOX_TOKEN=$(cat /run/secrets/REACT_APP_MAPBOX_TOKEN)
 
 COPY ./docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
