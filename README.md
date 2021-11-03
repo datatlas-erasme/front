@@ -50,5 +50,3 @@ Voila :D
 ## Production
 DatAtlas is not ready yet for production
 
-
--
