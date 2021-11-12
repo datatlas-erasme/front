@@ -13,7 +13,7 @@ const buttonColorRange = instanceConf.theme.filterSidePanel.buttonColorRange
 
 
 const FilterSidePanel = () => {
-    
+
     const dispatch = useDispatch()
 
     const layer = useSelector((state) => state.keplerGl.map?.visState?.layers?.[0]) 
@@ -60,36 +60,18 @@ const FilterSidePanel = () => {
             </ul>
         )
     })
+    
 
-    const dispatch = useDispatch()
+
+
+    
     const [filtersarray, setFiltersarray] = useState([])
     //const [filtercat, setFiltercat] = useState();
-    const [togglestate, setTogglestate] = useState(true) 
 
-    const [parent1, setParent1] = useState(true) 
-    const [parent2, setParent2] = useState(true) 
+
+
 
   
-
-    //const [filtercat, setFiltercat] = useState();
-    const [filtercat, setFiltercat] = useState("hi");
-    useEffect(() => {
-        
-        //let finalArray = filtersarray.includes(filtercat) 
-
-       
-
-        dispatch(setFilter(0,"value", [filtercat]))
-        /*filters.map((item) => {
-            dispatch(setFilter(0,"value", [item]))
-        })*/
-        
-        //console.log("Click" + filtercat)
-        //console.log(filtercat)
-        //dispatch(setFilter(0,"value", filtersarray))
-        //dispatch(setFilter(0,"value", ["{\"Accompagnement à l'innovation\"}","{\"Animation / événements / réseaux\"}"]))
-
-    }, [filtercat])
 
     /*const test = (filtercat) => {
         if (filtersarray.includes(filtercat)) {
@@ -107,11 +89,6 @@ const FilterSidePanel = () => {
 
     }*/
 
-    //console.log(mapConfig.config.visState.layers[0])
-
-    const disableLayer = () => {
-        //dispatch(layerVisConfigChange(mapConfig.config.visState.layers[0], {isVisible:false}))
-    }
 
     const openAddData  = () => {
         dispatch(toggleModal("addData"))
