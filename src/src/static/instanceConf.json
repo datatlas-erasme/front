@@ -1,4 +1,11 @@
 {
+    "theme":
+    {
+        "filterSidePanel":
+        {
+            "buttonColorRange": ["#dc7e6d", "#69b59d" , "#c3c356" ]
+        }
+    },
     "layers": 
         [
             {

@@ -1,22 +1,65 @@
-import React, { useState, useEffect } from 'react'
-import {Provider, useDispatch, connect, useSelector } from "react-redux";
+import React, { useState, useEffect, useMemo } from 'react'
+import {useDispatch, connect, useSelector } from "react-redux";
 
-import {setFilter, removeLayer, toggleModal} from "kepler.gl/actions";
+import {toggleModal, layerConfigChange} from "kepler.gl/actions";
 
 import Button from './filter-side-panel/Button'
-import styled from 'styled-components';
 
+//Todo use redux instead ?
+import instanceConf from '../static/instanceConf.json'
 
-import mapConfig from '../static/defaultDisplayConf.json';
-const buttonColorRange = ["#dc7e6d", "#69b59d" , "#c3c356", ]
+const buttonColorRange = instanceConf.theme.filterSidePanel.buttonColorRange
 
 
 
 const FilterSidePanel = () => {
     
+    const dispatch = useDispatch()
 
-    const switchparent1 = () => {setParent1(!parent1)}
-    const switchparent2 = () => {setParent2(!parent2)}
+    const layer = useSelector((state) => state.keplerGl.map?.visState?.layers?.[0]) 
+   
+    
+    // Get the filter values, id  and map them to buttons
+    const filtersDomain = useSelector((state) => state.keplerGl.map?.visState?.filters??[])
+    const layers = useSelector((state) => state.keplerGl.map?.visState?.layers??{})
+
+  
+
+    // use memo ne renvoie que la donnée - memoiser- une sorte de cache
+    const filterTree = useMemo(() => {
+        return Object.values(layers).map((value) => {
+            return {label: value.config.label, id: value.config.dataId}
+        })
+    }, [filtersDomain, layers])
+
+    //TODO Get layer color and use it for buttons bg color
+    const Filters = filterTree.map((value, index) => {
+        const datasetLabel = value.label
+        const datasetId = value.id
+        const datasetIndex = index
+
+        const ParentBtn = <Button btnType="parent" bg={buttonColorRange[datasetIndex]} text={datasetLabel} layerId={index}/>
+
+        const Domains = filtersDomain?.map((filter, index) => {
+            const filterName = filter?.name
+            const filterId = filter?.dataId
+            const filterDomain = filter?.domain
+            if (filterId == datasetId) {
+                return (      
+                        <li id="filter-parent-1" className="filter-parent">
+                            <Button key={index} bg={buttonColorRange[datasetIndex]} btnType="child" text={filterName[0]} listNames={filterDomain} idFilter={index}/>
+                        </li>
+                )
+            }
+        })
+
+        return (
+            <ul>
+                {ParentBtn}
+                {Domains}
+            </ul>
+        )
+    })
 
     const dispatch = useDispatch()
     const [filtersarray, setFiltersarray] = useState([])
@@ -76,75 +119,8 @@ const FilterSidePanel = () => {
 
     return (
         <div className='filters'>
+            {Filters}
         <ul>
-            <li id="filter-parent-1" className="filter-parent">
-                <Button btnType="parent" bg={buttonColorRange[0]} text="Structures Mediation" onClick={switchparent1}/>
-                    <ul className={!parent1 ? 'active' : ''}>
-                    <li className="filter-child"><Button btnType="child" bg={buttonColorRange[0]} textSize="12px" text=" Publics cible" listNames={
-                [
-                    '2',
-                    'Tous les éléments ',
-                    'Entreprises / professionnels',
-                    'Etudiants',
-                    'Grand public',
-                    'Porteurs de projet / start-ups',
-                    'Scolaires',
-                    'Universités / enseignement supérieur'
-                ]
-            }
-       /></li>
-                        <li className="filter-child"><Button isActive={true} btnType="child" textSize="12px"  bg={buttonColorRange[0]} idFilters={0} listNames={["3",'Tous les éléments ',"Association ou syndicat professionnel", "Autre", "Ecole / université / enseignement supérieur", "Entreprise de droit privé ou fondation", "Structure publique ou parapublique"]}  text="Types de structures" /></li>
-                        <li className="filter-child"><Button btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Activites" idFilters={0} listNames={[
-                                "0",
-                                'Tous les éléments ',
-                                'Accompagnement à l\'innovation',
-                                'Développement durable / économie circulaire',
-                                'Enseignement / formation',
-                                'Innovation ouverte',
-                                'Médiation (entreprise culture sciences...)',
-                                'Prototypage',
-                                'Tourisme industriel'
-                        ]}/></li>
-                        <li className="filter-child"><Button btnType="child" textSize="12px"  bg={buttonColorRange[0]} text="Expertises" listNames={
-                            [
-                                '1',
-                                'Tous les éléments ',
-                                'Arts / culture',
-                                'Autre',
-                                'Education / formation',
-                                'Environnement',
-                                'Ingénierie',
-                                'Numérique / électronique',
-                                'Sciences humaines / usages / société'
-                            ]
-                            }/></li>
-
-                    </ul>
-                </li>
-
-            <li id="filter-parent-2" className="filter-parent">
-                <Button btnType="parent" bg={buttonColorRange[1]}  onClick={switchparent2} text="Evenements"/>
-                <ul className={!parent2 ? 'active' : ''}>
-                    <li className="filter-child"><Button btnType="child" textSize="12px" bg={buttonColorRange[1]} idFilters={0} listNames={
-                        [
-                            '5',
-                            'Tous les éléments ',
-                            'Entreprises / professionnels',
-                            'Grand public / habitants / citoyens'
-                        ]
-                    } text="Publics" /></li>
-                    <li className="filter-child"><Button btnType="child" textSize="12px" bg={buttonColorRange[1]} idFilters={0} listNames={
-                        [
-                            '4',
-                            'Tous les éléments ',
-                            'L\'industrie',
-                            'La médiation industrielle'
-                        ]
-                    } text="Type d'évenement" /></li>
-                </ul>
-            </li>
-            <Button btnType="parent"  bg={buttonColorRange[2]}  text="Agences Pôle Emploi" />
-        
             <Button btnType="parent"  bg="#5a8aa5" onClick={openAddData} text="Ajouter un calque" />
         </ul>
     </div>
