@@ -16,6 +16,7 @@ import {processGeojson} from 'kepler.gl/processors';
 
 
 import mapConfig from './static/defaultDisplayConf.json';
+import instanceConf from './static/instanceConf.json'
 import CustomMapPopoverFactory from './factories/map-popover';
 
 ////////////////////////// COMPONENT IMPORT /////////////////////////////////////////
@@ -49,17 +50,37 @@ const reducers = combineReducers({
 
 const middlewares = enhanceReduxMiddleware([]);
 const enhancers = [applyMiddleware(...middlewares)];
+const initialState = {}
+
+let composeEnhancers = compose;
+
+/**
+ * comment out code below to enable Redux Devtools
+ */
+
+if (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
+  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+    actionsBlacklist: [
+      '@@kepler.gl/MOUSE_MOVE',
+      '@@kepler.gl/UPDATE_MAP',
+      '@@kepler.gl/LAYER_HOVER'
+    ]
+  });
+}
+
+const store = createStore(reducers, initialState, composeEnhancers(...enhancers))
 
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-
-const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
+//const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
 
 //const store = createStore(reducers, {}, composeWithDevTools())
 
 
+
+
 function Map() {
+
+    const [dataLayers, setDataLayers] = useState([]);
 
     const [mediationData, setMediationData] = useState([]);
     const [tigaData, setTigaData] = useState([]);
@@ -70,6 +91,47 @@ function Map() {
     const [dataLoaded, setDataLoaded] = useState(false);
     const [mapUpdated, setMapUpdated] = useState(false);
 
+
+
+
+    // Get instance config / fetch data and store into DataLayers
+    useEffect(() => {
+      const buffer = []
+      const promises = instanceConf.layers.map((layer) => {
+        console.log(layer.type)
+        return fetch(layer.url)
+                .then(res => res.json())
+                .then(
+                (data) => {
+                    buffer.push(data)
+                }) 
+      })
+      Promise.all(promises).then(()=> {
+        setDataLayers(buffer)
+        setDataLoaded(true)
+      })
+      
+  
+      //console.log(buffer)
+    }, [])
+
+    //console.log(dataLayers)
+
+    // Get DataLayers and add data to map
+    useEffect(() => {
+      console.log("HOFFHER")
+      const datasets = []
+      
+        console.log("DATA LOADED :D")
+        dataLayers.map((layer) => {
+          datasets.push(
+            "HIHI"
+            )
+
+        })
+        console.log("DATASETS", datasets)
+      
+    }, [dataLayers])
 
 
 
@@ -153,6 +215,8 @@ function Map() {
       setMapUpdated(true);
       }
     }, [dispatch,mediationData, tigaData, otherData, setMapUpdated]);
+
+    
 
     return (
         mapUpdated ? (
