@@ -9,10 +9,10 @@ export default class Logo extends Component {
         return (
             <div >
                 <div className="top-left-logo">
-                    <img src={logoGl}></img>
+                    <img alt="top-left-logo" src={logoGl}></img>
                 </div>
                 <div className="bottom-left-logo">
-                    <img src={logoTI}></img>
+                    <img alt="bottom-left-logo" src={logoTI}></img>
                 </div>
 
             </div>

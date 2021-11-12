@@ -22,15 +22,17 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilter, layerI
     const [isActive, setIsActive] = useState(false) 
     const isActiveState = () => {setIsActive(!isActive)}
 
+    // Toggle the button linked layer vibility
     const [isLayerVisible, setIsLayerVisible] = useState(true) 
     const isLayerVisibleState = () => {setIsLayerVisible(!isLayerVisible)}
 
 
+    // get the old layer state
     const layer = useSelector((state) => state.keplerGl.map?.visState?.layers[layerId]) 
 
     
     useEffect(() => {
-        console.log(isLayerVisible)
+        //console.log(isLayerVisible)
         if(layer) {
             dispatch(layerConfigChange(layer, {isVisible:isLayerVisible}))
         }

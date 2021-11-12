@@ -1,14 +1,13 @@
 import React, {useEffect, useState} from "react";
-import { taskMiddleware } from "react-palm/tasks";
 
 ////////////////////////// REDUX IMPORT /////////////////////////////////////////
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
-import { Provider, useDispatch, connect } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 ////////////////////////// KEPLER.GL IMPORT /////////////////////////////////////////
 import keplerGlReducer from "kepler.gl/reducers";
-import { addDataToMap, updateMap, toggleModal, wrapTo, layerConfigChange } from "kepler.gl/actions";
+import {addDataToMap, updateMap} from "kepler.gl/actions";
 
 import {enhanceReduxMiddleware} from 'kepler.gl/middleware';
 import  {MapPopoverFactory,LayerHoverInfoFactory,injectComponents} from 'kepler.gl/components';
@@ -91,7 +90,7 @@ function Map() {
     const [dataLoaded, setDataLoaded] = useState(false);
     const [mapUpdated, setMapUpdated] = useState(false);
 
-
+    const dispatch = useDispatch();
 
 
     // Get instance config / fetch data and store into DataLayers
@@ -118,26 +117,49 @@ function Map() {
     //console.log(dataLayers)
 
     // Get DataLayers and add data to map
-    useEffect(() => {
-      console.log("HOFFHER")
+   
+    /*useEffect(() => {
       const datasets = []
+      console.log("HOFFHER")
+      
       
         console.log("DATA LOADED :D")
         dataLayers.map((layer) => {
-          datasets.push(
-            "HIHI"
-            )
+          if(layer.fields) {
+            datasets.push(layer)
+          }
+          else {
+            datasets.push(processGeojson(layer))
+          }
+          //console.log(layer)
+          
 
         })
         console.log("DATASETS", datasets)
+
+        datasets.map((dataset) => {
+          console.log(dataset)
+          dispatch(
+            addDataToMap({
+              datasets: [
+                {
+                  info: {
+                    label: 'test',
+                    id: "1"
+                  },
+                  data: dataset
+                }
+              ]
+            })
+          )
+        })
+
       
-    }, [dataLayers])
+    }, [dispatch])*/
 
 
-
-
-    const dispatch = useDispatch();
     
+
     useEffect(() => {
       
           // Fetch Event Notion Data

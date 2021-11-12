@@ -10,8 +10,8 @@ import Button from './Button'
 
 export const List = ({listNames, backgroundColor, idFilter}) => {
     const dispatch = useDispatch()
-    const [isActive, setIsActive] = useState(false) 
-    const isActiveState = () => {setIsActive(!isActive)}
+    //const [isActive, setIsActive] = useState(false) 
+    //const isActiveState = () => {setIsActive(!isActive)}
 
 
     const setFilterValue = (item, id) => {
@@ -22,7 +22,7 @@ export const List = ({listNames, backgroundColor, idFilter}) => {
         <div>
             {listNames.map((item, index) => (
               <li onClick={() => setFilterValue(item, idFilter)} >
-                <Button textSize="12px" bg={backgroundColor} text={item}/>
+                <Button className="" key={index} textSize="12px" bg={backgroundColor} text={item}/>
               </li>
             ))}
         </div>

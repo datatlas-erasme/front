@@ -38,7 +38,7 @@ const FilterSidePanel = () => {
         const datasetId = value.id
         const datasetIndex = index
 
-        const ParentBtn = <Button btnType="parent" bg={buttonColorRange[datasetIndex]} text={datasetLabel} layerId={index}/>
+        const ParentBtn = <Button key={index} btnType="parent" bg={buttonColorRange[datasetIndex]} text={datasetLabel} layerId={index}/>
 
         const Domains = filtersDomain?.map((filter, index) => {
             const filterName = filter?.name
@@ -46,15 +46,15 @@ const FilterSidePanel = () => {
             const filterDomain = filter?.domain
             if (filterId == datasetId) {
                 return (      
-                        <li id="filter-parent-1" className="filter-parent">
-                            <Button key={index} bg={buttonColorRange[datasetIndex]} btnType="child" text={filterName[0]} listNames={filterDomain} idFilter={index}/>
+                        <li key={index} id="filter-parent-1" className="filter-parent">
+                            <Button  bg={buttonColorRange[datasetIndex]} btnType="child" text={filterName[0]} listNames={filterDomain} idFilter={index}/>
                         </li>
                 )
             }
         })
 
         return (
-            <ul>
+            <ul key={index}>
                 {ParentBtn}
                 {Domains}
             </ul>
