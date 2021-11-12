@@ -1,27 +1,47 @@
-import React, {useState}  from 'react';
+import React, {useState, useEffect}  from 'react';
 import PropTypes from 'prop-types'
-import ScatterplotIconLayer from "kepler.gl"
+import {useDispatch, useSelector } from "react-redux";
+import {layerConfigChange} from "kepler.gl/actions";
 
-import List from './List'
 
-import ReactDOM from 'react-dom'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight, faChevronDown, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
 import { LightenDarkenColor } from 'lighten-darken-color'; 
 
+import List from './List'
 
+//TODO many props use ...deps instead ?
+const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilter, layerId}) => {
 
-const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilters}) => {
+    const dispatch = useDispatch()
+
 
     // Toggle the visibility of buttons parent list
     const [isActive, setIsActive] = useState(false) 
     const isActiveState = () => {setIsActive(!isActive)}
 
+    const [isLayerVisible, setIsLayerVisible] = useState(true) 
+    const isLayerVisibleState = () => {setIsLayerVisible(!isLayerVisible)}
+
+
+    const layer = useSelector((state) => state.keplerGl.map?.visState?.layers[layerId]) 
+
+    
+    useEffect(() => {
+        console.log(isLayerVisible)
+        if(layer) {
+            dispatch(layerConfigChange(layer, {isVisible:isLayerVisible}))
+        }
+    }, [layer,isLayerVisible, dispatch])
+
+
     // Big button style
     if (btnType === "parent") {
         return  (
             <div className="btn-parent" style={{backgroundColor : bg , fontSize : textSize}} >
+                <p onClick={isLayerVisibleState}><FontAwesomeIcon icon={isLayerVisible ? faEye : faEyeSlash} /></p>
                 <button 
                 onClick={onClick}
                 className="btn">
@@ -33,6 +53,9 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilters}) => {
     } 
     // Medium button styling + lits display
     else if (btnType === "child") {
+        //console.log("ID FILTER", idFilter)
+        //console.log("List Names", listNames)
+
         return  (
             <div>
             <button 
@@ -64,7 +87,7 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilters}) => {
 
 Button.defaultProps = {
     bg : "#ff241a",
-    fontSize : 20,
+    fontSize : "20px",
 }
 
 Button.propTypes = {
