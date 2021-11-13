@@ -31,7 +31,7 @@ code {
 }
 
 /*TODO FIX hide trough kepler injections*/
-.map-control, .side-panel--container {
+.map-control, side-panel--container {
   display: none !important;
 }
 
@@ -143,11 +143,15 @@ filters .filter-child button.active span {
 }
 
 .btn-parent {
+  display: flex;
   padding-left: 12px;
   border-radius: 5px;
   margin-bottom: 5px;
 }
 
+.btn-parent p {
+  padding-right: 10px;
+}
 
 .btn-child {
   width: max-content;
