@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import {useDispatch, connect, useSelector } from "react-redux";
 
-import {toggleModal, layerConfigChange} from "kepler.gl/actions";
+import {toggleModal, setExportFiltered, setExportDataType, showExportDropdown} from "kepler.gl/actions";
 
 import Button from './filter-side-panel/Button'
 
@@ -25,13 +25,13 @@ const FilterSidePanel = () => {
 
   
 
-    // use memo ne renvoie que la donnée - memoiser- une sorte de cache
     const filterTree = useMemo(() => {
         return Object.values(layers).map((value) => {
             return {label: value.config.label, id: value.config.dataId}
         })
     }, [filtersDomain, layers])
 
+    
     //TODO Get layer color and use it for buttons bg color
     const Filters = filterTree.map((value, index) => {
         const datasetLabel = value.label
@@ -62,43 +62,19 @@ const FilterSidePanel = () => {
     })
     
 
-
-
-    
-    const [filtersarray, setFiltersarray] = useState([])
-    //const [filtercat, setFiltercat] = useState();
-
-
-
-
-  
-
-    /*const test = (filtercat) => {
-        if (filtersarray.includes(filtercat)) {
-            console.log("Already in array")
-            setFiltersarray(filtersarray.filter((cat)=>{ return cat != filtercat }))
-            
-            //console.log(filtersarray)
-           
-        }
-        else {
-            setFiltersarray(prevArray => [...prevArray, filtercat])
-            console.log(filtersarray)
-        }
-        dispatch(setFilter(0,"value", filtercat))
-
-    }*/
-
-
     const openAddData  = () => {
         dispatch(toggleModal("addData"))
     }
 
+    const exportFilteredData  = () => {
+        dispatch(toggleModal("exportData"))
+    }
     return (
         <div className='filters'>
             {Filters}
         <ul>
             <Button btnType="parent"  bg="#5a8aa5" onClick={openAddData} text="Ajouter un calque" />
+            <Button btnType="parent"  bg="#5a8aa5" onClick={exportFilteredData} text="exporter les données filtrées" />
         </ul>
     </div>
     )
