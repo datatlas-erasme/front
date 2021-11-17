@@ -47,7 +47,7 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilter, layerI
                 <button 
                 onClick={onClick}
                 className="btn">
-                {text}
+                {text.substring(0,30)}
                 </button>
             </div>
     
@@ -66,7 +66,7 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilter, layerI
             style={{backgroundColor : LightenDarkenColor(bg, -20) , fontSize : textSize}}
             className={!isActive ? "btn active" : "btn"}>
             <span><FontAwesomeIcon icon={!isActive ? faChevronRight : faChevronDown} /> </span>
-            {text}
+            {text.substring(0,30)}
             </button>
             {isActive && <List listNames = {listNames} backgroundColor={bg} idFilter = {idFilter} /> }
             </div>
@@ -79,7 +79,7 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilter, layerI
             onClick={onClick}
             onClick={isActiveState}
             style={{backgroundColor : LightenDarkenColor(bg, -60) , fontSize : textSize}}
-            className={"btn"}>
+            className={isActive ? "btn selected" : "btn"}>
             {text.substring(0,30)}
             </button>
         )
