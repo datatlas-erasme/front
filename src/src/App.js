@@ -19,12 +19,14 @@ import instanceConf from './static/instanceConf.json'
 import CustomMapPopoverFactory from './factories/map-popover';
 
 ////////////////////////// COMPONENT IMPORT /////////////////////////////////////////
-import Crowdsourcing from './components/Crowdsourcing';
+import BottomRightSection from './components/BottomRightSection';
 import Logo from './components/Logo'
 import FilterSidePanel from './components/FilterSidePanel'
 
 
 import insertionEmploi from './static/datasets/ins_insertion_emploi.commissionlocale.json'
+
+document.title = instanceConf.siteTitle
 
 // Inject the point sidepanel component
 const KeplerGl = injectComponents([
@@ -252,7 +254,7 @@ function Map() {
             />
             <Logo/>
             <FilterSidePanel/>
-            <Crowdsourcing/>
+            <BottomRightSection config={instanceConf.bottomRightButtons}/>
         </div>
     
         ) : ""
