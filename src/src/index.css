@@ -64,7 +64,7 @@ code {
 
 .filters {
   position: absolute;
-  top: 50px;
+  top: 85px;
   right: 30px;
   display: flex;
   flex-direction: column;

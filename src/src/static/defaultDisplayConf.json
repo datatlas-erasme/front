@@ -121,7 +121,7 @@
             "columns": {
               "geojson": "_geojson"
             },
-            "isVisible": false,
+            "isVisible": true,
             "visConfig": {
               "opacity": 0.53,
               "strokeOpacity": 0.8,
@@ -539,7 +539,7 @@
           "enabled": false
         },
         "geocoder": {
-          "enabled": false
+          "enabled": true
         },
         "coordinate": {
           "enabled": false
@@ -555,8 +555,8 @@
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 45.764043,
-      "longitude": 4.835659,
+      "latitude": 45.76392324634085,
+      "longitude": 4.839607211669478,
       "pitch": 0,
       "zoom": 12,
       "isSplit": false
