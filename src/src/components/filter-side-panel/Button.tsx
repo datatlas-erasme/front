@@ -1,24 +1,32 @@
 import React, {useState, useEffect}  from 'react';
-import PropTypes from 'prop-types'
 import {useDispatch, useSelector } from "react-redux";
 import {layerConfigChange} from "kepler.gl/actions";
-
-
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faChevronDown, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
 import { Transition, CSSTransition, SwitchTransition } from 'react-transition-group';
 
+import classnames from 'classnames'
 import { LightenDarkenColor } from 'lighten-darken-color'; 
 
 import List from './List'
+import { Override } from '../../types/Override';
+import { AppStore } from '../../redux/store';
 
-//TODO many props use ...deps instead ?
-const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilter, layerId}) => {
+export type ButtonProps = Override<React.ComponentPropsWithoutRef<'button'>, {
+    text: string,
+    bg?: string,
+    textSize?: string,
+     btnType?: 'parent'|'child',
+     listNames?: string[],
+     idFilter?: string,
+     layerId?: string,
+}>
+
+const Button = ({text, bg,textSize, btnType, listNames, idFilter, layerId, className, ...props}: ButtonProps) => {
 
     const dispatch = useDispatch()
-
 
     // Toggle the visibility of buttons parent list
     const [isActive, setIsActive] = useState(false) 
@@ -28,9 +36,8 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilter, layerI
     const [isLayerVisible, setIsLayerVisible] = useState(true) 
     const isLayerVisibleState = () => {setIsLayerVisible(!isLayerVisible)}
 
-
     // get the old layer state
-    const layer = useSelector((state) => state.keplerGl.map?.visState?.layers[layerId]) 
+    const layer = useSelector((state: AppStore) => layerId !== undefined ? state.keplerGl.map?.visState?.layers[layerId] : undefined) 
 
     
     useEffect(() => {
@@ -47,8 +54,7 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilter, layerI
             <div className="btn-parent" style={{backgroundColor : bg , fontSize : textSize}} >
                 <p onClick={isLayerVisibleState}><FontAwesomeIcon icon={isLayerVisible ? faEye : faEyeSlash} /></p>
                 <button 
-                onClick={onClick}
-                className="btn">
+                className="btn" {...props}>
                 {text.substring(0,30)}
                 </button>
             </div>
@@ -63,16 +69,17 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilter, layerI
         return  (
             <div>
             <button 
-            onClick={onClick}
             onClick={isActiveState}
             style={{backgroundColor : LightenDarkenColor(bg, -20) , fontSize : textSize}}
-            className={isActive ? "btn active" : "btn"}>
+            className={classnames('btn', className, {'active': !isActive})}
+            {...props}
+            >
             <span><FontAwesomeIcon icon={!isActive ? faChevronRight : faChevronDown} /> </span>
             {text.substring(0,30)}
             </button>
             <CSSTransition in={isActive} timeout={200}  classNames="slide-down">
                 <>
-                {isActive && <List listNames = {listNames} backgroundColor={bg} idFilter = {idFilter} /> }
+                {isActive && idFilter !== undefined ? <List listNames = {listNames} backgroundColor={bg} idFilter = {idFilter} /> : null}
                 </>
             </CSSTransition>
             </div>
@@ -82,10 +89,11 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilter, layerI
     else {
         return  (
             <button 
-            onClick={onClick}
             onClick={isActiveState}
             style={{backgroundColor : LightenDarkenColor(bg, -60) , fontSize : textSize}}
-            className={isActive ? "btn selected" : "btn"}>
+            className={classnames('btn', className, {'selected': isActive})}
+            {...props}
+            >
             {text.substring(0,30)}
             </button>
         )
@@ -96,15 +104,6 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilter, layerI
 Button.defaultProps = {
     bg : "#ff241a",
     fontSize : "20px",
-}
-
-Button.propTypes = {
-    text: PropTypes.string,
-    bg: PropTypes.string,
-    fontSize: PropTypes.string,
-    action: PropTypes.object,
-    onClick: PropTypes.func,
-    type: PropTypes.string
 }
 
 export default Button
