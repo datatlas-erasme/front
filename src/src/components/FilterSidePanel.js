@@ -16,8 +16,9 @@ const FilterSidePanel = () => {
 
     const dispatch = useDispatch()
 
-    const layer = useSelector((state) => state.keplerGl.map?.visState?.layers?.[0]) 
-   
+    // Toggle the visibility of buttons parent list
+    const [isActive, setIsActive] = useState(false) 
+    const isActiveState = () => {setIsActive(!isActive)}
     
     // Get the filter values, id  and map them to buttons
     const filtersDomain = useSelector((state) => state.keplerGl.map?.visState?.filters??[])
@@ -33,12 +34,13 @@ const FilterSidePanel = () => {
 
     
     //TODO Get layer color and use it for buttons bg color
+
     const Filters = filterTree.map((value, index) => {
         const datasetLabel = value.label
         const datasetId = value.id
         const datasetIndex = index
 
-        const ParentBtn = <Button key={index} btnType="parent" bg={buttonColorRange[datasetIndex]} text={datasetLabel} layerId={index}/>
+        const ParentBtn = <Button onClick={isActiveState} key={index} btnType="parent" bg={buttonColorRange[datasetIndex]} text={datasetLabel} layerId={index}/>
 
         const Domains = filtersDomain?.map((filter, index) => {
             const filterName = filter?.name
@@ -47,15 +49,16 @@ const FilterSidePanel = () => {
             if (filterId == datasetId) {
                 return (      
                         <li key={index} id="filter-parent-1" className="filter-parent">
-                            <Button  bg={buttonColorRange[datasetIndex]} btnType="child" text={filterName[0]} listNames={filterDomain} idFilter={index}/>
+                             {isActive && <Button bg={buttonColorRange[datasetIndex]} btnType="child" text={filterName[0]} listNames={filterDomain} idFilter={index}/>}
                         </li>
                 )
             }
         })
 
         return (
+            
             <ul key={index}>
-                {ParentBtn}
+                {ParentBtn }
                 {Domains}
             </ul>
         )
