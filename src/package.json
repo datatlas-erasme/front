@@ -15,9 +15,12 @@
     "@types/react": "^17.0.35",
     "@types/react-dom": "^17.0.11",
     "classnames": "^2.3.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "history": "^5.1.0",
     "kepler.gl": "2.5.4",
     "lighten-darken-color": "^1.0.0",
+    "prettier": "^2.4.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-fontawesome": "^1.7.1",
@@ -44,7 +47,39 @@
     "lint:fix": "eslint --fix src/**/*.{js,ts,tsx}"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "import/order": "error",
+      "no-multiple-empty-lines": [
+        "error",
+        {
+          "max": 1,
+          "maxEOF": 1,
+          "maxBOF": 0
+        }
+      ],
+      "padding-line-between-statements": [
+        "error",
+        {
+          "blankLine": "always",
+          "prev": "*",
+          "next": "return"
+        },
+        {
+          "blankLine": "always",
+          "prev": "import",
+          "next": "*"
+        },
+        {
+          "blankLine": "never",
+          "prev": "import",
+          "next": "import"
+        }
+      ]
+    }
   },
   "browserslist": {
     "production": [
