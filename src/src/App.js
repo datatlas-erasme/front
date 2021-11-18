@@ -24,6 +24,9 @@ import Logo from './components/Logo'
 import FilterSidePanel from './components/FilterSidePanel'
 
 
+import ConfProvider from './providers/ConfProvider'
+
+
 import insertionEmploi from './static/datasets/ins_insertion_emploi.commissionlocale.json'
 
 document.title = instanceConf.siteTitle
@@ -254,7 +257,7 @@ function Map() {
             />
             <Logo/>
             <FilterSidePanel/>
-            <BottomRightSection config={instanceConf.bottomRightButtons}/>
+            <BottomRightSection/>
         </div>
     
         ) : ""
@@ -264,9 +267,11 @@ function Map() {
 
 function App() {
   return (
-    <Provider store={store}>
-      <Map />
-    </Provider>
+    <ConfProvider>
+      <Provider store={store}>
+        <Map />
+      </Provider>
+    </ConfProvider>
   );
 }
 
