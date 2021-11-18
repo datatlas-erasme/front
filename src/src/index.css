@@ -89,6 +89,15 @@ code {
 }
 
 
+.filter-parent li button {
+ opacity: 0.5;
+}
+
+.filter-parent .selected {
+  opacity: 1;
+}
+
+
 .filters ul {
   padding: 0;
 }

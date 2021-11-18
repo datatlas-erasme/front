@@ -1,4 +1,4 @@
-import React, {useState}  from 'react'
+import React, {useState, useEffect}  from 'react'
 
 import PropTypes from 'prop-types'
 
@@ -10,18 +10,31 @@ import Button from './Button'
 
 export const List = ({listNames, backgroundColor, idFilter}) => {
     const dispatch = useDispatch()
-    //const [isActive, setIsActive] = useState(false) 
-    //const isActiveState = () => {setIsActive(!isActive)}
+    const [filtersArray, setFiltersArray] = useState([])
 
 
-    const setFilterValue = (item, id) => {
-          dispatch(setFilter(parseInt(id),"value", [item]))
+    const setFilterValue = (item) => {
+      if (filtersArray.includes(item)) {
+        console.log("already in filters array")
+        //console.log("Filters Array :", filtersArray)
+        setFiltersArray((filtersArray) => (filtersArray.filter((cat)=>{ return cat != item })))
+      }
+      else {
+        setFiltersArray((filtersArray) => ([...filtersArray, item]))
+        //console.log("Filters Array :", filtersArray)
+      }
+      
     }
+
+    useEffect(() => {
+      console.log("Filters Array :", filtersArray)
+      dispatch(setFilter(idFilter,"value", filtersArray))
+    }, [filtersArray])
 
     return (
         <div>
             {listNames.map((item, index) => (
-              <li onClick={() => setFilterValue(item, idFilter)} >
+              <li onClick={() => setFilterValue(item)} >
                 <Button className="" key={index} textSize="12px" bg={backgroundColor} text={item}/>
               </li>
             ))}
