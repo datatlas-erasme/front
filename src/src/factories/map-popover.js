@@ -58,7 +58,7 @@ const CustomMapPopoverFactory = (...deps) => {
           console.log("field name " + field.displayName + " is index :" + index + "Data Value id : " + data[index])
           return (
             <div>
-              <p>{field.displayName} : data[index] </p> 
+              <p>{field.displayName} : {data[index]} </p> 
             </div>
           )
         }

@@ -473,45 +473,69 @@
             ],
             "2": [
               {
-                "name": "date-ajout",
-                "format": null
-              },
-              {
-                "name": "saisie interne ou externe ?",
-                "format": null
-              },
-              {
-                "name": "statut",
-                "format": null
-              },
-              {
                 "name": "nom-structure",
                 "format": null
               },
               {
                 "name": "description",
                 "format": null
+              },
+              {
+                "name": "site-web",
+                "format": null
+              },
+              {
+                "name": "adresse",
+                "format": null
+              },
+              {
+                "name": "email-structure",
+                "format": null
+              },
+              {
+                "name": "telephone-structure",
+                "format": null
+              },
+              {
+                "name": "reseau-social_principal",
+                "format": null
+              },
+              {
+                "name": "image du lieu",
+                "format": null
               }
             ],
             "3": [
-              {
-                "name": "date-ajout",
-                "format": null
-              },
-              {
-                "name": "saisie interne ou externe ?",
-                "format": null
-              },
-              {
-                "name": "statut",
-                "format": null
-              },
               {
                 "name": "nom-evenement",
                 "format": null
               },
               {
                 "name": "description",
+                "format": null
+              },
+              {
+                "name": "site-web",
+                "format": null
+              },
+              {
+                "name": "adresse",
+                "format": null
+              },
+              {
+                "name": "email-event",
+                "format": null
+              },
+              {
+                "name": "telephone-event",
+                "format": null
+              },
+              {
+                "name": "date-debut",
+                "format": null
+              },
+              {
+                "name": "date-fin",
                 "format": null
               }
             ],
@@ -555,8 +579,8 @@
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 45.76392324634085,
-      "longitude": 4.839607211669478,
+      "latitude": 45.764043,
+      "longitude": 4.835659,
       "pitch": 0,
       "zoom": 12,
       "isSplit": false
