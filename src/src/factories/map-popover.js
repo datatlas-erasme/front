@@ -41,9 +41,38 @@ const CustomMapPopoverFactory = (...deps) => {
     //console.log(props.layerHoverProp)
     //console.log(props.layerHoverProp.data[13])
 
+    const fieldsToShow = props.layerHoverProp.fieldsToShow
+    const allFields = props.layerHoverProp.fields
+    const data = props.layerHoverProp.data
+
+
+    //console.log(allFields)
+
+    const buffer = []
+    const PointFields = allFields.map((field) => {
+      //console.log(field.displayName)
+      return fieldsToShow.map((fieldToShow, index) => {
+        //console.log(fieldToShow.name)
+
+        if(field.displayName == fieldToShow.name) {
+          console.log("field name " + field.displayName + " is index :" + index + "Data Value id : " + data[index])
+          return (
+            <div>
+              <p>{field.displayName} : data[index] </p> 
+            </div>
+          )
+        }
+      })
+      
+    })
+
+
+
     if(props.layerHoverProp.layer.config.dataId == 2) {
       return  (
         <div className="PointSidePanel">
+          <h1>TESTSTSTSTS</h1>
+        {PointFields}
         <img src={props.layerHoverProp.data[15] ? props.layerHoverProp.data[15] : "https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"}/>
         <h1>{props.layerHoverProp.data[3]}</h1>
 
