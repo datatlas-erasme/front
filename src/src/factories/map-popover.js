@@ -73,18 +73,18 @@ const CustomMapPopoverFactory = (...deps) => {
       return  (
         <div className="PointSidePanel">
         <img src={props.layerHoverProp.data[13] ? props.layerHoverProp.data[13] : "https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"}/>
-        <h1>{props.layerHoverProp.data[3]}</h1>
+        {props.layerHoverProp.data[3] &&  <h1>{props.layerHoverProp.data[3]}</h1>}
 
         <div className="text-container">
-            <p>{props.layerHoverProp.data[4]}</p>
+        {props.layerHoverProp.data[4] && <p>{props.layerHoverProp.data[4]}</p>}
         </div>
 
         <div className="cat-container">
           <h2>Catégories</h2>
-            <p>Adresse : {props.layerHoverProp.data[6]}</p>
-            <p>Url : <a href={props.layerHoverProp.data[5]}>{props.layerHoverProp.data[5]}</a></p>
-            <p>Mail : {props.layerHoverProp.data[7]}</p>
-            <p>Tel : {props.layerHoverProp.data[8]}</p>
+          {props.layerHoverProp.data[6] && <p>Adresse : {props.layerHoverProp.data[6]}</p>}
+          {props.layerHoverProp.data[5] &&  <p>Url : <a href={props.layerHoverProp.data[5]}>{props.layerHoverProp.data[5]}</a></p>}
+          {props.layerHoverProp.data[7] && <p>Mail : {props.layerHoverProp.data[7]}</p>}
+          {props.layerHoverProp.data[8] && <p>Tel : {props.layerHoverProp.data[8]}</p>}
 
         </div>
 
