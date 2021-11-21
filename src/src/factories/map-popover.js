@@ -28,109 +28,29 @@ import {MapPopoverFactory} from 'kepler.gl/components';
 
 const CustomMapPopoverFactory = (...deps) => {
   const MapSidepanel = props => {
-    //console.log('deps', deps)
-    //console.log('props', props)
-   /* console.log(props.layerHoverProp.layer.config.dataId)
-    console.log(props.layerHoverProp)*/
-
-    //console.log(props.layerHoverProp)
-
-    /*if (props.layerHoverProp.data[15] == Object) {
-
-    }*/
-    //console.log(props.layerHoverProp)
-    //console.log(props.layerHoverProp.data[13])
-
     const fieldsToShow = props.layerHoverProp.fieldsToShow
     const allFields = props.layerHoverProp.fields
     const data = props.layerHoverProp.data
 
-
-    //console.log(allFields)
-
-    const buffer = []
-    const PointFields = allFields.map((field) => {
-      //console.log(field.displayName)
-      return fieldsToShow.map((fieldToShow, index) => {
-        //console.log(fieldToShow.name)
-
+    const PointFields = allFields.map((field, index) => {
+      return fieldsToShow.map((fieldToShow) => {
         if(field.displayName == fieldToShow.name) {
-          console.log("field name " + field.displayName + " is index :" + index + "Data Value id : " + data[index])
+          //console.log("field name " + field.displayName + " is index :" + index + "Data Value id : " + data[index])
           return (
             <div>
-              <p>{field.displayName} : {data[index]} </p> 
+              { data[index] && <p>{field.displayName} : {data[index]} </p> }
             </div>
           )
         }
       })
-      
     })
 
-
-
-    if(props.layerHoverProp.layer.config.dataId == 2) {
-      return  (
-        <div className="PointSidePanel">
-          <h1>TESTSTSTSTS</h1>
+    return (
+      <div className="PointSidePanel">
         {PointFields}
-        <img src={props.layerHoverProp.data[15] ? props.layerHoverProp.data[15] : "https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"}/>
-        <h1>{props.layerHoverProp.data[3]}</h1>
-
-        <div className="text-container">
-            <p>{props.layerHoverProp.data[4]}</p>
-        </div>
-
-        <div className="cat-container">
-          <h2>Catégories</h2>
-            {props.layerHoverProp.data[6] && <p>Adresse : {props.layerHoverProp.data[6]}</p>}
-            <p>Url : <a href={props.layerHoverProp.data[5]}>{props.layerHoverProp.data[5]}</a></p>
-            {props.layerHoverProp.data[7] && <p>Mail : {props.layerHoverProp.data[7]}</p>}
-            {props.layerHoverProp.data[8] && <p>Tel : {props.layerHoverProp.data[8]}</p>}
-            {props.layerHoverProp.data[9] && <p>Réseaux Sociaux : {props.layerHoverProp.data[9]}</p>}
-
-
-        </div>
-
-
-
-
       </div>
-        )
-    }
-    //TODO REMOVE - DIsplays Event Sidepanel
-    else if(props.layerHoverProp.layer.config.dataId == 3) {
-      return  (
-        <div className="PointSidePanel">
-        <img src={props.layerHoverProp.data[13] ? props.layerHoverProp.data[13] : "https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"}/>
-        {props.layerHoverProp.data[3] &&  <h1>{props.layerHoverProp.data[3]}</h1>}
-
-        <div className="text-container">
-        {props.layerHoverProp.data[4] && <p>{props.layerHoverProp.data[4]}</p>}
-        </div>
-
-        <div className="cat-container">
-          <h2>Catégories</h2>
-          {props.layerHoverProp.data[6] && <p>Adresse : {props.layerHoverProp.data[6]}</p>}
-          {props.layerHoverProp.data[5] &&  <p>Url : <a href={props.layerHoverProp.data[5]}>{props.layerHoverProp.data[5]}</a></p>}
-          {props.layerHoverProp.data[7] && <p>Mail : {props.layerHoverProp.data[7]}</p>}
-          {props.layerHoverProp.data[8] && <p>Tel : {props.layerHoverProp.data[8]}</p>}
-
-        </div>
-
-
-
-
-      </div>
-        )
-    }
-
-    else {
-      const MapPopover = MapPopoverFactory(...deps);
-      return <MapPopover {...props} />;
-    }
-
-
-
+     
+    )
 
   }
   return MapSidepanel;
