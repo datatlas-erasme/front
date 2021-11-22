@@ -157,7 +157,7 @@ function Map() {
 
 
     useEffect(() => {
-      dispatch(addDataToMap({config:mapConfig}))
+      //dispatch(addDataToMap({config:mapConfig}))
     }, [mapUpdated])
 
 

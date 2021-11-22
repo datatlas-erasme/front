@@ -1,0 +1,13 @@
+site_name: Datatlas
+site_url: https://datatlas-erasme.github.io/front/
+site_author: Erasme
+nav:
+    - Home: index.md
+    - Back: back.md
+    - Front : front.md
+theme:
+  name: material
+extra:
+    generator: false
+    
+docs_dir: docs
