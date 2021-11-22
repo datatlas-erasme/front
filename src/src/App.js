@@ -29,6 +29,7 @@ import ConfProvider from './providers/ConfProvider'
 
 import insertionEmploi from './static/datasets/ins_insertion_emploi.commissionlocale.json'
 
+
 document.title = instanceConf.siteTitle
 
 // Inject the point sidepanel component
@@ -115,20 +116,13 @@ function Map() {
         setDataLoaded(true)
       })
       
-  
-      //console.log(buffer)
     }, [])
 
-    //console.log(dataLayers)
 
     // Get DataLayers and add data to map
    
-    /*useEffect(() => {
+    useEffect(() => {
       const datasets = []
-      console.log("HOFFHER")
-      
-      
-        console.log("DATA LOADED :D")
         dataLayers.map((layer) => {
           if(layer.fields) {
             datasets.push(layer)
@@ -137,35 +131,56 @@ function Map() {
             datasets.push(processGeojson(layer))
           }
           //console.log(layer)
-          
-
         })
         console.log("DATASETS", datasets)
 
-        datasets.map((dataset) => {
+        datasets.map((dataset, index) => {
           console.log(dataset)
           dispatch(
             addDataToMap({
               datasets: [
                 {
                   info: {
-                    label: 'test',
-                    id: "1"
+                    label: instanceConf.layers[index].name,
+                    id: instanceConf.layers[index].id
                   },
                   data: dataset
-                }
-              ]
+                },
+              ],
             })
           )
         })
+        setMapUpdated(true)
 
-      
-    }, [dispatch])*/
 
+    }, [dispatch, dataLayers])
+
+
+    useEffect(() => {
+      dispatch(addDataToMap({config:mapConfig}))
+    }, [mapUpdated])
+
+
+    /*useEffect(() => {
+      dispatch(
+        addDataToMap({
+          datasets: [
+            {
+              info: {
+                label: "fsdf",
+                id: "0"
+              },
+              data: processGeojson(insertionEmploi)
+            }
+          ]
+        })
+      )
+      setMapUpdated(true)
+    }, [dispatch, dataLayers])*/
 
     
 
-    useEffect(() => {
+    /*useEffect(() => {
       
           // Fetch Event Notion Data
           fetch('https://back-datatlas.datagora.erasme.org/api/data/notion/notion_mediation/')
@@ -242,7 +257,7 @@ function Map() {
       setMapUpdated(true);
       }
     }, [dispatch,mediationData, tigaData, otherData, setMapUpdated]);
-
+*/
     
 
     return (

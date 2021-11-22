@@ -5,91 +5,27 @@
       "filters": [
         {
           "dataId": [
-            "2"
+            1
           ],
-          "id": "wk7s88qr",
-          "name": [
-            "activites"
-          ],
-          "type": "multiSelect",
-          "value": [],
-          "enlarged": false,
-          "plotType": "histogram",
-          "animationWindow": "free",
-          "yAxis": null,
-          "speed": 1
-        },
-        {
-          "dataId": [
-            "2"
-          ],
-          "id": "71alpuzlu",
-          "name": [
-            "expertise"
-          ],
-          "type": "multiSelect",
-          "value": [],
-          "enlarged": false,
-          "plotType": "histogram",
-          "animationWindow": "free",
-          "yAxis": null,
-          "speed": 1
-        },
-        {
-          "dataId": [
-            "2"
-          ],
-          "id": "dzf6dm82m",
-          "name": [
-            "public-cible"
-          ],
-          "type": "multiSelect",
-          "value": [],
-          "enlarged": false,
-          "plotType": "histogram",
-          "animationWindow": "free",
-          "yAxis": null,
-          "speed": 1
-        },
-        {
-          "dataId": [
-            "2"
-          ],
-          "id": "ndzm6xs9k",
-          "name": [
-            "type_structure"
-          ],
-          "type": "multiSelect",
-          "value": [],
-          "enlarged": false,
-          "plotType": "histogram",
-          "animationWindow": "free",
-          "yAxis": null,
-          "speed": 1
-        },
-        {
-          "dataId": [
-            "3"
-          ],
-          "id": "b8daj1h1",
-          "name": [
-            "type_event"
-          ],
-          "type": "multiSelect",
-          "value": [],
-          "enlarged": false,
-          "plotType": "histogram",
-          "animationWindow": "free",
-          "yAxis": null,
-          "speed": 1
-        },
-        {
-          "dataId": [
-            "3"
-          ],
-          "id": "x0p3jk7li",
+          "id": "mxe4xujofr",
           "name": [
             "publics"
+          ],
+          "type": "multiSelect",
+          "value": [],
+          "enlarged": false,
+          "plotType": "histogram",
+          "animationWindow": "free",
+          "yAxis": null,
+          "speed": 1
+        },
+        {
+          "dataId": [
+            1
+          ],
+          "id": "bpaqcbv7l",
+          "name": [
+            "type_event"
           ],
           "type": "multiSelect",
           "value": [],
@@ -102,123 +38,15 @@
       ],
       "layers": [
         {
-          "id": "awew9mw",
-          "type": "geojson",
-          "config": {
-            "dataId": "4",
-            "label": "Commissions locales d’Insertion de la Métropole de Lyon",
-            "color": [
-              34,
-              63,
-              154
-            ],
-            "highlightColor": [
-              252,
-              242,
-              26,
-              255
-            ],
-            "columns": {
-              "geojson": "_geojson"
-            },
-            "isVisible": true,
-            "visConfig": {
-              "opacity": 0.53,
-              "strokeOpacity": 0.8,
-              "thickness": 2.6,
-              "strokeColor": [
-                19,
-                37,
-                89
-              ],
-              "colorRange": {
-                "name": "Global Warming",
-                "type": "sequential",
-                "category": "Uber",
-                "colors": [
-                  "#5A1846",
-                  "#900C3F",
-                  "#C70039",
-                  "#E3611C",
-                  "#F1920E",
-                  "#FFC300"
-                ]
-              },
-              "strokeColorRange": {
-                "name": "Global Warming",
-                "type": "sequential",
-                "category": "Uber",
-                "colors": [
-                  "#5A1846",
-                  "#900C3F",
-                  "#C70039",
-                  "#E3611C",
-                  "#F1920E",
-                  "#FFC300"
-                ]
-              },
-              "radius": 10,
-              "sizeRange": [
-                0,
-                10
-              ],
-              "radiusRange": [
-                0,
-                50
-              ],
-              "heightRange": [
-                0,
-                500
-              ],
-              "elevationScale": 5,
-              "enableElevationZoomFactor": true,
-              "stroked": true,
-              "filled": false,
-              "enable3d": false,
-              "wireframe": false
-            },
-            "hidden": false,
-            "textLabel": [
-              {
-                "field": null,
-                "color": [
-                  255,
-                  255,
-                  255
-                ],
-                "size": 18,
-                "offset": [
-                  0,
-                  0
-                ],
-                "anchor": "start",
-                "alignment": "center"
-              }
-            ]
-          },
-          "visualChannels": {
-            "colorField": null,
-            "colorScale": "quantile",
-            "strokeColorField": null,
-            "strokeColorScale": "quantile",
-            "sizeField": null,
-            "sizeScale": "linear",
-            "heightField": null,
-            "heightScale": "linear",
-            "radiusField": null,
-            "radiusScale": "linear"
-          }
-        },
-        {
-          "id": "o54ssb",
+          "id": "1fbmih",
           "type": "icon",
           "config": {
-            "dataId": "3",
-            "label": "Event",
+            "dataId": 2,
+            "label": "Tiga",
             "color": [
-              98,
-              206,
-              173
+              106,
+              187,
+              107
             ],
             "highlightColor": [
               252,
@@ -229,12 +57,11 @@
             "columns": {
               "lat": "latitude",
               "lng": "longitude",
-              "icon": "icon",
-              "altitude": null
+              "icon": "icon"
             },
             "isVisible": true,
             "visConfig": {
-              "radius": 41.4,
+              "radius": 57.1,
               "fixedRadius": false,
               "opacity": 0.8,
               "colorRange": {
@@ -282,10 +109,10 @@
           }
         },
         {
-          "id": "l4mpm5u",
+          "id": "cbi6h7",
           "type": "icon",
           "config": {
-            "dataId": "2",
+            "dataId": 1,
             "label": "Mediation",
             "color": [
               240,
@@ -301,12 +128,11 @@
             "columns": {
               "lat": "latitude",
               "lng": "longitude",
-              "icon": "icon",
-              "altitude": null
+              "icon": "icon"
             },
             "isVisible": true,
             "visConfig": {
-              "radius": 53.9,
+              "radius": 56.5,
               "fixedRadius": false,
               "opacity": 0.8,
               "colorRange": {
@@ -352,118 +178,26 @@
             "sizeField": null,
             "sizeScale": "linear"
           }
-        },
-        {
-          "id": "6odf9pk",
-          "type": "geojson",
-          "config": {
-            "dataId": "1",
-            "label": "Agence Pole Emploi",
-            "color": [
-              119,
-              110,
-              87
-            ],
-            "highlightColor": [
-              252,
-              242,
-              26,
-              255
-            ],
-            "columns": {
-              "geojson": "_geojson"
-            },
-            "isVisible": true,
-            "visConfig": {
-              "opacity": 0.8,
-              "strokeOpacity": 0.8,
-              "thickness": 2,
-              "strokeColor": null,
-              "colorRange": {
-                "name": "Global Warming",
-                "type": "sequential",
-                "category": "Uber",
-                "colors": [
-                  "#5A1846",
-                  "#900C3F",
-                  "#C70039",
-                  "#E3611C",
-                  "#F1920E",
-                  "#FFC300"
-                ]
-              },
-              "strokeColorRange": {
-                "name": "Global Warming",
-                "type": "sequential",
-                "category": "Uber",
-                "colors": [
-                  "#5A1846",
-                  "#900C3F",
-                  "#C70039",
-                  "#E3611C",
-                  "#F1920E",
-                  "#FFC300"
-                ]
-              },
-              "radius": 10,
-              "sizeRange": [
-                0,
-                10
-              ],
-              "radiusRange": [
-                0,
-                50
-              ],
-              "heightRange": [
-                0,
-                500
-              ],
-              "elevationScale": 5,
-              "enableElevationZoomFactor": true,
-              "stroked": true,
-              "filled": true,
-              "enable3d": false,
-              "wireframe": false
-            },
-            "hidden": false,
-            "textLabel": [
-              {
-                "field": null,
-                "color": [
-                  255,
-                  255,
-                  255
-                ],
-                "size": 18,
-                "offset": [
-                  0,
-                  0
-                ],
-                "anchor": "start",
-                "alignment": "center"
-              }
-            ]
-          },
-          "visualChannels": {
-            "colorField": null,
-            "colorScale": "quantile",
-            "strokeColorField": null,
-            "strokeColorScale": "quantile",
-            "sizeField": null,
-            "sizeScale": "linear",
-            "heightField": null,
-            "heightScale": "linear",
-            "radiusField": null,
-            "radiusScale": "linear"
-          }
         }
       ],
       "interactionConfig": {
         "tooltip": {
           "fieldsToShow": {
-            "1": [
+            "0": [
+              {
+                "name": "identifiant",
+                "format": null
+              },
               {
                 "name": "nom",
+                "format": null
+              },
+              {
+                "name": "code_siret",
+                "format": null
+              },
+              {
+                "name": "structure",
                 "format": null
               },
               {
@@ -471,41 +205,19 @@
                 "format": null
               }
             ],
-            "2": [
+            "1": [
               {
-                "name": "nom-structure",
+                "name": "date-ajout",
                 "format": null
               },
               {
-                "name": "description",
+                "name": "saisie interne ou externe ?",
                 "format": null
               },
               {
-                "name": "site-web",
+                "name": "statut",
                 "format": null
               },
-              {
-                "name": "adresse",
-                "format": null
-              },
-              {
-                "name": "email-structure",
-                "format": null
-              },
-              {
-                "name": "telephone-structure",
-                "format": null
-              },
-              {
-                "name": "reseau-social_principal",
-                "format": null
-              },
-              {
-                "name": "image du lieu",
-                "format": null
-              }
-            ],
-            "3": [
               {
                 "name": "nom-evenement",
                 "format": null
@@ -513,43 +225,27 @@
               {
                 "name": "description",
                 "format": null
-              },
-              {
-                "name": "site-web",
-                "format": null
-              },
-              {
-                "name": "adresse",
-                "format": null
-              },
-              {
-                "name": "email-event",
-                "format": null
-              },
-              {
-                "name": "telephone-event",
-                "format": null
-              },
-              {
-                "name": "date-debut",
-                "format": null
-              },
-              {
-                "name": "date-fin",
-                "format": null
               }
             ],
-            "4": [
+            "2": [
               {
-                "name": "nom",
+                "name": "date-ajout",
                 "format": null
               },
               {
-                "name": "communesdintervention",
+                "name": "saisie interne ou externe ?",
                 "format": null
               },
               {
-                "name": "gid",
+                "name": "statut",
+                "format": null
+              },
+              {
+                "name": "nom-structure",
+                "format": null
+              },
+              {
+                "name": "description",
                 "format": null
               }
             ]
@@ -563,7 +259,7 @@
           "enabled": false
         },
         "geocoder": {
-          "enabled": true
+          "enabled": false
         },
         "coordinate": {
           "enabled": false
@@ -579,10 +275,10 @@
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 45.764043,
-      "longitude": 4.835659,
+      "latitude": 45.75854591313259,
+      "longitude": 4.822538527313387,
       "pitch": 0,
-      "zoom": 12,
+      "zoom": 11.51371745939492,
       "isSplit": false
     },
     "mapStyle": {
@@ -598,9 +294,9 @@
         "3d building": false
       },
       "threeDBuildingColor": [
-        3.7245996603793508,
-        6.518049405663864,
-        13.036098811327728
+        9.665468314072013,
+        17.18305478057247,
+        31.1442867897876
       ],
       "mapStyles": {}
     }
