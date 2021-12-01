@@ -49,9 +49,19 @@ code {
   padding: 15px;
   overflow: scroll;
   overflow-x: hidden;
+  overflow-y: hidden;
+  animation: 0.2s linear 0s running slidein;
   }
 
+  @keyframes slidein {
+    from { width: 0; }
+    to   { width: 30%; }
+  }
 
+  @keyframes slidedown {
+    from { width: 0; }
+    to   { height: 50px; }
+  }
   /********************** FILTERS SIDE PANEL *********************/
 .FilterSidePanel {
   position: absolute;
