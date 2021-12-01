@@ -86,12 +86,6 @@ const store = createStore(reducers, initialState, composeEnhancers(...enhancers)
 function Map() {
 
     const [dataLayers, setDataLayers] = useState([]);
-
-    const [mediationData, setMediationData] = useState([]);
-    const [tigaData, setTigaData] = useState([]);
-    const [otherData, setOtherData] = useState([]);
-    //const [insertionEmploi, setInsertionEmploi] = useState([]);
-
     
     const [dataLoaded, setDataLoaded] = useState(false);
     const [mapUpdated, setMapUpdated] = useState(false);
@@ -108,12 +102,19 @@ function Map() {
                 .then(res => res.json())
                 .then(
                 (data) => {
-                    buffer.push(data)
+                  if (data.fields) {
+                    
+                    buffer.push([layer.name, data])
+                  }
+                  else {
+                    buffer.push([layer.name, processGeojson(data)])
+                  }
                 }) 
       })
       Promise.all(promises).then(()=> {
         setDataLayers(buffer)
         setDataLoaded(true)
+        console.log("BUFFER", buffer)
       })
       
     }, [])
@@ -122,143 +123,47 @@ function Map() {
     // Get DataLayers and add data to map
    
     useEffect(() => {
-      const datasets = []
-        dataLayers.map((layer) => {
-          if(layer.fields) {
-            datasets.push(layer)
-          }
-          else {
-            datasets.push(processGeojson(layer))
-          }
-          //console.log(layer)
-        })
-        console.log("DATASETS", datasets)
+      //console.log("BUFFER", dataLayers)
+      //const datasets = []
+       
+          /*dataLayers.map((layer) => {
+            if(layer.fields) {
+              datasets.push(layer)
+            }
+            else {
+              datasets.push(processGeojson(layer))
+            }
+          })*/
 
-        datasets.map((dataset, index) => {
-          console.log(dataset)
-          dispatch(
-            addDataToMap({
-              datasets: [
-                {
-                  info: {
-                    label: instanceConf.layers[index].name,
-                    id: instanceConf.layers[index].id
+          //console.log("DATASETS", datasets)
+  
+          dataLayers.map((dataset, index) => {
+            console.log(dataset)
+            dispatch(
+              addDataToMap({
+                datasets: [
+                  {
+                    info: {
+                      label: dataset[0],
+                      id: dataset[0]
+                    },
+                    data: dataset[1]
                   },
-                  data: dataset
-                },
-              ],
-            })
-          )
-        })
-        setMapUpdated(true)
+                ],
+              })
+            )
+          })
+          setMapUpdated(true)
+        
 
-
-    }, [dispatch, dataLayers])
+    }, [dispatch, dataLoaded ])
 
 
     useEffect(() => {
-      //dispatch(addDataToMap({config:mapConfig}))
+      dispatch(addDataToMap({ datasets: [],option: {centerMap: true},config:mapConfig}))
     }, [mapUpdated])
 
 
-    /*useEffect(() => {
-      dispatch(
-        addDataToMap({
-          datasets: [
-            {
-              info: {
-                label: "fsdf",
-                id: "0"
-              },
-              data: processGeojson(insertionEmploi)
-            }
-          ]
-        })
-      )
-      setMapUpdated(true)
-    }, [dispatch, dataLayers])*/
-
-    
-
-    /*useEffect(() => {
-      
-          // Fetch Event Notion Data
-          fetch('https://back-datatlas.datagora.erasme.org/api/data/notion/notion_mediation/')
-          .then(res => res.json())
-          .then(
-          (data) => {
-              setMediationData(data)
-          })
-  
-           // Fetch Tiga Notion Data
-           fetch('https://back-datatlas.datagora.erasme.org/api/data/notion/notion_tiga/')
-           .then(res => res.json())
-           .then(
-           (data) => {
-              setTigaData(data)
-           })
-  
-          // Fetch OpenDataLyon Data
-
-          fetch('https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=eco_economie.ecoagencepolemploi_latest&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:4171&startIndex=0')
-          .then(res => res.json())
-          .then(
-          (data) => {
-            setOtherData(data)
-          })
-
-
-          setDataLoaded(true)
-    }, [])
-
-    // Add Data Layers to map
-    useEffect(() => {
-      if (dataLoaded) {
-        dispatch(
-          addDataToMap({
-            datasets: [
-              {
-                info: {
-                  label: 'Event',
-                  id: "3"
-                },
-                data: mediationData
-              },
-              {
-                  info: {
-                    label: 'Tiga',
-                    id: '2'
-                  },
-                  data: tigaData
-              },
-              {
-                  info: {
-                    label: 'Annuaire',
-                    id: '1'
-                  },
-                  data: processGeojson(otherData)
-              },
-              {
-                info: {
-                  label: 'Insertion Emploi',
-                  id: '4'
-                },
-                data:  processGeojson(insertionEmploi)
-            },
-            ],
-            option: {
-              centerMap: false
-            },
-            config: mapConfig
-          })
-        );
-  
-      dispatch(updateMap({"latitude": 45.764043,"longitude": 4.835659, "zoom" : 12}))
-      setMapUpdated(true);
-      }
-    }, [dispatch,mediationData, tigaData, otherData, setMapUpdated]);
-*/
-    
 
     return (
         mapUpdated ? (
