@@ -121,22 +121,7 @@ function Map() {
 
 
     // Get DataLayers and add data to map
-   
-    useEffect(() => {
-      //console.log("BUFFER", dataLayers)
-      //const datasets = []
-       
-          /*dataLayers.map((layer) => {
-            if(layer.fields) {
-              datasets.push(layer)
-            }
-            else {
-              datasets.push(processGeojson(layer))
-            }
-          })*/
-
-          //console.log("DATASETS", datasets)
-  
+    useEffect(() => {  
           dataLayers.map((dataset, index) => {
             console.log(dataset)
             dispatch(
@@ -159,6 +144,7 @@ function Map() {
     }, [dispatch, dataLoaded ])
 
 
+    // Pass the default kepler styling
     useEffect(() => {
       dispatch(addDataToMap({ datasets: [],option: {centerMap: true},config:mapConfig}))
     }, [mapUpdated])
