@@ -31,10 +31,18 @@ const CustomMapPopoverFactory = (...deps) => {
     const fieldsToShow = props.layerHoverProp.fieldsToShow
     const allFields = props.layerHoverProp.fields
     const data = props.layerHoverProp.data
-
+    console.log(fieldsToShow)
     const PointFields = allFields.map((field, index) => {
       return fieldsToShow.map((fieldToShow) => {
         if(field.displayName == fieldToShow.name) {
+          //console.log(field.displayName)
+          // TODO check if is url and has image extension
+          if(field.displayName.includes("image")) {
+            //console.log("IMG :", data[index])
+            return (
+              <img src={data[index] ? data[index] : "https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"}/>
+            )
+          }
           //console.log("field name " + field.displayName + " is index :" + index + "Data Value id : " + data[index])
           return (
             <div>
@@ -56,5 +64,18 @@ const CustomMapPopoverFactory = (...deps) => {
   return MapSidepanel;
   
 };
+
+
+function isURL(str) {
+  const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+    '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+  return !!pattern.test(str);
+}
+
+
 CustomMapPopoverFactory.deps = MapPopoverFactory.deps;
 export default CustomMapPopoverFactory;
