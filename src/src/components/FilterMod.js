@@ -28,7 +28,7 @@ const FilterMod = ({value, index, filtersDomain}) => {
         if (filterId == datasetId) {
             return (      
                     <li key={index} id="filter-parent-1" className="filter-parent">
-                         {isActive && <Button bg={buttonColorRange[datasetIndex]} btnType="child" text={filterName[0]} listNames={filterDomain} idFilter={index}/>}
+                       <Button bg={buttonColorRange[datasetIndex]} btnType="child" text={filterName[0]} listNames={filterDomain} idFilter={index}/>
                     </li>
             )
         }
@@ -37,8 +37,8 @@ const FilterMod = ({value, index, filtersDomain}) => {
     return (
         
         <ul>
-            {ParentBtn }
-            {Domains}
+            {ParentBtn}
+            {isActive && Domains}
         </ul>
     )
 }
