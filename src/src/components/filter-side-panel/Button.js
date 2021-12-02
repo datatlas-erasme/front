@@ -64,7 +64,7 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilter, layerI
             onClick={onClick}
             onClick={isActiveState}
             style={{backgroundColor : LightenDarkenColor(bg, -20) , fontSize : textSize}}
-            className={!isActive ? "btn active" : "btn"}>
+            className={isActive ? "btn active" : "btn"}>
             <span><FontAwesomeIcon icon={!isActive ? faChevronRight : faChevronDown} /> </span>
             {text.substring(0,30)}
             </button>
