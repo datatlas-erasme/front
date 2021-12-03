@@ -8,6 +8,8 @@ import {layerConfigChange} from "kepler.gl/actions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faChevronDown, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
+import { Transition, CSSTransition, SwitchTransition } from 'react-transition-group';
+
 import { LightenDarkenColor } from 'lighten-darken-color'; 
 
 import List from './List'
@@ -68,7 +70,11 @@ const Button = ({text,bg,textSize, onClick, btnType, listNames, idFilter, layerI
             <span><FontAwesomeIcon icon={!isActive ? faChevronRight : faChevronDown} /> </span>
             {text.substring(0,30)}
             </button>
-            {isActive && <List listNames = {listNames} backgroundColor={bg} idFilter = {idFilter} /> }
+            <CSSTransition in={isActive} timeout={200}  classNames="slide-down">
+                <>
+                {isActive && <List listNames = {listNames} backgroundColor={bg} idFilter = {idFilter} /> }
+                </>
+            </CSSTransition>
             </div>
         )
 

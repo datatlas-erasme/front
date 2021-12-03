@@ -202,3 +202,39 @@ button {
   transition: all ease-in-out 0.2s;
   background-color: #172a3b;
 }
+
+
+.slide-down-enter {
+  height: 0px;
+}
+
+
+.slide-down-active {
+  height: 100%;
+  transition: height 400ms;
+} 
+
+.slide-down-exit {
+  height: 100%;
+}
+
+.slide-down-exit-active {
+  height: 0px;
+  transition: height  400ms;
+}
+
+
+.my-node-enter {
+  opacity: 0;
+}
+.my-node-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms;
+}
+.my-node-exit {
+  opacity: 1;
+}
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}

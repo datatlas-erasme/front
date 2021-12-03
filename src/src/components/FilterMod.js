@@ -3,6 +3,8 @@ import React, {useState} from 'react'
 
 import instanceConf from '../static/instanceConf.json'
 
+import { Transition, CSSTransition, SwitchTransition } from 'react-transition-group';
+
 
 import Button from './filter-side-panel/Button'
 
@@ -26,20 +28,30 @@ const FilterMod = ({value, index, filtersDomain}) => {
         const filterId = filter?.dataId
         const filterDomain = filter?.domain
         if (filterId == datasetId) {
-            return (      
-                    <li key={index} id="filter-parent-1" className="filter-parent">
-                       <Button bg={buttonColorRange[datasetIndex]} btnType="child" text={filterName[0]} listNames={filterDomain} idFilter={index}/>
-                    </li>
+            return (  
+               
+                <div>    
+                 <li key={index} id="filter-parent-1" className="filter-parent">
+                 <Button bg={buttonColorRange[datasetIndex]} btnType="child" text={filterName[0]} listNames={filterDomain} idFilter={index}/>}
+                </li> 
+                </div>
+               
             )
         }
     })
 
     return (
         
-        <ul>
+        <ul> 
             {ParentBtn}
-            {isActive && Domains}
+           
+            <CSSTransition in={isActive} timeout={200}  classNames="slide-down">
+            <>
+                {isActive &&Domains}
+            </>
+            </CSSTransition>
         </ul>
+        
     )
 }
 
