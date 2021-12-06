@@ -81,8 +81,19 @@ code {
   height: 70vh;
   overflow: auto;
   width: 11%;
+  padding-right: 10px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
+.filters::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-parent {
+  /*TODO Reduice the height gap in another cleaner manner */
+  margin-bottom: -15px;
+}
 
 .filter-parent ul {
   max-height: 0;
@@ -110,6 +121,7 @@ code {
 
 .filters ul {
   padding: 0;
+  margin: 0 0 10px 0;
 }
 
 .filters ul li {
@@ -224,17 +236,28 @@ button {
 }
 
 
+.test {
+  height: 0;
+  overflow: hidden;
+}
+
 .my-node-enter {
+  height: 100%;
+  display: none;
   opacity: 0;
 }
 .my-node-enter-active {
+  height: 100%;
+  display: block;
   opacity: 1;
   transition: opacity 1000ms;
 }
 .my-node-exit {
+  height: 100%;
   opacity: 1;
 }
 .my-node-exit-active {
+  
   opacity: 0;
   transition: opacity 200ms;
 }

@@ -8,7 +8,7 @@ import {
   faEye,
   faEyeSlash,
 } from '@fortawesome/free-solid-svg-icons';
-import { Transition, CSSTransition, SwitchTransition } from 'react-transition-group';
+import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';
 import { LightenDarkenColor } from 'lighten-darken-color';
 import { Override } from '../../types/Override';
@@ -96,13 +96,14 @@ const Button = ({
           </span>
           {text.substring(0, 30)}
         </button>
-        <CSSTransition in={isActive} timeout={200} classNames="slide-down">
-          <>
-            {isActive && idFilter !== undefined ? (
-              <List listNames={listNames} backgroundColor={bg} idFilter={idFilter} />
-            ) : null}
-          </>
-        </CSSTransition>
+        <AnimateHeight
+          duration={500}
+          height={!isActive ? 0 : 'auto'} // see props documentation bellow
+        >
+          <div>
+            <List listNames={listNames} backgroundColor={bg} idFilter={idFilter} />
+          </div>
+        </AnimateHeight>
       </div>
     );
   } else {

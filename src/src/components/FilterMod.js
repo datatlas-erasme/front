@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Transition, CSSTransition, SwitchTransition } from 'react-transition-group';
+import AnimateHeight from 'react-animate-height';
 import instanceConf from '../static/instanceConf.json';
 import Button from './filter-side-panel/Button';
 
@@ -52,9 +52,12 @@ const FilterMod = ({ value, index, filtersDomain }) => {
     <ul>
       {ParentBtn}
 
-      <CSSTransition in={isActive} timeout={200} classNames="slide-down">
-        <>{isActive && Domains}</>
-      </CSSTransition>
+      <AnimateHeight
+        duration={500}
+        height={!isActive ? 0 : 'auto'} // see props documentation bellow
+      >
+        <>{Domains}</>
+      </AnimateHeight>
     </ul>
   );
 };
