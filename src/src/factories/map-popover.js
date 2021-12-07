@@ -19,16 +19,22 @@
 // THE SOFTWARE.
 
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { MapPopoverFactory } from 'kepler.gl/components';
 
 //import CustomLayerHoverInfo from "./CustomLayerHoverInfo"
 
 const CustomMapPopoverFactory = (...deps) => {
   const MapSidepanel = (props) => {
+    const clicked = useSelector((state) => state.keplerGl.map?.visState?.clicked ?? null);
+    if (!clicked) {
+      const MapPopover = MapPopoverFactory(...deps);
+
+      return <MapPopover {...props} />;
+    }
     const fieldsToShow = props.layerHoverProp.fieldsToShow;
     const allFields = props.layerHoverProp.fields;
     const data = props.layerHoverProp.data;
-    console.log(fieldsToShow);
     const PointFields = allFields.map((field, index) => {
       return fieldsToShow.map((fieldToShow) => {
         if (field.displayName == fieldToShow.name) {
