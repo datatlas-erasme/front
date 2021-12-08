@@ -49,8 +49,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "plugin:prettier/recommended"
+      "react-app"
     ],
     "rules": {
       "import/order": "error",
