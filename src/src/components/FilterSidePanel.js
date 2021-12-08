@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useContext } from 'react';
 import { useDispatch, connect, useSelector } from 'react-redux';
 import {
   toggleModal,
@@ -6,11 +6,14 @@ import {
   setExportDataType,
   showExportDropdown,
 } from 'kepler.gl/actions';
+import { ConfContext } from '../providers/ConfProvider';
 import Button from './filter-side-panel/Button';
 //Todo use redux instead ?
 import FilterMod from './FilterMod';
 
 const FilterSidePanel = () => {
+  
+  const exportDataBtn = useContext(ConfContext).modules.exportDataBtn;
   const dispatch = useDispatch();
   // Get the filter values, id  and map them to buttons
   const filtersDomain = useSelector((state) => state.keplerGl.map?.visState?.filters ?? []);
@@ -40,12 +43,12 @@ const FilterSidePanel = () => {
       {Filters}
       <ul>
         <Button btnType="parent" bg="#5a8aa5" onClick={openAddData} text="Ajouter un calque" />
-        <Button
+        {exportDataBtn ??<Button
           btnType="parent"
           bg="#5a8aa5"
           onClick={exportFilteredData}
           text="exporter les données filtrées"
-        />
+        /> }
       </ul>
     </div>
   );

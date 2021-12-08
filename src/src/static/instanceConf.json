@@ -1,5 +1,9 @@
 {
     "siteTitle": "DatAtlas-Industries",
+    "modules":
+    {
+        "exportDataBtn" : true
+    },
     "theme":
     {
         "filterSidePanel":
