@@ -32,16 +32,25 @@ const CustomMapPopoverFactory = (...deps) => {
 
       return <MapPopover {...props} />;
     }
+    // Fields declared in the kepler conf panel
     const fieldsToShow = props.layerHoverProp.fieldsToShow;
+
+    // List of all data fields names
     const allFields = props.layerHoverProp.fields;
+
+    // All the data related to the point clicked
     const data = props.layerHoverProp.data;
+
+    //TODO map all fields to fieldToshow
+    //First is image
+    // Second is title => <h1>
+    // Rest bold and text
+
     const PointFields = allFields.map((field, index) => {
-      return fieldsToShow.map((fieldToShow) => {
+      return fieldsToShow.map((fieldToShow, fieldToShowIndex) => {
         if (field.displayName == fieldToShow.name) {
-          //console.log(field.displayName)
           // TODO check if is url and has image extension
           if (field.displayName.includes('image')) {
-            //console.log("IMG :", data[index])
             return (
               <img
                 src={
@@ -51,18 +60,22 @@ const CustomMapPopoverFactory = (...deps) => {
                 }
               />
             );
-          }
+          } else if (fieldToShowIndex == 1) {
+            console.log('fieldToShowIndex');
 
-          //console.log("field name " + field.displayName + " is index :" + index + "Data Value id : " + data[index])
-          return (
-            <div>
-              {data[index] && (
-                <p>
-                  {field.displayName} : {data[index]}{' '}
-                </p>
-              )}
-            </div>
-          );
+            return <div>{data[index] && <h1>{data[index]} </h1>}</div>;
+          } else {
+            //console.log("field name " + field.displayName + " is index :" + index + "Data Value id : " + data[index])
+            return (
+              <div>
+                {data[index] && (
+                  <p>
+                    <b>{field.displayName} :</b> <p>{data[index]} </p>
+                  </p>
+                )}
+              </div>
+            );
+          }
         }
       });
     });
