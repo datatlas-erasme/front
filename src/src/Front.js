@@ -2,24 +2,21 @@ import React, { useEffect, useState } from 'react';
 ////////////////////////// REDUX IMPORT /////////////////////////////////////////
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider, useDispatch } from 'react-redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
 ////////////////////////// KEPLER.GL IMPORT /////////////////////////////////////////
 import keplerGlReducer from 'kepler.gl/reducers';
-import { addDataToMap, updateMap } from 'kepler.gl/actions';
+import { addDataToMap } from 'kepler.gl/actions';
 import { enhanceReduxMiddleware } from 'kepler.gl/middleware';
-import { MapPopoverFactory, LayerHoverInfoFactory, injectComponents } from 'kepler.gl/components';
+import { MapPopoverFactory, injectComponents } from 'kepler.gl/components';
 import { processGeojson } from 'kepler.gl/processors';
-import mapConfig from './static/defaultDisplayConf.json';
-import instanceConf from './static/instanceConf.json';
 import CustomMapPopoverFactory from './factories/map-popover';
 ////////////////////////// COMPONENT IMPORT /////////////////////////////////////////
 import BottomRightSection from './components/BottomRightSection';
 import Logo from './components/Logo';
 import FilterSidePanel from './components/FilterSidePanel';
 import ConfProvider from './providers/ConfProvider';
-import insertionEmploi from './static/datasets/ins_insertion_emploi.commissionlocale.json';
 
-document.title = instanceConf.siteTitle;
+//Todo Create env var for title
+//document.title = instanceConf.siteTitle;
 
 // Inject the point sidepanel component
 const KeplerGl = injectComponents([[MapPopoverFactory, CustomMapPopoverFactory]]);
@@ -69,36 +66,75 @@ function Map() {
   const [dataLoaded, setDataLoaded] = useState(false);
   const [mapUpdated, setMapUpdated] = useState(false);
 
+  const [instanceConf, setInstanceConf] = useState({})
+  const [instanceConfLoaded, setInstanceConfLoaded] = useState(false)
+
+  const [keplerConf, setKeplerConf] = useState({})
+  const [keplerConfLoaded, setKeplerConfLoaded] = useState(true)
+
   const dispatch = useDispatch();
 
-  // Get instance config / fetch data and store into DataLayers
+  const backendUrl = process.env.REACT_APP_BACKEND_URL
+  
+  // Retreive Instance configuration
   useEffect(() => {
-    const buffer = [];
-    const promises = instanceConf.layers.map((layer) => {
-      console.log(layer.type);
-
-      return fetch(layer.url)
+    console.log("FETCH DATA" + backendUrl + "/api/conf/instance")
+    fetch(backendUrl + "/api/conf/instance")
         .then((res) => res.json())
         .then((data) => {
-          if (data.fields) {
-            buffer.push([layer.name, data]);
-          } else {
-            buffer.push([layer.name, processGeojson(data)]);
-          }
+          setInstanceConf(data)
+          setInstanceConfLoaded(true)
         });
-    });
-    Promise.all(promises).then(() => {
-      setDataLayers(buffer);
-      setDataLoaded(true);
-      console.log('BUFFER', buffer);
-    });
+   
+    //setTestInstance(promises)
+    
   }, []);
+
+   // Retreive Kepler configuration
+   useEffect(() => {
+    console.log("FETCH DATA" + backendUrl + "/api/conf/kepler")
+    fetch(backendUrl + "/api/conf/kepler")
+        .then((res) => res.json())
+        .then((data) => {
+          setKeplerConf(data)
+          setKeplerConfLoaded(true)
+        });
+   
+    //setTestInstance(promises)
+    
+  }, []);
+    
+  // Get instance config / fetch data and store into DataLayers
+  useEffect(() => {
+    if(instanceConfLoaded) {
+      const buffer = [];
+      const promises = instanceConf.layers.map((layer) => {
+        //console.log(layer.type);
+  
+        return fetch(layer.url)
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.fields) {
+              buffer.push([layer.name, data]);
+            } else {
+              buffer.push([layer.name, processGeojson(data)]);
+            }
+          });
+      });
+      Promise.all(promises).then(() => {
+        setDataLayers(buffer);
+        setDataLoaded(true);
+        //console.log('BUFFER', buffer);
+      });
+    }
+    
+  }, [instanceConf, instanceConfLoaded]);
 
   // Get DataLayers and add data to map
   useEffect(() => {
     if (dataLayers) {
       dataLayers.map((dataset, index) => {
-        console.log(dataset);
+        //console.log(dataset);
         dispatch(
           addDataToMap({
             datasets: [
@@ -119,8 +155,10 @@ function Map() {
 
   // Pass the default kepler styling
   useEffect(() => {
-    dispatch(addDataToMap({ datasets: [], option: { centerMap: true }, config: mapConfig }));
-  }, [mapUpdated]);
+    if(keplerConfLoaded){
+      dispatch(addDataToMap({ datasets: [], option: { centerMap: true }, config: keplerConf }));
+    }
+  }, [dispatch,mapUpdated, keplerConfLoaded, keplerConf]);
 
   return mapUpdated ? (
     <div>

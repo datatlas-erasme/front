@@ -61,8 +61,6 @@ const CustomMapPopoverFactory = (...deps) => {
               />
             );
           } else if (fieldToShowIndex == 1) {
-            console.log('fieldToShowIndex');
-
             return <div>{data[index] && <h1>{data[index]} </h1>}</div>;
           } else {
             //console.log("field name " + field.displayName + " is index :" + index + "Data Value id : " + data[index])
