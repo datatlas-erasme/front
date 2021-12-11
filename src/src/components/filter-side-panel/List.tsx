@@ -15,7 +15,7 @@ export const List = ({ listNames = ['1', '2'], idFilter = 0, backgroundColor }: 
 
   const setFilterValue = (item: string) => {
     if (filtersArray.includes(item)) {
-      console.log('already in filters array');
+      //console.log('already in filters array');
       //console.log("Filters Array :", filtersArray)
       setFiltersArray((filtersArray) =>
         filtersArray.filter((cat) => {
@@ -29,7 +29,7 @@ export const List = ({ listNames = ['1', '2'], idFilter = 0, backgroundColor }: 
   };
 
   useEffect(() => {
-    console.log('Filters Array :', filtersArray);
+    //console.log('Filters Array :', filtersArray);
     dispatch(setFilter(idFilter, 'value', filtersArray));
   }, [dispatch, idFilter, filtersArray]);
 

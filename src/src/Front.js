@@ -76,6 +76,8 @@ function Map() {
 
   const backendUrl = process.env.REACT_APP_BACKEND_URL
   
+  //TODO create helper to fetch conf ?
+
   // Retreive Instance configuration
   useEffect(() => {
     console.log("FETCH DATA" + backendUrl + "/api/conf/instance")
@@ -84,10 +86,7 @@ function Map() {
         .then((data) => {
           setInstanceConf(data)
           setInstanceConfLoaded(true)
-        });
-   
-    //setTestInstance(promises)
-    
+        });  
   }, []);
 
    // Retreive Kepler configuration
