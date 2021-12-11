@@ -4,7 +4,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider, useDispatch } from 'react-redux';
 ////////////////////////// KEPLER.GL IMPORT /////////////////////////////////////////
 import keplerGlReducer from 'kepler.gl/reducers';
-import { addDataToMap, updateMap } from 'kepler.gl/actions';
+import { addDataToMap, updateMap, addCustomMapStyle, loadCustomMapStyle, inputMapStyle } from 'kepler.gl/actions';
 import { enhanceReduxMiddleware } from 'kepler.gl/middleware';
 import { MapPopoverFactory, injectComponents } from 'kepler.gl/components';
 import { processGeojson } from 'kepler.gl/processors';
@@ -14,7 +14,7 @@ import BottomRightSection from './components/BottomRightSection';
 import Logo from './components/Logo';
 import FilterSidePanel from './components/FilterSidePanel';
 import ConfProvider from './providers/ConfProvider';
-
+import MapBoxStyle from './static/mapboxStyle.json'
 //Todo Create env var for title
 //document.title = instanceConf.siteTitle;
 
@@ -154,6 +154,9 @@ function Map() {
   useEffect(() => {
     if(keplerConfLoaded){
       dispatch(addDataToMap({ datasets: [], option: { centerMap: false }, config: keplerConf }));
+      console.log(instanceConf.defaultMapBoxStyleUrl)
+      dispatch(loadCustomMapStyle({style: instanceConf.defaultMapBoxStyleUrl, id:"monochrome", name:"Monochrome"}))
+      dispatch(addCustomMapStyle())
       setMapUpdated(true);
     }
   }, [dispatch, keplerConfLoaded, keplerConf]);
@@ -162,7 +165,6 @@ function Map() {
   useEffect(() => {
     console.log(instanceConf.defaultMapLocation)
     if (mapUpdated) {
-      
       dispatch(updateMap({latitude:0, longitude: 0, zoom: 10}))
     }
   }, [dispatch,mapUpdated]);
