@@ -1,5 +1,5 @@
 FROM node:lts as prod
-ARG REACT_APP_MAPBOX_TOKEN
+ARG REACT_APP_BACKEND_URL
 
 COPY . /src
 WORKDIR /src/src
