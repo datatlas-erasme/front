@@ -1,6 +1,7 @@
 {
   "siteTitle": "DatAtlas-Industries",
   "defaultMapLocation": {"latitude":0, "longitude": 0, "zoom": 10},
+  "defaultMapBoxStyleUrl": "mapbox://styles/canographia/ckwwayufl3lzg14n2td2d3fb9",
   "modules": {
     "exportDataBtn": true
   },
