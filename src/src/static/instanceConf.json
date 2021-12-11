@@ -1,43 +1,39 @@
 {
-    "siteTitle": "DatAtlas-Industries",
-    "modules":
+  "siteTitle": "DatAtlas-Industries",
+  "defaultMapLocation": {"latitude":0, "longitude": 0, "zoom": 10},
+  "modules": {
+    "exportDataBtn": true
+  },
+  "theme": {
+    "filterSidePanel": {
+      "buttonColorRange": ["#dc7e6d", "#69b59d", "#c3c356"]
+    }
+  },
+  "bottomRightButtons": [
+    { "text": "+ Ajouter un lieu", "url": "https://form.typeform.com/to/V1f3GNXR" },
     {
-        "exportDataBtn" : true
-    },
-    "theme":
+      "text": "+ Ajouter un évenement",
+      "url": "https://form.typeform.com/to/vTRYrYpv?typeform-source=tank-tiga.webflow.io"
+    }
+  ],
+  "layers": [
     {
-        "filterSidePanel":
-        {
-            "buttonColorRange": ["#dc7e6d", "#69b59d" , "#c3c356" ]
-        }
+      "name": "tiga",
+      "type": "notion",
+      "url": "https://back-datatlas.datagora.erasme.org/api/data/notion/notion_tiga/",
+      "id": 0
     },
-    "bottomRightButtons" : [
-        {"text": "+ Ajouter un lieu", "url": "https://form.typeform.com/to/V1f3GNXR"},
-        {"text": "+ Ajouter un évenement", "url": "https://form.typeform.com/to/vTRYrYpv?typeform-source=tank-tiga.webflow.io"}
-    ],
-    "layers": 
-        [
-            {
-                "name" : "tiga",
-                "type" : "notion",
-                "url" : "https://back-datatlas.datagora.erasme.org/api/data/notion/notion_tiga/",
-                "id" : 0
-    
-            },
-            {
-                "name" : "mediation",
-                "type" : "notion",
-                "url" : "https://back-datatlas.datagora.erasme.org/api/data/notion/notion_mediation/",
-                "id" : 1
-    
-            },
-            {
-                "name" : "Agences Pôle Emploi de la Métropole de Lyon",
-                "type" : "geojson",
-                "url" : "https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=eco_economie.ecoagencepolemploi_latest&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:4171&startIndex=0",
-                "id" : 2
-            }
-        ]
-
-    
-  }
+    {
+      "name": "mediation",
+      "type": "notion",
+      "url": "https://back-datatlas.datagora.erasme.org/api/data/notion/notion_mediation/",
+      "id": 1
+    },
+    {
+      "name": "Agences Pôle Emploi de la Métropole de Lyon",
+      "type": "geojson",
+      "url": "https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=eco_economie.ecoagencepolemploi_latest&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:4171&startIndex=0",
+      "id": 2
+    }
+  ]
+}

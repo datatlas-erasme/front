@@ -4,7 +4,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider, useDispatch } from 'react-redux';
 ////////////////////////// KEPLER.GL IMPORT /////////////////////////////////////////
 import keplerGlReducer from 'kepler.gl/reducers';
-import { addDataToMap } from 'kepler.gl/actions';
+import { addDataToMap, updateMap } from 'kepler.gl/actions';
 import { enhanceReduxMiddleware } from 'kepler.gl/middleware';
 import { MapPopoverFactory, injectComponents } from 'kepler.gl/components';
 import { processGeojson } from 'kepler.gl/processors';
@@ -133,7 +133,6 @@ function Map() {
   useEffect(() => {
     if (dataLayers) {
       dataLayers.map((dataset, index) => {
-        //console.log(dataset);
         dispatch(
           addDataToMap({
             datasets: [
@@ -148,16 +147,25 @@ function Map() {
           }),
         );
       });
-      setMapUpdated(true);
     }
   }, [dispatch, dataLoaded, dataLayers]);
 
   // Pass the default kepler styling
   useEffect(() => {
     if(keplerConfLoaded){
-      dispatch(addDataToMap({ datasets: [], option: { centerMap: true }, config: keplerConf }));
+      dispatch(addDataToMap({ datasets: [], option: { centerMap: false }, config: keplerConf }));
+      setMapUpdated(true);
     }
-  }, [dispatch,mapUpdated, keplerConfLoaded, keplerConf]);
+  }, [dispatch, keplerConfLoaded, keplerConf]);
+
+  // TODO updatemap is not taken into account
+  useEffect(() => {
+    console.log(instanceConf.defaultMapLocation)
+    if (mapUpdated) {
+      
+      dispatch(updateMap({latitude:0, longitude: 0, zoom: 10}))
+    }
+  }, [dispatch,mapUpdated]);
 
   return mapUpdated ? (
     <div>
