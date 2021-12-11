@@ -14,7 +14,6 @@ import BottomRightSection from './components/BottomRightSection';
 import Logo from './components/Logo';
 import FilterSidePanel from './components/FilterSidePanel';
 import ConfProvider from './providers/ConfProvider';
-import MapBoxStyle from './static/mapboxStyle.json'
 //Todo Create env var for title
 //document.title = instanceConf.siteTitle;
 
@@ -154,8 +153,9 @@ function Map() {
   useEffect(() => {
     if(keplerConfLoaded){
       dispatch(addDataToMap({ datasets: [], option: { centerMap: false }, config: keplerConf }));
-      console.log(instanceConf.defaultMapBoxStyleUrl)
-      dispatch(loadCustomMapStyle({style: instanceConf.defaultMapBoxStyleUrl, id:"monochrome", name:"Monochrome"}))
+
+      // Load à custum map style from backend
+      dispatch(inputMapStyle({style: instanceConf.defaultMapBoxStyleUrl, id:"monochrome", name:"Monochrome"}))
       dispatch(addCustomMapStyle())
       setMapUpdated(true);
     }
