@@ -94,7 +94,7 @@ const Button = ({
           <span>
             <FontAwesomeIcon icon={!isActive ? faChevronRight : faChevronDown} />{' '}
           </span>
-          {text.substring(0, 30)}
+          {text?.substring(0, 30)}
         </button>
         <AnimateHeight
           duration={500}
