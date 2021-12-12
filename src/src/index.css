@@ -209,55 +209,15 @@ button {
   width: 100%;
 }
 
-
 .button:hover {
   transition: all ease-in-out 0.2s;
   background-color: #172a3b;
 }
 
-
-.slide-down-enter {
-  height: 0px;
-}
-
-
-.slide-down-active {
-  height: 100%;
-  transition: height 400ms;
-} 
-
-.slide-down-exit {
-  height: 100%;
-}
-
-.slide-down-exit-active {
-  height: 0px;
-  transition: height  400ms;
-}
-
-
-.test {
-  height: 0;
-  overflow: hidden;
-}
-
-.my-node-enter {
-  height: 100%;
-  display: none;
-  opacity: 0;
-}
-.my-node-enter-active {
-  height: 100%;
-  display: block;
-  opacity: 1;
-  transition: opacity 1000ms;
-}
-.my-node-exit {
-  height: 100%;
-  opacity: 1;
-}
-.my-node-exit-active {
-  
-  opacity: 0;
-  transition: opacity 200ms;
+.instance-config {
+  position: absolute;
+  top: 44px;
+  background: white;
+  padding: 15px;
+  left: 30%;
 }
