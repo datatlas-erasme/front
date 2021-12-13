@@ -35,7 +35,7 @@ export const List = ({ listNames = ['1', '2'], idFilter = 0, backgroundColor }: 
 
   return (
     <div>
-      {listNames.map((item, index) => (
+      {listNames?.map((item, index) => (
         <li onClick={() => setFilterValue(item)}>
           <Button className="" key={index} textSize="12px" bg={backgroundColor} text={item} />
         </li>

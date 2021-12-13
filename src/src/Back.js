@@ -14,6 +14,7 @@ import BottomRightSection from './components/BottomRightSection';
 import Logo from './components/Logo';
 import FilterSidePanel from './components/FilterSidePanel';
 import ConfProvider from './providers/ConfProvider';
+import InstanceConfig from './components/InstanceConfig';
 
 //Todo Create env var for title
 //document.title = instanceConf.siteTitle;
@@ -74,6 +75,7 @@ function Map() {
       <Logo />
       <FilterSidePanel />
       <BottomRightSection />
+      <InstanceConfig/>
     </div>
   )
 }
