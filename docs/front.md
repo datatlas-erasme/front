@@ -16,8 +16,8 @@ Then for the Kepler side:
 
 ```
 cd kepler.gl
-npm install
-npm run build
+yarn install
+yarn run build
 ```
 
 And for the Front side:
