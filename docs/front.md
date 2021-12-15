@@ -1,5 +1,13 @@
 # Front
 
+## Code style
+
+ESlint is configured with a basic code style, including React hooks dependency hints.
+
+VSCode can display the ESlint errors and warnings thanks to the ESlint extension.
+
+This extension includes a formatter to automatically reformat written code based on the code style.
+
 ## Use DatAtlas Kepler custom package
 
 DatAtlas needs a custom version of Kepler where a column can have multiple values. This is achieved by using a JSON value.
@@ -18,15 +26,16 @@ Then for the Kepler side:
 cd kepler.gl
 yarn install
 yarn run build
+yarn link # may need sudo
 ```
 
 And for the Front side:
 
 ```
 cd ../front/src
-npm install
-npm link ../../kepler.gl # may need sudo
-npm run build # or npm start
+yarn install
+yarn link kepler.gl
+yarn build # or yarn start
 ```
 
 ### By modifying the package.json
@@ -35,6 +44,6 @@ This implies pushing a different package.json than the one actually versioned an
 
 Several solutions there :
 
-1. The Kepler custom package must be built and published to NPM with a different name (or under a @datatlas scope), and the dependency should refer to this NPM package. The least easy to maintain but the more robust.
-2. The Kepler custom package must be built and pushed (dist/ folder included) to Github, then the simplified Github URL format can be used as the dependency version : `"kepler.gl": "datatlas-erasme/kepler.gl",` [see on NPM doc](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#github-urls). Maybe the easiest to do but implies pushing the dist/ folder.
+1. Chosen solution: the Kepler custom package must be built and pushed (dist/ folder included) to Github, then the simplified Github URL format can be used as the dependency version : `"kepler.gl": "datatlas-erasme/kepler.gl",` [see on NPM doc](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#github-urls). Maybe the easiest to do but implies pushing the dist/ folder.
+2. The Kepler custom package must be built and published to NPM with a different name (or under a @datatlas scope), and the dependency should refer to this NPM package. The least easy to maintain but the more robust.
 3. Similar to the link solution, the Kepler custom package must be cloned next to the Front folder, in the system where the Front folder will be built, then the dependency can point to this folder : `"kepler.gl": "../../kepler.gl",` [see on NPM doc](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#github-urls). Not great, every developers and build envs must have the same folder structure...
