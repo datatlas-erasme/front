@@ -4,7 +4,7 @@ ARG REACT_APP_BACKEND_URL
 COPY . /src
 WORKDIR /src/src
 RUN ls
-RUN npm install
+RUN npm install -f
 
 #RUN --mount=type=secret,id=REACT_APP_MAPBOX_TOKEN \
 #    export REACT_APP_MAPBOX_TOKEN=$(cat /run/secrets/REACT_APP_MAPBOX_TOKEN)
