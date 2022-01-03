@@ -1,10 +1,20 @@
+# TODO Remove the dirty fix (git clone thing) - 
+
 FROM node:lts as prod
 ARG REACT_APP_BACKEND_URL
 
 COPY . /src
 WORKDIR /src/src
 RUN ls
-RUN npm install -f
+# DIRTY FIX
+RUN git clone https://github.com/datatlas-erasme/kepler.gl.git
+WORKDIR  /src/src/kepler.gl
+RUN git checkout add-multiple-value-column
+WORKDIR /src/src
+RUN npm install --force
+RUN rm -r  /src/src/node_modules/kepler.gl/*
+RUN cp -r /src/src/kepler.gl/dist/*  /src/src/node_modules/kepler.gl/
+
 
 #RUN --mount=type=secret,id=REACT_APP_MAPBOX_TOKEN \
 #    export REACT_APP_MAPBOX_TOKEN=$(cat /run/secrets/REACT_APP_MAPBOX_TOKEN)
