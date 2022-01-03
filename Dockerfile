@@ -24,6 +24,8 @@ RUN chmod +x /docker-entrypoint.sh
 RUN sh /docker-entrypoint.sh
 #ENTRYPOINT ["/docker-entrypoint.sh"]
 
+WORKDIR /src/src
+
 RUN npm run build
 
 FROM nginx:1.19.0
