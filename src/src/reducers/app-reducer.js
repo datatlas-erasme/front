@@ -17,7 +17,8 @@ const appReducer = handleActions(
   {
     [INIT]: (state, action) => ({
       ...state,
-      loaded: true
+      loaded: true,
+      viewport: action.payload
     })
   },
   initialState

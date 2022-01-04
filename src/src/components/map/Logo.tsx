@@ -1,6 +1,6 @@
 import React from 'react';
-import logoGl from '../static/logo_gl.png';
-import logoTI from '../static/logo_ti.png';
+import logoGl from '../../utils/logo_gl.png';
+import logoTI from '../../utils/logo_ti.png';
 
 export type LogoProps = React.ComponentPropsWithoutRef<'div'>;
 

@@ -1,15 +1,17 @@
 import { ThemeProvider } from 'styled-components';
 import './styles/themes';
 import { theme } from './styles/index';
-import instanceConf from './static/instanceConf.json';
-import Map from './components/Map';
-
-console.log(instanceConf);
+import { MapContainer } from './components';
+import { PanelControl } from './components';
 
 export default function Front() {
+
+  console.log(theme);
+
   return (
     <ThemeProvider theme={theme}>
-        <Map />
+        <MapContainer />
+        <PanelControl/>
     </ThemeProvider>
   );
 }

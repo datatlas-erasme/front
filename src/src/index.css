@@ -72,7 +72,7 @@ code {
 }
 
 
-.filters {
+/* .filters {
   position: absolute;
   top: 85px;
   right: 30px;
@@ -80,30 +80,31 @@ code {
   flex-direction: column;
   height: 70vh;
   overflow: auto;
-  width: 11%;
+  width: 30vw;
   padding-right: 10px;
   -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
+  /* scrollbar-width: none;  /* Firefox */
+/*} */
 
-.filters::-webkit-scrollbar {
+/* .filters::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .filter-parent {
   /*TODO Reduice the height gap in another cleaner manner */
   margin-bottom: -15px;
+  list-style: none;
 }
 
 .filter-parent ul {
   max-height: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   transition: all ease-in-out 0.2s;
 }
 
 .filter-parent .active {
   max-height: 1000px;
-  /*overflow: auto;*/
+  overflow: auto;
   transition: all ease-in-out 0.2s;
   overflow-y: hidden;
   border-radius: 3px;
@@ -120,13 +121,13 @@ code {
 
 
 .filters ul {
-  padding: 0;
+  padding: 20px;
   margin: 0 0 10px 0;
 }
 
-.filters ul li {
+/* .filters ul li {
   list-style: none;
-}
+} */
 
 .filters .filter-child button {
   /*font-size: 10px;*/

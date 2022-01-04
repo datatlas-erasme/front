@@ -1,5 +1,5 @@
 import React from 'react';
-import instanceConf from '../static/instanceConf.json';
+import instanceConf from '../conf/instanceConf.json';
 
 export const ConfContext = React.createContext(instanceConf);
 

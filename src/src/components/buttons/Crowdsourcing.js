@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { ConfContext } from '../providers/ConfProvider';
-import Button from './filter-side-panel/Button';
+import { useContext } from 'react';
+import { ConfContext } from '../../providers/ConfProvider';
+import Button from '../buttons/Button';
 
-const BottomRightSection = () => {
+const Crowdsourcing = () => {
   const config = useContext(ConfContext).bottomRightButtons;
 
   return (
@@ -16,4 +16,4 @@ const BottomRightSection = () => {
   );
 };
 
-export default BottomRightSection;
+export default Crowdsourcing;

@@ -7,15 +7,15 @@ import {
   inputMapStyle } from 'kepler.gl/actions';
 import { processGeojson } from 'kepler.gl/processors';
 import { MapPopoverFactory, injectComponents } from 'kepler.gl/components';
-import CustomMapPopoverFactory from '../factories/map-popover';
-import BottomRightSection from '../components/BottomRightSection';
-import Logo from '../components/Logo';
-import FilterSidePanel from '../components/FilterSidePanel';
+import CustomMapPopoverFactory from '../../factories/map-popover';
+import Logo from './Logo';
 
 // Inject the point sidepanel component
 const KeplerGl = injectComponents([[MapPopoverFactory, CustomMapPopoverFactory]]);
 
-export default function Map() {
+console.log(KeplerGl);
+
+export default function MapContainer() {
     const [dataLayers, setDataLayers] = useState([]);
   
     const [dataLoaded, setDataLoaded] = useState(false);
@@ -119,7 +119,6 @@ export default function Map() {
   
     // TODO updatemap is not taken into account
     useEffect(() => {
-      console.log(instanceConf.defaultMapLocation)
       if (mapUpdated) {
         dispatch(updateMap({latitude:0, longitude: 0, zoom: 10}))
       }
@@ -135,8 +134,6 @@ export default function Map() {
           appName="Datatlas"
         />
         <Logo />
-        <FilterSidePanel />
-        <BottomRightSection />
       </div>
     ) : (
       ''

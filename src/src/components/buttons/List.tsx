@@ -4,19 +4,18 @@ import { setFilter } from 'kepler.gl/actions';
 import Button from './Button';
 
 export type ListProps = {
-  idFilter: number | string;
+  idFilter?: number | string;
   listNames?: string[];
   backgroundColor?: string;
 };
-
-export const List = ({ listNames = ['1', '2'], idFilter = 0, backgroundColor }: ListProps) => {
+export const List = ({ listNames = [], idFilter = 0, backgroundColor }: ListProps) => {
   const dispatch = useDispatch();
   const [filtersArray, setFiltersArray] = useState<string[]>([]);
 
   const setFilterValue = (item: string) => {
     if (filtersArray.includes(item)) {
-      //console.log('already in filters array');
-      //console.log("Filters Array :", filtersArray)
+      console.log('already in filters array');
+      console.log("Filters Array :", filtersArray)
       setFiltersArray((filtersArray) =>
         filtersArray.filter((cat) => {
           return cat !== item;
@@ -37,7 +36,8 @@ export const List = ({ listNames = ['1', '2'], idFilter = 0, backgroundColor }: 
     <div>
       {listNames?.map((item, index) => (
         <li onClick={() => setFilterValue(item)}>
-          <Button className="" key={index} textSize="12px" bg={backgroundColor} text={item} />
+          <Button className="" key={index} textSize="12px" bg={backgroundColor} text={item}/>
+
         </li>
       ))}
     </div>

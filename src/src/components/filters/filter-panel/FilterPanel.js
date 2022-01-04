@@ -1,29 +1,29 @@
-import React, { useMemo, useContext } from 'react';
+import { useMemo, useContext } from 'react';
 import { useDispatch, connect, useSelector } from 'react-redux';
-import {
-  toggleModal,
-  setExportFiltered,
-  setExportDataType,
-  showExportDropdown,
-} from 'kepler.gl/actions';
-import { ConfContext } from '../providers/ConfProvider';
-import Button from './filter-side-panel/Button';
+import {toggleModal} from 'kepler.gl/actions';
+import { ConfContext } from '../../../providers/ConfProvider';
+import Button from '../../buttons/Button';
 //Todo use redux instead ?
-import FilterMod from './FilterMod';
+import FilterMod from '../filter-mod/FilterMod';
 
 const FilterSidePanel = () => {
   
   const exportDataBtn = useContext(ConfContext).modules.exportDataBtn;
+  console.log(exportDataBtn);
   const dispatch = useDispatch();
   // Get the filter values, id  and map them to buttons
   const filtersDomain = useSelector((state) => state.keplerGl.map?.visState?.filters ?? []);
-  const layers = useSelector((state) => state.keplerGl.map?.visState?.layers ?? {});
+  const layers = useSelector((state) => state.keplerGl.map?.visState?.layers ?? {}
+  );
 
   const filterTree = useMemo(() => {
     return Object.values(layers).map((value) => {
       return { label: value.config.label, id: value.config.dataId };
     });
-  }, [filtersDomain, layers]);
+  }, [layers]);
+
+  console.log(filterTree);
+
   //TODO Get layer color and use it for buttons bg color
 
   const Filters = filterTree.map((value, index) => {
@@ -45,7 +45,7 @@ const FilterSidePanel = () => {
         <Button btnType="parent" bg="#5a8aa5" onClick={openAddData} text="Ajouter un calque" />
         {exportDataBtn ??<Button
           btnType="parent"
-          bg="#5a8aa5"
+          bg="white"
           onClick={exportFilteredData}
           text="exporter les données filtrées"
         /> }

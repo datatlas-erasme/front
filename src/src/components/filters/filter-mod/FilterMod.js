@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import AnimateHeight from 'react-animate-height';
-import instanceConf from '../static/instanceConf.json';
-import Button from './filter-side-panel/Button';
+import instanceConf from '../../../conf/instanceConf.json';
+import Button from '../../buttons/Button';
 
 const buttonColorRange = instanceConf.theme.filterSidePanel.buttonColorRange;
 
@@ -13,8 +13,8 @@ const FilterMod = ({ value, index, filtersDomain }) => {
   };
 
   const datasetLabel = value.label;
-  const datasetId = value.id;
   const datasetIndex = index;
+  // const datasetId = value.id;
 
   const ParentBtn = (
     <Button
@@ -28,11 +28,10 @@ const FilterMod = ({ value, index, filtersDomain }) => {
 
   const Domains = filtersDomain?.map((filter, index) => {
     const filterName = filter?.name;
-    const filterId = filter?.dataId;
     const filterDomain = filter?.domain;
-    if (filterId == datasetId) {
+    // const filterId = filter?.dataId;
+
       return (
-        <div>
           <li key={index} id="filter-parent-1" className="filter-parent">
             <Button
               bg={buttonColorRange[datasetIndex]}
@@ -41,24 +40,27 @@ const FilterMod = ({ value, index, filtersDomain }) => {
               listNames={filterDomain}
               idFilter={index}
             />
-            }
           </li>
-        </div>
       );
-    }
   });
 
+console.log(Domains);
+
   return (
-    <ul>
+    <div class="Moi">
+
       {ParentBtn}
 
       <AnimateHeight
         duration={500}
         height={!isActive ? 0 : 'auto'} // see props documentation bellow
       >
+
         <>{Domains}</>
+
       </AnimateHeight>
-    </ul>
+
+    </div>
   );
 };
 
