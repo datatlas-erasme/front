@@ -11,7 +11,11 @@ RUN git clone https://github.com/datatlas-erasme/kepler.gl.git
 WORKDIR  /src/src/kepler.gl
 RUN git checkout add-multiple-value-column
 WORKDIR /src/src
-RUN npm install --force
+
+# TODO : do not mix yarn and npm packages
+RUN yarn install
+
+#RUN npm install --force
 RUN rm -r  /src/src/node_modules/kepler.gl/*
 RUN cp -r /src/src/kepler.gl/dist/*  /src/src/node_modules/kepler.gl/
 
@@ -26,8 +30,7 @@ RUN sh /docker-entrypoint.sh
 
 WORKDIR /src/src
 
-#
-RUN yarn add react-intl
+
 
 RUN npm run build
 
