@@ -26,6 +26,9 @@ RUN sh /docker-entrypoint.sh
 
 WORKDIR /src/src
 
+#
+RUN yarn add react-intl
+
 RUN npm run build
 
 FROM nginx:1.19.0
