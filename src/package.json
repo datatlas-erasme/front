@@ -19,7 +19,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "formik": "^2.2.9",
     "history": "^5.1.0",
-    "kepler.gl": "2.5.4",
+    "kepler.gl": "datatlas-erasme/kepler.gl#add-multiple-value-column",
     "lighten-darken-color": "^1.0.0",
     "prettier": "^2.4.1",
     "react": "^17.0.2",

@@ -5,12 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronRight,
   faChevronDown,
-  faEye,
-  faEyeSlash,
 } from '@fortawesome/free-solid-svg-icons';
 import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';
 import { LightenDarkenColor } from 'lighten-darken-color';
+import { ButtonCollapse } from '../../styles/buttons/button-collapse';
 import { Override } from '../../types/Override';
 // import { AppStore } from '../../store';
 import {FarmerIcon} from '../../utils/svg/FarmerIcon';
@@ -48,7 +47,7 @@ const Button = ({
   const isActiveState = () => {
     setIsActive(!isActive);
   };
-
+  
   // Toggle the button linked layer vibility
   const [isLayerVisible, setIsLayerVisible] = useState(true);
   const isLayerVisibleState = () => {
@@ -68,23 +67,23 @@ const Button = ({
   // }, [layer, isLayerVisible, dispatch]);
 
   // Big button style
+  
   if (btnType === 'parent') {
     return (
       <div className="btn-parent" style={{ backgroundColor: bg, fontSize: textSize }}>
-          <FontAwesomeIcon icon={isLayerVisible ? faEye : faEyeSlash} onClick={isLayerVisibleState}/>
-        <button className="btn" {...props}>
-          {text.substring(0, 30)}
-        </button>
+        <ButtonCollapse className="btn" {...props}>
+          {text.substring(0, 30) }
+        </ButtonCollapse>
       </div>
     );
   }
   // Medium button styling + lits display
   else if (btnType === 'child') {
-    console.log("ID FILTER", idFilter)
+    // console.log("ID FILTER", idFilter)
     //console.log("List Names", listNames)
 
     return (
-      <div>
+      <>
         <button
           onClick={isActiveState}
           style={{ backgroundColor: LightenDarkenColor(bg, -20), fontSize: textSize }}
@@ -94,15 +93,23 @@ const Button = ({
           <span>
             <FontAwesomeIcon icon={!isActive ? faChevronRight : faChevronDown} />{' '}
           </span>
+
           {text?.substring(0, 30)}
         </button>
+        
         <AnimateHeight
           duration={500}
-          height={!isActive ? 0 : 'auto'} // see props documentation bellow
+          height={!isActive ? 0 : 'auto'} 
+          // see props documentation bellow
         >
-            <List listNames={listNames} backgroundColor={bg} idFilter={idFilter}/>
+            <List 
+              listNames={listNames} 
+              backgroundColor={bg} 
+              idFilter={idFilter}
+            />
+
         </AnimateHeight>
-      </div>
+      </>
     );
   } else {
     return (
@@ -117,11 +124,6 @@ const Button = ({
       </button>
     );
   }
-};
-
-Button.defaultProps = {
-  bg: '#ff241a',
-  fontSize: '20px',
 };
 
 export default Button;

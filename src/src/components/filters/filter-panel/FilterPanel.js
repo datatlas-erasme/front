@@ -6,7 +6,7 @@ import Button from '../../buttons/Button';
 //Todo use redux instead ?
 import FilterMod from '../filter-mod/FilterMod';
 
-const FilterSidePanel = () => {
+const FilterSidePanel = (props) => {
   
   const exportDataBtn = useContext(ConfContext).modules.exportDataBtn;
   console.log(exportDataBtn);
@@ -16,13 +16,17 @@ const FilterSidePanel = () => {
   const layers = useSelector((state) => state.keplerGl.map?.visState?.layers ?? {}
   );
 
+  console.log(filtersDomain);
+
+  console.log(layers.config);
+
   const filterTree = useMemo(() => {
     return Object.values(layers).map((value) => {
       return { label: value.config.label, id: value.config.dataId };
     });
   }, [layers]);
 
-  console.log(filterTree);
+  console.log(layers);
 
   //TODO Get layer color and use it for buttons bg color
 

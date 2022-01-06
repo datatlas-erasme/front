@@ -12,7 +12,7 @@
     }
   },
   "bottomRightButtons": [
-    { "text": "+ Ajouter un lieu", "url": "https://form.typeform.com/to/V1f3GNXR" },
+    { "text": "Ajouter un point sur la carte", "url": "https://form.typeform.com/to/V1f3GNXR" },
     {
       "text": "+ Ajouter un évenement",
       "url": "https://form.typeform.com/to/vTRYrYpv?typeform-source=tank-tiga.webflow.io"

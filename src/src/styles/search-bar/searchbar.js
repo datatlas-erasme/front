@@ -5,9 +5,9 @@ export const Form = styled.form`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 300px;
-  height: 40px;
-  margin: 40px auto;
+  width: 25vw;
+  height: 5vh;
+  margin: 20px auto;
   background: white;
   border: 1px solid #71717E;
   box-sizing: border-box;
