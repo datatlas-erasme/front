@@ -78,7 +78,51 @@ const CustomMapPopoverFactory = (...deps) => {
       });
     });
 
-    return <div className="PointSidePanel">{PointFields}</div>;
+    //TODO Fix because kepler's fields to show panel crashes because of the array input from the dataset
+
+    const PointFieldsFixImage =  allFields.map((field, index) => {
+      if (field.displayName.includes('image')) {
+        return (
+          <img
+            src={
+              data[index]
+                ? data[index]
+                : 'https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+            }
+          />
+        );
+      }
+    });
+
+    const PointFieldsFix =  allFields.map((field, index) => {
+      // TODO check if is url and has image extension
+
+      if (field.displayName.includes('nom')) {
+        return (
+          <h1>{data[index]}</h1>
+        )
+      }
+      if (field.displayName.includes('desc')) {
+        return (
+          <p>{data[index]}</p>
+        )
+      }
+      if (field.displayName.includes('adresse')) {
+        return (
+          <>
+            <p>{data[index]}</p>
+          </>
+        )
+      }
+      if (field.displayName.includes('site')) {
+        return (
+          <a target="" href={data[index]}>Site internet</a>
+        )
+      }
+  
+    });
+
+    return <div className="PointSidePanel">{PointFieldsFixImage}{PointFieldsFix}</div>;
   };
 
   return MapSidepanel;
