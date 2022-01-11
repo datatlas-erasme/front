@@ -37,7 +37,7 @@ const FilterMod = ({ value, index, filtersDomain }) => {
             <Button
               bg={buttonColorRange[datasetIndex]}
               btnType="child"
-              text={filterName[0]}
+              text={filterName[0].replace(/_/g, ' ')}
               listNames={filterDomain}
               idFilter={index}
             />

@@ -107,6 +107,7 @@ code {
   transition: all ease-in-out 0.2s;
   overflow-y: hidden;
   border-radius: 3px;
+  text-transform: capitalize;
 }
 
 
