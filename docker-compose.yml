@@ -3,14 +3,14 @@ services:
   datagora_datatlas_front:
     build:
       context: .
-      dockerfile: Dockerfile
-      target: dev
+      dockerfile: Dockerfile.dev
+      #target: dev
     restart: always
     ports:
       - 0.0.0.0:5007:3000
     volumes:
-      - ./src:/src/src
-      - /src/src/node_modules
-      - /src/src/build
+      - ./src/src:/src/src/src
+      #- ./src/src:/src/src
+
     command: npm start
     stdin_open: true

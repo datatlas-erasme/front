@@ -1,8 +1,8 @@
-import AuxLayerHoverInfo from "./AuxLayerHoverInfo"
-import {LayerHoverInfoFactory} from "kepler.gl/components"
+import { LayerHoverInfoFactory } from 'kepler.gl/components';
+import AuxLayerHoverInfo from './AuxLayerHoverInfo';
 
-const CustomLayerHoverInfoFactory = () => AuxLayerHoverInfo
+const CustomLayerHoverInfoFactory = () => AuxLayerHoverInfo;
 
 export function replaceLayerHoverInfo() {
-    return [LayerHoverInfoFactory, CustomLayerHoverInfoFactory]
+  return [LayerHoverInfoFactory, CustomLayerHoverInfoFactory];
 }

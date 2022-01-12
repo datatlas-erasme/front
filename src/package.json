@@ -6,36 +6,81 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "@tippyjs/react": "^4.2.5",
-    "history": "^4.10.1",
-    "kepler.gl": "^2.0.1",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.7",
+    "@types/react": "^17.0.35",
+    "@types/react-dom": "^17.0.11",
+    "classnames": "^2.3.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "history": "^5.1.0",
+    "kepler.gl": "datatlas-erasme/kepler.gl#add-multiple-value-column",
     "lighten-darken-color": "^1.0.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "prettier": "^2.4.1",
+    "react": "^17.0.2",
+    "react-animate-height": "^2.0.23",
+    "react-dom": "^17.0.2",
     "react-fontawesome": "^1.7.1",
     "react-palm": "^3.1.2",
     "react-redux": "^7.2.0",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
+    "react-router": "^6.0.2",
+    "react-router-dom": "^6.0.2",
     "react-router-redux": "^4.0.8",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^4.0.3",
+    "react-transition-group": "^4.4.2",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.0.1",
-    "swr": "^0.1.18"
+    "swr": "^0.1.18",
+    "typescript": "^4.5.2",
+    "use-http": "^1.0.26"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.{js,ts,tsx}",
+    "lint:fix": "eslint --fix src/**/*.{js,ts,tsx}"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app"
+    ],
+    "rules": {
+      "import/order": "error",
+      "no-multiple-empty-lines": [
+        "error",
+        {
+          "max": 1,
+          "maxEOF": 1,
+          "maxBOF": 0
+        }
+      ],
+      "padding-line-between-statements": [
+        "error",
+        {
+          "blankLine": "always",
+          "prev": "*",
+          "next": "return"
+        },
+        {
+          "blankLine": "always",
+          "prev": "import",
+          "next": "*"
+        },
+        {
+          "blankLine": "never",
+          "prev": "import",
+          "next": "import"
+        }
+      ]
+    }
   },
   "browserslist": {
     "production": [

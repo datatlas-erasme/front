@@ -1,27 +1,41 @@
 {
-    "layers": 
-        [
-            {
-                "name" : "tiga",
-                "type" : "geoserver",
-                "url" : "https://back-datatlas.datagora.erasme.org/api/data/notion/notion_tiga/",
-                "id" : 0
-    
-            },
-            {
-                "name" : "mediation",
-                "type" : "geoserver",
-                "url" : "https://back-datatlas.datagora.erasme.org/api/data/notion/notion_mediation/",
-                "id" : 1
-    
-            },
-            {
-                "name" : "Annuaire pour les professionnels de solutions de réduction et gestion des déchets de la Métropole de Lyon ",
-                "type" : "openDataLyon",
-                "url" : "https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=eco_ecologie.ecoannuproducteur_latest&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:4171&startIndex=0",
-                "id" : 2
-            }
-        ]
-
-    
-  }
+  "siteTitle": "DatAtlas-Industries",
+  "mapboxToken":"pk.eyJ1IjoieXNpb3VkYSIsImEiOiJja3JnZ2k1cDg1cTMxMnJueGV6cDU4c25iIn0.td9NqwcqkUW1VeRIPB2oTA",
+  "defaultMapLocation": {"latitude":0, "longitude": 0, "zoom": 10},
+  "defaultMapBoxStyleUrl": "mapbox://styles/canographia/ckwwayufl3lzg14n2td2d3fb9",
+  "modules": {
+    "exportDataBtn": true
+  },
+  "theme": {
+    "filterSidePanel": {
+      "buttonColorRange": ["#dc7e6d", "#69b59d", "#c3c356"]
+    }
+  },
+  "bottomRightButtons": [
+    { "text": "+ Ajouter un lieu", "url": "https://form.typeform.com/to/V1f3GNXR" },
+    {
+      "text": "+ Ajouter un évenement",
+      "url": "https://form.typeform.com/to/vTRYrYpv?typeform-source=tank-tiga.webflow.io"
+    }
+  ],
+  "layers": [
+    {
+      "name": "tiga",
+      "type": "notion",
+      "url": "https://back-datatlas.datagora.erasme.org/api/data/notion/notion_tiga/",
+      "id": 0
+    },
+    {
+      "name": "mediation",
+      "type": "notion",
+      "url": "https://back-datatlas.datagora.erasme.org/api/data/notion/notion_mediation/",
+      "id": 1
+    },
+    {
+      "name": "Agences Pôle Emploi de la Métropole de Lyon",
+      "type": "geojson",
+      "url": "https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&request=GetFeature&typename=eco_economie.ecoagencepolemploi_latest&outputFormat=application/json; subtype=geojson&SRSNAME=EPSG:4171&startIndex=0",
+      "id": 2
+    }
+  ]
+}

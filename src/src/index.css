@@ -31,7 +31,7 @@ code {
 }
 
 /*TODO FIX hide trough kepler injections*/
-.map-control, .side-panel--container {
+.map-control, side-panel--container {
   display: none !important;
 }
 
@@ -49,9 +49,19 @@ code {
   padding: 15px;
   overflow: scroll;
   overflow-x: hidden;
+  overflow-y: hidden;
+  animation: 0.2s linear 0s running slidein;
   }
 
+  @keyframes slidein {
+    from { width: 0; }
+    to   { width: 30%; }
+  }
 
+  @keyframes slidedown {
+    from { width: 0; }
+    to   { height: 50px; }
+  }
   /********************** FILTERS SIDE PANEL *********************/
 .FilterSidePanel {
   position: absolute;
@@ -64,15 +74,26 @@ code {
 
 .filters {
   position: absolute;
-  top: 50px;
+  top: 85px;
   right: 30px;
   display: flex;
   flex-direction: column;
   height: 70vh;
   overflow: auto;
   width: 11%;
+  padding-right: 10px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
+.filters::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-parent {
+  /*TODO Reduice the height gap in another cleaner manner */
+  margin-bottom: -15px;
+}
 
 .filter-parent ul {
   max-height: 0;
@@ -80,17 +101,30 @@ code {
   transition: all ease-in-out 0.2s;
 }
 
-.filter-parent .active {
+.filter-parent .btn {
   max-height: 1000px;
   /*overflow: auto;*/
   transition: all ease-in-out 0.2s;
   overflow-y: hidden;
   border-radius: 3px;
+  text-transform: capitalize;
+}
+
+
+.filter-parent li button {
+ opacity: 0.5;
+ border-radius: 5px 5px 5px 5px;
+ margin-top: 5px;
+}
+
+.filter-parent .selected {
+  opacity: 1;
 }
 
 
 .filters ul {
   padding: 0;
+  margin: 0 0 10px 0;
 }
 
 .filters ul li {
@@ -133,21 +167,27 @@ filters .filter-child button.active span {
 .crowdsourcing {
   position: absolute;
   bottom: 70px;
-  right: 35px;
+  right: 36px;
   display: flex;
   flex-direction: column;
 }
 
 .crowdsourcing button {
   margin: 5px;
+  width: 189px;
+  border-radius: 5px 5px 5px 5px;
 }
 
 .btn-parent {
+  display: flex;
   padding-left: 12px;
   border-radius: 5px;
   margin-bottom: 5px;
 }
 
+.btn-parent p {
+  padding-right: 10px;
+}
 
 .btn-child {
   width: max-content;
@@ -174,8 +214,15 @@ button {
   width: 100%;
 }
 
-
 .button:hover {
   transition: all ease-in-out 0.2s;
   background-color: #172a3b;
+}
+
+.instance-config {
+  position: absolute;
+  top: 44px;
+  background: white;
+  padding: 15px;
+  left: 30%;
 }

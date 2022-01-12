@@ -1,0 +1,19 @@
+FROM node:lts as prod
+
+COPY . /src
+WORKDIR /src/src
+RUN ls
+RUN git clone https://github.com/datatlas-erasme/kepler.gl.git
+WORKDIR  /src/src/kepler.gl
+RUN git checkout add-multiple-value-column
+WORKDIR /src/src
+RUN npm install --force
+RUN rm -r  /src/src/node_modules/kepler.gl/*
+RUN cp -r /src/src/kepler.gl/dist/*  /src/src/node_modules/kepler.gl/
+
+
+
+
+WORKDIR /src/src
+CMD [ "npm", "start" ]
+EXPOSE 3000
