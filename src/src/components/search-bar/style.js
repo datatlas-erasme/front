@@ -5,9 +5,9 @@ export const Form = styled.form`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 25vw;
+  width: 80%;
   height: 5vh;
-  margin: 20px auto;
+  margin: auto;
   background: white;
   border: 1px solid #71717E;
   box-sizing: border-box;
@@ -18,8 +18,7 @@ export const Form = styled.form`
 export const Input = styled.input`
   font-size: 14px;
   line-height: 1;
-  background-color: transparent;
-  width: 100%;
+  width: 80%;
   border: none;
   color: #adadad;
   transition: margin 300ms cubic-bezier(0.645, 0.045, 0.355, 1);

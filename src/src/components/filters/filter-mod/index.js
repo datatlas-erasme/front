@@ -1,12 +1,8 @@
 import { useState } from 'react';
-import SearchBar from '../../search-bar/SearchBar';
+import SearchBar from '../../search-bar';
 // import AnimateHeight from 'react-animate-height';
-import instanceConf from '../../../conf/instanceConf.json';
-import Button from '../../buttons/Button';
-import { ButtonCollapse } from '../../../styles/buttons/button-collapse';
-import { BlockFilters } from '../../../styles/bock-filters/block-filters';
-
-const buttonColorRange = instanceConf.theme.filterSidePanel.buttonColorRange;
+import Collapse from '../../buttons/collapse'
+import { BlockFilters, ParentFilter, DomainFilter, HeadingFilter } from './style';
 
 const FilterMod = ({ value, index, filtersDomain }) => {
 
@@ -20,46 +16,46 @@ const FilterMod = ({ value, index, filtersDomain }) => {
   const datasetLabel = value.label;
   const datasetIndex = index;
 
-  console.log(datasetLabel);
-  console.log(datasetIndex);
+  // console.log(datasetLabel);
+  // console.log(datasetIndex);
   // const datasetId = value.id;
 
-  const ParentBtn = (
-    <Button
-      onClick={handleClick}
-      btnType="parent"
-      bg={buttonColorRange[datasetIndex]}
-      text={datasetLabel}
-      layerId={index}
-    />
-  );
-
-  console.log(buttonColorRange);
+  // const ParentBtn = (
+  //   <Collapse
+  //     onClick={handleClick}
+  //     btnType="parent"
+  //     bg={buttonColorRange[datasetIndex]}
+  //     text={datasetLabel}
+  //     layerId={index}
+  //   />
+  // );
 
   const Domains = filtersDomain?.map((filter, index) => {
     const filterName = filter?.name;
     const filterDomain = filter?.domain;
     // const filterId = filter?.dataId;
 
+    console.log(filterName);
+    console.log(filterDomain);
+
       return (
-          <li key={index} id="filter-parent-1" className="filter-parent">
-            <ButtonCollapse
-              bg={buttonColorRange[datasetIndex]}
+          <ParentFilter key={index} id="filter-parent-1" className="filter-parent">
+            <Collapse
               btnType="child"
               text={filterName[0]}
               listNames={filterDomain}
               idFilter={index}
             />
-          </li>
+          </ParentFilter>
       );
   });
 
-console.log(Domains);
+console.log(filtersDomain);
 
   return (
     <BlockFilters>
-
-      <h2>{datasetLabel}</h2>
+      
+      <HeadingFilter>{datasetLabel}</HeadingFilter>
 
       <SearchBar/>
 
@@ -70,7 +66,7 @@ console.log(Domains);
         height={!isActive ? 0 : 'auto'} // see props documentation bellow
       > */}
 
-        <ul>{Domains}</ul>
+        <DomainFilter>{Domains}</DomainFilter>
 
       {/* </AnimateHeight> */}
 

@@ -1,5 +1,5 @@
 import { Formik } from 'formik'
-import { Form, Input} from '../../styles/search-bar/searchbar.js';
+import { Form, Input} from './style.js';
 
 export default function SearchBar(props){
 

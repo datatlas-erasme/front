@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-
+ /* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap'); */
+/*
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
@@ -31,13 +31,13 @@ code {
 }
 
 /*TODO FIX hide trough kepler injections*/
-.map-control, side-panel--container {
+/* .map-control, side-panel--container {
   display: none !important;
-}
+} */
 
 
 /********************** POI SIDE PANEL **************************/
-.PointSidePanel {
+/* .PointSidePanel {
   position: absolute;
   top: 0;
   width: 30%;
@@ -61,15 +61,15 @@ code {
   @keyframes slidedown {
     from { width: 0; }
     to   { height: 50px; }
-  }
+  } */
   /********************** FILTERS SIDE PANEL *********************/
-.FilterSidePanel {
+/* .FilterSidePanel {
   position: absolute;
   background: white;
   top: 0;
   width: 500px;
   height: 500px;
-}
+} */
 
 
 /* .filters {
@@ -90,15 +90,15 @@ code {
   display: none;
 } */
 
-.filter-parent {
+/* .filter-parent {
   /*TODO Reduice the height gap in another cleaner manner */
-  margin-bottom: -15px;
+  /* margin-bottom: -15px;
   list-style: none;
-}
+} */
 
-.filter-parent ul {
+/* .filter-parent ul {
   max-height: 0;
-  /* overflow: hidden; */
+  overflow: hidden;
   transition: all ease-in-out 0.2s;
 }
 
@@ -123,30 +123,30 @@ code {
 .filters ul {
   padding: 20px;
   margin: 0 0 10px 0;
-}
+} */
 
 /* .filters ul li {
   list-style: none;
 } */
 
-.filters .filter-child button {
-  /*font-size: 10px;*/
+/* .filters .filter-child button {
+  font-size: 10px;
   padding: 10px 10px 10px 10px;
   margin: 0 10px 5px 0;
   border-radius: 5px;
   text-align: left;
-}
+} */
 
-filters .filter-child button.active span {
+/* filters .filter-child button.active span {
   transform: rotate(90deg) !important;
 }
 
 .filters .filter-child .enable {
   opacity: 0.7;
   transition: all ease-in-out 0.2s;
-}
+} */
 
-.filters .filter-sub-child button{
+/* .filters .filter-sub-child button{
   padding: 8px 10px;
   margin-bottom: 3px;
   margin-right: 0;
@@ -172,9 +172,9 @@ filters .filter-child button.active span {
 
 .crowdsourcing button {
   margin: 5px;
-}
+} */
 
-.btn-parent {
+/* .btn-parent {
   display: flex;
   padding-left: 12px;
   border-radius: 5px;
@@ -183,9 +183,9 @@ filters .filter-child button.active span {
 
 .btn-parent p {
   padding-right: 10px;
-}
+} */
 
-.btn-child {
+/* .btn-child {
   width: max-content;
   padding-left: 12px;
   border-radius: 7px;
@@ -194,11 +194,11 @@ filters .filter-child button.active span {
 
 .btn-child button {
   margin: 0;
-}
+} */
 
-button {
+/* button {
   /*font-size: 15px;*/
-  color: white;
+  /* color: white;
   padding: 15px 10px 15px 10px;
   border-radius: 0px 5px 5px 0px;
   border: none;
@@ -207,18 +207,18 @@ button {
   transition: all ease-in-out 0.2s;
   cursor: pointer;
   font-weight: 400;
-  width: 100%;
-}
+  width: 100%; */
+/*} */
 
-.button:hover {
+/* .button:hover {
   transition: all ease-in-out 0.2s;
   background-color: #172a3b;
-}
+} */
 
-.instance-config {
+/* .instance-config {
   position: absolute;
   top: 44px;
   background: white;
   padding: 15px;
   left: 30%;
-}
+} */

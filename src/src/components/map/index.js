@@ -133,7 +133,7 @@ export default function MapContainer() {
           height={window.innerHeight}
           appName="Datatlas"
         />
-        <Logo />
+        {/* <Logo /> */}
       </div>
     ) : (
       ''

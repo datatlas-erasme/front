@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { layerConfigChange } from 'kepler.gl/actions';
 import classnames from 'classnames';
-import { Override } from '../../types/Override';
-import {FarmerIcon} from '../../utils/svg/FarmerIcon';
+import { Override } from '../../../types/Override';
+import { FishIcon } from '../../../utils/svg/FishIcon';
+import { Badge } from './style';
 
 export type ButtonProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
@@ -19,7 +20,7 @@ export type ButtonProps = Override<
   }
 >;
 
-const Button = ({
+export default function ButtonIcon ({
   text,
   bg,
   textSize,
@@ -30,7 +31,8 @@ const Button = ({
   className,
   src,
   ...props
-}: ButtonProps) => {
+}: ButtonProps){
+
   const dispatch = useDispatch();
   // Toggle the visibility of buttons parent list
   const [isActive, setIsActive] = useState(false);
@@ -44,29 +46,15 @@ const Button = ({
     setIsLayerVisible(!isLayerVisible);
   };
 
-  // Big button style
-
-  // Medium button styling + lits display
-
-    // console.log("ID FILTER", idFilter)
-    //console.log("List Names", listNames)
-
     return (
-      <button
+      <Badge
         onClick={isActiveState}
         // style={{ backgroundColor: LightenDarkenColor(bg, -60), fontSize: textSize }}
         className={classnames('btn', className, { selected: isActive })}
         {...props}
       >
-        <FarmerIcon/>
-        {text.substring(0, 30)}
-      </button>
+        <FishIcon/>
+        <p>Poisson</p>
+      </Badge>
     );
   };
-
-// Button.defaultProps = {
-//   bg: '#ff241a',
-//   fontSize: '20px',
-// };
-
-export default Button;

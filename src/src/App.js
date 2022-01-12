@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-const Front = React.lazy(() => import('./Front'));
+const Front = React.lazy(() => import('./components/index'));
 
 export default function App() {
   return (
