@@ -27,4 +27,4 @@ jobs:
           push: true
           tags: erasme/datatlas-dev:latest
           build-args: |
-            REACT_APP_BACKEND_URL=${{ secrets.INDUSTRIE_BACKEND_URL }}
+            REACT_APP_BACKEND_URL=${{ secrets.REACT_APP_BACKEND_URL }}
