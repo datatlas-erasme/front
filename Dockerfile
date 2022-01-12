@@ -13,10 +13,12 @@ RUN git checkout add-multiple-value-column
 WORKDIR /src/src
 
 # TODO : do not mix yarn and npm packages
+#RUN npm install --force
+
 RUN yarn install
 RUN yarn add @deck.gl/geo-layers
 
-#RUN npm install --force
+
 RUN rm -r  /src/src/node_modules/kepler.gl/*
 RUN cp -r /src/src/kepler.gl/dist/*  /src/src/node_modules/kepler.gl/
 
