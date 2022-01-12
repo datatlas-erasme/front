@@ -13,7 +13,7 @@ RUN git checkout add-multiple-value-column
 WORKDIR /src/src
 
 # TODO : do not mix yarn and npm packages
-RUN npm install --force
+#RUN npm install --force
 
 RUN yarn install
 RUN yarn add @deck.gl/geo-layers
