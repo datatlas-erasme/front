@@ -24,6 +24,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: erasme/datatlas:latest
+          tags: erasme/datatlas:0.4
           build-args: |
-            REACT_APP_MAPBOX_TOKEN=${{ secrets.REACT_APP_MAPBOX_TOKEN }}
+            REACT_APP_BACKEND_URL=${{ secrets.REACT_APP_BACKEND_URL }}
