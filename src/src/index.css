@@ -31,7 +31,7 @@ code {
 }
 
 /*TODO FIX hide trough kepler injections*/
-.map-control, side-panel--container {
+.map-control, .side-panel--container {
   display: none !important;
 }
 
