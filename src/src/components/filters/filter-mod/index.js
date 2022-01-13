@@ -2,6 +2,7 @@ import { useState } from 'react';
 import SearchBar from '../../search-bar';
 // import AnimateHeight from 'react-animate-height';
 import Collapse from '../../buttons/collapse'
+import { ButtonDay } from '../../buttons/button-type';
 import { BlockFilters, ParentFilter, DomainFilter, HeadingFilter } from './style';
 
 const FilterMod = ({ value, index, filtersDomain }) => {
@@ -67,6 +68,8 @@ console.log(filtersDomain);
       > */}
 
         <DomainFilter>{Domains}</DomainFilter>
+
+        <ButtonDay/>
 
       {/* </AnimateHeight> */}
 

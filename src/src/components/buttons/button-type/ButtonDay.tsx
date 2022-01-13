@@ -4,15 +4,12 @@ import { layerConfigChange } from 'kepler.gl/actions';
 import classnames from 'classnames';
 import { Override } from '../../../types/Override';
 import { FishIcon } from '../../../utils/svg/FishIcon';
-import { Badge } from './style';
+import { Ouverture } from './style';
 
-export type ButtonProps = Override<
+export type DayProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
   {
     text: string;
-    bg?: string;
-    textSize?: string;
-    btnType?: 'parent' | 'child';
     listNames?: string[];
     idFilter?: string;
     layerId?: string | '';
@@ -20,18 +17,17 @@ export type ButtonProps = Override<
   }
 >;
 
+const dataDay = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim']
+
 export default function ButtonIcon ({
   text,
-  bg,
-  textSize,
-  btnType,
   listNames,
   idFilter,
   layerId,
   className,
   src,
   ...props
-}: ButtonProps){
+}: DayProps){
 
   const dispatch = useDispatch();
   // Toggle the visibility of buttons parent list
@@ -47,14 +43,11 @@ export default function ButtonIcon ({
   };
 
     return (
-      <Badge
-        onClick={isActiveState}
-        // style={{ backgroundColor: LightenDarkenColor(bg, -60), fontSize: textSize }}
-        className={classnames('btn', className, { selected: isActive })}
-        {...props}
-      >
-        <FishIcon/>
-        <p>Poisson</p>
-      </Badge>
+      <Ouverture>
+        <h3>Ouvert</h3>
+        { dataDay.map((day, i) => {
+          return <p key={i}>{day}</p>
+        } )}
+      </Ouverture>
     );
   };

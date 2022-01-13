@@ -41,13 +41,13 @@ export const List = ({ listNames = [], idFilter = 0 }: ListProps) => {
   
   return (
     <>
-      {/* <ListSelect>
+      <ListSelect>
         {listNames.map((item, index) => (
           <li key={index} onClick={() => setFilterValue(item)}>
             <ButtonSelect className="" textSize="12px" text={item}/>
           </li>
         ))}
-      </ListSelect> */}
+      </ListSelect>
 
          {/* <ListIconButton>
             {listNames.map((item, index) => (
@@ -57,7 +57,7 @@ export const List = ({ listNames = [], idFilter = 0 }: ListProps) => {
             ))}
           </ListIconButton> */}
 
-      <ListCheckbox role="group" aria-labelledby="checkbox-group">
+      {/* <ListCheckbox role="group" aria-labelledby="checkbox-group">
           <LabelCheckbox>
             <input type="checkbox" />
             Voir que les produits labélisés
@@ -69,7 +69,7 @@ export const List = ({ listNames = [], idFilter = 0 }: ListProps) => {
             </li>
             ))}
           </ul>
-      </ListCheckbox>
+      </ListCheckbox> */}
 
                {/* <ListIconButton>
             {listNames.map((item, index) => (

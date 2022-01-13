@@ -4,7 +4,7 @@ import { datalimentaire } from '../../../utils/styles/themes'
 export const ButtonType = styled.button`
     display: flex;
     align-items: center;
-    width : 13vw;
+    width : 80%;
     background-color: #fcfafa;
     color: ${datalimentaire.colors.primary};
     border: none;
@@ -17,7 +17,7 @@ export const ButtonType = styled.button`
     text-align: left;
 
     svg{
-        width: 80%;
+        width: 60%;
     };
 
     p{
@@ -43,5 +43,22 @@ export const Badge = styled.button`
 
     p{
         padding-left: 5px;
+    }
+`
+export const Ouverture = styled.div`
+    display flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%;
+
+    p{
+        padding: 5px;
+
+        &:hover{
+            background: ${datalimentaire.colors.primary};
+            border-radius: 40px;
+            color: ${datalimentaire.colors.secondary};
+        }
     }
 `

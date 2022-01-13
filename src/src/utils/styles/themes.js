@@ -16,6 +16,10 @@ export const Style = createGlobalStyle`
     list-style-type: none; 
   }
 
+  a {
+    text-decoration: none;
+  }
+
   
 `;
 

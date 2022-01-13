@@ -9,6 +9,8 @@ export const WarpperAddPoint = styled.div`
 `
 
 export const AddPoint = styled.button`
+    display: flex;
+    align-items: center;
     width: 80%;
     margin: 20px;
     padding: 20px;
@@ -17,6 +19,6 @@ export const AddPoint = styled.button`
     color: ${datalimentaire.colors.red};
     font-size: ${datalimentaire.fontSizes.xstitle};
     font-weight: ${datalimentaire.fontWeights[5]};
-    line-height: ${datalimentaire.lineHeights[1]}
+    line-height: ${datalimentaire.lineHeights[1]};
 `
 
