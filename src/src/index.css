@@ -101,17 +101,20 @@ code {
   transition: all ease-in-out 0.2s;
 }
 
-.filter-parent .active {
+.filter-parent .btn {
   max-height: 1000px;
   /*overflow: auto;*/
   transition: all ease-in-out 0.2s;
   overflow-y: hidden;
   border-radius: 3px;
+  text-transform: capitalize;
 }
 
 
 .filter-parent li button {
  opacity: 0.5;
+ border-radius: 5px 5px 5px 5px;
+ margin-top: 5px;
 }
 
 .filter-parent .selected {
@@ -164,13 +167,15 @@ filters .filter-child button.active span {
 .crowdsourcing {
   position: absolute;
   bottom: 70px;
-  right: 35px;
+  right: 36px;
   display: flex;
   flex-direction: column;
 }
 
 .crowdsourcing button {
   margin: 5px;
+  width: 189px;
+  border-radius: 5px 5px 5px 5px;
 }
 
 .btn-parent {
