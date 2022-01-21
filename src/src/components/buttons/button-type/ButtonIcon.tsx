@@ -54,7 +54,7 @@ export default function ButtonIcon ({
         {...props}
       >
         <FishIcon/>
-        <p>Poisson</p>
+        <p>{text.substring(0, 30)}</p>
       </Badge>
     );
   };

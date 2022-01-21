@@ -32,6 +32,7 @@ const CustomMapPopoverFactory = (...deps) => {
           if (field.displayName.includes('image')) {
             return (
               <img
+                alt={'pexels-photo'}
                 src={
                   data[index]
                     ? data[index]

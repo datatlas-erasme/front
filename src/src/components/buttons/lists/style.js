@@ -2,10 +2,8 @@ import styled from 'styled-components';
 import { datalimentaire } from '../../../utils/styles';
 
 export const ListSelect = styled.ul `
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 20px;
-    row-gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
     padding-left: 0px;
 `
 
@@ -44,4 +42,8 @@ export const LabelCheckbox = styled.label`
     margin-bottom : 10px;
     border-bottom: 1px solid ${datalimentaire.colors.midgray};
 
+`
+
+export const ButtonWrapper = styled.li`
+    max-width: 50%;
 `

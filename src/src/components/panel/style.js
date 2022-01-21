@@ -11,6 +11,7 @@ export const Panel = styled.div`
     flex-direction: column;
     background-color: ${datalimentaire.colors.secondary};
     top: 0;
+    bottom: 0;
     width: 33vw;
     height: 100vh;
 `

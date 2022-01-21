@@ -32,8 +32,8 @@ export default function ButtonSelect ({
   src,
   ...props
 }: ButtonProps){
-
-  const dispatch = useDispatch();
+  
+  const dispatch = useDispatch();  
   // Toggle the visibility of buttons parent list
   const [isActive, setIsActive] = useState(false);
   const isActiveState = () => {

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { layerConfigChange } from 'kepler.gl/actions';
+import { setFilter } from 'kepler.gl/actions';
 import classnames from 'classnames';
 import { Override } from '../../../types/Override';
 import { FishIcon } from '../../../utils/svg/FishIcon';
@@ -9,32 +9,47 @@ import { Ouverture } from './style';
 export type DayProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
   {
-    text: string;
-    listNames?: string[];
-    idFilter?: string;
-    layerId?: string | '';
-    src?: string;
+    idFilter?: number | string;
+    dayList?: string[];
   }
 >;
 
-const dataDay = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim']
+// const dataDay = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim']
 
 export default function ButtonIcon ({
-  text,
-  listNames,
-  idFilter,
-  layerId,
-  className,
-  src,
-  ...props
+  dayList = [],
+  idFilter = 0,
 }: DayProps){
 
   const dispatch = useDispatch();
+
   // Toggle the visibility of buttons parent list
   const [isActive, setIsActive] = useState(false);
   const isActiveState = () => {
     setIsActive(!isActive);
   };
+
+  const [filtersArray, setFiltersArray] = useState<string[]>([]);
+    
+  const setFilterValue = (item: string) => {
+    if (filtersArray.includes(item)) {
+      // console.log('already in filters array');
+      // console.log("Filters Array :", filtersArray)
+      setFiltersArray((filtersArray) =>      
+        filtersArray.filter((cat) => {          
+          return cat !== item;
+        }),
+      );              
+    } else {
+      setFiltersArray((filtersArray) => [...filtersArray, item]);
+      console.log("Filters Array :", filtersArray)
+    }
+  };
+  
+  useEffect(() => {
+    console.log('Filters Array :', filtersArray);
+    dispatch(setFilter(idFilter, 'value', filtersArray));
+  }, [dispatch, idFilter, filtersArray]);
   
   // Toggle the button linked layer vibility
   const [isLayerVisible, setIsLayerVisible] = useState(true);
@@ -45,9 +60,13 @@ export default function ButtonIcon ({
     return (
       <Ouverture>
         <h3>Ouvert</h3>
-        { dataDay.map((day, i) => {
-          return <p key={i}>{day}</p>
-        } )}
+        {dayList?.map((day, i) => 
+          (<p 
+            onClick={() => {setFilterValue(day); isActiveState();}}
+            >{day}</p>
+          )
+          )
+        }
       </Ouverture>
     );
   };

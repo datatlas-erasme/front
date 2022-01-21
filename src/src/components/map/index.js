@@ -8,7 +8,7 @@ import {
 import { processGeojson } from 'kepler.gl/processors';
 import { MapPopoverFactory, injectComponents } from 'kepler.gl/components';
 import CustomMapPopoverFactory from '../../factories/map-popover';
-import Logo from './Logo';
+// import Logo from './Logo';
 
 // Inject the point sidepanel component
 const KeplerGl = injectComponents([[MapPopoverFactory, CustomMapPopoverFactory]]);
@@ -108,10 +108,10 @@ export default function MapContainer() {
     // Pass the default kepler styling
     useEffect(() => {
       if(keplerConfLoaded){
-        dispatch(addDataToMap({ datasets: [], option: { centerMap: false }, config: keplerConf }));
+        dispatch(addDataToMap({ datasets: [], option: { centerMap: true }, config: keplerConf }));
   
         // Load à custum map style from backend
-        dispatch(inputMapStyle({style: instanceConf.defaultMapBoxStyleUrl, id:"monochrome", name:"Monochrome"}))
+        dispatch(inputMapStyle({style: instanceConf.defaultMapBoxStyleUrl, id:"maquette", name:"Maquette"}))
         dispatch(addCustomMapStyle())
         setMapUpdated(true);
       }

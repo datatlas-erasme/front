@@ -9,7 +9,6 @@ import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';
 import { Override } from '../../../types/Override';
 // import { AppStore } from '../../store';
-import {FarmerIcon} from '../../../utils/svg/FarmerIcon';
 import List from '../lists';
 import { ButtonDay } from '../button-type';
 import { ButtonCollapse } from './style';
@@ -18,25 +17,30 @@ export type CollapseProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
   {
     text: string;
+    textType: string;
+    textProduits: string;
     btnType?: 'parent' | 'child';
-    listNames?: string[];
+    listNames?: string[] | any;
     idFilter?: string;
-    layerId?: string | '';
-    src?: string;
-    string?: string;
     filtername?: string;
+    dayList?: string[];
+    listTypes?: string[];
+    listProduits?: string[];
   }
 >;
 
 const Collapse = ({
   text,
+  textType,
+  textProduits,
   btnType,
   listNames,
   idFilter,
-  layerId,
   className,
-  src,
   filtername,
+  dayList,
+  listTypes,
+  listProduits,
   ...props
 }: CollapseProps) => {
   // const dispatch = useDispatch();
@@ -45,6 +49,8 @@ const Collapse = ({
   const isActiveState = () => {
     setIsActive(!isActive);
   };
+
+  console.log(text);
   
   // Toggle the button linked layer vibility
   const [isLayerVisible, setIsLayerVisible] = useState(true);
@@ -55,29 +61,10 @@ const Collapse = ({
   function capitalizeFirstLetter(string : string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
-
-  const listday = text[1];
-
-  // console.log(listday);
-
-  // console.log(listNames)
-  
-  if (btnType === 'parent') {
-    return (
-      <div className="btn-parent" >
-          {/* <FontAwesomeIcon icon={isLayerVisible ? faEye : faEyeSlash} onClick={isLayerVisibleState}/> */}
-        <button className="btn" {...props}>
-          {text.substring(0, 30) }
-        </button>
-      </div>
-    );
-  }
-
   // Medium button styling + lits display
-  else if (btnType === 'child') {
+  
     // console.log("ID FILTER", idFilter)
     // console.log("List Names", listNames)
-
     return (
       <>
         <ButtonCollapse
@@ -86,46 +73,26 @@ const Collapse = ({
           {...props}
         >
           <span>
-            <FontAwesomeIcon icon={!isActive ? faChevronRight : faChevronDown} />{' '}
+            <FontAwesomeIcon 
+            icon={!isActive ? faChevronRight : faChevronDown} 
+            />{' '}
           </span>
-
           {capitalizeFirstLetter(text?.substring(0, 30))}
-
         </ButtonCollapse>
         
         <AnimateHeight
           duration={500}
           height={!isActive ? 0 : 'auto'} 
-          // see props documentation bellow
         >
             <List 
               listNames={listNames} 
               idFilter={idFilter}
+              textType={textType}
+              textProduits={textProduits}
             />
-
         </AnimateHeight>
-
-        {/* <ButtonDay>
-            {listNames.map((item, index) => (
-              <li key={index} onClick={() => setFilterValue(item)}>
-                {/* <ButtonIcon text={item}/> 
-              </li>
-            ))}
-          </ButtonDay> */}
       </>
-    );
-  } else {
-    return (
-      <button
-        onClick={isActiveState}
-        className={classnames('btn', className, { selected: isActive })}
-        {...props}
-      >
-        <FarmerIcon/>
-        {text.substring(0, 30)}
-      </button>
-    );
-  }
+    ); 
 };
 
 export default Collapse;

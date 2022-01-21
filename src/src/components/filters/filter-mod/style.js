@@ -7,9 +7,9 @@ export const BlockFilters = styled.div`
     align-items: center;
     justify-content: center;
 
-    width: 25vw;
-    margin: auto;
-    margin-top: 50px;
+    width: 80%;
+    margin: 100px auto;
+
 
     background-color: #fcfafa;
     border: 1px solid #E8E8E8;
