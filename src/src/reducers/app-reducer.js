@@ -8,7 +8,7 @@ export const appInit = createAction(INIT);
 
 // INITIAL_STATE
 const initialState = {
-  appName: 'example',
+  appName: 'Opendata alimentaire',
   loaded: false
 };
 
@@ -17,8 +17,7 @@ const appReducer = handleActions(
   {
     [INIT]: (state, action) => ({
       ...state,
-      loaded: true,
-      viewport: action.payload
+      loaded: true
     })
   },
   initialState

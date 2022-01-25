@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
 import { setFilter } from 'kepler.gl/actions';
 import { Checkbox, ButtonSelect, ButtonIcon } from '../button-type';
 import { ListSelect, ButtonWrapper } from './style';
@@ -7,14 +7,10 @@ import { ListSelect, ButtonWrapper } from './style';
 export type ListProps = {
   idFilter?: number | string;
   listNames?: string[];
-  listTypes?: string[];
-  listProduits?: string[];
-  textType: string;
-  textProduits: string;
 };
 export const List = ({ 
   listNames = [], 
-  idFilter = 0,
+  idFilter
 }: ListProps) => {
 
   const dispatch = useDispatch();
@@ -43,32 +39,6 @@ export const List = ({
   console.log(filtersArray);
   console.log(idFilter);
   console.log(listNames);
-
-  // if (idFilter === 0){
-  //   <ListSelect>
-  //       {listTypes.map((item, i) => {
-  //         // if (i === 0) {
-  //         // console.log(i, item);
-  //         // }
-  //         // const itemType = item;
-  //         return (
-  //           <li key={i} onClick={() => setFilterValue(item)}>
-  //           <ButtonSelect text={item}/>
-  //         </li>
-  //         )
-  //       })}
-  //     </ListSelect>
-  // } else if (idFilter === 2) {
-
-  //     <ListIconButton>
-  //           {listNames.map((item, index) => (
-  //             <li key={index} onClick={() => setFilterValue(item)}>
-  //               <ButtonIcon text={item}/>
-  //             </li>
-  //           ))}
-  //         </ListIconButton>
-
-  // };
   
   return (
     <>
@@ -80,26 +50,16 @@ export const List = ({
                  <ButtonSelect text={item}/>
                </ButtonWrapper>
               )
-            } else {
+            } else if (idFilter === 1){
 
               return(
-                <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                <ButtonWrapper idFilter={2} key={i} onClick={() => setFilterValue(item)}>
                   <ButtonIcon text={item}/>
                 </ButtonWrapper>
               )}
             })   
           }
       </ListSelect>
-             {/* <ListSelect>
-             {listNames.map((item, i) => {
-               return(
-                 <li key={i} onClick={() => setFilterValue(item)}>
-                 <ButtonSelect text={item}/>
-               </li>
-                )
-               
-             })}
-              </ListSelect> */}
 
       {/* <ListCheckbox role="group" aria-labelledby="checkbox-group">
           <LabelCheckbox>
@@ -115,51 +75,8 @@ export const List = ({
           </ul>
       </ListCheckbox> */}
 
-               {/* <ListIconButton>
-            {listNames.map((item, index) => (
-              <li key={index} onClick={() => setFilterValue(item)}>
-                <ButtonIcon text={item}/>
-              </li>
-            ))}
-          </ListIconButton> */}
     </>
   );
 };
 
-export default List;
-
-// if (idFilter === 0){
-//   return (
-//     <>
-//       <ListSelect>
-//         {listNames.map((item, index) => (
-//           <li key={index} onClick={() => setFilterValue(item)}>
-//             <ButtonSelect className="" textSize="12px" text={item}/>
-//           </li>
-//         ))}
-//       </ListSelect>
-//       </>
-//   )
-// } else if (idFilter === 1) {
-//   return(
-//     <ListIconButton>
-//           {listNames.map((item, index) => (
-//             <li key={index} onClick={() => setFilterValue(item)}>
-//               <ButtonIcon text={item}/>
-//             </li>
-//           ))}
-//         </ListIconButton>
-//   )
-// } else if (idFilter === 2){
-//   return (
-//     <>
-//     <ListIconButton>
-//           {listNames.map((item, index) => (
-//             <li key={index} onClick={() => setFilterValue(item)}>
-//               <ButtonIcon text={item}/>
-//             </li>
-//           ))}
-//         </ListIconButton>
-//         </>
-//   )
-// }
+export default connect()(List);

@@ -18,7 +18,7 @@ export type DayProps = Override<
 
 export default function ButtonIcon ({
   dayList = [],
-  idFilter = 0,
+  idFilter,
 }: DayProps){
 
   const dispatch = useDispatch();

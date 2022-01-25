@@ -1,5 +1,5 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import { enhanceReduxMiddleware, keplerGlReducer } from 'kepler.gl';
+import { enhanceReduxMiddleware, keplerGlReducer, uiStateUpdaters } from 'kepler.gl';
 import thunk from 'redux-thunk';
 import appReducer from './reducers/app-reducer';
 
@@ -21,12 +21,13 @@ const customizedKeplerGlReducer = keplerGlReducer.initialState({
     currentModal: null,
 
     mapControls: {
+      ...uiStateUpdaters.DEFAULT_MAP_CONTROLS,
       visibleLayers: {
         show: false
       },
       mapLegend: {
-        show: true,
-        active: true
+        show: false,
+        active: false
       },
       toggle3d: {
         show: false
@@ -38,6 +39,15 @@ const customizedKeplerGlReducer = keplerGlReducer.initialState({
   },
   visState: {},
   
+})
+.plugin({
+  HIDE_AND_SHOW_SIDE_PANEL: (state : any, action: any) => ({
+    ...state,
+    uiState: {
+      ...state.uiState,
+      readOnly: !state.uiState.readOnly
+    }
+  })
 });
 
 console.log(customizedKeplerGlReducer);

@@ -24,8 +24,6 @@ export type CollapseProps = Override<
     idFilter?: string;
     filtername?: string;
     dayList?: string[];
-    listTypes?: string[];
-    listProduits?: string[];
   }
 >;
 
@@ -39,8 +37,6 @@ const Collapse = ({
   className,
   filtername,
   dayList,
-  listTypes,
-  listProduits,
   ...props
 }: CollapseProps) => {
   // const dispatch = useDispatch();
@@ -87,8 +83,6 @@ const Collapse = ({
             <List 
               listNames={listNames} 
               idFilter={idFilter}
-              textType={textType}
-              textProduits={textProduits}
             />
         </AnimateHeight>
       </>

@@ -62,8 +62,8 @@ export default function MapContainer() {
     useEffect(() => {
       if(instanceConfLoaded) {
         const buffer = [];
-        const promises = instanceConf.layers.map((layer) => {
-          //console.log(layer.type);
+        const promises = instanceConf.layers.map(async(layer) => {
+          console.log(layer);
     
           return fetch(layer.url)
             .then((res) => res.json())

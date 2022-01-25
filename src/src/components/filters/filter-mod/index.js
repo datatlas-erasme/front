@@ -69,14 +69,12 @@ const FilterMod = ({ value, index, filtersDomain }) => {
   const key = '1';
   const { [key]: _, ...newFiltersDomain } = filtersDomain;
 
-              console.log(newFiltersDomain[0].name);
-
   const Domains = Object.keys(newFiltersDomain).map((filter, index) => {
     const filterName = newFiltersDomain[filter].name;
     const filterDomain = newFiltersDomain[filter].domain;
     const filterId = newFiltersDomain[filter].dataId;
 
-    // console.log(newFiltersDomain[filter].domain);
+    console.log(newFiltersDomain[filter].domain);
 
       return (
         <>
@@ -88,17 +86,17 @@ const FilterMod = ({ value, index, filtersDomain }) => {
               idFilter={index}
             />
           </ParentFilter>
-          </>
+        </>
       );
   });
-// console.log(Domains);
+console.log(Domains);
 
   return (
     <BlockFilters> 
       <HeadingFilter>{datasetLabel}</HeadingFilter>
       {/* <SearchBar/> */}
       <DomainFilter>{Domains}</DomainFilter>
-      <ButtonDay dayList={filtersDomain[1].domain} text={filtersDomain[1].name[0]}></ButtonDay>
+      <ButtonDay dayList={filtersDomain[1].domain} text={filtersDomain[1].name[0]} idFilter={1}></ButtonDay>
     </BlockFilters>
   );
 };

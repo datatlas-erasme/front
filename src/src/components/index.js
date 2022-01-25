@@ -5,13 +5,12 @@ import PanelControl from './panel';
 
 export default function Front() {
 
-  console.log(datalimentaire);
-
   return (
-    <ThemeProvider theme={datalimentaire}>
-        <Style/>
+    <>
+         <Style/>
         <MapContainer />
         <PanelControl/>
-    </ThemeProvider>
+    </>
+
   );
 }
