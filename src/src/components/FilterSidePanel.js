@@ -10,6 +10,7 @@ import { ConfContext } from '../providers/ConfProvider';
 import Button from './filter-side-panel/Button';
 //Todo use redux instead ?
 import FilterMod from './FilterMod';
+import BottomRightSection from './BottomRightSection';
 
 const FilterSidePanel = () => {
   
@@ -41,15 +42,8 @@ const FilterSidePanel = () => {
   return (
     <div className="filters">
       {Filters}
-      <ul>
-        <Button btnType="parent" bg="#5a8aa5" onClick={openAddData} text="Ajouter un calque" />
-        {exportDataBtn ??<Button
-          btnType="parent"
-          bg="#5a8aa5"
-          onClick={exportFilteredData}
-          text="exporter les données filtrées"
-        /> }
-      </ul>
+      
+      <BottomRightSection />
     </div>
   );
 };

@@ -73,7 +73,7 @@ body {
   right: 30px;
   display: flex;
   flex-direction: column;
-  height: 70vh;
+  height: 84vh;
   overflow: auto;
   /*width: 11%;*/
   padding-right: 10px;
@@ -87,7 +87,7 @@ body {
 
 .filter-parent {
   /*TODO Reduice the height gap in another cleaner manner */
-  margin-bottom: -15px;
+  margin-bottom: -23px;
 }
 
 .filter-parent button:last-child {
@@ -100,16 +100,17 @@ body {
   transition: all ease-in-out 0.2s;
 }
 
-.filter-parent .btn {
+.filter-parent .btn,.crowdsourcing button {
   max-height: 1000px;
   /*overflow: auto;*/
   transition: all ease-in-out 0.2s;
   overflow-y: hidden;
   border-radius: 3px;
-  font-size: 10px;
+  font-size: 11px;
   margin: 2px 0 0 0;
-  padding : 12px 12px 12px 10px;
+  padding : 10px 10px 10px 10px;
   text-transform: uppercase;
+  text-align: left;
 }
 
 
@@ -167,19 +168,21 @@ filters .filter-child button.active span {
 }
 
 .crowdsourcing {
-  position: absolute;
-  bottom: 70px;
-  right: 36px;
   display: flex;
   flex-direction: column;
 }
 
 .crowdsourcing button {
-  margin: 5px;
-  width: 189px;
+  margin-bottom: 2px;
+  margin-top: 0px;
+  width: 196px;
   border-radius: 5px 5px 5px 5px;
+  background-color: #df7160;
 }
 
+.crowdsourcing button a:first-of-type {
+  margin-bottom: 2px;
+}
 .btn-parent {
   display: flex;
   padding-left: 12px;
@@ -205,7 +208,7 @@ filters .filter-child button.active span {
 }
 
 button {
-  /*font-size: 15px;*/
+  font-size: 16px;
   color: white;
   padding: 16px 16px 16px 10px;
   border-radius: 0px 5px 5px 0px;

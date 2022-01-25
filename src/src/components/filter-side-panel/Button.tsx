@@ -91,9 +91,6 @@ const Button = ({
           className={classnames('btn', className, { active: !isActive })}
           {...props}
         >
-          <span>
-            <FontAwesomeIcon icon={!isActive ? faChevronRight : faChevronDown} />{' '}
-          </span>
           {text?.substring(0, 30)}
         </button>
         <AnimateHeight

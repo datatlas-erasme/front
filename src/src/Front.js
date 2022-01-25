@@ -10,7 +10,6 @@ import { MapPopoverFactory, injectComponents } from 'kepler.gl/components';
 import { processGeojson } from 'kepler.gl/processors';
 import CustomMapPopoverFactory from './factories/map-popover';
 ////////////////////////// COMPONENT IMPORT /////////////////////////////////////////
-import BottomRightSection from './components/BottomRightSection';
 import Logo from './components/Logo';
 import FilterSidePanel from './components/FilterSidePanel';
 import ConfProvider from './providers/ConfProvider';
@@ -153,9 +152,10 @@ function Map() {
   useEffect(() => {
     if(keplerConfLoaded){
       dispatch(addDataToMap({ datasets: [], option: { centerMap: false }, config: keplerConf }));
-
       // Load à custum map style from backend
       dispatch(inputMapStyle({style: instanceConf.defaultMapBoxStyleUrl, id:"monochrome", name:"Monochrome"}))
+      dispatch(inputMapStyle({name:"muted"}))
+
       dispatch(addCustomMapStyle())
       setMapUpdated(true);
     }
@@ -180,7 +180,6 @@ function Map() {
       />
       <Logo />
       <FilterSidePanel />
-      <BottomRightSection />
     </div>
   ) : (
     ''
