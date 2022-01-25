@@ -1,15 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@900&display=swap');
 
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
 
 
@@ -80,7 +75,7 @@ code {
   flex-direction: column;
   height: 70vh;
   overflow: auto;
-  width: 11%;
+  /*width: 11%;*/
   padding-right: 10px;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
@@ -95,6 +90,10 @@ code {
   margin-bottom: -15px;
 }
 
+.filter-parent button:last-child {
+  margin-bottom: 15px;
+}
+
 .filter-parent ul {
   max-height: 0;
   overflow: hidden;
@@ -107,7 +106,10 @@ code {
   transition: all ease-in-out 0.2s;
   overflow-y: hidden;
   border-radius: 3px;
-  text-transform: capitalize;
+  font-size: 10px;
+  margin: 2px 0 0 0;
+  padding : 12px 12px 12px 10px;
+  text-transform: uppercase;
 }
 
 
@@ -124,7 +126,7 @@ code {
 
 .filters ul {
   padding: 0;
-  margin: 0 0 10px 0;
+  margin : 0 0 5px
 }
 
 .filters ul li {
@@ -182,7 +184,9 @@ filters .filter-child button.active span {
   display: flex;
   padding-left: 12px;
   border-radius: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 0;
+  font-size: 15px;
+  width: max-content;
 }
 
 .btn-parent p {
@@ -203,7 +207,7 @@ filters .filter-child button.active span {
 button {
   /*font-size: 15px;*/
   color: white;
-  padding: 15px 10px 15px 10px;
+  padding: 16px 16px 16px 10px;
   border-radius: 0px 5px 5px 0px;
   border: none;
   margin: 0;
@@ -211,7 +215,9 @@ button {
   transition: all ease-in-out 0.2s;
   cursor: pointer;
   font-weight: 400;
-  width: 100%;
+  /*width: 100%;*/
+  text-transform : capitalize;
+  letter-spacing : 0.75px
 }
 
 .button:hover {
