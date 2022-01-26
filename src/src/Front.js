@@ -3,11 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider, useDispatch } from 'react-redux';
 ////////////////////////// KEPLER.GL IMPORT /////////////////////////////////////////
-import keplerGlReducer from 'kepler.gl/reducers';
-import { addDataToMap, updateMap, addCustomMapStyle, loadCustomMapStyle, inputMapStyle } from 'kepler.gl/actions';
-import { enhanceReduxMiddleware } from 'kepler.gl/middleware';
-import { MapPopoverFactory, injectComponents } from 'kepler.gl/components';
-import { processGeojson } from 'kepler.gl/processors';
+import keplerGlReducer from 'erasme-kepler.gl/reducers';
+import { addDataToMap, updateMap, addCustomMapStyle, loadCustomMapStyle, inputMapStyle } from 'erasme-kepler.gl/actions';
+import { enhanceReduxMiddleware } from 'erasme-kepler.gl/middleware';
+import { MapPopoverFactory, injectComponents } from 'erasme-kepler.gl/components';
+import { processGeojson } from 'erasme-kepler.gl/processors';
 import CustomMapPopoverFactory from './factories/map-popover';
 ////////////////////////// COMPONENT IMPORT /////////////////////////////////////////
 import Logo from './components/Logo';

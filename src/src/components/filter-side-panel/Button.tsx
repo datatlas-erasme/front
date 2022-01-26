@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { layerConfigChange } from 'kepler.gl/actions';
+import { layerConfigChange } from 'erasme-kepler.gl/actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronRight,

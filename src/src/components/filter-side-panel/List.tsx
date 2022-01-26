@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setFilter } from 'kepler.gl/actions';
+import { setFilter } from 'erasme-kepler.gl/actions';
 import Button from './Button';
 
 export type ListProps = {

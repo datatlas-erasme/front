@@ -5,7 +5,7 @@ import {
   setExportFiltered,
   setExportDataType,
   showExportDropdown,
-} from 'kepler.gl/actions';
+} from 'erasme-kepler.gl/actions';
 import { ConfContext } from '../providers/ConfProvider';
 import Button from './filter-side-panel/Button';
 //Todo use redux instead ?

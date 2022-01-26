@@ -20,7 +20,7 @@
 
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { MapPopoverFactory } from 'kepler.gl/components';
+import { MapPopoverFactory } from 'erasme-kepler.gl/components';
 
 //import CustomLayerHoverInfo from "./CustomLayerHoverInfo"
 
