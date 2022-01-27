@@ -15,7 +15,6 @@ const FilterMod = ({ value, index, filtersDomain }) => {
   const datasetLabel = value.label;
   const datasetId = value.id;
   const datasetIndex = index;
-
   const ParentBtn = (
     <Button
       onClick={handleClick}
@@ -32,7 +31,7 @@ const FilterMod = ({ value, index, filtersDomain }) => {
     const filterDomain = filter?.domain;
     if (filterId == datasetId) {
       return (
-        <div>
+        <div className='filter'>
           <li key={index} id="filter-parent-1" className="filter-parent">
             <Button
               bg={buttonColorRange[datasetIndex]}

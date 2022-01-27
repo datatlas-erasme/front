@@ -85,13 +85,17 @@ body {
   display: none;
 }
 
+.filter.filter-parent:last-of-type {
+  margin-bottom: 15px !important;
+}
+
 .filter-parent {
   /*TODO Reduice the height gap in another cleaner manner */
   margin-bottom: -23px;
 }
 
 .filter-parent button:last-child {
-  margin-bottom: 15px;
+  
 }
 
 .filter-parent ul {
