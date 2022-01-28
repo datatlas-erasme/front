@@ -138,6 +138,11 @@ body {
   list-style: none;
 }
 
+.filters ul .filter:last-child {
+  margin-bottom: 15px;
+
+}
+
 .filters .filter-child button {
   /*font-size: 10px;*/
   padding: 10px 10px 10px 10px;
