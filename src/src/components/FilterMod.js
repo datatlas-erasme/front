@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import AnimateHeight from 'react-animate-height';
 import instanceConf from '../static/instanceConf.json';
 import Button from './filter-side-panel/Button';
@@ -15,6 +16,18 @@ const FilterMod = ({ value, index, filtersDomain }) => {
   const datasetLabel = value.label;
   const datasetId = value.id;
   const datasetIndex = index;
+  //const datasetIcon = useSelector((state) => state.keplerGl.map?.visState?.datasets[datasetId]?.fields.map((field,index) => field.name === "icon" ? index :  null).filter(name => name ? name : "") ?? {});
+  const datasetIconIndex = useSelector((state) => state.keplerGl.map?.visState?.datasets[datasetId]?.fields.filter((field, index) => field.name  === "icon")[0].fieldIdx ?? {});
+  const datasetIcon = useSelector((state) => state.keplerGl.map?.visState ?? {});
+  const fontAwesomeName = () => {
+    if(datasetIcon == "places") {
+      return "mapMarkers"
+    }
+    else if (datasetIcon == "employees") {
+      return "userFriends"
+    }
+  }
+  console.log(datasetIcon)
   const ParentBtn = (
     <Button
       onClick={handleClick}

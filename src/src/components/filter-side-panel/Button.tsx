@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faChevronRight,
-  faChevronDown,
-  faEye,
-  faEyeSlash,
-} from '@fortawesome/free-solid-svg-icons';
+import 'font-awesome/css/font-awesome.min.css';
 import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';
 import { LightenDarkenColor } from 'lighten-darken-color';
@@ -25,6 +19,7 @@ export type ButtonProps = Override<
     listNames?: string[];
     idFilter?: string;
     layerId?: string;
+    icon?: string;
   }
 >;
 
@@ -37,6 +32,7 @@ const Button = ({
   idFilter,
   layerId,
   className,
+  icon = "faEye",
   ...props
 }: ButtonProps) => {
   const dispatch = useDispatch();
@@ -70,7 +66,7 @@ const Button = ({
     return (
       <div className="btn-parent" style={{ backgroundColor: bg, fontSize: textSize }}>
         <p onClick={isLayerVisibleState}>
-          <FontAwesomeIcon icon={isLayerVisible ? faEye : faEyeSlash} />
+        <i className="fab fa-accessible-icon"></i>
         </p>
         <button className="btn" {...props}>
           {text.substring(0, 30)}
