@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
 import { IconName, IconPrefix, IconProp, library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckSquare, faCoffee, faEye, faMapMarked, faMapMarker, faUserFriends } from '@fortawesome/free-solid-svg-icons'
+import { faCheckSquare, faCoffee, faEye, faMapMarked, faMapMarker, faUserFriends, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';
@@ -12,7 +12,7 @@ import { Override } from '../../types/Override';
 import { AppStore } from '../../redux/store';
 import List from './List';
 
-library.add(fab, faCheckSquare, faCoffee, faMapMarker, faUserFriends, faEye)
+library.add(fab, faCheckSquare, faCoffee, faMapMarker, faUserFriends, faEye, faPlus)
 
 export type ButtonProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
@@ -24,7 +24,7 @@ export type ButtonProps = Override<
     listNames?: string[];
     idFilter?: string;
     layerId?: string;
-    IconName?: IconName;
+    iconName?: IconName;
   }
 >;
 
@@ -37,7 +37,7 @@ const Button = ({
   idFilter,
   layerId,
   className,
-  iconName = "eye",
+  iconName,
   ...props
 }: ButtonProps) => {
   const dispatch = useDispatch();
@@ -112,7 +112,7 @@ const Button = ({
         className={classnames('btn', className, { selected: isActive })}
         {...props}
       >
-        {text.substring(0, 30)}
+         <FontAwesomeIcon icon={iconName} /> {text.substring(0, 30)}
       </button>
     );
   }
