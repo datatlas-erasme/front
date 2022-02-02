@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
-import 'font-awesome/css/font-awesome.min.css';
+import { IconName, IconPrefix, IconProp, library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckSquare, faCoffee, faEye, faMapMarked, faMapMarker, faUserFriends } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';
 import { LightenDarkenColor } from 'lighten-darken-color';
 import { Override } from '../../types/Override';
 import { AppStore } from '../../redux/store';
 import List from './List';
+
+library.add(fab, faCheckSquare, faCoffee, faMapMarker, faUserFriends, faEye)
 
 export type ButtonProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
@@ -19,7 +24,7 @@ export type ButtonProps = Override<
     listNames?: string[];
     idFilter?: string;
     layerId?: string;
-    icon?: string;
+    IconName?: IconName;
   }
 >;
 
@@ -32,7 +37,7 @@ const Button = ({
   idFilter,
   layerId,
   className,
-  icon = "faEye",
+  iconName = "eye",
   ...props
 }: ButtonProps) => {
   const dispatch = useDispatch();
@@ -66,7 +71,7 @@ const Button = ({
     return (
       <div className="btn-parent" style={{ backgroundColor: bg, fontSize: textSize }}>
         <p onClick={isLayerVisibleState}>
-        <i className="fab fa-accessible-icon"></i>
+        <FontAwesomeIcon icon={iconName} />
         </p>
         <button className="btn" {...props}>
           {text.substring(0, 30)}
@@ -93,7 +98,7 @@ const Button = ({
           duration={500}
           height={!isActive ? 0 : 'auto'} // see props documentation bellow
         >
-          <div>
+          <div className='list'>
             <List listNames={listNames} backgroundColor={bg} idFilter={idFilter} />
           </div>
         </AnimateHeight>
@@ -103,7 +108,7 @@ const Button = ({
     return (
       <button
         onClick={isActiveState}
-        style={{ backgroundColor: LightenDarkenColor(bg, -60), fontSize: textSize }}
+        style={{ backgroundColor: LightenDarkenColor(bg, -80), fontSize: textSize }}
         className={classnames('btn', className, { selected: isActive })}
         {...props}
       >

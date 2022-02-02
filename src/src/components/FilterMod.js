@@ -18,16 +18,22 @@ const FilterMod = ({ value, index, filtersDomain }) => {
   const datasetIndex = index;
   //const datasetIcon = useSelector((state) => state.keplerGl.map?.visState?.datasets[datasetId]?.fields.map((field,index) => field.name === "icon" ? index :  null).filter(name => name ? name : "") ?? {});
   const datasetIconIndex = useSelector((state) => state.keplerGl.map?.visState?.datasets[datasetId]?.fields.filter((field, index) => field.name  === "icon")[0].fieldIdx ?? {});
-  const datasetIcon = useSelector((state) => state.keplerGl.map?.visState ?? {});
-  const fontAwesomeName = () => {
-    if(datasetIcon == "places") {
-      return "mapMarkers"
+  const datasetIcon = useSelector((state) => state.keplerGl.map?.visState.datasets[datasetId]?.allData[0][datasetIconIndex] ?? {});
+
+  //TODO add those icons in the icon.json and rename to font awesome naming
+  function fontAwesomeName() {
+    if(datasetIcon === "place") {
+      return  "map-marker"
     }
-    else if (datasetIcon == "employees") {
-      return "userFriends"
+    else if (datasetIcon === "employees") {
+      return  "user-friends"
+    }
+    else {
+      return "eye"
     }
   }
-  console.log(datasetIcon)
+
+  //console.log(fontAwesomeName)
   const ParentBtn = (
     <Button
       onClick={handleClick}
@@ -35,6 +41,7 @@ const FilterMod = ({ value, index, filtersDomain }) => {
       bg={buttonColorRange[datasetIndex]}
       text={datasetLabel}
       layerId={index}
+      iconName={fontAwesomeName(datasetIcon)}
     />
   );
 
@@ -45,7 +52,7 @@ const FilterMod = ({ value, index, filtersDomain }) => {
     if (filterId == datasetId) {
       return (
         <div className='filter'>
-          <li key={index} id="filter-parent-1" className="filter-parent">
+          <li key={index} className="filter-parent">
             <Button
               bg={buttonColorRange[datasetIndex]}
               btnType="child"
