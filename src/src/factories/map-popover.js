@@ -41,6 +41,7 @@ const CustomMapPopoverFactory = (...deps) => {
     // All the data related to the point clicked
     const data = props.layerHoverProp.data;
 
+    console.log(allFields)
     //TODO map all fields to fieldToshow
     //First is image
     // Second is title => <h1>
@@ -114,9 +115,55 @@ const CustomMapPopoverFactory = (...deps) => {
           </>
         )
       }
+      if (field.displayName.includes('public-cible')) {
+        return (
+          <>
+            <p>Public cible :</p>
+            <p>{data[index]}</p>
+          </>
+        )
+      }
+      if (field.displayName.includes('type_structure')) {
+        return (
+          <>
+            <p>Type structure</p>
+            <p>{data[index]}</p>
+          </>
+        )
+      }
+      if (field.displayName.includes('activites')) {
+        return (
+          <>
+            <p>Activite</p>
+            <p>{data[index]}</p>
+          </>
+        )
+      }
+      if (field.displayName.includes('expertise')) {
+        return (
+          <>
+            <p>expertise</p>
+            <p>{data[index]}</p>
+          </>
+        )
+      }
+      if (field.displayName.includes('publics')) {
+        return (
+          <>
+            <b>publics : </b>{data[index]}
+          </>
+        )
+      }
+      if (field.displayName.includes('type_event')) {
+        return (
+          <>
+            <b>type evenement : </b> {data[index]}
+          </>
+        )
+      }
       if (field.displayName.includes('site')) {
         return (
-          <a target="" href={data[index]}>Site internet</a>
+          <a target="" href={data[index]}>Lien site web</a>
         )
       }
   
