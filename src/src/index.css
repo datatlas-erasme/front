@@ -43,8 +43,8 @@ body {
   z-index: 99;
   padding: 15px;
   overflow: scroll;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  /*overflow-x: hidden;
+  overflow-y: hidden;*/
   animation: 0.2s linear 0s running slidein;
   }
 
@@ -94,8 +94,8 @@ body {
   margin-bottom: -23px;
 }
 
-.filter-parent button:last-child {
-  
+.filter-parent .list {
+  padding: 0 0 7px 0;
 }
 
 .filter-parent ul {
@@ -110,7 +110,7 @@ body {
   transition: all ease-in-out 0.2s;
   overflow-y: hidden;
   border-radius: 3px;
-  font-size: 11px;
+  font-size: 11px !important;
   margin: 2px 0 0 0;
   padding : 10px 10px 10px 10px;
   text-transform: uppercase;
