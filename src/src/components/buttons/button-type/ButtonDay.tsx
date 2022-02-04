@@ -25,12 +25,8 @@ export default function ButtonIcon ({
   const dispatch = useDispatch();
 
   // Toggle the visibility of buttons parent list
-  const [isActive, setIsActive] = useState<any>(true);
-  const isActiveState = () => {
-    setIsActive(!isActive);
-  };
-  const [clickedItem, setCLickedItem] = useState(0)
-
+  const [isActive, setIsActive] = useState<any>(null);
+  
 // console.log(Ouverture);
 
   const [filtersArray, setFiltersArray] = useState<string[]>([]);
@@ -67,12 +63,11 @@ export default function ButtonIcon ({
         {dayList?.map((day, i) => 
           (<button 
             key={i}
-            onClick={() => {
+            onClick={(i) => {
               setFilterValue(day);
-              isActiveState();
-            }
-          }
-            className={ i === isActive ? 'active' : ''}
+              setIsActive(day);              
+            } }         
+            className={ day === isActive ? 'active' : 'inactive' }
             >{day}</button>
           )
           )
