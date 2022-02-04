@@ -46,7 +46,7 @@ const Collapse = ({
     setIsActive(!isActive);
   };
 
-  console.log(text);
+  const [height, setHeight] = useState(0);
   
   // Toggle the button linked layer vibility
   const [isLayerVisible, setIsLayerVisible] = useState(true);
@@ -54,16 +54,19 @@ const Collapse = ({
     setIsLayerVisible(!isLayerVisible);
   };
 
-  function capitalizeFirstLetter(string : string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+  // function capitalizeFirstLetter(string : string) {
+  //   return string.charAt(0).toUpperCase() + string.slice(1);
+  // }
   // Medium button styling + lits display
   
     // console.log("ID FILTER", idFilter)
     // console.log("List Names", listNames)
+
     return (
       <>
         <ButtonCollapse
+        aria-expanded={ height !== 0 }
+        aria-controls='example-panel' 
           onClick={isActiveState}
           className={classnames('btn', className, { active: !isActive })}
           {...props}
@@ -73,12 +76,14 @@ const Collapse = ({
             icon={!isActive ? faChevronRight : faChevronDown} 
             />{' '}
           </span>
-          {capitalizeFirstLetter(text?.substring(0, 30))}
+          {text}
         </ButtonCollapse>
         
         <AnimateHeight
+          style={{flexShrink: 0}}
           duration={500}
           height={!isActive ? 0 : 'auto'} 
+          easing={'ease'}
         >
             <List 
               listNames={listNames} 

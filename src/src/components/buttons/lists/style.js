@@ -5,6 +5,8 @@ export const ListSelect = styled.ul `
     display: flex;
     flex-wrap: wrap;
     padding-left: 0px;
+    max-height: 300px;
+    overflow: scroll;
 `
 
 export const ListIconButton = styled.ul `
@@ -13,12 +15,16 @@ export const ListIconButton = styled.ul `
     column-gap: 5px;
     row-gap: 5px;
     padding-left: 0px;
+    max-height: 300px;
+    overflow: scroll;
 `
 
 export const ListCheckbox = styled.div `
     
     width: 80%;
     font-size: ${datalimentaire.fontSizes.xstext};
+    max-height: 300px;
+    overflow: scroll;
 
     ul{
         padding-left: 0;

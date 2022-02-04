@@ -7,8 +7,12 @@ export const BlockFilters = styled.div`
     align-items: center;
     justify-content: center;
 
+    overflow: scroll;
+
     width: 80%;
+    height: auto;
     margin: 100px auto;
+    padding: 20px 0;
 
 
     background-color: #fcfafa;
@@ -31,6 +35,7 @@ export const ParentFilter = styled.li`
     padding-left: 30px;
     background-color: ${datalimentaire.colors.lightgray};
     border-bottom: 1px solid ${datalimentaire.colors.gray};
+
 `
 export const HeadingFilter = styled.h2`
     position: relative;

@@ -11,4 +11,6 @@ export const ButtonCollapse = styled.button`
     cursor: pointer;
     font-weight: 400;
     font-size: 20px;
+    height: auto;
+
 `

@@ -13,5 +13,5 @@ export const Panel = styled.div`
     top: 0;
     bottom: 0;
     width: 33vw;
-    height: 100vh;
+    height: 100%;
 `

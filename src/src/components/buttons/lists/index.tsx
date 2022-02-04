@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, connect } from 'react-redux';
-import { setFilter } from 'kepler.gl/actions';
+import { setFilter } from 'erasme-kepler.gl/actions';
 import { Checkbox, ButtonSelect, ButtonIcon } from '../button-type';
 import { ListSelect, ButtonWrapper } from './style';
 
@@ -27,7 +27,7 @@ export const List = ({
       );              
     } else {
       setFiltersArray((filtersArray) => [...filtersArray, item]);
-      console.log("Filters Array :", filtersArray)
+      // console.log("Filters Array :", filtersArray)
     }
   };
   
@@ -36,24 +36,24 @@ export const List = ({
     dispatch(setFilter(idFilter, 'value', filtersArray));
   }, [dispatch, idFilter, filtersArray]);
   
-  console.log(filtersArray);
-  console.log(idFilter);
-  console.log(listNames);
+  // console.log(filtersArray);
+  // console.log(idFilter);
+  // console.log(listNames);
   
   return (
     <>
       <ListSelect>
           {listNames.map((item : string, i: number) => {
-            if(idFilter === 0){
+            if(idFilter === 2){
               return(
                  <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
                  <ButtonSelect text={item}/>
                </ButtonWrapper>
               )
-            } else if (idFilter === 1){
+            } else {
 
               return(
-                <ButtonWrapper idFilter={2} key={i} onClick={() => setFilterValue(item)}>
+                <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
                   <ButtonIcon text={item}/>
                 </ButtonWrapper>
               )}

@@ -1,14 +1,13 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { datalimentaire, Style }  from './utils/styles';
+import { Route, Routes } from 'react-router-dom';
+import { datalimentaire }  from './utils/styles';
 
 const Front = React.lazy(() => import('./components/index'));
 
 export default function App() {
   return (
     <ThemeProvider theme={datalimentaire}>
-      <Router>
           <Routes>
               <Route
                 path="*"
@@ -19,7 +18,6 @@ export default function App() {
                 }
               />
           </Routes>
-      </Router>
     </ThemeProvider>
   );
 };

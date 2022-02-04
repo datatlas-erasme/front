@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setFilter } from 'kepler.gl/actions';
+import { setFilter } from 'erasme-kepler.gl/actions';
 import classnames from 'classnames';
 import { Override } from '../../../types/Override';
 import { FishIcon } from '../../../utils/svg/FishIcon';
@@ -11,6 +11,7 @@ export type DayProps = Override<
   {
     idFilter?: number | string;
     dayList?: string[];
+    onClick: () => void;
   }
 >;
 
@@ -24,10 +25,13 @@ export default function ButtonIcon ({
   const dispatch = useDispatch();
 
   // Toggle the visibility of buttons parent list
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState<any>(true);
   const isActiveState = () => {
     setIsActive(!isActive);
   };
+  const [clickedItem, setCLickedItem] = useState(0)
+
+// console.log(Ouverture);
 
   const [filtersArray, setFiltersArray] = useState<string[]>([]);
     
@@ -61,9 +65,15 @@ export default function ButtonIcon ({
       <Ouverture>
         <h3>Ouvert</h3>
         {dayList?.map((day, i) => 
-          (<p 
-            onClick={() => {setFilterValue(day); isActiveState();}}
-            >{day}</p>
+          (<button 
+            key={i}
+            onClick={() => {
+              setFilterValue(day);
+              isActiveState();
+            }
+          }
+            className={ i === isActive ? 'active' : ''}
+            >{day}</button>
           )
           )
         }

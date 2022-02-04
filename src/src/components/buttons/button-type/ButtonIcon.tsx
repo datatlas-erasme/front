@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { layerConfigChange } from 'kepler.gl/actions';
+import { layerConfigChange } from 'erasme-kepler.gl/actions';
 import classnames from 'classnames';
 import { Override } from '../../../types/Override';
 import { FishIcon } from '../../../utils/svg/FishIcon';

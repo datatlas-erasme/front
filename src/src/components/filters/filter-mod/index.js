@@ -5,7 +5,7 @@ import Collapse from '../../buttons/collapse'
 import { ButtonDay } from '../../buttons/button-type';
 import { BlockFilters, ParentFilter, DomainFilter, HeadingFilter } from './style';
 
-const FilterMod = ({ value, index, filtersDomain }) => {
+const FilterMod = ({ value, index, filtersDomain, props }) => {
 
   // Toggle the visibility of buttons parent list
   // const [isActive, setIsActive] = useState(false);
@@ -14,12 +14,10 @@ const FilterMod = ({ value, index, filtersDomain }) => {
   //   setIsActive(!isActive);
   // };
 
-  const datasetLabel = value.label;
-  const datasetIndex = index;
+  // const datasetLabel = filtersDomain.dataId;
+  // const datasetIndex = index;
 
-  // console.log(datasetLabel);
-  // console.log(datasetIndex);
-  // const datasetId = value.id;
+  // const filterLabel = filtersDomain.name
 
   // const ParentBtn = (
   //   <Collapse
@@ -31,7 +29,16 @@ const FilterMod = ({ value, index, filtersDomain }) => {
   //   />
   // );
 
-  console.log(filtersDomain[0].name[0]);
+  //   const allowed = ['1', '2', '4'];
+  // const newFiltersDomain = Object.keys(filtersDomain)
+  //             .filter(key => allowed.includes(key))
+  //             .reduce((obj, key) => {
+
+  //               return {
+  //                 ...obj,
+  //               [key]: filtersDomain[key]
+  //             };
+  //             }, {});
 
   // const Domains = filtersDomain?.map((filter, index) => {
   //   const filterName = filter?.name;
@@ -45,9 +52,9 @@ const FilterMod = ({ value, index, filtersDomain }) => {
   //           <Collapse
   //             btnType="child"
   //             text={filterName[0]}
-  //             textType={filtersDomain[0].name[0]}
+  //             textType={filtersDomain[1].name[1]}
   //             textProduits={filtersDomain[2].name[0]}
-  //             listTypes={filtersDomain[0].domain}
+  //             listTypes={filtersDomain[1].domain}
   //             listProduits={filtersDomain[2].domain}
   //             listNames={filterDomain}
   //           />
@@ -56,49 +63,119 @@ const FilterMod = ({ value, index, filtersDomain }) => {
   //     );
   // });
 
-  // const allowed = ['0', '2'];
-  // const collapseFilter = Object.keys(filtersDomain)
-  //             .filter(key => allowed.includes(key))
-  //             .reduce((obj, key) => {
+  // const key = '1';
+  // const { [key]: _, ...newFiltersDomain } = filtersDomain;
 
-  //               return {
-  //                 ...obj,
-  //               [key]: filtersDomain[key]
-  //             };
-  //             }, {});
-  const key = '1';
-  const { [key]: _, ...newFiltersDomain } = filtersDomain;
+const conditions = ['type', 'produits', 'label'];
 
-  const Domains = Object.keys(newFiltersDomain).map((filter, index) => {
-    const filterName = newFiltersDomain[filter].name;
-    const filterDomain = newFiltersDomain[filter].domain;
-    const filterId = newFiltersDomain[filter].dataId;
+const filteredResults = filtersDomain.filter(el => conditions.some(filterEl => el[filterEl.name] === filterEl.name));
 
-    console.log(newFiltersDomain[filter].domain);
+// const res1 = filtersDomain.filter(data => {
+//   console.log(data.name);
+  
+//   return data.name === 'type';
+// });
+// console.log(res1);
 
+// const res2 = filtersDomain.filter(data => {
+//   for (let key in conditions) {
+//     if (data[key] === undefined || data[key] != conditions[key])
+//       return false;
+//   }
+
+//   return true;
+// });
+
+// console.log(res2);
+
+  // const Domains = filtersDomain.map((filter, index, newArray) => {
+  //   const filterTypeName= filter[index].name;
+  //   const filterTypeDomain= filter[1].domain;
+
+  //   const filterDomain = filter.domain;
+  //   const filterId = filter?.dataId;
+
+  //   console.log(filter);
+  //   console.log(filterDomain);
+  //   // console.log(filtersDomain[3]);
+  //   // console.log(filtersDomain[4]);
+    
+  //     return (
+  //       <>
+  //         <ParentFilter key={index} id="filter-parent-1" className="filter-parent">
+  //           <Collapse
+  //             btnType="child"
+  //             textType={filterTypeName}
+  //             listTypesNames={filterTypeDomain}
+  //             idFilter={index}
+  //           />
+  //         </ParentFilter>
+  //       </>
+  //     )
+  // });
+
+const Domains =  Object.keys(filtersDomain).map((filter, i) =>{
+      const filterName = filtersDomain[filter].name
+      const filterItem = filtersDomain[filter].domain
+      // console.log(filterName);
+      // console.log(filterItem);
+      
       return (
-        <>
-          <ParentFilter key={index} id="filter-parent-1" className="filter-parent">
-            <Collapse
-              btnType="child"
-              text={filterName[0]}
-              listNames={filterDomain}
-              idFilter={index}
-            />
-          </ParentFilter>
-        </>
-      );
-  });
-console.log(Domains);
+        <ParentFilter key={i} id={`filter-parent-${i}`} className="filter-parent">
+        <Collapse
+          btnType="child"
+          text={filterName}
+          idFilter={i}
+          listNames={filterItem}
+        />
+      </ParentFilter>
+      )
+    })
+
+// console.log(Domains);
+
+// const test = Domains.filter((data, i) => {
+//   console.log(data)
+//   console.log(i)
+
+//   return data[i] === [4]} )
+// console.log(test);
 
   return (
     <BlockFilters> 
-      <HeadingFilter>{datasetLabel}</HeadingFilter>
+      <HeadingFilter>Trouve ton plan Bouffe</HeadingFilter>
       {/* <SearchBar/> */}
-      <DomainFilter>{Domains}</DomainFilter>
-      <ButtonDay dayList={filtersDomain[1].domain} text={filtersDomain[1].name[0]} idFilter={1}></ButtonDay>
+      <DomainFilter>
+        {Domains}
+      </DomainFilter>
+      <ButtonDay dayList={filtersDomain[5].domain} text={filtersDomain[5].name[0]} idFilter={5}></ButtonDay>
     </BlockFilters>
   );
 };
 
 export default FilterMod;
+
+{/* <ParentFilter key={index} id="filter-parent-1" className="filter-parent">
+<Collapse
+  btnType="child"
+  text={filtersDomain[1].name}
+  listNames={filtersDomain[1].domain}
+  idFilter={1}
+/>
+</ParentFilter>
+<ParentFilter key={index} id="filter-parent-1" className="filter-parent">
+<Collapse
+  btnType="child"
+  text={filtersDomain[3].name}
+  listNames={filtersDomain[3].domain}
+  idFilter={1}
+/>
+</ParentFilter>
+<ParentFilter key={index} id="filter-parent-1" className="filter-parent">
+<Collapse
+  btnType="child"
+  text={filtersDomain[4].name}
+  listNames={filtersDomain[4].domain}
+  idFilter={1}
+/>
+</ParentFilter> */}

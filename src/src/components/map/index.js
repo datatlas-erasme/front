@@ -4,16 +4,20 @@ import {
   addDataToMap, 
   updateMap, 
   addCustomMapStyle, 
-  inputMapStyle } from 'kepler.gl/actions';
-import { processGeojson } from 'kepler.gl/processors';
-import { MapPopoverFactory, injectComponents } from 'kepler.gl/components';
+  inputMapStyle } from 'erasme-kepler.gl/actions';
+import { processGeojson } from 'erasme-kepler.gl/processors';
+import { MapPopoverFactory, injectComponents } from 'erasme-kepler.gl/components';
+import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import CustomMapPopoverFactory from '../../factories/map-popover';
+import CustomPanelToggleFactory from '../../factories/panel-toggle'
+
 // import Logo from './Logo';
 
 // Inject the point sidepanel component
-const KeplerGl = injectComponents([[MapPopoverFactory, CustomMapPopoverFactory]]);
-
-console.log(KeplerGl);
+const KeplerGl = injectComponents([
+  [MapPopoverFactory, CustomMapPopoverFactory],
+  [CustomPanelToggleFactory]
+]);
 
 export default function MapContainer() {
     const [dataLayers, setDataLayers] = useState([]);
@@ -123,18 +127,35 @@ export default function MapContainer() {
         dispatch(updateMap({latitude:0, longitude: 0, zoom: 10}))
       }
     }, [dispatch,mapUpdated]);
+
+// Perform certain actions on the Mapbox reference which kepler.gl may not expose
+  // getMapboxRef = (mapbox, index) => {
+  //     if (mapbox) {
+  //       const map = mapbox.getMap();
+  //       const scale = new mapboxgl.ScaleControl({
+  //             maxWidth: 120,
+  //             unit: 'metric'
+  //       });
+  //       map.addControl(scale, 'bottom-right');
+  //     }
+  // };
     
     return mapUpdated ? (
-      <div>
-        <KeplerGl
-          id="map"
-          mapboxApiAccessToken={instanceConf.mapboxToken}
-          width={window.innerWidth}
-          height={window.innerHeight}
-          appName="Datatlas"
-        />
-        {/* <Logo /> */}
+      <div style={{position: 'absolute', width: '100%', height: '100%'}}>
+         <AutoSizer>
+            {({height, width }) => 
+              <KeplerGl
+              id="map"
+              mapboxApiAccessToken={instanceConf.mapboxToken}
+              width={width}
+              height={height}
+              appName="Datatlas"
+              />
+            }
+            {/* <Logo /> */}
+        </AutoSizer>
       </div>
+     
     ) : (
       ''
     );

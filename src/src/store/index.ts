@@ -1,16 +1,17 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import { enhanceReduxMiddleware, keplerGlReducer, uiStateUpdaters } from 'kepler.gl';
+import { createStore, combineReducers, applyMiddleware, compose, StoreEnhancer } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { enhanceReduxMiddleware, keplerGlReducer, uiStateUpdaters } from 'erasme-kepler.gl';
+import { taskMiddleware } from 'react-palm/tasks';
+import { logger } from 'redux-logger';
 import thunk from 'redux-thunk';
-import appReducer from './reducers/app-reducer';
+import {ActionTypes} from 'erasme-kepler.gl/actions';
+import appReducer from './reducer';
 
 declare global{
   interface Window {
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
   }
 }
-// export type AppStore = {
-//   keplerGl: any;
-// };
 
 const customizedKeplerGlReducer = keplerGlReducer.initialState({
   uiState: {
@@ -47,22 +48,28 @@ const customizedKeplerGlReducer = keplerGlReducer.initialState({
       ...state.uiState,
       readOnly: !state.uiState.readOnly
     }
-  })
+  }),
+  [ActionTypes.SET_FILTER]: (state, action) => state
 });
-
-console.log(customizedKeplerGlReducer);
 
 const reducers = combineReducers({
   keplerGl: customizedKeplerGlReducer,
   app: appReducer
 });
 
-const middlewares = enhanceReduxMiddleware([thunk]);
+const middlewares = enhanceReduxMiddleware([thunk, taskMiddleware]);
 const enhancers = [applyMiddleware(...middlewares)];
+
 const initialState = {};
 
-let composeEnhancers = compose;
+// Add redux devtools
 
+const composeEnhancers = composeWithDevTools({
+    actionsBlacklist: [
+      '@@kepler.gl/MOUSE_MOVE',
+      '@@kepler.gl/UPDATE_MAP',
+      '@@kepler.gl/LAYER_HOVER',
+  ]});
 /**
  * comment out code below to enable Redux Devtools
  */
@@ -76,4 +83,12 @@ let composeEnhancers = compose;
 //   });
 // }
 
-export default createStore(reducers, initialState, composeEnhancers(...enhancers));
+if (process.env.NODE_ENV === 'development') {
+  middlewares.push(logger);
+}
+
+export default createStore(
+  reducers, 
+  initialState, 
+  composeEnhancers(...enhancers)
+  );

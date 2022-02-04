@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import { datalimentaire } from '../../../utils/styles/themes'
 
 export const ButtonType = styled.button`
@@ -24,6 +24,9 @@ export const ButtonType = styled.button`
     }
 
 `
+
+console.log(keyframes);
+
 export const Badge = styled.button`
     display: flex;
     justify-content: center;
@@ -35,9 +38,11 @@ export const Badge = styled.button`
     border-radius: 40px;
 
     &:hover{
-        background: ${datalimentaire.colors.primary};
+        background: ${ datalimentaire.colors.primary};
         color: ${datalimentaire.colors.secondary};
-
+    }
+    &:active{
+        background: ${ datalimentaire.colors.primary};
     }
 
     p{
@@ -47,18 +52,40 @@ export const Badge = styled.button`
 export const Ouverture = styled.div`
     display flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     width: 90%;
 
-    p{
+    button{
         padding: 5px;
         font-size: 10px;
+        border: none;
+        animation: ${
+            props => props.active ? `${activeButton} 0.5s linear` : "none"
+        };
+        background-color: ${datalimentaire.colors.lightgray};
 
         &:hover{
             background: ${datalimentaire.colors.primary};
             border-radius: 40px;
             color: ${datalimentaire.colors.secondary};
         }
+
+        &.active{
+            background: blue;
+        }
+
     }
 `
+
+const activeButton = keyframes`
+    0%   {
+        background-color: transparent;
+    }
+    50%  {
+        background-color: #fff;
+    }
+    100%  {
+        background-color: transparent;
+    }
+`;

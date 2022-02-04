@@ -20,6 +20,10 @@ export const Style = createGlobalStyle`
     text-decoration: none;
   }
 
+  #filter-parent-0,  #filter-parent-1, #filter-parent-5, #filter-parent-6, #filter-parent-7, #filter-parent-8, #filter-parent-9 {
+    display: none;
+  }
+
   
 `;
 
@@ -68,7 +72,7 @@ export const datalimentaire = {
       256,
     ],
   
-  radii: ['0px', '2px', '4px', '8px', '16px', '48px']
+  radii: ['0px', '2px', '4px', '8px', '16px', '20px', '48px']
 
 }
 
