@@ -59,6 +59,18 @@ const Button = ({
     layerId !== undefined ? state.keplerGl.map?.visState?.layers[layerId] : undefined,
   );
 
+  const Icon = () => {
+    if (iconName) {
+      return (
+        <FontAwesomeIcon icon={iconName} />
+      )
+    }
+    else {
+      return null
+    }
+    
+  }
+
   useEffect(() => {
     //console.log(isLayerVisible)
     if (layer) {
@@ -71,7 +83,7 @@ const Button = ({
     return (
       <div className="btn-parent" style={{ backgroundColor: bg, fontSize: textSize }}>
         <p onClick={isLayerVisibleState}>
-        <FontAwesomeIcon icon={iconName} />
+        <Icon/>
         </p>
         <button className="btn" {...props}>
           {text.substring(0, 30)}
@@ -81,8 +93,6 @@ const Button = ({
   }
   // Medium button styling + lits display
   else if (btnType === 'child') {
-    //console.log("ID FILTER", idFilter)
-    //console.log("List Names", listNames)
 
     return (
       <div>
@@ -112,7 +122,7 @@ const Button = ({
         className={classnames('btn', className, { selected: isActive })}
         {...props}
       >
-         <FontAwesomeIcon icon={iconName} /> {text.substring(0, 30)}
+         <Icon/> {text.substring(0, 30)}
       </button>
     );
   }
