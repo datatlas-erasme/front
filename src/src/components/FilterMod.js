@@ -60,7 +60,7 @@ const FilterMod = ({ value, index, filtersDomain }) => {
               listNames={filterDomain}
               idFilter={index}
             />
-            }
+            
           </li>
         </div>
       );

@@ -34,7 +34,7 @@ const Button = ({
   textSize,
   btnType,
   listNames,
-  idFilter,
+  idFilter = '0',
   layerId,
   className,
   iconName,
