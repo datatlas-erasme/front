@@ -118,8 +118,8 @@ const Button = ({
     return (
       <button
         onClick={isActiveState}
-        style={{ backgroundColor: LightenDarkenColor(bg, -80), fontSize: textSize }}
-        className={classnames('btn', className, { selected: isActive })}
+        style={{ backgroundColor: LightenDarkenColor(bg, -50), fontSize: textSize }}
+        className={classnames('btn', className, { selected: !isActive })}
         {...props}
       >
          <Icon/> {text.substring(0, 30)}
