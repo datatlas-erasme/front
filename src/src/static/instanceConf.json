@@ -8,7 +8,11 @@
   },
   "theme": {
     "filterSidePanel": {
-      "buttonColorRange": ["#dc7e6d", "#69b59d", "#c3c356"]
+      "buttonColorRange": [
+        "#3d8490",
+        "#27536f",
+        "#df7160"
+    ]
     }
   },
   "bottomRightButtons": [
