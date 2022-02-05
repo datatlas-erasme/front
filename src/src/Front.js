@@ -13,8 +13,6 @@ import CustomMapPopoverFactory from './factories/map-popover';
 import Logo from './components/Logo';
 import FilterSidePanel from './components/FilterSidePanel';
 import ConfProvider from './providers/ConfProvider';
-import About from './components/About';
-import Button from './components/filter-side-panel/Button';
 //Todo Create env var for title
 //document.title = instanceConf.siteTitle;
 
@@ -187,9 +185,7 @@ function Map() {
         appName="Datatlas"
       />
       <Logo />
-      <FilterSidePanel />
-      <Button onClick={isActiveState} fontSize="10" iconName="plus" text="A propos" />
-      <About show={isActive}/>
+      <FilterSidePanel />   
     </div>
   ) : (
     ''

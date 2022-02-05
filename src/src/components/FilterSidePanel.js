@@ -11,6 +11,7 @@ import Button from './filter-side-panel/Button';
 //Todo use redux instead ?
 import FilterMod from './FilterMod';
 import BottomRightSection from './BottomRightSection';
+import About from './About';
 
 const FilterSidePanel = () => {
   
@@ -44,6 +45,7 @@ const FilterSidePanel = () => {
       {Filters}
       
       <BottomRightSection />
+      <About/>
     </div>
   );
 };

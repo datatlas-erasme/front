@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
 import { IconName, IconPrefix, IconProp, library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckSquare, faCoffee, faEye, faMapMarked, faMapMarker, faUserFriends, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faCheckSquare, faCoffee, faEye, faMapMarked, faMapMarker, faUserFriends, faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';
@@ -12,7 +12,7 @@ import { Override } from '../../types/Override';
 import { AppStore } from '../../redux/store';
 import List from './List';
 
-library.add(fab, faCheckSquare, faCoffee, faMapMarker, faUserFriends, faEye, faPlus)
+library.add(fab, faCheckSquare, faCoffee, faMapMarker, faUserFriends, faEye, faPlus, faTimes)
 
 export type ButtonProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
