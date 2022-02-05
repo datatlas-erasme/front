@@ -31,6 +31,17 @@ body {
 }
 
 
+
+/********************** CUSTOM MODAL **************************/
+.modal {
+  position: absolute;
+  top: 0;
+  background-color: red;
+  height: 100%;
+  width: 100%;
+}
+
+
 /********************** POI SIDE PANEL **************************/
 .PointSidePanel {
   position: absolute;
@@ -89,11 +100,6 @@ body {
   margin-bottom: 15px !important;
 }
 
-.filter-parent {
-  /*TODO Reduice the height gap in another cleaner manner */
-  margin-bottom: -23px;
-}
-
 .filter-parent .list {
   padding: 0 0 7px 0;
 }
@@ -127,7 +133,6 @@ body {
 .filter-parent .selected {
   opacity: 1;
 }
-
 
 .filters ul {
   padding: 0;

@@ -13,6 +13,8 @@ import CustomMapPopoverFactory from './factories/map-popover';
 import Logo from './components/Logo';
 import FilterSidePanel from './components/FilterSidePanel';
 import ConfProvider from './providers/ConfProvider';
+import About from './components/About';
+import Button from './components/filter-side-panel/Button';
 //Todo Create env var for title
 //document.title = instanceConf.siteTitle;
 
@@ -69,6 +71,12 @@ function Map() {
 
   const [keplerConf, setKeplerConf] = useState({})
   const [keplerConfLoaded, setKeplerConfLoaded] = useState(true)
+
+  const [isActive, setIsActive] = useState(false);
+  const isActiveState = () => {
+    setIsActive(!isActive);
+    console.log(isActive)
+  };
 
   const dispatch = useDispatch();
 
@@ -180,6 +188,8 @@ function Map() {
       />
       <Logo />
       <FilterSidePanel />
+      <Button onClick={isActiveState} fontSize="10" iconName="plus" text="A propos" />
+      <About show={isActive}/>
     </div>
   ) : (
     ''
