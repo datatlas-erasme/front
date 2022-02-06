@@ -41,7 +41,7 @@ const CustomMapPopoverFactory = (...deps) => {
     // All the data related to the point clicked
     const data = props.layerHoverProp.data;
 
-    console.log(allFields)
+    //console.log(allFields)
     //TODO map all fields to fieldToshow
     //First is image
     // Second is title => <h1>
