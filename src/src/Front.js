@@ -13,6 +13,7 @@ import CustomMapPopoverFactory from './factories/map-popover';
 import Logo from './components/Logo';
 import FilterSidePanel from './components/FilterSidePanel';
 import ConfProvider from './providers/ConfProvider';
+import CursorHandler from './components/CursorHandler';
 //Todo Create env var for title
 //document.title = instanceConf.siteTitle;
 
@@ -184,6 +185,7 @@ function Map() {
         height={window.innerHeight}
         appName="Datatlas"
       />
+      <CursorHandler/>
       <Logo />
       <FilterSidePanel />   
     </div>
