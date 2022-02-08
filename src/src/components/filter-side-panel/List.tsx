@@ -10,8 +10,14 @@ export type ListProps = {
 };
 
 export const List = ({ listNames = ['1', '2'], idFilter = 0, backgroundColor }: ListProps) => {
+
   const dispatch = useDispatch();
   const [filtersArray, setFiltersArray] = useState<string[]>([]);
+
+  //Fill the filters with all the element by default
+  useEffect(() => {
+    listNames?.map((item, index) => (setFiltersArray((filtersArray) => [...filtersArray, item])))
+  }, [dispatch,listNames])
 
   const setFilterValue = (item: string) => {
     if (filtersArray.includes(item)) {

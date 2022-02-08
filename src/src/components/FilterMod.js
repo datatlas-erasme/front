@@ -4,6 +4,7 @@ import AnimateHeight from 'react-animate-height';
 import instanceConf from '../static/instanceConf.json';
 import Button from './filter-side-panel/Button';
 
+//TODO Fetch this array from the back api
 const buttonColorRange = instanceConf.theme.filterSidePanel.buttonColorRange;
 
 const FilterMod = ({ value, index, filtersDomain }) => {
@@ -60,7 +61,7 @@ const FilterMod = ({ value, index, filtersDomain }) => {
               listNames={filterDomain}
               idFilter={index}
             />
-            }
+            
           </li>
         </div>
       );
