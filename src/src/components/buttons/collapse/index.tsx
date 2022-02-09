@@ -6,6 +6,11 @@ import {
   faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  IconDefinition,
+  IconPrefix,
+  IconName
+  } from '@fortawesome/fontawesome-common-types';
 import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';
 import { Override } from '../../../types/Override';
@@ -27,6 +32,7 @@ export type CollapseProps = Override<
     idFilter?: string;
     filtername?: string;
     dayList?: string[];
+    icon: IconDefinition;
   }
 >;
 
@@ -40,6 +46,7 @@ const Collapse = ({
   className,
   filtername,
   dayList,
+  icon,
   ...props
 }: CollapseProps) => {
   // const dispatch = useDispatch();

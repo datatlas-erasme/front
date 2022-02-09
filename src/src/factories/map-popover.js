@@ -29,7 +29,6 @@ const MapPopover = styled.div`
 `
 
 const CustomMapPopoverFactory = (...deps) => {
-  console.log(deps);
   const MapSidepanel = (props) => {
     // const clicked = useSelector((state) => state.keplerGl.map?.visState?.clicked ?? null);
     // if (!clicked) {
