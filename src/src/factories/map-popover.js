@@ -31,10 +31,17 @@ const MapPopover = styled.div`
 const CustomMapPopoverFactory = (...deps) => {
   console.log(deps);
   const MapSidepanel = (props) => {
-    const clicked = useSelector((state) => state.keplerGl.map?.visState?.clicked ?? null);
-    if (!clicked) {
+    // const clicked = useSelector((state) => state.keplerGl.map?.visState?.clicked ?? null);
+    // if (!clicked) {
       const MapPopover = MapPopoverFactory(...deps);
-      console.log(clicked);
+      console.log(props);
+      // console.log(clicked);
+      const MapPopoverWrapper = props => {
+        // Disable tooltip for point layer
+        console.log(props);
+        if (props.layerHoverProp?.layer?.id === 'point_layer') {
+          return null;
+        }
 
       return <MapPopover {...props}/>;
     }
@@ -57,7 +64,7 @@ const CustomMapPopoverFactory = (...deps) => {
 
     const PointFields = allFields.map((field, index) => {
       return fieldsToShow.map((fieldToShow, fieldToShowIndex) => {
-        console.log(data);
+        // console.log(data);
         // console.log(field);
         if (field.displayName === fieldToShow.name) {
           // TODO check if is url and has image extension
@@ -85,7 +92,7 @@ const CustomMapPopoverFactory = (...deps) => {
                   <p>{data[13]} </p>
                 </div>
 
-                <div>
+                <div key={index}>
                 <p>{data[10]} </p>
                 </div>
 
@@ -94,7 +101,7 @@ const CustomMapPopoverFactory = (...deps) => {
           } else {
             // console.log("field name " + field.displayName + " is index :" + index + "Data Value id : " + data[index])
             return (
-              <div>
+              <div key={index}>
               
               </div>
 

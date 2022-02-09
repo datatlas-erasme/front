@@ -24,6 +24,7 @@ export type CollapseProps = Override<
     idFilter?: string;
     filtername?: string;
     dayList?: string[];
+    icon?: string;
   }
 >;
 
@@ -37,6 +38,7 @@ const Collapse = ({
   className,
   filtername,
   dayList,
+  icon,
   ...props
 }: CollapseProps) => {
   // const dispatch = useDispatch();
@@ -74,7 +76,8 @@ const Collapse = ({
           <span>
             <FontAwesomeIcon 
             icon={!isActive ? faChevronRight : faChevronDown} 
-            />{' '}
+            />
+            {' '}
           </span>
           {text}
         </ButtonCollapse>
