@@ -5,6 +5,7 @@ import {
   faChevronRight,
   faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
 import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';
 import { Override } from '../../../types/Override';
@@ -12,6 +13,8 @@ import { Override } from '../../../types/Override';
 import List from '../lists';
 import { ButtonDay } from '../button-type';
 import { ButtonCollapse } from './style';
+
+library.add(faChevronRight,faChevronDown);
 
 export type CollapseProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
@@ -24,7 +27,6 @@ export type CollapseProps = Override<
     idFilter?: string;
     filtername?: string;
     dayList?: string[];
-    icon?: string;
   }
 >;
 
@@ -38,7 +40,6 @@ const Collapse = ({
   className,
   filtername,
   dayList,
-  icon,
   ...props
 }: CollapseProps) => {
   // const dispatch = useDispatch();
