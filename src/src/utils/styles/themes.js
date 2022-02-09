@@ -1,10 +1,13 @@
 import { createGlobalStyle } from "styled-components";
+import px2vw from "./px2vw";
 
 export const Style = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
   * {
     font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
   };
 
@@ -22,6 +25,18 @@ export const Style = createGlobalStyle`
 
   #filter-parent-0,  #filter-parent-1, #filter-parent-5, #filter-parent-6, #filter-parent-7, #filter-parent-8, #filter-parent-9 {
     display: none;
+  }
+
+  :root {
+    font-size: ${px2vw(16)};
+
+    @media (min-width: 768px) {
+      font-size: ${px2vw(18)};
+    }
+
+    @media (min-width: 1024px) {
+      font-size: ${px2vw(24)};
+    }
   }
 
   
@@ -75,13 +90,6 @@ export const datalimentaire = {
   radii: ['0px', '2px', '4px', '8px', '16px', '20px', '48px']
 
 }
-
-export const breakpoints = ['40em', '52em', '64em', '80em']
-// aliases
-breakpoints.sm = breakpoints[0]
-breakpoints.md = breakpoints[1]
-breakpoints.lg = breakpoints[2]
-breakpoints.xl = breakpoints[3]
 
 export const Colors = {
   text: datalimentaire.colors.primary,

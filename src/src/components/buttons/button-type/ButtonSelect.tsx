@@ -53,7 +53,10 @@ export default function ButtonSelect ({
         className={classnames('btn', className, { selected: isActive })}
         {...props}
       >
-        <FarmerIcon/>
+        <div>
+          <FarmerIcon/>
+        </div>
+        
         <p>{text.substring(0, 30)}</p>
       </ButtonType>
     );

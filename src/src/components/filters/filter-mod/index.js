@@ -142,14 +142,18 @@ const Domains =  Object.keys(filtersDomain).map((filter, i) =>{
 // console.log(test);
 
   return (
+  <>
+    
     <BlockFilters> 
-      <HeadingFilter>Trouve ton plan Bouffe</HeadingFilter>
+    <HeadingFilter>Trouve ton plan Bouffe</HeadingFilter>
+      
       {/* <SearchBar/> */}
       <DomainFilter>
         {Domains}
       </DomainFilter>
       <ButtonDay dayList={filtersDomain[5].domain} text={filtersDomain[5].name[0]} idFilter={5}></ButtonDay>
     </BlockFilters>
+  </>
   );
 };
 

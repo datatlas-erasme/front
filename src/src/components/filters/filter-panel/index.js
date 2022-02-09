@@ -8,8 +8,8 @@ import FilterMod from '../filter-mod';
 
 const FilterSidePanel = (props, state) => {
 
-  console.log(props);
-  console.log(state);
+  // console.log(props);
+  // console.log(state);
   
   // const exportDataBtn = useContext(ConfContext).modules.exportDataBtn;
   // console.log(exportDataBtn);

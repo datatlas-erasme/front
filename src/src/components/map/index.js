@@ -1,23 +1,32 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
 import { 
-  addDataToMap, 
+  addDataToMap,
+  wrapTo,
   updateMap, 
   addCustomMapStyle, 
-  inputMapStyle } from 'erasme-kepler.gl/actions';
-import { processGeojson } from 'erasme-kepler.gl/processors';
-import { MapPopoverFactory, injectComponents } from 'erasme-kepler.gl/components';
+  inputMapStyle 
+} from 'erasme-kepler.gl/actions';
 import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
+import { processGeojson } from 'erasme-kepler.gl/processors';
+import { 
+  MapPopoverFactory, 
+  injectComponents, 
+  PanelToggleFactory 
+} from 'erasme-kepler.gl/components';
 import CustomMapPopoverFactory from '../../factories/map-popover';
 import CustomPanelToggleFactory from '../../factories/panel-toggle'
+import Logo from './Logo';
 
 // import Logo from './Logo';
 
 // Inject the point sidepanel component
 const KeplerGl = injectComponents([
-  [MapPopoverFactory, CustomMapPopoverFactory],
-  [CustomPanelToggleFactory]
+  [MapPopoverFactory, CustomMapPopoverFactory], 
+  [PanelToggleFactory, CustomPanelToggleFactory]
 ]);
+
+console.log(KeplerGl);
 
 export default function MapContainer() {
     const [dataLayers, setDataLayers] = useState([]);
@@ -73,6 +82,7 @@ export default function MapContainer() {
             .then((res) => res.json())
             .then((data) => {
               if (data.fields) {
+                console.log(data);
                 buffer.push([layer.name, data]);
               } else {
                 buffer.push([layer.name, processGeojson(data)]);

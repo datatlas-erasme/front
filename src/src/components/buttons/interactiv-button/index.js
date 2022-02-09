@@ -1,8 +1,6 @@
 import { useContext } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { ConfContext } from '../../../providers/ConfProvider';
-import Button from '../Button';
+import { IconAdd } from '../../../utils/svg/IconAdd';
 import { AddPoint, WarpperAddPoint } from './style';
 
 export default function AddButton(){
@@ -13,7 +11,9 @@ export default function AddButton(){
       {config.map((buttonConf, index) => (
         <a key={index} href={buttonConf.url} target="_blank" rel="noreferrer">
           <AddPoint>
-            <FontAwesomeIcon icon={faCartPlus} />
+          <span>
+            <IconAdd/>
+          </span>
             <p>{buttonConf.text}</p>
           </AddPoint>
         </a>

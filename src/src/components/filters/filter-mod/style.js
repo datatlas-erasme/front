@@ -7,39 +7,41 @@ export const BlockFilters = styled.div`
     align-items: center;
     justify-content: center;
 
-    overflow: scroll;
+
+    overflow: overlay;
 
     width: 80%;
     height: auto;
     margin: 100px auto;
-    padding: 20px 0;
+    padding: 40px 0;
 
 
     background-color: #fcfafa;
     border: 1px solid #E8E8E8;
     box-sizing: border-box;
     border-radius: 10px;
-
-    ul {
-        align-self: flex-start;
-    }
 `
 
 export const DomainFilter = styled.ul`
     width: 100%;
-    padding-left: 0;
+    padding: 0 30px;
+    overflow: overlay;
 
 `
 
 export const ParentFilter = styled.li`
-    padding-left: 30px;
+    flex-flow: row wrap;
+    min-width: 50%;
     background-color: ${datalimentaire.colors.lightgray};
     border-bottom: 1px solid ${datalimentaire.colors.gray};
 
 `
 export const HeadingFilter = styled.h2`
     position: relative;
-    top: -30px;
+    top: -40px;
+    width: auto;
+    margin: 0;
+
     font-size: ${datalimentaire.fontSizes.xstext};
     align-text: center;
     background-color: ${datalimentaire.colors.darkgray};

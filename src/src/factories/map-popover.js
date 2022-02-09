@@ -1,8 +1,11 @@
  import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { MapPopoverFactory } from 'erasme-kepler.gl/components';
+import {withState} from 'erasme-kepler.gl/components';
+import {visStateLens} from 'erasme-kepler.gl/reducers';
 import { datalimentaire } from '../utils/styles';
 import AddButton from '../components/buttons/interactiv-button/index'
+
 // import PopOver from '../components/popover';
 
 // import CustomLayerHoverInfo from "./CustomLayerHoverInfo"
@@ -19,7 +22,9 @@ const PointModal = styled.div`
       border: 1px solid ${datalimentaire.colors.midgray};
       border-radius: ${datalimentaire.radii[5]};
       box-shadow: 0px 2px 18px -1px rgba(0, 0, 0, 0.25);
+`
 
+const MapPopover = styled.div`
 
 `
 
@@ -120,8 +125,5 @@ function isURL(str) {
 }
 
 CustomMapPopoverFactory.deps = MapPopoverFactory.deps;
-export default CustomMapPopoverFactory;
 
-// export function replacePopOver(){
-//   return [MapPopoverFactory, CustomMapPopoverFactory]
-// }
+export default CustomMapPopoverFactory;

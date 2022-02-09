@@ -15,8 +15,6 @@ export type DayProps = Override<
   }
 >;
 
-// const dataDay = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim']
-
 export default function ButtonIcon ({
   dayList = [],
   idFilter,

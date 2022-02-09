@@ -48,8 +48,10 @@ export const LabelCheckbox = styled.label`
     margin-bottom : 10px;
     border-bottom: 1px solid ${datalimentaire.colors.midgray};
 
-`
+
+    `
 
 export const ButtonWrapper = styled.li`
-    max-width: 50%;
+    width: auto;
+    padding: 5px;
 `
