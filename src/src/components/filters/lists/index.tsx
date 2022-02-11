@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, connect } from 'react-redux';
 import { setFilter } from 'erasme-kepler.gl/actions';
-import { Checkbox, ButtonSelect, ButtonIcon } from '../button-type';
+import { Checkbox, ButtonSelect, ButtonIcon } from '../../buttons/button-type';
 import { ListSelect, ButtonWrapper } from './style';
 
 export type ListProps = {
@@ -32,7 +32,7 @@ export const List = ({
   };
   
   useEffect(() => {
-    console.log('Filters Array :', filtersArray);
+    // console.log('Filters Array :', filtersArray);
     dispatch(setFilter(idFilter, 'value', filtersArray));
   }, [dispatch, idFilter, filtersArray]);
   

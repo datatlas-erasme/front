@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import SearchBar from '../../search-bar';
 // import AnimateHeight from 'react-animate-height';
-import Collapse from '../../buttons/collapse'
+import Collapse from '../collapse'
 import { ButtonDay } from '../../buttons/button-type';
 import { BlockFilters, ParentFilter, DomainFilter, HeadingFilter } from './style';
 
@@ -139,8 +139,6 @@ const Domains =  Object.keys(filtersDomain).map((filter, i) =>{
 //   console.log(i)
 
 //   return data[i] === [4]} )
-console.log(filtersDomain[5].domain);
-
   return (
   <>
     

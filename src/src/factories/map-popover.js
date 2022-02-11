@@ -31,7 +31,7 @@ const CustomMapPopoverFactory = (...deps) => {
         // console.log(allFields);
         // All the data related to the point clicked
         const data = props.layerHoverProp.data;
-        // console.log(data[2]);
+        console.log(data);
     const clicked = useSelector((state) => state.keplerGl.map?.visState?.clicked ?? null);
     if (!clicked) {
       const HoverField = allFields.map((field, index) => {
@@ -88,25 +88,25 @@ const CustomMapPopoverFactory = (...deps) => {
                   </div>
                 </ModalHeading>
                 <p>Informations complémentaires liées à la spécificité de ce lieu.</p>
-                  <button>En savoir plus</button>
+                  <a href={data[14]} target={'_blank'} rel={'noreferrer'}><button >En savoir plus</button></a>
                 <ul>
                   <li>
-                    <PointAdress/>
+                    <BullePicto/>
                     <address>{data[3]} {data[4]} {data[5]}</address>
                   </li>
                   <li>
-                    <ClockPicto/>
+                    <PointAdress/>
                     {data[9]}
                   </li>
                   <li>
-                    <a href={'#'}>Modifier les informations</a>
+                    <a href={'https://form.typeform.com/to/V1f3GNXR'} target='_blank' rel={'noreferrer'}>Modifier les informations</a>
                   </li>
                 </ul>
               </ModalColLeft>
 
               <ModalColRight>
                 <img
-                alt={'pexels-photo'}
+                alt={'Unsplash'}
                 src={'https://images.unsplash.com/photo-1543083477-4f785aeafaa9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'}
                 />
                 <p>{data[10]} </p>

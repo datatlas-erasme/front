@@ -1,2 +1,3 @@
 export {default as FilterMod} from './filter-mod';
-export {default as FilterPanel } from './filter-panel';
+export {default as List } from './lists';
+export {default as Collapse} from './collapse';

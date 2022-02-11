@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'erasme-kepler.gl/actions';
-import { Override } from '../../../types/Override';
-import { FishIcon } from '../../../utils/svg/products/FishIcon';
+import { Override } from '../../../../types/Override';
 import { Ouverture } from './style';
 
 export type DayProps = Override<
@@ -39,7 +38,7 @@ export default function ButtonIcon ({
       );              
     } else {
       setFiltersArray((filtersArray) => [...filtersArray, item]);
-      console.log("Filters Array :", filtersArray)
+      // console.log("Filters Array :", filtersArray)
     }
   };
   

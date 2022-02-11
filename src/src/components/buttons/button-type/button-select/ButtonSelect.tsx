@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
 import classnames from 'classnames';
-import { Override } from '../../../types/Override';
-import {FarmerIcon} from '../../../utils/svg/FarmerIcon';
+import { Override } from '../../../../types/Override';
+import {FarmerIcon} from '../../../../utils/svg/FarmerIcon';
 import { ButtonType } from './style';
 
 export type ButtonProps = Override<

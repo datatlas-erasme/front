@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
 // import classnames from 'classnames';
-import { Override } from '../../../types/Override';
+import { Override } from '../../../../types/Override';
 
 export type CheckboxProps = Override<
   React.ComponentPropsWithoutRef<'button'>,

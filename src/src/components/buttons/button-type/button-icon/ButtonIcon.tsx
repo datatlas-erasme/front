@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
 import classnames from 'classnames';
-import { Override } from '../../../types/Override';
+import { Override } from '../../../../types/Override';
 import { 
   FishIcon,
   CatererIcon,
@@ -14,8 +14,8 @@ import {
   HoneyIcon,
   MeatIcon,
   VegetablesIcon
-} from '../../../utils/svg/products';
-import {BakeryIcon} from '../../../utils/svg/products/BakeryIcon'
+} from '../../../../utils/svg/products';
+import {BakeryIcon} from '../../../../utils/svg/products/BakeryIcon'
 import { Badge } from './style';
 
 export type ButtonProps = Override<
@@ -65,7 +65,7 @@ export default function ButtonIcon ({
         className={classnames('btn', className, { selected: isActive })}
         {...props}
       >
-        <BakeryIcon/>
+        <FishIcon/>
         <p>{text.substring(0, 30)}</p>
       </Badge>
     );

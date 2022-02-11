@@ -28,6 +28,12 @@ export const WrapperModal = styled.div`
         border: none;
         padding: 10px;
         color: ${datalimentaire.colors.secondary};
+
+        pointer: cursor;
+
+        &:hover{
+          opacity: 0.5;
+        }
       }
 
       li {
