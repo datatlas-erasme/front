@@ -85,7 +85,7 @@ const Button = ({
         <p onClick={isLayerVisibleState}>
         <Icon/>
         </p>
-        <button className="btn" {...props}>
+        <button className="btn" {...props} style={{ backgroundColor: bg }}>
           {text.substring(0, 30)}
         </button>
       </div>
