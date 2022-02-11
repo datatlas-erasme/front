@@ -206,8 +206,9 @@ filters .filter-child button.active span {
 }
 
 .btn-parent p {
-  width: 35px;
+  width: 40px;
   text-align: center;
+  color: white;
 }
 
 .btn-child {
