@@ -192,6 +192,7 @@ filters .filter-child button.active span {
   width: 196px;
   border-radius: 5px 5px 5px 5px;
   background-color: #df7160;
+  text-align: center;
 }
 
 .crowdsourcing button a:first-of-type {

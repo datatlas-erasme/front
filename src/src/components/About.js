@@ -34,8 +34,8 @@ const About = () => {
   }
 
   return (
-    <div>
-      <Button onClick={openModal} fontSize="10" iconName="plus" text="A propos" />
+    <div className='crowdsourcing'>
+      <Button bg='black' onClick={openModal} fontSize="10" iconName="plus" text="A propos" />
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
