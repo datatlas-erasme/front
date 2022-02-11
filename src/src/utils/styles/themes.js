@@ -26,19 +26,6 @@ export const Style = createGlobalStyle`
   #filter-parent-0,  #filter-parent-1, #filter-parent-5, #filter-parent-6, #filter-parent-7, #filter-parent-8, #filter-parent-9 {
     display: none;
   }
-
-  :root {
-    font-size: ${px2vw(16)};
-
-    @media (min-width: 768px) {
-      font-size: ${px2vw(18)};
-    }
-
-    @media (min-width: 1024px) {
-      font-size: ${px2vw(24)};
-    }
-  }
-
   
 `;
 
@@ -87,7 +74,7 @@ export const datalimentaire = {
       256,
     ],
   
-  radii: ['0px', '2px', '4px', '8px', '16px', '20px', '48px']
+  radii: ['0px', '2px', '4px', '8px', '16px', '20px', '40px']
 
 }
 

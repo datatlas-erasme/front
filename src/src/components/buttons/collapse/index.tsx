@@ -6,17 +6,12 @@ import {
   faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-  IconDefinition,
-  IconPrefix,
-  IconName
-  } from '@fortawesome/fontawesome-common-types';
+import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';
 import { Override } from '../../../types/Override';
 // import { AppStore } from '../../store';
 import List from '../lists';
-import { ButtonDay } from '../button-type';
 import { ButtonCollapse } from './style';
 
 library.add(faChevronRight,faChevronDown);
@@ -63,12 +58,18 @@ const Collapse = ({
   const isLayerVisibleState = () => {
     setIsLayerVisible(!isLayerVisible);
   };
-
-  // function capitalizeFirstLetter(string : string) {
-  //   return string.charAt(0).toUpperCase() + string.slice(1);
-  // }
-  // Medium button styling + lits display
   
+  function TextCollaps(){
+    if(text[0] === 'soustype'){
+      return 'Type';
+    } else if (text[0] === 'produits') {
+      return 'Produits';
+    } else if (text[0] === 'label') {
+      return 'Label et Certifications';
+    }
+  }
+
+  // Medium button styling + lits display
     // console.log("ID FILTER", idFilter)
     // console.log("List Names", listNames)
 
@@ -87,7 +88,7 @@ const Collapse = ({
             />
             {' '}
           </span>
-          {text}
+          {TextCollaps()}
         </ButtonCollapse>
         
         <AnimateHeight

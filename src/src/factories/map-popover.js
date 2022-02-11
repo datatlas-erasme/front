@@ -1,60 +1,68 @@
  import { useSelector } from 'react-redux';
-import styled from 'styled-components';
 import { MapPopoverFactory } from 'erasme-kepler.gl/components';
 import {withState} from 'erasme-kepler.gl/components';
 import {visStateLens} from 'erasme-kepler.gl/reducers';
-import { datalimentaire } from '../utils/styles';
-import AddButton from '../components/buttons/interactiv-button/index'
+import {FarmerIcon} from '../utils/svg/FarmerIcon'
+import { BullePicto } from '../utils/svg/BullePicto';
+import { ClockPicto } from '../utils/svg/ClockPicto';
+import { PointAdress } from '../utils/svg/PointAdress';
+import {
+  PopHover,
+  ModalColLeft,
+  ModalColRight,
+  ModalHeading,
+  WrapperModal
+} from '../factories/style'
 
 // import PopOver from '../components/popover';
 
 // import CustomLayerHoverInfo from "./CustomLayerHoverInfo"
 
-const PointModal = styled.div`
-      position: fixed;
-      top: 180px;
-      width: 50%;
-      height: auto;
-      left: 40%;
-      background: white;
-      padding: 20px;
-      
-      border: 1px solid ${datalimentaire.colors.midgray};
-      border-radius: ${datalimentaire.radii[5]};
-      box-shadow: 0px 2px 18px -1px rgba(0, 0, 0, 0.25);
-`
-
-const MapPopover = styled.div`
-
-`
-
 const CustomMapPopoverFactory = (...deps) => {
-  const MapSidepanel = (props) => {
-    // const clicked = useSelector((state) => state.keplerGl.map?.visState?.clicked ?? null);
-    // if (!clicked) {
-      const MapPopover = MapPopoverFactory(...deps);
-      console.log(props);
-      // console.log(clicked);
-      const MapPopoverWrapper = props => {
-        // Disable tooltip for point layer
-        console.log(props);
-        if (props.layerHoverProp?.layer?.id === 'point_layer') {
-          return null;
-        }
+  
+  // const MapPopover = MapPopoverFactory(...deps);
+  const MapSidepanel = props => {
+        // Fields declared in the kepler conf panel
+        const fieldsToShow = props.layerHoverProp.fieldsToShow;
+        // console.log(fieldsToShow);
+    
+        // List of all data fields names
+        const allFields = props.layerHoverProp.fields;
+        // console.log(allFields);
+        // All the data related to the point clicked
+        const data = props.layerHoverProp.data;
+        // console.log(data[2]);
+    const clicked = useSelector((state) => state.keplerGl.map?.visState?.clicked ?? null);
+    if (!clicked) {
+      const HoverField = allFields.map((field, index) => {
+        return fieldsToShow.map((fieldToShow, fieldToShowIndex) => {
+          // console.log(data);
+          // console.log(field);
+          if (field.displayName === fieldToShow.name) {
+            // TODO check if is url and has image extension
+            // console.log(fieldToShow);
+            if (fieldToShowIndex  === 1 ) {
+              return (
+              <>
+                  <p>{data[10]} </p>
+                    { data[index] && <h2>{data[2]}</h2> }
+                    <p>Horaires :</p>
+                    <p>{data[9]} </p>     
+                </>
+              );
+            }
+          }
+        });
+      });
+  
+      return <PopHover className="PointSidePanel">{HoverField}</PopHover>;
+    };
+    
+    //   const MapPopoverWrapper = props => {
+    //     console.log(props);
 
-      return <MapPopover {...props}/>;
-    }
-    // Fields declared in the kepler conf panel
-    const fieldsToShow = props.layerHoverProp.fieldsToShow;
-    // console.log(fieldsToShow);
-
-    // List of all data fields names
-    const allFields = props.layerHoverProp.fields;
-    // console.log(allFields);
-
-    // All the data related to the point clicked
-    const data = props.layerHoverProp.data;
-    // console.log(data[2]);
+    //   return <MapPopover {...props}/>;
+    // }
 
     // TODO map all fields to fieldToshow
     // First is image
@@ -68,49 +76,49 @@ const CustomMapPopoverFactory = (...deps) => {
         if (field.displayName === fieldToShow.name) {
           // TODO check if is url and has image extension
           // console.log(fieldToShow);
-          if (field.displayName.includes('image')) {
+         if (fieldToShowIndex  === 1 ) {
             return (
-              <img
-                alt={'pexels-photo'}
-                src={
-                  data[index]
-                    ? data[index]
-                    : 'https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-                }
-              />
-            );
-          } else if (fieldToShowIndex  === 1 ) {
-            return (
-            <div key={index}>
-                <div>
+            <>
+              <ModalColLeft>
+                <ModalHeading>
+                  <span><FarmerIcon/></span>
+                  <div>
                   { data[index] && <h2>{data[2]}</h2> }
                   <p>{data[6]} </p>
-                  <AddButton href={data[14]}/>
-                  <p>{data[3]} {data[4]} {data[5]}</p>
-                  <p>{data[9]} </p>   
-                  <p>{data[13]} </p>
-                </div>
+                  </div>
+                </ModalHeading>
+                <p>Informations complémentaires liées à la spécificité de ce lieu.</p>
+                  <button>En savoir plus</button>
+                <ul>
+                  <li>
+                    <PointAdress/>
+                    <address>{data[3]} {data[4]} {data[5]}</address>
+                  </li>
+                  <li>
+                    <ClockPicto/>
+                    {data[9]}
+                  </li>
+                  <li>
+                    <a href={'#'}>Modifier les informations</a>
+                  </li>
+                </ul>
+              </ModalColLeft>
 
-                <div key={index}>
+              <ModalColRight>
+                <img
+                alt={'pexels-photo'}
+                src={'https://images.unsplash.com/photo-1543083477-4f785aeafaa9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'}
+                />
                 <p>{data[10]} </p>
-                </div>
-
-              </div>
-            );
-          } else {
-            // console.log("field name " + field.displayName + " is index :" + index + "Data Value id : " + data[index])
-            return (
-              <div key={index}>
-              
-              </div>
-
+              </ModalColRight>
+            </>
             );
           }
         }
       });
     });
 
-    return <PointModal className="PointSidePanel">{PointFields}</PointModal>;
+    return <WrapperModal className="PointSidePanel">{PointFields}</WrapperModal>;
   };
 
   return MapSidepanel;

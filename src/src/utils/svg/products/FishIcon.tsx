@@ -5,7 +5,7 @@ export const FishIcon = ({
     width = "40",
   ...props} : React.SVGProps<SVGSVGElement>) => (
 
-<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+<svg width={width} height={height} viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
 <path d="M0.306973 27.917H27.693V0.530969H0.306973V27.917Z" fill="url(#pattern0)"/>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">

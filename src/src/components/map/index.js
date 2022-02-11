@@ -81,11 +81,12 @@ export default function MapContainer() {
           return fetch(layer.url)
             .then((res) => res.json())
             .then((data) => {
+              console.log(data);
               if (data.fields) {
-                console.log(data);
                 buffer.push([layer.name, data]);
               } else {
                 buffer.push([layer.name, processGeojson(data)]);
+                buffer.push()
               }
             });
         });

@@ -139,7 +139,7 @@ const Domains =  Object.keys(filtersDomain).map((filter, i) =>{
 //   console.log(i)
 
 //   return data[i] === [4]} )
-// console.log(test);
+console.log(filtersDomain[5].domain);
 
   return (
   <>

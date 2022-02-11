@@ -16,21 +16,18 @@ export const ButtonType = styled.button`
     font-size: ${px2vw(datalimentaire.fontSizes.xstext)};
 
     div{
-        width: 30%;
+        width: 50px;
         heigt: auto;
     }
 
     p{
         display: block;
-        width: 70%;
+        width: 150px;
         text-align: left;
         padding-left: 10px;
     }
 
 `
-
-console.log(keyframes);
-
 export const Badge = styled.button`
     display: flex;
     justify-content: center;
@@ -61,9 +58,10 @@ export const Ouverture = styled.div`
     align-items: center;
     justify-content: space-around;
     width: 90%;
+    margin: 15px 0;
 
     h3{
-        font-size: ${datalimentaire.fontSizes.xstitle};
+        font-size: ${datalimentaire.fontSizes.xltext};
         margin: 5px;
     }
 

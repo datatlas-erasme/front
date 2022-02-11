@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'erasme-kepler.gl/actions';
-import classnames from 'classnames';
 import { Override } from '../../../types/Override';
-import { FishIcon } from '../../../utils/svg/FishIcon';
+import { FishIcon } from '../../../utils/svg/products/FishIcon';
 import { Ouverture } from './style';
 
 export type DayProps = Override<
@@ -61,12 +60,14 @@ export default function ButtonIcon ({
         {dayList?.map((day, i) => 
           (<button 
             key={i}
-            onClick={(i) => {
+            onClick={() => {
               setFilterValue(day);
               setIsActive(day);              
             } }         
             className={ day === isActive ? 'active' : 'inactive' }
-            >{day}</button>
+            > 
+            {day}
+            </button>
           )
           )
         }
