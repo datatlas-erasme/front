@@ -199,7 +199,6 @@ filters .filter-child button.active span {
 }
 .btn-parent {
   display: flex;
-  padding-left: 12px;
   border-radius: 5px;
   margin-bottom: 0;
   font-size: 15px;
@@ -207,7 +206,8 @@ filters .filter-child button.active span {
 }
 
 .btn-parent p {
-  padding-right: 10px;
+  width: 35px;
+  text-align: center;
 }
 
 .btn-child {
