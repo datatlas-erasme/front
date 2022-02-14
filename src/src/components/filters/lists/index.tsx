@@ -3,6 +3,7 @@ import { useDispatch, connect } from 'react-redux';
 import { setFilter } from 'erasme-kepler.gl/actions';
 import { Checkbox, ButtonSelect, ButtonIcon } from '../../buttons/button-type';
 import { ListSelect, ButtonWrapper } from './style';
+import { ListCheckbox, LabelCheckbox } from './style';
 
 export type ListProps = {
   idFilter?: number | string;
@@ -50,13 +51,27 @@ export const List = ({
                  <ButtonSelect text={item}/>
                </ButtonWrapper>
               )
-            } else {
+            } else if (idFilter === 3) {
 
               return(
                 <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
                   <ButtonIcon text={item}/>
                 </ButtonWrapper>
-              )}
+              )}  else if (idFilter === 4){
+                return(
+                  <>
+                  <LabelCheckbox>
+                  <input type="checkbox" />
+                  Voir que les produits labélisés
+                </LabelCheckbox>
+                  <li key={i} onClick={() => setFilterValue(item)}>
+                  <Checkbox text={item}/>
+                 </li>
+                  </>
+                  
+                      )
+              }
+
             })   
           }
       </ListSelect>

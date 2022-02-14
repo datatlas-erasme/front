@@ -15,14 +15,17 @@ export const Badge = styled.button`
     border-radius: 40px;
 
     &:hover{
+        border-color: ${ datalimentaire.colors.primary};
+        background: ${datalimentaire.colors.secondary};
+    }
+
+    &.active{
         background: ${ datalimentaire.colors.primary};
         color: ${datalimentaire.colors.secondary};
-    }
-    &:active{
-        background: ${ datalimentaire.colors.primary};
     }
 
     p{
         padding-left: 5px;
+
     }
 `

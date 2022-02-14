@@ -16,8 +16,21 @@ export const ButtonType = styled.button`
     font-size: ${px2vw(datalimentaire.fontSizes.xstext)};
 
     div{
-        width: 50px;
-        heigt: auto;
+        width: 60px;
+        height: 60px;
+        padding: 15px;
+        border-radius: 50px;
+        border: 1px solid ${datalimentaire.colors.gray};
+        box-sizing: border-box;
+        
+        &:hover{
+            background: ${datalimentaire.colors.secondary};
+            border-color: ${datalimentaire.colors.primary}
+        }
+
+        &.active{
+            background: ${datalimentaire.colors.primary};
+        }
     }
 
     p{

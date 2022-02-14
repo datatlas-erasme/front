@@ -1,6 +1,6 @@
 import React from 'react';
-import logoGl from '../../utils/logo/logo_gl.png';
-import logoTI from '../../utils/logo/logo_ti.png';
+import logoGl from '../../assets/logo/logo_gl.png';
+import logoTI from '../../assets/logo/logo_ti.png';
 import { WarpperLogoMap } from './style';
 
 export type LogoProps = React.ComponentPropsWithoutRef<'div'>;

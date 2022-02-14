@@ -3,7 +3,14 @@ import { useDispatch } from 'react-redux';
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
 import classnames from 'classnames';
 import { Override } from '../../../../types/Override';
-import {FarmerIcon} from '../../../../utils/svg/FarmerIcon';
+import {
+  Amap,
+  FarmSale,
+  MarketDealer,
+  MarketProducer,
+  ProducerShop
+} from '../../../../assets/svg/types';
+import {FarmerIcon} from '../../../../assets/svg/FarmerIcon';
 import { ButtonType } from './style';
 
 export type ButtonProps = Override<
@@ -49,12 +56,19 @@ export default function ButtonSelect ({
     return (
       <ButtonType
         onClick={isActiveState}
-        // style={{ backgroundColor: LightenDarkenColor(bg, -60), fontSize: textSize }}
-        className={classnames('btn', className, { selected: isActive })}
+        className={classnames('active', className, { selected: isActive })}
         {...props}
       >
-        <div>
-          <FarmerIcon/>
+        <div  className={ isActive ? 'active' : 'inactive' }>
+          { text === 'fermes en vente directe' ? (
+            <FarmSale/>
+          ) : text === 'magasins de producteurs/points de vente collectifs' ? (
+            <ProducerShop/>
+          ) : text === 'Commande/ drive de produits locaux' || 'Points de distribution de paniers avec engagement' ? (
+            <Amap/>
+          ) : text === 'marchés à la ferme' ? (
+            <MarketProducer/>
+          ) : (<MarketDealer/>) }
         </div>
         
         <p>{text.substring(0, 30)}</p>

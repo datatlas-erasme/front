@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ConfContext } from '../../../providers/ConfProvider';
-import { IconAdd } from '../../../utils/svg/IconAdd';
+import { IconAdd } from '../../../assets/svg/IconAdd';
 import { AddPoint, WarpperAddPoint } from './style';
 
 export default function AddButton(){

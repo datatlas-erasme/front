@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
 // import classnames from 'classnames';
+import { LabelCheckbox } from "../../../filters/lists/style";
 import { Override } from '../../../../types/Override';
 
 export type CheckboxProps = Override<
@@ -16,6 +17,8 @@ export type CheckboxProps = Override<
     src?: string;
   }
 >;
+
+const dataCheckbox = {}
 
 export default function Checkbox({  
   text,

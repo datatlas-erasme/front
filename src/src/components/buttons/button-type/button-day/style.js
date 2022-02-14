@@ -18,9 +18,6 @@ export const Ouverture = styled.div`
         height: 25px;
         font-size: ${datalimentaire.fontSizes.xstext};
         border: none;
-        animation: ${
-            props => props.active ? `${activeButton} 0.5s linear` : "none"
-        };
         background-color: #fcfafa;
 
         &:hover, &.active{

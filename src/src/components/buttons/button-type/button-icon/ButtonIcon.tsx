@@ -3,19 +3,6 @@ import { useDispatch } from 'react-redux';
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
 import classnames from 'classnames';
 import { Override } from '../../../../types/Override';
-import { 
-  FishIcon,
-  CatererIcon,
-  CheeseIcon,
-  CreamryIcon,
-  DrinkIcon,
-  FruitIcon,
-  GroceryIcon,
-  HoneyIcon,
-  MeatIcon,
-  VegetablesIcon
-} from '../../../../utils/svg/products';
-import {BakeryIcon} from '../../../../utils/svg/products/BakeryIcon'
 import { Badge } from './style';
 
 export type ButtonProps = Override<
@@ -45,6 +32,8 @@ export default function ButtonIcon ({
   ...props
 }: ButtonProps){
 
+  console.log(className);
+
   const dispatch = useDispatch();
   // Toggle the visibility of buttons parent list
   const [isActive, setIsActive] = useState(false);
@@ -61,11 +50,9 @@ export default function ButtonIcon ({
     return (
       <Badge
         onClick={isActiveState}
-        // style={{ backgroundColor: LightenDarkenColor(bg, -60), fontSize: textSize }}
-        className={classnames('btn', className, { selected: isActive })}
+        className={classnames( isActive ? 'active' :'')}
         {...props}
       >
-        <FishIcon/>
         <p>{text.substring(0, 30)}</p>
       </Badge>
     );

@@ -2,10 +2,8 @@
 import { MapPopoverFactory } from 'erasme-kepler.gl/components';
 import {withState} from 'erasme-kepler.gl/components';
 import {visStateLens} from 'erasme-kepler.gl/reducers';
-import {FarmerIcon} from '../utils/svg/FarmerIcon'
-import { BullePicto } from '../utils/svg/BullePicto';
-import { ClockPicto } from '../utils/svg/ClockPicto';
-import { PointAdress } from '../utils/svg/PointAdress';
+import {FarmerIcon} from '../assets/svg/FarmerIcon';
+import { PointAdress } from '../assets/svg/PointAdress';
 import {
   PopHover,
   ModalColLeft,
@@ -91,11 +89,9 @@ const CustomMapPopoverFactory = (...deps) => {
                   <a href={data[14]} target={'_blank'} rel={'noreferrer'}><button >En savoir plus</button></a>
                 <ul>
                   <li>
-                    <BullePicto/>
                     <address>{data[3]} {data[4]} {data[5]}</address>
                   </li>
                   <li>
-                    <PointAdress/>
                     {data[9]}
                   </li>
                   <li>
