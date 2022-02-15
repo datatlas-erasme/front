@@ -54,8 +54,6 @@ body {
   z-index: 99;
   overflow-x: hidden;
   box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.4);
-  /*overflow-x: hidden;
-  overflow-y: hidden;*/
   animation: 0.2s linear 0s running slidein;
   }
 
@@ -68,6 +66,11 @@ body {
     from { width: 0; }
     to   { height: 50px; }
   }
+
+  .PointSidePanel::-webkit-scrollbar {
+    display: none;
+  }
+
   .PointSidePanel img {
     width: 100%;
     height: auto; 
