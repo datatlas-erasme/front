@@ -52,8 +52,8 @@ body {
   flex-direction: column;
   background: white;
   z-index: 99;
-  padding: 15px;
-  overflow: scroll;
+  overflow-x: hidden;
+  box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.4);
   /*overflow-x: hidden;
   overflow-y: hidden;*/
   animation: 0.2s linear 0s running slidein;
@@ -72,9 +72,32 @@ body {
     width: 100%;
     height: auto; 
   }
+  .PointSidePanel .content {
+    padding: 20px 45px 45px 45px;
+  }
  
-  
+  .PointSidePanel h1 {
+    color: #1a1a1a;
+    font-size: 40px;
+  }
 
+  .PointSidePanel p {
+    color: #1a1a1a;
+    line-height: 1.5;
+  }
+  
+  .PointSidePanel a {
+    color: #1a1a1a;
+    text-decoration: underline !important;
+    display: block;
+    padding-bottom: 25px;
+
+  }
+
+  .PointSidePanel .desc {
+    font-size: 20px;
+    margin-top: 5px;
+  }
 
   /********************** FILTERS SIDE PANEL *********************/
 .FilterSidePanel {

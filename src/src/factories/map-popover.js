@@ -105,71 +105,67 @@ const CustomMapPopoverFactory = (...deps) => {
       }
       if (field.displayName.includes('desc')) {
         return (
-          <p>{data[index]}</p>
+          <p className='desc'>{data[index]}</p>
         )
       }
       if (field.displayName.includes('adresse')) {
         return (
           <>
-            <p>{data[index]}</p>
+            <p><b>Adresse :</b>{data[index]}</p>
           </>
         )
       }
       if (field.displayName.includes('public-cible')) {
         return (
           <>
-            <p>Public cible :</p>
-            <p>{data[index]}</p>
+            <p><b>Public cible :</b> {data[index]}</p>
           </>
         )
       }
       if (field.displayName.includes('type_structure')) {
         return (
           <>
-            <p>Type structure</p>
-            <p>{data[index]}</p>
+           <p><b>Type de structure :</b> {data[index]}</p>
           </>
         )
       }
       if (field.displayName.includes('activites')) {
         return (
           <>
-            <p>Activite</p>
-            <p>{data[index]}</p>
+           <p><b>Activités : </b> {data[index]}</p>
           </>
         )
       }
       if (field.displayName.includes('expertise')) {
         return (
           <>
-            <p>expertise</p>
-            <p>{data[index]}</p>
+            <p><b>Expertise :</b> {data[index]}</p>
           </>
         )
       }
       if (field.displayName.includes('publics')) {
         return (
           <>
-            <b>publics : </b>{data[index]}
+             <p><b>Publics :</b> {data[index]}</p>
           </>
         )
       }
       if (field.displayName.includes('type_event')) {
         return (
           <>
-            <b>type evenement : </b> {data[index]}
+             <p><b>Type Event :</b> {data[index]}</p>
           </>
         )
       }
       if (field.displayName.includes('site')) {
         return (
-          <a target="" href={data[index]}>Lien site web</a>
+          <a target="" href={data[index]}>Voir le site web</a>
         )
       }
   
     });
 
-    return <div className="PointSidePanel">{PointFieldsFixImage}{PointFieldsFix}</div>;
+    return <div className="PointSidePanel">{PointFieldsFixImage}<div className='content'>{PointFieldsFix}</div></div>;
   };
 
   return MapSidepanel;
