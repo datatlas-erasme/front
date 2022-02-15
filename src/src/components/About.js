@@ -35,7 +35,7 @@ const About = () => {
 
   return (
     <div className='crowdsourcing'>
-      <Button bg='black' onClick={openModal} fontSize="10" iconName="plus" text="A propos" />
+      <Button bg='black' onClick={openModal} fontSize="10" text="A propos" />
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
