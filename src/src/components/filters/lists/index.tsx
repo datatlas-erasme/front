@@ -42,55 +42,42 @@ export const List = ({
   // console.log(listNames);
   
   return (
-    <>
       <ListSelect>
           {listNames.map((item : string, i: number) => {
-            if(idFilter === 2){
-              return(
-                 <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
-                 <ButtonSelect text={item}/>
-               </ButtonWrapper>
-              )
-            } else if (idFilter === 3) {
-
-              return(
-                <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
-                  <ButtonIcon text={item}/>
-                </ButtonWrapper>
-              )}  else if (idFilter === 4){
+              if(idFilter === 2){
                 return(
-                  <>
-                  <LabelCheckbox>
-                  <input type="checkbox" />
-                  Voir que les produits labélisés
-                </LabelCheckbox>
-                  <li key={i} onClick={() => setFilterValue(item)}>
-                  <Checkbox text={item}/>
-                 </li>
-                  </>
-                  
-                      )
-              }
+                  <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                    <ButtonSelect text={item}/>
+                  </ButtonWrapper>
+                )
+              } else if (idFilter === 3) {
 
+                return(
+                  <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                    <ButtonIcon text={item}/>
+                  </ButtonWrapper>
+                )
+              } else {
+
+                return (
+                  <ListCheckbox key={i} role="group" aria-labelledby="checkbox-group">
+                    <LabelCheckbox>
+                        <input type="checkbox" />
+                        Voir que les produits labélisés
+                    </LabelCheckbox>
+                    <ul>
+                      {listNames.map((item, index) => (
+                      <li key={index} onClick={() => setFilterValue(item)}>
+                        <Checkbox text={item}/>
+                      </li>
+                      ))}
+                    </ul>
+                  </ListCheckbox>
+                )
+              }
             })   
           }
       </ListSelect>
-
-      {/* <ListCheckbox role="group" aria-labelledby="checkbox-group">
-          <LabelCheckbox>
-            <input type="checkbox" />
-            Voir que les produits labélisés
-          </LabelCheckbox>
-          <ul>
-            {listNames.map((item, index) => (
-            <li key={index} onClick={() => setFilterValue(item)}>
-              <Checkbox text={item}/>
-            </li>
-            ))}
-          </ul>
-      </ListCheckbox> */}
-
-    </>
   );
 };
 

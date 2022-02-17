@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { datalimentaire } from '../../../../utils/styles/themes';
-import px2vw from '../../../../utils/styles/px2vw';
+import px2vw from '../../../../utils/px2vw';
 
 export const ButtonType = styled.button`
     display: flex;

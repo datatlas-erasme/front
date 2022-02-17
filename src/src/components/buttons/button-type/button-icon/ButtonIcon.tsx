@@ -1,38 +1,39 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { layerConfigChange } from 'erasme-kepler.gl/actions';
 import classnames from 'classnames';
 import { Override } from '../../../../types/Override';
 import { Badge } from './style';
+// import Bite from '../../../../assets/icon'
 
 export type ButtonProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
   {
     text: string;
-    bg?: string;
-    textSize?: string;
-    btnType?: 'parent' | 'child';
     listNames?: string[];
     idFilter?: string;
-    layerId?: string | '';
     src?: string;
+    item?:any;
   }
 >;
 
+// Import icons products
+function importAll(r) {
+	let icons = {};
+  r.keys().forEach(item => { icons[item.replace('./', '')] = r(item); });
+
+	return icons
+}
+const icons = importAll(require.context('../../../../assets/icon', false, /\.(png)$/));
+
 export default function ButtonIcon ({
   text,
-  bg,
-  textSize,
-  btnType,
   listNames,
   idFilter,
-  layerId,
   className,
   src,
+  item,
   ...props
 }: ButtonProps){
-
-  console.log(className);
 
   const dispatch = useDispatch();
   // Toggle the visibility of buttons parent list
@@ -41,11 +42,12 @@ export default function ButtonIcon ({
     setIsActive(!isActive);
   };
   
-  // Toggle the button linked layer vibility
-  const [isLayerVisible, setIsLayerVisible] = useState(true);
-  const isLayerVisibleState = () => {
-    setIsLayerVisible(!isLayerVisible);
-  };
+  const query_icon= (() => {
+     switch(text){
+           case 'Légumes': return icons[`icon-vegetables.png`].default;
+           case 'Miel' : return icons['icon-honey.png'].default;
+           default       : return icons[`icon-bulle.png`].default;}
+    })();
 
     return (
       <Badge
@@ -53,6 +55,7 @@ export default function ButtonIcon ({
         className={classnames( isActive ? 'active' :'')}
         {...props}
       >
+        <img src={query_icon} alt="" />
         <p>{text.substring(0, 30)}</p>
       </Badge>
     );

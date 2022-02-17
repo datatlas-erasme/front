@@ -57,8 +57,8 @@ export default function ButtonSelect ({
       <ButtonType
         onClick={isActiveState}
         className={classnames('active', className, { selected: isActive })}
-        {...props}
-      >
+        {...props}>
+          
         <div  className={ isActive ? 'active' : 'inactive' }>
           { text === 'fermes en vente directe' ? (
             <FarmSale/>

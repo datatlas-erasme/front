@@ -76,7 +76,7 @@ const Collapse = ({
       <>
         <ButtonCollapse
         aria-expanded={ height !== 0 }
-        aria-controls='example-panel' 
+        aria-controls='panel-filter' 
           onClick={isActiveState}
           className={classnames('btn', className, { active: !isActive })}
           {...props}

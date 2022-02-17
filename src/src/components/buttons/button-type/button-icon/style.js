@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import { datalimentaire } from '../../../../utils/styles/themes';
+import px2vw from '../../../../utils/px2vw';
 
 export const Badge = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    cursor: pointer;
 
     width: 100%;
     padding: 5px;
@@ -26,6 +28,10 @@ export const Badge = styled.button`
 
     p{
         padding-left: 5px;
+    }
 
+    img{
+        width: ${px2vw(25)};
+        height: auto;
     }
 `

@@ -13,7 +13,7 @@ export type DayProps = Override<
   }
 >;
 
-export default function ButtonIcon ({
+export default function ButtonDay ({
   dayList = [],
   idFilter,
 }: DayProps){

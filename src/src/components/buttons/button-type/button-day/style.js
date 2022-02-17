@@ -19,6 +19,7 @@ export const Ouverture = styled.div`
         font-size: ${datalimentaire.fontSizes.xstext};
         border: none;
         background-color: #fcfafa;
+        cursor: pointer;
 
         &:hover, &.active{
             background: ${datalimentaire.colors.primary};
