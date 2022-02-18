@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { datalimentaire } from '../../../utils/styles';
+import GouttesSvg from '../../../assets/svg/gouttes.svg';
 
 export const WarpperAddPoint = styled.div`
     display: flex;
@@ -26,6 +27,14 @@ export const AddPoint = styled.button`
 
     p{
         padding: 10px;
+    }
+
+    &:before{
+        content: ${GouttesSvg};
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        backrgound: black;
     }
 `
 

@@ -8,10 +8,12 @@ import { ListCheckbox, LabelCheckbox } from './style';
 export type ListProps = {
   idFilter?: number | string;
   listNames?: string[];
+  width?: any;
 };
 export const List = ({ 
   listNames = [], 
-  idFilter
+  idFilter,
+  width
 }: ListProps) => {
 
   const dispatch = useDispatch();
@@ -53,26 +55,35 @@ export const List = ({
               } else if (idFilter === 3) {
 
                 return(
+                  <>
                   <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
                     <ButtonIcon text={item}/>
                   </ButtonWrapper>
+                  <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                    <Checkbox text={item}/>
+                  </ButtonWrapper>
+                  </>
+
                 )
-              } else {
+              } else if (idFilter === 2) {
 
                 return (
-                  <ListCheckbox key={i} role="group" aria-labelledby="checkbox-group">
-                    <LabelCheckbox>
-                        <input type="checkbox" />
-                        Voir que les produits labélisés
-                    </LabelCheckbox>
-                    <ul>
-                      {listNames.map((item, index) => (
-                      <li key={index} onClick={() => setFilterValue(item)}>
-                        <Checkbox text={item}/>
-                      </li>
-                      ))}
-                    </ul>
-                  </ListCheckbox>
+                  <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                    <Checkbox text={item}/>
+                  </ButtonWrapper>
+                  // <ListCheckbox key={i} role="group" aria-labelledby="checkbox-group">
+                  //   <LabelCheckbox>
+                  //       <input type="checkbox" />
+                  //       Voir que les produits labélisés
+                  //   </LabelCheckbox>
+                  //   <ul>
+                  //     {listNames.map((item, index) => (
+                  //     <li key={index} onClick={() => setFilterValue(item)}>
+                  //       <Checkbox text={item}/>
+                  //     </li>
+                  //     ))}
+                  //   </ul>
+                  // </ListCheckbox>
                 )
               }
             })   

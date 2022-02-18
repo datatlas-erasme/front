@@ -30,22 +30,26 @@ const appReducer = combineReducers({
     // mount keplerGl reducer
     keplerGl: keplerGlReducer,
     app: handleActions({
-    [INIT]: (state, action) => ({
-      ...state,
-      loaded: true
+      [INIT]: (state, action) => ({
+        ...state,
+        loaded: true
     }),
-    [SET_MAP_CONFIG]: (state, action) => ({
-      ...state,
-      mapConfig: KeplerGlSchema.getConfigToSave(action.payload)
+      [SET_MAP_CONFIG]: (state, action) => ({
+        ...state,
+        mapConfig: KeplerGlSchema.getConfigToSave(action.payload)
     }),
     // listen on kepler.gl map update action to store a copy of viewport in app state
-    [ActionTypes.UPDATE_MAP]: (state, action) => ({
-      ...state,
-      viewport: action.payload
+      [ActionTypes.UPDATE_MAP]: (state, action) => ({
+        ...state,
+        viewport: action.payload
     }),
-    [ActionTypes.SET_FILTER] : (state, action) => ({state}),
-  }, initialState),
-  routing: routerReducer,
+      [ActionTypes.SET_FILTER] : (state, action) => ({state}),
+    }, 
+  
+    initialState),
+
+    routing: routerReducer,
+    
   });
 
 export default appReducer;
