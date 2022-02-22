@@ -291,12 +291,12 @@ button {
   display: flex;
 }
 .header h2 {
-  font-size: 120px;
+  font-size: 7vw;
   font-style: italic;
   margin: 0 0 0 7%;
 }
 .header h3 {
-  font-size: 31px;
+  font-size: 1.8vw;
   margin: 1% 14% 0 5%;
 }
 
@@ -316,9 +316,9 @@ button {
 }
 
 .modal-content .left-content {
-  font-size: 22px;
+  font-size: 1.4vw;
   margin: 0% 7% 0 7%;
-  line-height: 1.7;
+  line-height: 1.6;
 } 
 
 .right-content {
@@ -351,5 +351,5 @@ button {
 
 .right-content .logos a img {
   width: 100%;
-  height: fit-content;
+  height: auto;
 }

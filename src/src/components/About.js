@@ -57,13 +57,13 @@ const About = () => {
       <div className='header'>
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>M.Ind.</h2>
         <h3>ANNUAIRE CARTOGRAPHIQUE DES ACTEURS
-        DE L  A MÉDIATION INDUSTRIELLE ET DE L’INDUSTRIE
+        DE LA MÉDIATION INDUSTRIELLE ET DE L’INDUSTRIE
         DES MÉTROPOLES DE LYON ET SAINT-ETIENNE</h3>
         <Button bg='white' onClick={closeModal} fontSize="10" iconName="times" text="" />
       </div>
       <div className='modal-content'>
         <div className='left-content'>
-          <p>Bienvenue sur la version bêta de M.Ind.*, la plateforme cartographique** destinée à faciliter la recherche, l’identification et la mise en relation des acteurs et des publics concernés par les diverses disciplines de la médiation industrielle et de l’industrie.</p>
+          <p>Bienvenue sur la version bêta de <b>M.Ind.*</b>, la plateforme cartographique** destinée à faciliter la recherche, l’identification et la mise en relation des acteurs et des publics concernés par les diverses disciplines de la médiation industrielle et de l’industrie.</p>
 
           <p>Il s’agit d’une carte interactive permettant de répertorier les acteurs et événements liés à une communauté d’innovateurs participant via leurs activités à des actions de médiation (pédagogique, culturelle, scientifique, économique et territoriale, appliquées à la thématique industrielle et à ses enjeux socio-économiques) auprès de publics variés (professionnels, recruteurs, jeunesse et scolaires, enseignants, demandeurs d’emploi, formateurs et accompagnateurs, habitants et grand public...)</p>
 
@@ -76,10 +76,10 @@ const About = () => {
                 <Button fontSize="10"  text={buttonConf.text} />
               </a>
             ))}
-            <Button fontSize="10" text="Nous écrire" />
+            <a href="mailto:m.ind@tank-ssi.org"><Button fontSize="10" text="Nous écrire" /></a>
           </div>
           <div className='subtext'>
-            <p>* M.édiation Ind.ustrielle
+            <p>* M.édiation Ind.ustrielle <br/>
               ** Un projet initié par ERASME dans le cadre du Think & Do Tank, du programme TIGA « L’industrie reconnectée à son territoire et ses habitants » coordonné par La Métropole de Lyon, bénéficiant d’une aide de l’Etat opérée par la Caisse des dépôts et des consignations au titre du Programme Investissements d’Avenir - PIA3.
             </p>
           </div>
