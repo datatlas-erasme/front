@@ -97,32 +97,31 @@ const CustomMapPopoverFactory = (...deps) => {
 
     const PointFieldsFix =  allFields.map((field, index) => {
       // TODO check if is url and has image extension
-
-      if (field.displayName.includes('nom')) {
+      if (field.displayName.includes('Nom-structure')) {
         return (
           <h1>{data[index]}</h1>
         )
       }
-      if (field.displayName.includes('desc')) {
+      if (field.displayName.includes('Description')) {
         return (
           <p className='desc'>{data[index]}</p>
         )
       }
-      if (field.displayName.includes('adresse')) {
+      if (field.displayName.includes('Adresse')) {
         return (
           <>
             <p><b>Adresse :</b>{data[index]}</p>
           </>
         )
       }
-      if (field.displayName.includes('public-cible')) {
+      if (field.displayName.includes('publics-cibles')) {
         return (
           <>
             <p><b>Public cible :</b> {data[index]}</p>
           </>
         )
       }
-      if (field.displayName.includes('type_structure')) {
+      if (field.displayName.includes('types-structure')) {
         return (
           <>
            <p><b>Type de structure :</b> {data[index]}</p>
@@ -136,14 +135,14 @@ const CustomMapPopoverFactory = (...deps) => {
           </>
         )
       }
-      if (field.displayName.includes('expertise')) {
+      if (field.displayName.includes('Domaines-expertise')) {
         return (
           <>
             <p><b>Expertise :</b> {data[index]}</p>
           </>
         )
       }
-      if (field.displayName.includes('publics')) {
+      if (field.displayName.includes('Publics-cibles')) {
         return (
           <>
              <p><b>Publics :</b> {data[index]}</p>
