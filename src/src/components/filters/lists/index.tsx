@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, connect } from 'react-redux';
 import { setFilter } from 'erasme-kepler.gl/actions';
-import { Checkbox, ButtonSelect, ButtonIcon } from '../../buttons/button-type';
+import { Checkbox, ButtonSelect, ButtonDay, ButtonIcon } from '../../buttons/button-type';
+// import { Ouverture } from '../../buttons/button-type/button-day/style';
 import { ListSelect, ButtonWrapper } from './style';
-import { ListCheckbox, LabelCheckbox } from './style';
+// import { ListCheckbox, LabelCheckbox } from './style';
 
 export type ListProps = {
   idFilter?: number | string;
@@ -13,7 +14,6 @@ export type ListProps = {
 export const List = ({ 
   listNames = [], 
   idFilter,
-  width
 }: ListProps) => {
 
   const dispatch = useDispatch();
@@ -44,51 +44,46 @@ export const List = ({
   // console.log(listNames);
   
   return (
-      <ListSelect>
+    <>
+    <ListSelect>
           {listNames.map((item : string, i: number) => {
-              if(idFilter === 2){
-                return(
+              switch(idFilter) {
+                case 2 : return (
                   <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
                     <ButtonSelect text={item}/>
                   </ButtonWrapper>
                 )
-              } else if (idFilter === 3) {
-
-                return(
-                  <>
+                case 3 : return (
                   <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
                     <ButtonIcon text={item}/>
                   </ButtonWrapper>
+                )
+                case 5 : return ( 
                   <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
                     <Checkbox text={item}/>
                   </ButtonWrapper>
-                  </>
-
                 )
-              } else if (idFilter === 2) {
-
-                return (
-                  <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
-                    <Checkbox text={item}/>
-                  </ButtonWrapper>
-                  // <ListCheckbox key={i} role="group" aria-labelledby="checkbox-group">
-                  //   <LabelCheckbox>
-                  //       <input type="checkbox" />
-                  //       Voir que les produits labélisés
-                  //   </LabelCheckbox>
-                  //   <ul>
-                  //     {listNames.map((item, index) => (
-                  //     <li key={index} onClick={() => setFilterValue(item)}>
-                  //       <Checkbox text={item}/>
-                  //     </li>
-                  //     ))}
-                  //   </ul>
-                  // </ListCheckbox>
-                )
-              }
+              }  
             })   
           }
-      </ListSelect>
+    </ListSelect>
+ 
+      {/* <ListCheckbox role="group" aria-labelledby="checkbox-group">
+                   <LabelCheckbox>
+                       <input type="checkbox" />
+                      Voir que les produits labélisés
+                   </LabelCheckbox>
+                   <ul>
+                     {listNames.map((item, index) => (
+                      <li key={index} onClick={() => setFilterValue(item)}>
+                        <Checkbox text={item}/>
+                      </li>
+                      ))}
+                    </ul>
+                  </ListCheckbox>  */}
+    
+    </>
+      
   );
 };
 

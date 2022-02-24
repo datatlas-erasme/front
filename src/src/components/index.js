@@ -1,4 +1,4 @@
-import { Style }  from '../utils/styles';
+import { Style }  from '../assets/styles';
 import MapContainer from './map';
 import PanelControl from './panel';
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { datalimentaire } from '../../../utils/styles';
+import { datalimentaire } from '../../../assets/styles';
 
 export const ListSelect = styled.ul `
     display: flex;

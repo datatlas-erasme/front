@@ -1,13 +1,22 @@
 import styled from 'styled-components';
-import { datalimentaire } from '../../utils/styles';
+import { datalimentaire } from '../../assets/styles';
 
 export const ModalColRight = styled.div`
     display: flex;
     flex-direction: column;
     width: 40%;
+    
     img{
       border-radius: 0 ${datalimentaire.radii[5]} 0 80px;
     };
+
+    svg {
+      position: absolute;
+      height: 2em;
+      color: white;
+      right: 25px;
+      top: 15px;
+    }
 `
 
 export const ModalColLeft = styled.div`
@@ -30,4 +39,8 @@ export const ModalHeading = styled.div`
 `
 export const LabelRow = styled.div`
     display: flex;
+    img{
+      border-radius: 0;
+
+    }
 `

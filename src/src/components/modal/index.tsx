@@ -1,27 +1,45 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import {FarmerIcon} from '../../assets/svg/FarmerIcon';
 import { PointAdress } from '../../assets/svg/PointAdress';
 import PictoTime from '../../assets/icon/icon-time.png';
+import { importAll } from '../../utils/import-png';
 import {
   ModalColLeft,
   ModalColRight,
   ModalHeading,
-  LabelRow
+  LabelRow,
 } from './style'
 
-function importAll(r) {
-	let icons = {};
-  r.keys().forEach(item => { icons[item.replace('./', '')] = r(item); });
+// Import label
+const labels = importAll(require.context('../../assets/logo/label', false, /\.(png)$/));
 
-	return icons
-}
-const icons = importAll(require.context('../../assets/logo/label', false, /\.(png)$/));
+const OpeningTime = ({ data }) => {
+
+  const openingDay = data[9].map(day => day.split('[a-zA-Z]+ (0?[0-9]|1[0-9]|2[0-3]):([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*))(?:[eE]([+-]?\d+))?-(0?[0-9]|1[0-9]|2[0-3]):([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*))(?:[eE]([+-]?\d+))?'));
+  console.log(openingDay);
+
+  useEffect(() => {
+  }, []);
+  
+  const day = new Date()
+    console.log(day);
+
+  function openDay (currentTime, openingTime){
+    const actualDay = new Date(currentTime);
+    const openTime = openingTime;
+    // const JourJ = day.getUTCDay()
+    // const heureH =  day.getUTCHours()
+  };
+
+  return(
+    <h3>{day ? 'Ouvert maintenant' : 'Fermer actuellement'}</h3>
+  )
+} 
 
 function CustomMapModal({data, ...props}) {
-
   console.log(props);
   console.log(data);
 
@@ -37,6 +55,10 @@ function CustomMapModal({data, ...props}) {
           </ModalHeading>
             <p>Informations complémentaires liées à la spécificité de ce lieu.</p>
             <a href={data[14]} target={'_blank'} rel={'noreferrer'}><button >En savoir plus</button></a>
+            <h4>Provenance des produits</h4>
+            <ul>
+              <li>France</li>
+            </ul>
             <ul>
               <li>
                 <PointAdress/>
@@ -45,6 +67,7 @@ function CustomMapModal({data, ...props}) {
               <li>
                 <img src={PictoTime} alt='icon horloge' width={20} height={20}/>
                 {data[9]}
+                <OpeningTime data={data}/>
               </li>
               <li>
                 <a href={'https://form.typeform.com/to/V1f3GNXR'} target='_blank' rel={'noreferrer'}>Modifier les informations</a>
@@ -59,9 +82,9 @@ function CustomMapModal({data, ...props}) {
           />
           <p>{data[10]} </p>
         <LabelRow>
-          <img src={icons[`Group-245.png`].default} width={50} height={50}/>
-          <img src={icons[`Group-245.png`].default} width={50} height={50}/>
-          <img src={icons[`Group-245.png`].default} width={50} height={50}/>
+          <img src={labels[`Group-245.png`].default} width={50} height={50}/>
+          <img src={labels[`Group-245.png`].default} width={50} height={50}/>
+          <img src={labels[`Group-245.png`].default} width={50} height={50}/>
         </LabelRow>
         </ModalColRight>
       </>

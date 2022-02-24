@@ -66,10 +66,9 @@ const FilterMod = ({ value, index, filtersDomain, props }) => {
   // const key = '1';
   // const { [key]: _, ...newFiltersDomain } = filtersDomain;
 
-const conditions = ['type', 'produits', 'label'];
+// const conditions = ['type', 'produits', 'label'];
 
-const filteredResults = filtersDomain.filter(el => conditions.some(filterEl => el[filterEl.name] === filterEl.name));
-
+// const filteredResults = filtersDomain.filter(el => conditions.some(filterEl => el[filterEl.name] === filterEl.name));
 // const res1 = filtersDomain.filter(data => {
 //   console.log(data.name);
   

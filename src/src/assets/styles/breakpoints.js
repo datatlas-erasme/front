@@ -1,4 +1,4 @@
-import px2vw from "../px2vw"
+import px2vw from "../../utils/px2vw"
 
 export const size = {
     xs: '320px',

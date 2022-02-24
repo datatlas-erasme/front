@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'erasme-kepler.gl/actions';
+import classnames from 'classnames';
 import { Override } from '../../../../types/Override';
 import { Ouverture } from './style';
 
@@ -9,20 +10,35 @@ export type DayProps = Override<
   {
     idFilter?: number | string;
     dayList?: string[];
-    onClick: () => void;
+    text?: string;
   }
 >;
+
+function Button ({day}) {
+  const [isActive, setIsActive] = useState(false);
+  const isActiveState = () => {
+    setIsActive(!isActive);
+  };
+
+  return (
+    <button 
+    onClick={isActiveState}  
+    className={classnames( isActive ? 'active' : '' )}
+    > {day}
+  </button>
+  )
+} 
 
 export default function ButtonDay ({
   dayList = [],
   idFilter,
+  className,
 }: DayProps){
 
   const dispatch = useDispatch();
 
   // Toggle the visibility of buttons parent list
-  const [isActive, setIsActive] = useState<any>(null);
-  
+ 
 // console.log(Ouverture);
 
   const [filtersArray, setFiltersArray] = useState<string[]>([]);
@@ -43,7 +59,7 @@ export default function ButtonDay ({
   };
   
   useEffect(() => {
-    console.log('Filters Array :', filtersArray);
+    // console.log('Filters Array :', filtersArray);
     dispatch(setFilter(idFilter, 'value', filtersArray));
   }, [dispatch, idFilter, filtersArray]);
   
@@ -54,23 +70,16 @@ export default function ButtonDay ({
   };
 
     return (
-      <Ouverture>
+      <>
+        <Ouverture>
         <h3>Ouvert</h3>
-        {dayList?.map((day, i) => 
-          (<button 
-            key={i}
-            onClick={() => {
-              setFilterValue(day);
-              setIsActive(day);              
-            } }         
-            className={ day === isActive ? 'active' : 'inactive' }
-            > 
-            {day}
-            </button>
+        {dayList?.map((day, i) => (
+            <div  key={i} onClick={() => { setFilterValue(day); }}>
+              <Button day={day}/>
+            </div>
           )
-          )
-        }
-
-      </Ouverture>
+        )}
+        </Ouverture>
+      </>
     );
   };

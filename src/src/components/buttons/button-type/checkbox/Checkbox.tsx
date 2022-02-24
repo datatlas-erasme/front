@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
 import classnames from 'classnames';
+import { importAll } from "../../../../utils/import-png";
 import { LabelCheckbox } from "../../../filters/lists/style";
 import { ButtonType } from '../button-select/style';
 import { Override } from '../../../../types/Override';
@@ -9,10 +10,6 @@ export type CheckboxProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
   {
     text: string;
-    bg?: string;
-    textSize?: string;
-    btnType?: 'parent' | 'child';
-    listNames?: string[];
     idFilter?: string;
     layerId?: string | '';
     src?: string;
@@ -21,29 +18,19 @@ export type CheckboxProps = Override<
 >;
 
 // Import icons products
-function importAll(r) {
-	let icons = {};
-  r.keys().forEach(item => { icons[item.replace('./', '')] = r(item); });
-
-	return icons
-}
 const icons = importAll(require.context('../../../../assets/logo/label', false, /\.(png)$/));
 
 const dataCheckbox = {}
 
 export default function Checkbox({  
   text,
-  bg,
-  textSize,
-  btnType,
-  listNames,
   idFilter,
   layerId,
   className,
   src,
   ...props
 }: CheckboxProps){
-
+  
   const dispatch = useDispatch();
   // Toggle the visibility of buttons parent list
   const [isActive, setIsActive] = useState(false);

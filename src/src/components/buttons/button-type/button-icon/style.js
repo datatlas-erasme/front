@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { datalimentaire } from '../../../../utils/styles/themes';
+import { datalimentaire, Colors } from '../../../../assets/styles/themes';
 import px2vw from '../../../../utils/px2vw';
 
 export const Badge = styled.button`
@@ -11,8 +11,9 @@ export const Badge = styled.button`
 
     width: 100%;
     padding: 5px;
-    background: ${datalimentaire.colors.white};
     border: 1px solid ${datalimentaire.colors.gray};
+    background-color: #fcfafa;
+    color: ${Colors.text};
     box-sizing: border-box;
     border-radius: 40px;
 

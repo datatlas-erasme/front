@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { datalimentaire } from '../../utils/styles';
+import { datalimentaire } from '../../assets/styles';
 
 export const WrapperModal = styled.div`
       display: flex;

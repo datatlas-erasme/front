@@ -1,5 +1,5 @@
 import styled, {keyframes} from 'styled-components';
-import { datalimentaire } from '../../../../utils/styles/themes';
+import { datalimentaire } from '../../../../assets/styles/themes';
 
 export const Ouverture = styled.div`
     display flex;
@@ -10,6 +10,7 @@ export const Ouverture = styled.div`
 
     h3{
         font-size: ${datalimentaire.fontSizes.xltext};
+        color: ${datalimentaire.colors.primary};
         margin: 5px;
     }
 
@@ -17,6 +18,7 @@ export const Ouverture = styled.div`
         width: 30px;
         height: 25px;
         font-size: ${datalimentaire.fontSizes.xstext};
+        color: ${datalimentaire.colors.primary};
         border: none;
         background-color: #fcfafa;
         cursor: pointer;

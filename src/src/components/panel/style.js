@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { datalimentaire, Colors, panelBackground } from "../../utils/styles";
-import { device } from '../../utils/styles/breakpoints'
+import { datalimentaire, Colors, panelBackground } from "../../assets/styles";
+import { device } from '../../assets/styles/breakpoints'
 
 console.log(datalimentaire.colors.background);
 console.log(datalimentaire.colors.white);

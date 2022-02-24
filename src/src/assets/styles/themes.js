@@ -1,8 +1,7 @@
 import { createGlobalStyle } from "styled-components";
-import px2vw from "../px2vw";
 
 export const Style = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;800&display=swap');
 
   * {
     font-family: 'Open Sans', sans-serif;
@@ -36,8 +35,7 @@ export const datalimentaire = {
       secondary: '#fff',
       darkgray: '#71717E',
       gray: '#c4c4c4',
-      midgray: '#e8e8e8',
-      lightgray: '#fcafafa',
+      background: '#fcafafa',
       red: '#ff4848',
       blue: '#aad7ff'
   },
@@ -81,5 +79,5 @@ export const datalimentaire = {
 export const Colors = {
   text: datalimentaire.colors.primary,
   background: datalimentaire.colors.white,
-  backgroundpanel: datalimentaire.colors.lightgray
+  backgroundpanel: datalimentaire.colors.background,
 }
