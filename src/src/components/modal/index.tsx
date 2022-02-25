@@ -18,14 +18,23 @@ const labels = importAll(require.context('../../assets/logo/label', false, /\.(p
 
 const OpeningTime = ({ data }) => {
 
-  const openingDay = data[9].map(day => day.split('[a-zA-Z]+ (0?[0-9]|1[0-9]|2[0-3]):([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*))(?:[eE]([+-]?\d+))?-(0?[0-9]|1[0-9]|2[0-3]):([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*))(?:[eE]([+-]?\d+))?'));
+  // const openingDay = data[9].map(day => day.split('[a-zA-Z]+ (0?[0-9]|1[0-9]|2[0-3]):([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*))(?:[eE]([+-]?\d+))?-(0?[0-9]|1[0-9]|2[0-3]):([+-]?(?=\.\d|\d)(?:\d+)?(?:\.?\d*))(?:[eE]([+-]?\d+))?'));
+
+  const openingDay = data[9].map(item => item.split(' ')[0]);
   console.log(openingDay);
+  const openingHours = data[9].map(item => item.split(' ')[1]);
+  console.log(openingHours);
 
   useEffect(() => {
   }, []);
   
-  const day = new Date()
-    console.log(day);
+  const today = new Date()
+    console.log(today);
+  const time = today.getDay() + '' + today.getHours();
+  console.log(time);
+
+  const dataDay = Date.parse("Fr 15:30-18:30");
+  console.log(dataDay);
 
   function openDay (currentTime, openingTime){
     const actualDay = new Date(currentTime);
@@ -35,7 +44,7 @@ const OpeningTime = ({ data }) => {
   };
 
   return(
-    <h3>{day ? 'Ouvert maintenant' : 'Fermer actuellement'}</h3>
+    <h3>{today ? 'Ouvert maintenant' : 'Fermer actuellement'}</h3>
   )
 } 
 

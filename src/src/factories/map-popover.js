@@ -47,7 +47,7 @@ const CustomMapPopoverFactory = (...deps) => {
         });
       });
 
-      return <PopHover className="PointSidePanel">{HoverField}</PopHover>;
+      return <PopHover>{HoverField}</PopHover>;
     };
     
     // TODO map all fields to fieldToshow
@@ -68,7 +68,7 @@ const CustomMapPopoverFactory = (...deps) => {
       });
     });
 
-    return <WrapperModal className="PointSidePanel">{PointFields}</WrapperModal>;
+    return <WrapperModal>{PointFields}</WrapperModal>;
   };
 
   return withState(

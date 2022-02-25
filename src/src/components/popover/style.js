@@ -44,14 +44,15 @@ export const WrapperModal = styled.div`
 `
 
 export const PopHover = styled.div`
+      position: absolute;
+      top: 100px;
+      left: 65%;
+
       display: flex;
       flex-direction: column;
-      position: absolute;
-      top: 180px;
+      background: white;
       width: 30%;
       height: auto;
-      left: 65%;
-      background: white;
       padding: 20px;
 
       border: 1px solid ${datalimentaire.colors.midgray};

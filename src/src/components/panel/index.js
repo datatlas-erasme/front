@@ -5,7 +5,7 @@ import FilterMod from '../filters/filter-mod';
 import AddButton from "../buttons/interactiv-button";
 import {Panel} from "./style"
 
-const PanelControl = () => {
+const DesktopPanelControl = () => {
 
     const dispatch = useDispatch();
     // Get the filter values, id  and map them to buttons
@@ -21,15 +21,16 @@ const PanelControl = () => {
     const Filters = filterTree.map((value, index) => {
         return <FilterMod key={index} value={value} index={index} filtersDomain={filtersDomain} />;
     });
-
-    return(
-        <Panel>
-            {Filters}
-            <AddButton/>
-        </Panel>   
-    )
+    
+        return(
+            <Panel>
+                {Filters}
+                <AddButton/>
+            </Panel> 
+        )
+        
 };
 
 const dispatchToProps = (dispatch) => ({ dispatch });
 
-export default connect(dispatchToProps, setFilterUpdater, toggleModal)(PanelControl);
+export default connect(dispatchToProps, setFilterUpdater, toggleModal)(DesktopPanelControl);
