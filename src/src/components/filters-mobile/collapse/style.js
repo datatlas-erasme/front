@@ -29,12 +29,23 @@ export const ButtonCollapse = styled.button`
     &.active{
         background: ${ datalimentaire.colors.primary};
         color: ${datalimentaire.colors.secondary};
+        z-index: 99;
+    }
+
+    h4{
+        font-weight: ${datalimentaire.fontWeights[4]};
+        font-size: ${datalimentaire.fontSizes.xstext};
+
     }
 
 `
 
 export const SubHeading = styled.h4`
-    padding-bottom: 20px;
+    display: block;
+    width: 80%;
+    margin: 25px auto 0 auto;
     border-bottom: 1px solid ${datalimentaire.colors.midgray};
+    border-radius: 35px 35px 0px 0px;
 
+    font-size: ${datalimentaire.fontSizes.xstext};
 `

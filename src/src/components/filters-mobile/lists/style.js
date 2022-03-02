@@ -5,8 +5,9 @@ export const ListSelect = styled.ul `
     display: flex;
     flex-wrap: wrap;
     padding-left: 0px;
-    max-height: 300px;
-    overflow: scroll;
+    width: 80%;
+    padding: 20px;
+    margin: auto;
 `
 
 export const ListIconButton = styled.ul `
@@ -49,7 +50,11 @@ export const LabelCheckbox = styled.label`
     border-bottom: 1px solid ${datalimentaire.colors.midgray};
 `
 
-export const ButtonWrapper = styled.li`
+export const ButtonWrapperTypes = styled.li`
+    width: 50%;
+    padding: 5px;
+`
+export const ButtonWrapperIcon = styled.li`
     width: auto;
     padding: 5px;
 `

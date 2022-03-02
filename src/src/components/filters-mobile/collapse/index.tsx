@@ -93,9 +93,11 @@ const Collapse = ({
           style={{
             flexShrink: 0,
             position: 'absolute',
-            top: 1110,
+            top: '106vw',
+            width: '100vw',
             backgroundColor: 'white',
-            padding: '20px 40px '
+            borderRadius: '35px 35px 0 0',
+            boxShadow: '0px 0px 29px -3px rgba(0, 0, 0, 0.25)',
           }}
           duration={500}
           animationStateClasses={{animatingDown:'rah-animating--down'}}

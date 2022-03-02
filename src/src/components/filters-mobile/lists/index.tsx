@@ -3,7 +3,7 @@ import { useDispatch, connect } from 'react-redux';
 import { setFilter } from 'erasme-kepler.gl/actions';
 import { Checkbox, ButtonSelect, ButtonDay, ButtonIcon } from '../../buttons/button-type';
 // import { Ouverture } from '../../buttons/button-type/button-day/style';
-import { ListSelect, ButtonWrapper } from './style';
+import { ListSelect, ButtonWrapperTypes, ButtonWrapperIcon } from './style';
 // import { ListCheckbox, LabelCheckbox } from './style';
 
 export type ListProps = {
@@ -52,21 +52,21 @@ export const List = ({
                 switch(idFilter) {
                   case 2 : return (
                     <>
-                    <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                    <ButtonWrapperTypes key={i} onClick={() => setFilterValue(item)}>
                       <ButtonSelect text={item}/>
-                    </ButtonWrapper>
+                    </ButtonWrapperTypes>
                     </>
 
                   )
                   case 3 : return (
-                    <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                    <ButtonWrapperIcon key={i} onClick={() => setFilterValue(item)}>
                       <ButtonIcon text={item}/>
-                    </ButtonWrapper>
+                    </ButtonWrapperIcon>
                   )
                   case 5 : return ( 
-                    <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                    <ButtonWrapperIcon key={i} onClick={() => setFilterValue(item)}>
                       <ButtonDay text={item}/>
-                    </ButtonWrapper>
+                    </ButtonWrapperIcon>
                   )
                 }  
               })   
