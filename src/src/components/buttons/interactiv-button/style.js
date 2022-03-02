@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { datalimentaire } from '../../../assets/styles';
+import { datalimentaire } from '../../../styles';
 import GouttesSvg from '../../../assets/svg/gouttes.svg';
 
 export const WarpperAddPoint = styled.div`

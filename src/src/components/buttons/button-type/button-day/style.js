@@ -1,5 +1,5 @@
 import styled, {keyframes} from 'styled-components';
-import { datalimentaire } from '../../../../assets/styles/themes';
+import { datalimentaire } from '../../../../styles/themes';
 
 export const Ouverture = styled.div`
     display flex;

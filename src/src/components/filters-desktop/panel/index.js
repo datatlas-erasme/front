@@ -1,17 +1,11 @@
 import { useMemo, useContext } from 'react';
 import { useDispatch, connect, useSelector } from 'react-redux';
 import { toggleModal, setFilterUpdater } from 'erasme-kepler.gl/actions';
-import FilterMod from '../filters-mobile/mobile-panel';
-import AddButton from "../buttons/interactiv-button";
-import { DesktopPanelControl } from '../filters-desktop';
-import { MobilePanelControl } from '../filters-mobile';
-import {useViewport} from '../../utils/ViewportConext';
+import FilterMod from '../desktop-panel';
+import AddButton from "../../buttons/interactiv-button";
 import {Panel} from "./style"
 
-const PanelControl = () => {
-
-    const { width } = useViewport();
-    const breakpoint = 1024;
+const DesktopPanelControl = () => {
 
     const dispatch = useDispatch();
     // Get the filter values, id  and map them to buttons
@@ -25,17 +19,13 @@ const PanelControl = () => {
     }, [layers]);
 
     const Filters = filterTree.map((value, index) => {
-        return (
-            width < breakpoint ? 
-            <MobilePanelControl key={index} value={value} index={index} filtersDomain={filtersDomain} />
-            :
-            <DesktopPanelControl key={index} value={value} index={index} filtersDomain={filtersDomain}/>
-        );
+        return <FilterMod key={index} value={value} index={index} filtersDomain={filtersDomain} />;
     });
     
         return(
             <Panel>
-             {Filters} 
+                {Filters}
+                <AddButton/>
             </Panel> 
         )
         
@@ -43,4 +33,4 @@ const PanelControl = () => {
 
 const dispatchToProps = (dispatch) => ({ dispatch });
 
-export default connect(dispatchToProps, setFilterUpdater, toggleModal)(PanelControl);
+export default connect(dispatchToProps, setFilterUpdater, toggleModal)(DesktopPanelControl);

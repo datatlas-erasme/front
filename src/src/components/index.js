@@ -1,49 +1,51 @@
 import { createContext, useEffect, useContext, useState } from 'react';
-import { Style }  from '../assets/styles';
-import { device, size } from '../assets/styles/breakpoints';
+import { Style }  from '../styles';
+import { device, size } from '../styles/breakpoints';
+import {ViewportProvider} from '../utils/ViewportConext'
 import MapContainer from './map';
-import DesktopPanelControl from './panel';
+import PanelControl from './panel';
+import {DesktopPanelControl} from './filters-desktop';
+import {MobilePanelControl} from './filters-mobile';
 
-const viewportContext = createContext({});
+// Responsive component
+// const viewportContext = createContext({});
+// const ViewportProvider = ({ children }) => {
+//   const [width, setWidth] = useState(window.innerWidth);
+//   const [height, setHeight] = useState(window.innerHeight);
+//   const handleWindowResize = () => {
+//     setWidth(window.innerWidth);
+//     setHeight(window.innerHeight);
+//   };
 
-const ViewportProvider = ({ children }) => {
-  const [width, setWidth] = useState(window.innerWidth);
-  const [height, setHeight] = useState(window.innerHeight);
-  const handleWindowResize = () => {
-    setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
-  };
+//   useEffect(() => {
+//     window.addEventListener("resize", handleWindowResize);
 
-  useEffect(() => {
-    window.addEventListener("resize", handleWindowResize);
+//     return () => window.removeEventListener("resize", handleWindowResize);
+//   }, []);
 
-    return () => window.removeEventListener("resize", handleWindowResize);
-  }, []);
+//   return (
+//     <ViewportProvider value={{ width, height }}>
+//       {children}
+//     </ViewportProvider>
+//   );
+// };
+// const useViewport = () => {
+//   const { width, height } = useContext(viewportContext);
 
-  return (
-    <viewportContext.Provider value={{ width, height }}>
-      {children}
-    </viewportContext.Provider>
-  );
-};
-
-const useViewport = () => {
-  const { width, height } = useContext(viewportContext);
-
-  return { width, height };
-};
-
-const MobileComponent = () => <p>"Hmmm... Why is your screen so small?"</p>;
+//   return { width, height };
+// };
+// const MobilePanelControl = () => <p>"Hmmm... Why is your screen so small?"</p>;
 // const DesktopPanelControl = () => <p>"Wow, your screen is big!"</p>;
+// const PanelControl = () => {
+//   const { width } = useViewport();
+//   const breakpoint = 1024;
 
-const PanelControl = () => {
-  const { width } = useViewport();
-  const breakpoint = 768;
+//   return (
 
-  console.log(breakpoint);
-
-  return width < breakpoint ? <MobileComponent /> : <DesktopPanelControl />;
-};
+//     width < breakpoint ? <MobilePanelControl /> : <DesktopPanelControl />
+    
+//     );
+// };
 
 export default function Front() {
 
@@ -52,7 +54,7 @@ export default function Front() {
         <Style/>
         <MapContainer />
         <PanelControl/>
-    </ViewportProvider>
+      </ViewportProvider>
 
   );
 }

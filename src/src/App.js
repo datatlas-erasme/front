@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
-import { datalimentaire }  from './assets/styles';
+import { datalimentaire }  from './styles';
 
 const Front = React.lazy(() => import('./components/index'));
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { datalimentaire } from '../../assets/styles';
+import { datalimentaire } from '../../styles';
 
 export const ModalColRight = styled.div`
     display: flex;

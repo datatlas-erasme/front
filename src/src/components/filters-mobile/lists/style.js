@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { datalimentaire } from '../../../assets/styles';
+import { datalimentaire } from '../../../styles';
 
 export const ListSelect = styled.ul `
     display: flex;
@@ -47,9 +47,7 @@ export const LabelCheckbox = styled.label`
     padding-bottom: 20px;
     margin-bottom : 10px;
     border-bottom: 1px solid ${datalimentaire.colors.midgray};
-
-
-    `
+`
 
 export const ButtonWrapper = styled.li`
     width: auto;

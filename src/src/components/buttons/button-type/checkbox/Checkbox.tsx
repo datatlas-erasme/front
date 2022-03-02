@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from 'react-redux';
 import classnames from 'classnames';
 import { importAll } from "../../../../utils/import-png";
-import { LabelCheckbox } from "../../../filters/lists/style";
+import { LabelCheckbox } from "../../../filters-desktop/lists/style";
 import { ButtonType } from '../button-select/style';
 import { Override } from '../../../../types/Override';
 

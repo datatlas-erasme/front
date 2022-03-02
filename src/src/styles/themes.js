@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { device } from "./breakpoints";
 
 export const Style = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;800&display=swap');
@@ -22,8 +23,15 @@ export const Style = createGlobalStyle`
     text-decoration: none;
   }
 
-  #filter-parent-0,  #filter-parent-1, #filter-parent-5, #filter-parent-6, #filter-parent-7, #filter-parent-8, #filter-parent-9 {
+  #filter-parent-0,  #filter-parent-1, #filter-parent-, #filter-parent-6, #filter-parent-7, #filter-parent-8, #filter-parent-9 {
     display: none;
+  }
+
+
+  @media ${device.lg} {
+    #filter-parent-0,  #filter-parent-1, #filter-parent-5, #filter-parent-6, #filter-parent-7, #filter-parent-8, #filter-parent-9 {
+      display: none;
+    }
   }
   
 `;

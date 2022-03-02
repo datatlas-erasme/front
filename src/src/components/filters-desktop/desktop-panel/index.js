@@ -5,7 +5,7 @@ import Collapse from '../collapse'
 import { ButtonDay } from '../../buttons/button-type';
 import { BlockFilters, ParentFilter, DomainFilter, HeadingFilter } from './style';
 
-const FilterMod = ({ value, index, filtersDomain, props }) => {
+const DesktopPanelControl = ({ value, index, filtersDomain, props }) => {
 
   // Toggle the visibility of buttons parent list
   // const [isActive, setIsActive] = useState(false);
@@ -154,7 +154,7 @@ const Domains =  Object.keys(filtersDomain).map((filter, i) =>{
   );
 };
 
-export default FilterMod;
+export default DesktopPanelControl;
 
 {/* <ParentFilter key={index} id="filter-parent-1" className="filter-parent">
 <Collapse

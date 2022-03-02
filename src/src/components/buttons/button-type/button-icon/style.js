@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { datalimentaire, Colors } from '../../../../assets/styles/themes';
+import { datalimentaire, Colors } from '../../../../styles/themes';
 import px2vw from '../../../../utils/px2vw';
 
 export const Badge = styled.button`
