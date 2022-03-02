@@ -92,6 +92,10 @@ const CustomMapPopoverFactory = (...deps) => {
 
     const PointFieldsFix =  allFields.map((field, index) => {
       // TODO check if is url and has image extension
+      if (field.displayName.includes('Nom-evenement')) {
+        ContentBuffer.push({cat: "Nom-structure", content: data[index]})
+        //ContentBuffer.push({cat: "Nom-structure", content: " <h1>"+ data[index]+ "</h1>"})
+      }
       if (field.displayName.includes('Nom-structure')) {
         ContentBuffer.push({cat: "Nom-structure", content: data[index]})
         //ContentBuffer.push({cat: "Nom-structure", content: " <h1>"+ data[index]+ "</h1>"})
@@ -133,6 +137,7 @@ const CustomMapPopoverFactory = (...deps) => {
   
     });
 
+    const titleEvent = ContentBuffer.filter((value) => value.cat === "Nom-evenement" )[0]?.content
     const title = ContentBuffer.filter((value) => value.cat === "Nom-structure" )[0]?.content
     const image = ContentBuffer.filter((value) => value.cat === "image" )[0]?.content
     const desc = ContentBuffer.filter((value) => value.cat === "Description" )[0]?.content
@@ -155,6 +160,7 @@ const CustomMapPopoverFactory = (...deps) => {
           />
         <div className='content'>
           <h1>{title}</h1>
+          <h1>{titleEvent}</h1>
           <p className='desc'>{desc}</p>
           <a target="" href={url}>{url ? "Voir le site web" : ""}</a>
           <p><b>{adresse ? "Adresse : " : ""}</b>{adresse}</p>
