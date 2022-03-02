@@ -316,13 +316,18 @@ button {
 }
 
 .modal-content .left-content {
-  font-size: 1.4vw;
+  font-size: 1.1vw;
   margin: 0% 7% 0 7%;
   line-height: 1.6;
 } 
 
 .right-content {
-  width: 150%
+  width: 150%;
+  padding-top: 25px;
+}
+
+.right-content .subtext {
+  font-size: 1.0vw;
 }
 
 .right-content .buttons {
@@ -336,7 +341,14 @@ button {
   border: solid 0.2px;
   border-radius: 4px;
   margin-bottom: 15px;
+  text-transform: initial;
+  font-size: 1.1vw;
 }
+
+.right-content .buttons .btn:hover {
+  filter: brightness(0.2);
+}
+
 .right-content .logos {
   display: flex;
   flex-wrap: wrap;
