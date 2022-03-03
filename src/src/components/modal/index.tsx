@@ -49,9 +49,7 @@ const OpeningTime = ({ data }) => {
 } 
 
 function CustomMapModal({data, ...props}) {
-  console.log(props);
-  console.log(data);
-
+  
 		return (
       <>
         <ModalColLeft>

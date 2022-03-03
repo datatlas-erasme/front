@@ -28,14 +28,10 @@ export const AddPoint = styled.button`
     font-size: ${datalimentaire.fontSizes.paragraphe};
     font-weight: ${datalimentaire.fontWeights[0]};
 
-    filter: drop-shadow(0px 0px 11.1501px rgba(0, 0, 0, 0.25));
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
 
     span{
         width: 20%;
-    }
-
-    p{
-        padding: 10px;
     }
 
     @media ${device.lg} {
@@ -47,9 +43,14 @@ export const AddPoint = styled.button`
         font-size: ${datalimentaire.fontSizes.xltext};
         font-weight: ${datalimentaire.fontWeights[5]};
         line-height: ${datalimentaire.lineHeights[1]};
+        box-shadow: none;
 
         span{
             width: 15%;
+        }
+
+        p{
+            padding: 10px;
         }
 
         &:before{

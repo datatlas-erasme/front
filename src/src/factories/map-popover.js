@@ -4,13 +4,8 @@ import {withState} from 'erasme-kepler.gl/components';
 import {visStateLens} from 'erasme-kepler.gl/reducers';
 import CustomMapModal from '../components/modal/index';
 import CustomMapPopover from '../components/popover/index'
-import {
-  PopHover,
-  ModalColLeft,
-  ModalColRight,
-  ModalHeading,
-  WrapperModal
-} from '../components/popover/style'
+import { PopHover } from '../components/popover/style';
+import { WrapperModal } from '../components/modal/style'
 
 // import PopOver from '../components/popover';
 
