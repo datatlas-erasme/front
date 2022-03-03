@@ -1,10 +1,9 @@
-import { useMemo, useContext } from 'react';
+import { useMemo } from 'react';
 import { useDispatch, connect, useSelector } from 'react-redux';
 import { toggleModal, setFilterUpdater } from 'erasme-kepler.gl/actions';
-import FilterMod from '../filters-mobile/mobile-panel';
-import AddButton from "../buttons/interactiv-button";
 import { DesktopPanelControl } from '../filters-desktop';
 import { MobilePanelControl } from '../filters-mobile';
+import AddButton from '../buttons/interactiv-button';
 import {useViewport} from '../../utils/ViewportConext';
 import {Panel} from "./style"
 
@@ -36,6 +35,7 @@ const PanelControl = () => {
         return(
             <Panel>
              {Filters} 
+             <AddButton/>
             </Panel> 
         )
         

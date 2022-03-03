@@ -1,9 +1,7 @@
-import { useState } from 'react';
-import AnimateHeight from 'react-animate-height';
 import SearchBar from '../../search-bar';
 import Collapse from '../collapse'
-import { ButtonDay } from '../../buttons/button-type';
-import { BlockFilters, ParentFilter, DomainFilter, HeadingFilter } from './style';
+import AddButton from "../../buttons/interactiv-button";
+import {DomainFilter } from './style';
 
 const MobilePanelControl = ({ index, filtersDomain }) => {
 
@@ -27,6 +25,7 @@ const Domains =  Object.keys(filtersDomain).map((filter, i) =>{
 
   return (
   <>
+    {/* <AddButton/> */}
     <DomainFilter>
         {Domains}
     </DomainFilter>

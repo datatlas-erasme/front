@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronRight,
   faChevronDown,
@@ -11,7 +10,6 @@ import classnames from 'classnames';
 import { Override } from '../../../types/Override';
 // import { AppStore } from '../../store';
 import List from '../lists';
-import { Colors } from '../../../styles';
 import { ButtonCollapse, SubHeading } from './style';
 
 library.add(faChevronRight,faChevronDown);
@@ -93,7 +91,7 @@ const Collapse = ({
           style={{
             flexShrink: 0,
             position: 'absolute',
-            top: '106vw',
+            top: '60vh',
             width: '100vw',
             backgroundColor: 'white',
             borderRadius: '35px 35px 0 0',

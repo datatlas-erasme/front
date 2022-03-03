@@ -29,7 +29,6 @@ export const ButtonCollapse = styled.button`
     &.active{
         background: ${ datalimentaire.colors.primary};
         color: ${datalimentaire.colors.secondary};
-        z-index: 99;
     }
 
     h4{
