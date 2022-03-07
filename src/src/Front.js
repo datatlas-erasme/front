@@ -91,23 +91,15 @@ function Map() {
         .then((data) => {
           setInstanceConf(data)
           setInstanceConfLoaded(true)
-        });  
-  }, []);
-
-   // Retreive Kepler configuration
-   useEffect(() => {
-    console.log("FETCH DATA" + backendUrl + "/api/conf/kepler")
+        }); 
     fetch(backendUrl + "/api/conf/kepler")
         .then((res) => res.json())
         .then((data) => {
           setKeplerConf(data)
           setKeplerConfLoaded(true)
-        });
-   
-    //setTestInstance(promises)
-    
+        }); 
   }, []);
-    
+  
   // Get instance config / fetch data and store into DataLayers
   useEffect(() => {
     if(instanceConfLoaded) {
@@ -153,7 +145,7 @@ function Map() {
         );
       });
     }
-  }, [dispatch, dataLoaded, dataLayers]);
+  }, [dispatch, dataLoaded, dataLayers, keplerConfLoaded, keplerConf]);
 
   // Pass the default kepler styling
   useEffect(() => {
@@ -176,7 +168,7 @@ function Map() {
     }
   }, [dispatch,mapUpdated]);
 
-  return mapUpdated ? (
+  return (
     <div>
       <KeplerGl
         id="map"
@@ -189,9 +181,7 @@ function Map() {
       <Logo />
       <FilterSidePanel />   
     </div>
-  ) : (
-    ''
-  );
+  )
 }
 
 function Front() {
