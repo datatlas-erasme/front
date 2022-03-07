@@ -172,7 +172,7 @@ function Map() {
     <div>
       <KeplerGl
         id="map"
-        mapboxApiAccessToken={instanceConf.mapboxToken}
+        mapboxApiAccessToken="pk.eyJ1IjoieXNpb3VkYSIsImEiOiJja3JnZ2k1cDg1cTMxMnJueGV6cDU4c25iIn0.td9NqwcqkUW1VeRIPB2oTA"
         width={window.innerWidth}
         height={window.innerHeight}
         appName="Datatlas"
