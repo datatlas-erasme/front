@@ -322,7 +322,7 @@ button {
 } 
 
 .right-content {
-  width: 150%;
+  width: 200%;
   padding-top: 25px;
 }
 
@@ -359,9 +359,10 @@ button {
 .right-content .logos a {
   width: max-content;
   width: 30%;
+  padding-left: 15px;
 }
 
 .right-content .logos a img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 60px;
 }

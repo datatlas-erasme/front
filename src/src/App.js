@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const Back = React.lazy(() => import('./Back'));
 const Front = React.lazy(() => import('./Front'));
-document.title = "M.ind."
+document.title = "M.Ind."
 const App = () => {
   return (
     <BrowserRouter>

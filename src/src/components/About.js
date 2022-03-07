@@ -76,7 +76,7 @@ const About = () => {
                 <Button fontSize="10"  text={buttonConf.text} />
               </a>
             ))}
-            <a href="mailto:m.ind@tank-ssi.org"><Button fontSize="10" text="Nous écrire" /></a>
+            <a href="mailto:industrie@erasme.org"><Button fontSize="10" text="Nous écrire" /></a>
           </div>
           <div className='subtext'>
             <p>* M.édiation Ind.ustrielle <br/>
@@ -84,7 +84,7 @@ const About = () => {
             </p>
           </div>
           <div className='logos'>
-            <a href='#'><img src={Partner1}/></a>
+            <a href='https://www.banquedesterritoires.fr/territoires-dinnovation'><img src={Partner1}/></a>
             <a href='https://www.grandlyon.com/'><img src={Partner2}/></a>
             <a href='https://www.saint-etienne-metropole.fr/'><img src={Partner3}/></a>
             <a href='https://www.banquedesterritoires.fr/'><img src={Partner4}/></a>
