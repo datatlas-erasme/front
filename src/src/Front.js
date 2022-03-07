@@ -149,7 +149,7 @@ function Map() {
 
   // Pass the default kepler styling
   useEffect(() => {
-    if(keplerConfLoaded){
+    if(keplerConfLoaded && instanceConf){
       dispatch(addDataToMap({ datasets: [], option: { centerMap: false }, config: keplerConf }));
       // Load à custum map style from backend
       dispatch(inputMapStyle({style: instanceConf.defaultMapBoxStyleUrl, id:"monochrome", name:"Monochrome"}))
@@ -158,17 +158,9 @@ function Map() {
       dispatch(addCustomMapStyle())
       setMapUpdated(true);
     }
-  }, [dispatch, keplerConfLoaded, keplerConf]);
+  }, [dispatch, keplerConfLoaded, keplerConf, instanceConf]);
 
-  // TODO updatemap is not taken into account
-  useEffect(() => {
-    console.log(instanceConf.defaultMapLocation)
-    if (mapUpdated) {
-      dispatch(updateMap({latitude:0, longitude: 0, zoom: 10}))
-    }
-  }, [dispatch,mapUpdated]);
-
-  return (
+  return mapUpdated ? (
     <div>
       <KeplerGl
         id="map"
@@ -181,7 +173,11 @@ function Map() {
       <Logo />
       <FilterSidePanel />   
     </div>
-  )
+    ) : (
+      <div>
+        <h1>CHARGEMENT DE LA CARTE</h1>
+      </div>
+    );
 }
 
 function Front() {
