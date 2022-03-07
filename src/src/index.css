@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@900&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.top-left-logo img {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 200px;
+  pointer-events: none;
+}
+
+
+.bottom-left-logo img {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  width: 200px;
+  pointer-events: none;
+}
+
+/*TODO FIX hide trough kepler injections*/
+.map-control, side-panel--container {
+  display: none !important;
+}
+
+
+
+/********************** CUSTOM MODAL **************************/
+.modal {
+  position: absolute;
+  top: 0;
+  background-color: red;
+  height: 100%;
+  width: 100%;
+}
+
+
+/********************** POI SIDE PANEL **************************/
+.PointSidePanel {
+  position: absolute;
+  top: 0;
+  width: 30%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  z-index: 99;
+  overflow-x: hidden;
+  box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.4);
+  animation: 0.2s linear 0s running slidein;
+  }
+
+  @keyframes slidein {
+    from { width: 0; }
+    to   { width: 30%; }
+  }
+
+  @keyframes slidedown {
+    from { width: 0; }
+    to   { height: 50px; }
+  }
+
+  .PointSidePanel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .PointSidePanel img {
+    width: 100%;
+    height: auto; 
+  }
+  .PointSidePanel .content {
+    padding: 20px 45px 45px 45px;
+  }
+ 
+  .PointSidePanel h1 {
+    color: #1a1a1a;
+    font-size: 40px;
+  }
+
+  .PointSidePanel p {
+    color: #1a1a1a;
+    line-height: 1.5;
+  }
+  
+  .PointSidePanel a {
+    color: #1a1a1a;
+    text-decoration: underline !important;
+    display: block;
+    padding-bottom: 25px;
+
+  }
+
+  .PointSidePanel .desc {
+    font-size: 20px;
+    margin-top: 5px;
+  }
+
+  /********************** FILTERS SIDE PANEL *********************/
+.FilterSidePanel {
+  position: absolute;
+  background: white;
+  top: 0;
+  width: 500px;
+  height: 500px;
+}
+
+
+.filters {
+  position: absolute;
+  top: 85px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 84vh;
+  overflow: auto;
+  /*width: 11%;*/
+  padding-right: 10px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.filters::-webkit-scrollbar {
+  display: none;
+}
+
+.filter.filter-parent:last-of-type {
+  margin-bottom: 15px !important;
+}
+
+.filter-parent .list {
+  padding: 0 0 7px 0;
+}
+
+.filter-parent ul {
+  max-height: 0;
+  overflow: hidden;
+  transition: all ease-in-out 0.2s;
+}
+
+.filter-parent .btn,.crowdsourcing button {
+  max-height: 1000px;
+  /*overflow: auto;*/
+  transition: all ease-in-out 0.2s;
+  overflow-y: hidden;
+  border-radius: 3px;
+  font-size: 11px !important;
+  margin: 2px 0 0 0;
+  padding : 10px 10px 10px 10px;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+
+.filter-parent li button {
+ opacity: 0.5;
+ border-radius: 5px 5px 5px 5px;
+ margin-top: 5px;
+}
+
+.filter-parent .selected {
+  opacity: 1;
+}
+
+.filters ul {
+  padding: 0;
+  margin : 0 0 5px
+}
+
+.filters ul li {
+  list-style: none;
+}
+
+.filters ul .filter:last-child {
+  margin-bottom: 15px;
+
+}
+
+.filters .filter-child button {
+  /*font-size: 10px;*/
+  padding: 10px 10px 10px 10px;
+  margin: 0 10px 5px 0;
+  border-radius: 5px;
+  text-align: left;
+}
+
+filters .filter-child button.active span {
+  transform: rotate(90deg) !important;
+}
+
+.filters .filter-child .enable {
+  opacity: 0.7;
+  transition: all ease-in-out 0.2s;
+}
+
+.filters .filter-sub-child button{
+  padding: 8px 10px;
+  margin-bottom: 3px;
+  margin-right: 0;
+}
+
+.filters .filter-sub-child button.active{
+  opacity: 0.5;
+}
+
+
+
+.filters button:hover {
+  transition: all ease-in-out 0.2s;
+}
+
+.crowdsourcing {
+  display: flex;
+  flex-direction: column;
+}
+
+.crowdsourcing button {
+  margin-bottom: 2px;
+  margin-top: 0px;
+  width: max-content;
+  border-radius: 5px 5px 5px 5px;
+  background-color: #df7160;
+  text-align: center;
+}
+
+.crowdsourcing button a:first-of-type {
+  margin-bottom: 2px;
+}
+.btn-parent {
+  display: flex;
+  border-radius: 5px;
+  margin-bottom: 0;
+  font-size: 15px;
+  width: max-content;
+}
+
+.btn-parent p {
+  width: 40px;
+  text-align: center;
+  color: white;
+}
+
+.btn-child {
+  width: max-content;
+  padding-left: 12px;
+  border-radius: 7px;
+  margin-bottom: 5px;
+}
+
+.btn-child button {
+  margin: 0;
+}
+
+button {
+  font-size: 16px;
+  color: white;
+  padding: 16px 16px 16px 10px;
+  border-radius: 0px 5px 5px 0px;
+  border: none;
+  margin: 0;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+  font-weight: 400;
+  /*width: 100%;*/
+  text-transform : capitalize;
+  letter-spacing : 0.75px
+}
+
+.btn-parent:hover {
+  cursor: pointer;
+  filter: brightness(0.6);
+  transition: all ease-in-out 0.2s;
+}
+
+.instance-config {
+  position: absolute;
+  top: 44px;
+  background: white;
+  padding: 15px;
+  left: 30%;
+}
+
+/********************** ABOUT PANEL *********************/
+.header {
+  display: flex;
+}
+.header h2 {
+  font-size: 7vw;
+  font-style: italic;
+  margin: 0 0 0 7%;
+}
+.header h3 {
+  font-size: 1.8vw;
+  margin: 1% 14% 0 5%;
+}
+
+.header button {
+  border-radius: 5px;
+  height: 50px;
+  color: black;
+  padding: 9px;
+  width: 100px;
+  font-size: 32px;
+  margin-left: 5px;
+}
+
+.modal-content {
+  display: flex;
+  width: 100%;
+}
+
+.modal-content .left-content {
+  font-size: 1.1vw;
+  margin: 0% 7% 0 7%;
+  line-height: 1.6;
+} 
+
+.right-content {
+  width: 200%;
+  padding-top: 25px;
+}
+
+.right-content .subtext {
+  font-size: 1.0vw;
+}
+
+.right-content .buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.right-content .buttons .btn {
+  background: black !important;
+  width: max-content;
+  border: solid 0.2px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-transform: initial;
+  font-size: 1.1vw;
+}
+
+.right-content .buttons .btn:hover {
+  filter: brightness(0.2);
+}
+
+.right-content .logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin: 29px 0 0 0;
+}
+
+.right-content .logos a {
+  width: max-content;
+  width: 30%;
+  padding-left: 15px;
+}
+
+.right-content .logos a img {
+  width: auto;
+  height: 60px;
+}
