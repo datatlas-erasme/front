@@ -170,7 +170,6 @@ function Map() {
         appName="Datatlas"
       />
       <CursorHandler/>
-      <Logo />
       <FilterSidePanel />   
     </div>
     ) : (

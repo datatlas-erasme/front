@@ -45,7 +45,6 @@ const FilterSidePanel = () => {
       {Filters}
       
       <BottomRightSection />
-      <About/>
     </div>
   );
 };
