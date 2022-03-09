@@ -6,12 +6,13 @@ export const PopHover = styled.div`
       top: 100px;
       left: 65%;
 
-      display: flex;
+      display: block;
       flex-direction: column;
       background: white;
       width: 30%;
       height: auto;
       padding: 20px;
+      z-index: 99;
 
       border: 1px solid ${datalimentaire.colors.midgray};
       border-radius: ${datalimentaire.radii[5]};

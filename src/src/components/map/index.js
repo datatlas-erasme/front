@@ -49,7 +49,7 @@ export default function MapContainer() {
     // Retreive Instance configuration
     useEffect(() => {
       console.log("FETCH DATA" + backendUrl + "/api/conf/instance")
-      fetch(backendUrl + "/api/conf/instance")
+       fetch(backendUrl + "/api/conf/instance", { method: "GET" })
           .then((res) => res.json())
           .then((data) => {
             setInstanceConf(data)
@@ -60,7 +60,7 @@ export default function MapContainer() {
      // Retreive Kepler configuration
      useEffect(() => {
       console.log("FETCH DATA" + backendUrl + "/api/conf/kepler")
-      fetch(backendUrl + "/api/conf/kepler")
+      fetch(backendUrl + "/api/conf/kepler", { method: "GET" })
           .then((res) => res.json())
           .then((data) => {
             setKeplerConf(data)
@@ -122,7 +122,7 @@ export default function MapContainer() {
   
     // Pass the default kepler styling
     useEffect(() => {
-      if(keplerConfLoaded){
+      if(keplerConfLoaded && instanceConf){
         dispatch(addDataToMap({ datasets: [], option: { centerMap: true }, config: keplerConf }));
   
         // Load à custum map style from backend
@@ -130,7 +130,7 @@ export default function MapContainer() {
         dispatch(addCustomMapStyle())
         setMapUpdated(true);
       }
-    }, [dispatch, keplerConfLoaded, keplerConf]);
+    }, [dispatch, keplerConfLoaded, keplerConf, instanceConf]);
   
     // TODO updatemap is not taken into account
     useEffect(() => {

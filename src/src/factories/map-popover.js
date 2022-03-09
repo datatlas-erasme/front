@@ -1,4 +1,4 @@
- import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { MapPopoverFactory } from 'erasme-kepler.gl/components';
 import {withState} from 'erasme-kepler.gl/components';
 import {visStateLens} from 'erasme-kepler.gl/reducers';
@@ -13,19 +13,23 @@ import { WrapperModal } from '../components/modal/style'
 
 const CustomMapPopoverFactory = (...deps) => {
   
-  // const MapPopover = MapPopoverFactory(...deps);
-  const MapSidepanel = props => {
+  const MapPopover = MapPopoverFactory(...deps);
 
+  const MapPopoverWrapper = props => {
+    
     // Fields declared in the kepler conf panel
     const fieldsToShow = props.layerHoverProp.fieldsToShow;
     // List of all data fields names
     const allFields = props.layerHoverProp.fields;
     // All the data related to the point clicked
     const data = props.layerHoverProp.data;
-    // console.log(data);
+    console.log(data);
+    const layer = props.layerHoverProp.layer
+    console.log(layer);
 
     const clicked = useSelector((state) => state.keplerGl.map?.visState?.clicked ?? null);
-
+    //position de la souris 
+    
     if (!clicked) {
       const HoverField = allFields.map((field, index) => {
         return fieldsToShow.map((fieldToShow, fieldToShowIndex) => {
@@ -35,7 +39,7 @@ const CustomMapPopoverFactory = (...deps) => {
 
             if (fieldToShowIndex  === 1 ) {
               return (
-                 <CustomMapPopover data={data} key={index}/>
+                 <MapPopover data={data} key={index}/>
               );
             }
           }
@@ -44,7 +48,7 @@ const CustomMapPopoverFactory = (...deps) => {
 
       return <PopHover>{HoverField}</PopHover>;
     };
-    
+
     // TODO map all fields to fieldToshow
     // First is image
     // Second is title => <h1>
@@ -72,24 +76,8 @@ const CustomMapPopoverFactory = (...deps) => {
     // mapStateToProps
     state => ({mapState: state.keplerGl.map1}),
 
-  )(MapSidepanel);
+  )(MapPopoverWrapper);
 };
-
-function isURL(str) {
-  const pattern = new RegExp(
-    '^(https?:\\/\\/)?' + // protocol
-      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-      '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
-      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-      '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-      '(\\#[-a-z\\d_]*)?$',
-    'i',
-  ); // fragment locator
-
-  return !!pattern.test(str);
-  console.log(pattern);
-
-}
 
 CustomMapPopoverFactory.deps = MapPopoverFactory.deps;
 
