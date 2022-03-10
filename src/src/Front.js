@@ -128,7 +128,7 @@ function Map() {
 
   // Get DataLayers and add data to map
   useEffect(() => {
-    if (dataLayers) {
+    if (dataLoaded) {
       dataLayers.map((dataset, index) => {
         dispatch(
           addDataToMap({

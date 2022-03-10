@@ -26,7 +26,7 @@ const FilterSidePanel = () => {
     });
   }, [filtersDomain, layers]);
   //TODO Get layer color and use it for buttons bg color
-  const Filters = filterTree.map((value, index) => {
+  const Filters = filterTree.reverse().map((value, index) => {
 
     return <FilterMod key={index} value={value} index={index} filtersDomain={filtersDomain} />;
   });

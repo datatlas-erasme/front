@@ -281,7 +281,7 @@ button {
   letter-spacing : 0.75px
 }
 
-.btn-parent button:hover, .btn-parent p:hover {
+.btn-parent button:hover {
   cursor: pointer;
   filter: brightness(0.6);
   transition: all ease-in-out 0.2s;

@@ -74,7 +74,7 @@ const Button = ({
   useEffect(() => {
     //console.log(isLayerVisible)
     if (layer) {
-      dispatch(layerConfigChange(layer, { isVisible: isLayerVisible }));
+      //dispatch(layerConfigChange(layer, { isVisible: isLayerVisible }));
     }
   }, [layer, isLayerVisible, dispatch]);
 
