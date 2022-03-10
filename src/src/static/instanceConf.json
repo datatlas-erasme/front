@@ -9,8 +9,8 @@
   "theme": {
     "filterSidePanel": {
       "buttonColorRange": [
-        "#3d8490",
         "#27536f",
+        "#3d8490",
         "#df7160"
     ]
     }

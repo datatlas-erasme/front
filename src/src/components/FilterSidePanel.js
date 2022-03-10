@@ -20,15 +20,14 @@ const FilterSidePanel = () => {
   // Get the filter values, id  and map them to buttons
   const filtersDomain = useSelector((state) => state.keplerGl.map?.visState?.filters ?? []);
   const layers = useSelector((state) => state.keplerGl.map?.visState?.layers ?? {});
-
   const filterTree = useMemo(() => {
     return Object.values(layers).map((value) => {
       return { label: value.config.label, id: value.config.dataId };
     });
   }, [filtersDomain, layers]);
   //TODO Get layer color and use it for buttons bg color
-
   const Filters = filterTree.map((value, index) => {
+
     return <FilterMod key={index} value={value} index={index} filtersDomain={filtersDomain} />;
   });
 
