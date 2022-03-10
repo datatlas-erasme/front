@@ -16,10 +16,10 @@
     }
   },
   "bottomRightButtons": [
-    { "text": "Partager un projet", "url": "https://form.typeform.com/to/V1f3GNXR" },
+    { "text": "Partager un projet", "url": "https://canographia.datagora.erasme.org/partager/" },
     {
       "text": "Partager une plantation",
-      "url": "https://form.typeform.com/to/vTRYrYpv?typeform-source=tank-tiga.webflow.io"
+      "url": "#"
     }
   ],
   "layers": [
