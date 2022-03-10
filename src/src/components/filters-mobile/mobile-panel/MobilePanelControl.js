@@ -1,6 +1,4 @@
-import SearchBar from '../../search-bar';
 import Collapse from '../collapse'
-import AddButton from "../../buttons/interactiv-button";
 import {DomainFilter } from './style';
 
 const MobilePanelControl = ({ index, filtersDomain }) => {
@@ -25,14 +23,10 @@ const Domains =  Object.keys(filtersDomain).map((filter, i) =>{
 
   return (
   <>
-    {/* <AddButton/> */}
     <DomainFilter>
         {Domains}
     </DomainFilter>
-    
       {/* <SearchBar/> */}
-
-      {/* <ButtonDay dayList={filtersDomain[5].domain} text={filtersDomain[5].name[0]} idFilter={5}></ButtonDay> */}
   </>
   );
 };

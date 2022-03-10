@@ -37,7 +37,7 @@ export const WrapperModal = styled.div`
     border: none;
     color: ${datalimentaire.colors.secondary};
 
-    pointer: cursor;
+    cursor: pointer;
 
     &:hover{
       opacity: 0.5;
@@ -88,6 +88,7 @@ export const ModalColRight = styled.div`
       svg {
         height: 2em;
         color: white;
+        cursor: pointer;
       };
     };
     

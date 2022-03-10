@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../../../styles/breakpoints';
 import { datalimentaire } from '../../../../styles/themes';
 import px2vw from '../../../../utils/px2vw';
 
@@ -7,7 +8,7 @@ export const ButtonType = styled.button`
     flex-wrap: wrap;
     align-items: center;
 
-    background-color: #fcfafa;
+    background-color: ${datalimentaire.colors.secondary};
     color: ${datalimentaire.colors.primary};
     border: none;
     cursor: pointer;
@@ -38,6 +39,10 @@ export const ButtonType = styled.button`
         width: 150px;
         text-align: left;
         padding-left: 10px;
+    }
+
+    @media ${device.lg}{
+        background-color: #fcfafa;
     }
 
 `

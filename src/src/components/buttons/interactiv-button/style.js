@@ -2,12 +2,13 @@ import styled from 'styled-components';
 import { datalimentaire } from '../../../styles';
 import GouttesSvg from '../../../assets/svg/gouttes.svg';
 import { device } from '../../../styles/breakpoints';
+import px2vw from '../../../utils/px2vw';
 
 export const WarpperAddPoint = styled.div`
     display: flex;
     align-items: 
     width: 80%;
-    margin: 70vh auto 0 auto;
+    margin: 65vh auto 0 auto;
     z-index: 1;
 
     @media ${device.lg} {
@@ -20,7 +21,11 @@ export const WarpperAddPoint = styled.div`
 export const AddPoint = styled.button`
     display: flex;
     align-items: center;
+    justify-content: end;
     border: none;
+    width: 300px;
+    height: 40px;
+    padding: 20px;
 
     border-radius: 40px;
     background-color: ${datalimentaire.colors.secondary};
@@ -31,7 +36,13 @@ export const AddPoint = styled.button`
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
 
     span{
-        width: 20%;
+        position: absolute;
+        left: 230px;
+        
+        svg{
+            width: 60px;
+            height: auto;
+        }
     }
 
     @media ${device.lg} {
@@ -45,8 +56,16 @@ export const AddPoint = styled.button`
         line-height: ${datalimentaire.lineHeights[1]};
         box-shadow: none;
 
+        cursor: pointer;
+
         span{
-            width: 15%;
+            position: relative;
+            left: 0;
+        
+            svg{
+                width: ${px2vw(80)};
+                height: auto;
+            }
         }
 
         p{

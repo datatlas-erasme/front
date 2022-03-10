@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { 
   addDataToMap,
-  wrapTo,
   updateMap, 
   addCustomMapStyle, 
   inputMapStyle 
@@ -23,10 +22,7 @@ import Logo from './Logo';
 // Inject the point sidepanel component
 const KeplerGl = injectComponents([
   [MapPopoverFactory, CustomMapPopoverFactory], 
-  [PanelToggleFactory, CustomPanelToggleFactory]
 ]);
-
-console.log(KeplerGl);
 
 export default function MapContainer() {
     const [dataLayers, setDataLayers] = useState([]);
@@ -135,7 +131,7 @@ export default function MapContainer() {
     // TODO updatemap is not taken into account
     useEffect(() => {
       if (mapUpdated) {
-        dispatch(updateMap({latitude:0, longitude: 0, zoom: 10}))
+        dispatch(updateMap({latitude:0, longitude: 0, zoom: 20}))
       }
     }, [dispatch,mapUpdated]);
 

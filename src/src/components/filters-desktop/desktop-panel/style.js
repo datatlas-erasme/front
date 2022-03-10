@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { datalimentaire } from "../../../styles";
+import { device } from "../../../styles/breakpoints";
 
 export const BlockFilters = styled.div`
     display: flex;
@@ -48,4 +49,8 @@ export const HeadingFilter = styled.h2`
     color: ${datalimentaire.colors.secondary};
     padding: 10px 10px;
     border-radius: 30px;
+
+    @media ${device.sm}{
+        display: none;
+    }
 `
