@@ -8,8 +8,6 @@ export const PopHover = styled.div`
 `
 
 export const ToolTip = styled.div`
-    position: absolute;
-    top: 0;
     background: white;
     width: auto;
     height: auto;

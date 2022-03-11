@@ -5,7 +5,12 @@ import { ToolTip } from './style';
 function CustomMapPopover({data, props}) {
   
     return(
-        <ToolTip >
+        <ToolTip 
+        style={{
+          position : "absolute",
+          left: props.x,
+          top: props.y}}
+        >
             <p>{data[10]} </p>
               { data[0] && <h2>{data[2]}</h2> }
             <p>Horaires :</p>
