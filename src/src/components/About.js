@@ -76,7 +76,7 @@ const About = () => {
                 <Button fontSize="10"  text={buttonConf.text} />
               </a>
             ))}
-            <a href="mailto:m.ind@tank-ssi.org"><Button fontSize="10" text="Nous écrire" /></a>
+            <a href="mailto:industrie@erasme.org"><Button fontSize="10" text="Nous écrire" /></a>
           </div>
           <div className='subtext'>
             <p>* M.édiation Ind.ustrielle <br/>

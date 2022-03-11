@@ -26,7 +26,7 @@ body {
 }
 
 /*TODO FIX hide trough kepler injections*/
-.map-control, .side-panel--container {
+.map-control, side-panel--container {
   display: none !important;
 }
 
@@ -281,7 +281,7 @@ button {
   letter-spacing : 0.75px
 }
 
-.btn-parent button:hover {
+.btn-parent button:hover, .crowdsourcing button:hover {
   cursor: pointer;
   filter: brightness(0.6);
   transition: all ease-in-out 0.2s;
