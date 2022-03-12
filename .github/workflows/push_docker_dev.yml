@@ -25,6 +25,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: erasme/datatlas-dev:latest
+          repository:  erasme/datatlas-dev
+          tags: test-latest,${{ github.sha }}
           build-args: |
             REACT_APP_BACKEND_URL=${{ secrets.REACT_APP_BACKEND_URL }}
