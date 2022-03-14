@@ -105,7 +105,6 @@ function Map() {
     if(instanceConfLoaded) {
       const buffer = [];
       const promises = instanceConf.layers.map((layer) => {
-        //console.log(layer.type);
   
         return fetch(layer.url)
           .then((res) => res.json())
@@ -128,7 +127,13 @@ function Map() {
 
   // Get DataLayers and add data to map
   useEffect(() => {
-    if (dataLayers) {
+
+    //console.log(dataLayers)
+    /*var Order = ["Structure Médiation", "Evenements" ]
+    var sortedDataLayer = Order.filter(v => dataLayers.includes(v[0]));
+    var array1 = Order.map((object, i) => dataLayers[object]);
+    console.log(array1)*/
+    if (dataLoaded && dataLayers) {
       dataLayers.map((dataset, index) => {
         dispatch(
           addDataToMap({
@@ -145,7 +150,7 @@ function Map() {
         );
       });
     }
-  }, [dispatch, dataLoaded, dataLayers, keplerConfLoaded, keplerConf]);
+  }, [dispatch, dataLoaded, dataLayers]);
 
   // Pass the default kepler styling
   useEffect(() => {

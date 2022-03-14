@@ -24,7 +24,7 @@ const FilterSidePanel = () => {
     return Object.values(layers).map((value) => {
       return { label: value.config.label, id: value.config.dataId };
     });
-  }, [filtersDomain, layers]);
+  }, [layers]);
   //TODO Get layer color and use it for buttons bg color
   const Filters = filterTree.map((value, index) => {
 
