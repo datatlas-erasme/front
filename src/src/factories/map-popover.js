@@ -92,21 +92,17 @@ const CustomMapPopoverFactory = (...deps) => {
 
     const PointFieldsFix =  allFields.map((field, index) => {
       // TODO check if is url and has image extension
-      if (field.displayName.includes('Nom-evenement')) {
-        ContentBuffer.push({cat: "Nom-structure", content: data[index]})
+      if (field.displayName.includes('title')) {
+        ContentBuffer.push({cat: "title", content: data[index]})
         //ContentBuffer.push({cat: "Nom-structure", content: " <h1>"+ data[index]+ "</h1>"})
       }
-      if (field.displayName.includes('Nom-structure')) {
-        ContentBuffer.push({cat: "Nom-structure", content: data[index]})
-        //ContentBuffer.push({cat: "Nom-structure", content: " <h1>"+ data[index]+ "</h1>"})
-      }
-      if (field.displayName.includes('Description')) {
-        ContentBuffer.push({cat: "Description", content: data[index]})
+      if (field.displayName.includes('description')) {
+        ContentBuffer.push({cat: "description", content: data[index]})
         //ContentBuffer.push({cat: "Description", content:  "<p className='desc'>"+ data[index] + "</p>"})
 
       }
-      if (field.displayName.includes('Adresse')) {
-        ContentBuffer.push({cat: "Adresse", content:data[index]})
+      if (field.displayName.includes('adress')) {
+        ContentBuffer.push({cat: "adress", content:data[index]})
         //ContentBuffer.push({cat: "Adresse", content: " <p><b>Adresse :</b>"+data[index] +"</p>"})
       }
 
@@ -137,11 +133,10 @@ const CustomMapPopoverFactory = (...deps) => {
   
     });
 
-    const titleEvent = ContentBuffer.filter((value) => value.cat === "Nom-evenement" )[0]?.content
-    const title = ContentBuffer.filter((value) => value.cat === "Nom-structure" )[0]?.content
+    const title = ContentBuffer.filter((value) => value.cat === "title" )[0]?.content
     const image = ContentBuffer.filter((value) => value.cat === "image" )[0]?.content
-    const desc = ContentBuffer.filter((value) => value.cat === "Description" )[0]?.content
-    const adresse = ContentBuffer.filter((value) => value.cat === "Adresse" )[0]?.content
+    const desc = ContentBuffer.filter((value) => value.cat === "description" )[0]?.content
+    const adresse = ContentBuffer.filter((value) => value.cat === "adress" )[0]?.content
     const typeStruct = ContentBuffer.filter((value) => value.cat === "types-structure" )[0]?.content
     const activites = ContentBuffer.filter((value) => value.cat === "activites" )[0]?.content
     const expertises = ContentBuffer.filter((value) => value.cat === "Domaines-expertise" )[0]?.content
@@ -155,12 +150,11 @@ const CustomMapPopoverFactory = (...deps) => {
             src={
               image
                 ? image
-                : 'https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+                : 'https://canographia.datagora.erasme.org/wp-content/themes/canographia/assets/placeholder-ressource.png'
             }
           />
         <div className='content'>
           <h1>{title}</h1>
-          <h1>{titleEvent}</h1>
           <p className='desc'>{desc}</p>
           <a target="" href={url}>{url ? "Voir le site web" : ""}</a>
           <p><b>{adresse ? "Adresse : " : ""}</b>{adresse}</p>

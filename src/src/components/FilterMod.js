@@ -24,7 +24,7 @@ const FilterMod = ({ value, index, filtersDomain }) => {
   //TODO add those icons in the icon.json and rename to font awesome naming
   function fontAwesomeName() {
     if (datasetIcon) {
-      if(datasetIcon === "place") {
+      if(datasetIcon === "place" || datasetIcon === "location-dot") {
         return  "map-marker"
       }
       else if (datasetIcon === "employees") {
