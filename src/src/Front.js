@@ -128,13 +128,22 @@ function Map() {
   // Get DataLayers and add data to map
   useEffect(() => {
 
-    //console.log(dataLayers)
-    /*var Order = ["Structure Médiation", "Evenements" ]
-    var sortedDataLayer = Order.filter(v => dataLayers.includes(v[0]));
-    var array1 = Order.map((object, i) => dataLayers[object]);
-    console.log(array1)*/
+    // Order an array with objects based on an string in order array 
+    function mapOrder (array, order, key) {
+      array.sort( function (a, b) {
+        var A = a[key], B = b[key];
+        
+        return order.indexOf(A) > order.indexOf(B) ? 1 : -1;
+        
+      });
+      
+      return array;
+    };
+
     if (dataLoaded && dataLayers) {
-      dataLayers.map((dataset, index) => {
+      var order = ["Structure Médiation", "Evenements" ]
+      var ordered_array = mapOrder(dataLayers, order, 0);  
+      ordered_array.map((dataset, index) => {
         dispatch(
           addDataToMap({
             datasets: [
