@@ -19,8 +19,10 @@ const customStyles = {
     color: 'white',
     backgroundImage: "url(" + Bg + ")",
     backgroundSize: "cover",
-    borderRadius: "20px"
+    borderRadius: "20px",
+    zIndex: 99
   },
+  overlay: {zIndex: 1000}
 
 };
 

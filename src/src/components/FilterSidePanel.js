@@ -20,16 +20,30 @@ const FilterSidePanel = () => {
   // Get the filter values, id  and map them to buttons
   const filtersDomain = useSelector((state) => state.keplerGl.map?.visState?.filters ?? []);
   const layers = useSelector((state) => state.keplerGl.map?.visState?.layers ?? {});
-  const filterTree = useMemo(() => {
-    return Object.values(layers).map((value) => {
-      return { label: value.config.label, id: value.config.dataId };
-    });
-  }, [layers]);
-  //TODO Get layer color and use it for buttons bg color
-  const Filters = filterTree.map((value, index) => {
+// TODO PUT in a helper file
+const rgbToHex = (r, g, b) => '#' + [r, g, b].map(x => {
+  const hex = x.toString(16)
 
-    return <FilterMod key={index} value={value} index={index} filtersDomain={filtersDomain} />;
+  return hex.length === 1 ? '0' + hex : hex
+}).join('')
+
+const filterTree = useMemo(() => {
+  return Object.values(layers).map((value) => {
+
+    // WIP trying to get layer color to map to filter btn color
+    var colorRgb = value.config.color
+    var colorHexa = rgbToHex(colorRgb[0], colorRgb[1], colorRgb[2])
+    //console.log(colorRgb)
+    //console.log(rgbToHex(colorRgb[0], colorRgb[1], colorRgb[2]))
+
+    return { label: value.config.label, id: value.config.dataId, colorHexa: colorHexa};
   });
+}, [filtersDomain, layers]);
+//TODO Get layer color and use it for buttons bg color
+
+const Filters = filterTree.map((value, index, color) => {
+  return <FilterMod key={index} value={value} index={index} filtersDomain={filtersDomain} color={color} />;
+});
 
   const openAddData = () => {
     dispatch(toggleModal('addData'));

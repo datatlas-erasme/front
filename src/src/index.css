@@ -26,7 +26,7 @@ body {
 }
 
 /*TODO FIX hide trough kepler injections*/
-.map-control, .side-panel--container {
+.map-control, side-panel--container {
   display: none !important;
 }
 
@@ -127,7 +127,8 @@ body {
   right: 30px;
   display: flex;
   flex-direction: column;
-  height: 84vh;
+  height: max-content;
+  max-height: 84vh;
   overflow: auto;
   /*width: 11%;*/
   padding-right: 10px;
