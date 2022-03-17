@@ -7,7 +7,7 @@ import Button from './filter-side-panel/Button';
 //TODO Fetch this array from the back api
 const buttonColorRange = instanceConf.theme.filterSidePanel.buttonColorRange;
 
-const FilterMod = ({ value, index, filtersDomain }) => {
+const FilterMod = ({ value, index, filtersDomain, color }) => {
   // Toggle the visibility of buttons parent list
   const [isActive, setIsActive] = useState(false);
   const handleClick = () => {
@@ -45,7 +45,7 @@ const FilterMod = ({ value, index, filtersDomain }) => {
     <Button
       onClick={handleClick}
       btnType="parent"
-      bg={buttonColorRange[datasetIndex]}
+      bg={color}
       text={datasetLabel}
       layerId={index}
       iconName={fontAwesomeName(datasetIcon)}
@@ -61,7 +61,7 @@ const FilterMod = ({ value, index, filtersDomain }) => {
           <div className='filter'>
             <li key={index} className="filter-parent">
               <Button
-                bg={buttonColorRange[datasetIndex]}
+                bg={color}
                 btnType="child"
                 text={filterName[0]}
                 listNames={filterDomain}

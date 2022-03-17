@@ -42,7 +42,7 @@ const filterTree = useMemo(() => {
 //TODO Get layer color and use it for buttons bg color
 
 const Filters = filterTree.map((value, index, color) => {
-  return <FilterMod key={index} value={value} index={index} filtersDomain={filtersDomain} color={color} />;
+  return <FilterMod key={index} value={value} index={index} filtersDomain={filtersDomain} color={value.colorHexa} />;
 });
 
   const openAddData = () => {
