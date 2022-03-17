@@ -132,15 +132,16 @@ function Map() {
     function mapOrder (array, order, key) {
       array.sort( function (a, b) {
         var A = a[key], B = b[key];
-        
+
         return order.indexOf(A) > order.indexOf(B) ? 1 : -1;
-        
       });
       
       return array;
     };
 
     if (dataLoaded && dataLayers) {
+
+      //TODO order array should be based on the instance layer order
       var order = ["Structure Médiation", "Evenements" ]
       var ordered_array = mapOrder(dataLayers, order, 0);  
       ordered_array.map((dataset, index) => {
