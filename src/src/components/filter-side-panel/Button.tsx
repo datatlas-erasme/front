@@ -98,7 +98,7 @@ const Button = ({
       <div>
         <button
           onClick={isActiveState}
-          style={{ backgroundColor: LightenDarkenColor(bg, -20), fontSize: textSize }}
+          style={{ backgroundColor: LightenDarkenColor(bg, 30), fontSize: textSize }}
           className={classnames('btn', className, { active: !isActive })}
           {...props}
         >
