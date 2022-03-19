@@ -7,9 +7,9 @@ COPY . /src
 WORKDIR /src/src
 RUN ls
 # DIRTY FIX
-RUN git clone https://github.com/datatlas-erasme/kepler.gl.git
-WORKDIR  /src/src/kepler.gl
-RUN git checkout add-multiple-value-column
+#RUN git clone https://github.com/datatlas-erasme/kepler.gl.git
+#WORKDIR  /src/src/kepler.gl
+#RUN git checkout add-multiple-value-column
 WORKDIR /src/src
 
 # TODO : do not mix yarn and npm packages
@@ -17,8 +17,8 @@ RUN yarn install
 RUN yarn add @deck.gl/geo-layers
 
 #RUN npm install --force
-RUN rm -r  /src/src/node_modules/kepler.gl/*
-RUN cp -r /src/src/kepler.gl/dist/*  /src/src/node_modules/kepler.gl/
+#RUN rm -r  /src/src/node_modules/kepler.gl/*
+#RUN cp -r /src/src/kepler.gl/dist/*  /src/src/node_modules/kepler.gl/
 
 
 #RUN --mount=type=secret,id=REACT_APP_MAPBOX_TOKEN \

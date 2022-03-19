@@ -8,13 +8,17 @@
   },
   "theme": {
     "filterSidePanel": {
-      "buttonColorRange": ["#dc7e6d", "#69b59d", "#c3c356"]
+      "buttonColorRange": [
+        "#27536f",
+        "#27536f",
+        "#df7160"
+    ]
     }
   },
   "bottomRightButtons": [
-    { "text": "+ Ajouter un lieu", "url": "https://form.typeform.com/to/V1f3GNXR" },
+    { "text": "Proposer une structure", "url": "https://form.typeform.com/to/V1f3GNXR" },
     {
-      "text": "+ Ajouter un évenement",
+      "text": " Proposer un évenement",
       "url": "https://form.typeform.com/to/vTRYrYpv?typeform-source=tank-tiga.webflow.io"
     }
   ],

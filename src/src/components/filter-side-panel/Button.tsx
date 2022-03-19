@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { layerConfigChange } from 'kepler.gl/actions';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faChevronRight,
-  faChevronDown,
-  faEye,
-  faEyeSlash,
-} from '@fortawesome/free-solid-svg-icons';
+import { layerConfigChange } from 'erasme-kepler.gl/actions';
+import { IconName, IconPrefix, IconProp, library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckSquare, faCoffee, faEye, faMapMarked, faMapMarker, faUserFriends, faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';
 import { LightenDarkenColor } from 'lighten-darken-color';
 import { Override } from '../../types/Override';
 import { AppStore } from '../../redux/store';
 import List from './List';
+
+library.add(fab, faCheckSquare, faCoffee, faMapMarker, faUserFriends, faEye, faPlus, faTimes)
 
 export type ButtonProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
@@ -25,6 +24,7 @@ export type ButtonProps = Override<
     listNames?: string[];
     idFilter?: string;
     layerId?: string;
+    iconName?: IconName;
   }
 >;
 
@@ -34,9 +34,10 @@ const Button = ({
   textSize,
   btnType,
   listNames,
-  idFilter,
+  idFilter = '0',
   layerId,
   className,
+  iconName,
   ...props
 }: ButtonProps) => {
   const dispatch = useDispatch();
@@ -58,6 +59,18 @@ const Button = ({
     layerId !== undefined ? state.keplerGl.map?.visState?.layers[layerId] : undefined,
   );
 
+  const Icon = () => {
+    if (iconName) {
+      return (
+        <FontAwesomeIcon icon={iconName} />
+      )
+    }
+    else {
+      return null
+    }
+    
+  }
+
   useEffect(() => {
     //console.log(isLayerVisible)
     if (layer) {
@@ -70,9 +83,9 @@ const Button = ({
     return (
       <div className="btn-parent" style={{ backgroundColor: bg, fontSize: textSize }}>
         <p onClick={isLayerVisibleState}>
-          <FontAwesomeIcon icon={isLayerVisible ? faEye : faEyeSlash} />
+        <Icon/>
         </p>
-        <button className="btn" {...props}>
+        <button className="btn" {...props} style={{ backgroundColor: bg }}>
           {text.substring(0, 30)}
         </button>
       </div>
@@ -80,27 +93,22 @@ const Button = ({
   }
   // Medium button styling + lits display
   else if (btnType === 'child') {
-    //console.log("ID FILTER", idFilter)
-    //console.log("List Names", listNames)
 
     return (
       <div>
         <button
           onClick={isActiveState}
-          style={{ backgroundColor: LightenDarkenColor(bg, -20), fontSize: textSize }}
+          style={{ backgroundColor: LightenDarkenColor(bg, 30), fontSize: textSize }}
           className={classnames('btn', className, { active: !isActive })}
           {...props}
         >
-          <span>
-            <FontAwesomeIcon icon={!isActive ? faChevronRight : faChevronDown} />{' '}
-          </span>
           {text?.substring(0, 30)}
         </button>
         <AnimateHeight
           duration={500}
           height={!isActive ? 0 : 'auto'} // see props documentation bellow
         >
-          <div>
+          <div className='list'>
             <List listNames={listNames} backgroundColor={bg} idFilter={idFilter} />
           </div>
         </AnimateHeight>
@@ -110,11 +118,11 @@ const Button = ({
     return (
       <button
         onClick={isActiveState}
-        style={{ backgroundColor: LightenDarkenColor(bg, -60), fontSize: textSize }}
-        className={classnames('btn', className, { selected: isActive })}
+        style={{ backgroundColor: LightenDarkenColor(bg, 60), fontSize: textSize }}
+        className={classnames('btn', className, { selected: !isActive })}
         {...props}
       >
-        {text.substring(0, 30)}
+         <Icon/> {text.substring(0, 30)}
       </button>
     );
   }

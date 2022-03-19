@@ -9,7 +9,7 @@ const BottomRightSection = () => {
     <div className="crowdsourcing">
       {config.map((buttonConf, index) => (
         <a key={index} href={buttonConf.url} target="_blank" rel="noreferrer">
-          <Button bg="black" fontSize="10" text={buttonConf.text} />
+          <Button bg="black" fontSize="10" iconName="plus" text={buttonConf.text} />
         </a>
       ))}
     </div>

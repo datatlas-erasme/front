@@ -1,3 +1,3 @@
-declare module 'kepler.gl';
+declare module 'erasme-kepler.gl';
 
-declare module 'kepler.gl/actions';
+declare module 'erasme-kepler.gl/actions';
