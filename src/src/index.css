@@ -26,7 +26,7 @@ body {
 }
 
 /*TODO FIX hide trough kepler injections*/
-.map-control, side-panel--container {
+.map-control, .side-panel--container {
   display: none !important;
 }
 
@@ -251,9 +251,15 @@ filters .filter-child button.active span {
 }
 
 .btn-parent p {
+  border-radius: 5px 0px 0px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
   width: 40px;
   text-align: center;
   color: white;
+  background-color: inherit;
 }
 
 .btn-child {
@@ -282,7 +288,7 @@ button {
   letter-spacing : 0.75px
 }
 
-.btn-parent button:hover, .crowdsourcing button:hover {
+.btn-parent button:hover, .crowdsourcing button:hover, .btn-parent p:hover {
   cursor: pointer;
   filter: brightness(0.6);
   transition: all ease-in-out 0.2s;
