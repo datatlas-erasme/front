@@ -91,29 +91,20 @@ function Map() {
         .then((data) => {
           setInstanceConf(data)
           setInstanceConfLoaded(true)
-        });  
-  }, []);
-
-   // Retreive Kepler configuration
-   useEffect(() => {
-    console.log("FETCH DATA" + backendUrl + "/api/conf/kepler")
+        }); 
     fetch(backendUrl + "/api/conf/kepler")
         .then((res) => res.json())
         .then((data) => {
           setKeplerConf(data)
           setKeplerConfLoaded(true)
-        });
-   
-    //setTestInstance(promises)
-    
+        }); 
   }, []);
-    
+  
   // Get instance config / fetch data and store into DataLayers
   useEffect(() => {
     if(instanceConfLoaded) {
       const buffer = [];
       const promises = instanceConf.layers.map((layer) => {
-        //console.log(layer.type);
   
         return fetch(layer.url)
           .then((res) => res.json())
@@ -136,8 +127,24 @@ function Map() {
 
   // Get DataLayers and add data to map
   useEffect(() => {
-    if (dataLayers) {
-      dataLayers.map((dataset, index) => {
+
+    // Order an array with objects based on an string in order array 
+    function mapOrder (array, order, key) {
+      array.sort( function (a, b) {
+        var A = a[key], B = b[key];
+
+        return order.indexOf(A) > order.indexOf(B) ? 1 : -1;
+      });
+      
+      return array;
+    };
+
+    if (dataLoaded && dataLayers) {
+
+      //TODO order array should be based on the instance layer order
+      var order = ["Structure Médiation", "Evenements" ]
+      var ordered_array = mapOrder(dataLayers, order, 0);  
+      ordered_array.map((dataset, index) => {
         dispatch(
           addDataToMap({
             datasets: [
@@ -157,7 +164,7 @@ function Map() {
 
   // Pass the default kepler styling
   useEffect(() => {
-    if(keplerConfLoaded){
+    if(keplerConfLoaded && instanceConf){
       dispatch(addDataToMap({ datasets: [], option: { centerMap: false }, config: keplerConf }));
       // Load à custum map style from backend
       dispatch(inputMapStyle({style: instanceConf.defaultMapBoxStyleUrl, id:"monochrome", name:"Monochrome"}))
@@ -166,21 +173,13 @@ function Map() {
       dispatch(addCustomMapStyle())
       setMapUpdated(true);
     }
-  }, [dispatch, keplerConfLoaded, keplerConf]);
-
-  // TODO updatemap is not taken into account
-  useEffect(() => {
-    console.log(instanceConf.defaultMapLocation)
-    if (mapUpdated) {
-      dispatch(updateMap({latitude:0, longitude: 0, zoom: 10}))
-    }
-  }, [dispatch,mapUpdated]);
+  }, [dispatch, keplerConfLoaded, keplerConf, instanceConf]);
 
   return mapUpdated ? (
     <div>
       <KeplerGl
         id="map"
-        mapboxApiAccessToken={instanceConf.mapboxToken}
+        mapboxApiAccessToken="pk.eyJ1IjoieXNpb3VkYSIsImEiOiJja3JnZ2k1cDg1cTMxMnJueGV6cDU4c25iIn0.td9NqwcqkUW1VeRIPB2oTA"
         width={window.innerWidth}
         height={window.innerHeight}
         appName="Datatlas"
@@ -189,9 +188,11 @@ function Map() {
       <Logo />
       <FilterSidePanel />   
     </div>
-  ) : (
-    ''
-  );
+    ) : (
+      <div>
+        <h1>CHARGEMENT DE LA CARTE</h1>
+      </div>
+    );
 }
 
 function Front() {

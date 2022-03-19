@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,700&display=swap');
 
 body {
   margin: 0;
@@ -26,7 +26,7 @@ body {
 }
 
 /*TODO FIX hide trough kepler injections*/
-.map-control, side-panel--container {
+.map-control, .side-panel--container {
   display: none !important;
 }
 
@@ -55,6 +55,7 @@ body {
   overflow-x: hidden;
   box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.4);
   animation: 0.2s linear 0s running slidein;
+  background-color: #fbfbfb;
   }
 
   @keyframes slidein {
@@ -66,6 +67,9 @@ body {
     from { width: 0; }
     to   { height: 50px; }
   }
+  .PointSidePanel {
+    background-color:#f3f3f3;
+  }
 
   .PointSidePanel::-webkit-scrollbar {
     display: none;
@@ -75,13 +79,18 @@ body {
     width: 100%;
     height: auto; 
   }
-  .PointSidePanel .content {
+  .PointSidePanel .content div {
     padding: 20px 45px 45px 45px;
   }
  
+  .PointSidePanel .infos {
+    background-color:#e9e9e9;
+  }
+
   .PointSidePanel h1 {
     color: #1a1a1a;
     font-size: 40px;
+    line-height: 40px;
   }
 
   .PointSidePanel p {
@@ -98,7 +107,7 @@ body {
   }
 
   .PointSidePanel .desc {
-    font-size: 20px;
+    font-size: 16px;
     margin-top: 5px;
   }
 
@@ -118,7 +127,8 @@ body {
   right: 30px;
   display: flex;
   flex-direction: column;
-  height: 84vh;
+  height: max-content;
+  max-height: 84vh;
   overflow: auto;
   /*width: 11%;*/
   padding-right: 10px;
@@ -241,9 +251,15 @@ filters .filter-child button.active span {
 }
 
 .btn-parent p {
+  border-radius: 5px 0px 0px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
   width: 40px;
   text-align: center;
   color: white;
+  background-color: inherit;
 }
 
 .btn-child {
@@ -272,7 +288,7 @@ button {
   letter-spacing : 0.75px
 }
 
-.btn-parent:hover {
+.btn-parent button:hover, .crowdsourcing button:hover, .btn-parent p:hover {
   cursor: pointer;
   filter: brightness(0.6);
   transition: all ease-in-out 0.2s;
@@ -289,6 +305,8 @@ button {
 /********************** ABOUT PANEL *********************/
 .header {
   display: flex;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 .header h2 {
   font-size: 7vw;
@@ -296,8 +314,9 @@ button {
   margin: 0 0 0 7%;
 }
 .header h3 {
-  font-size: 1.8vw;
+  font-size: 1.7vw;
   margin: 1% 14% 0 5%;
+  font-weight: bold;
 }
 
 .header button {
@@ -305,9 +324,13 @@ button {
   height: 50px;
   color: black;
   padding: 9px;
-  width: 100px;
+  width: 50px;
   font-size: 32px;
   margin-left: 5px;
+  background-color: white;
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
 
 .modal-content {
@@ -316,7 +339,7 @@ button {
 }
 
 .modal-content .left-content {
-  font-size: 1.1vw;
+  font-size: 1.3vw;
   margin: 0% 7% 0 7%;
   line-height: 1.6;
 } 
@@ -324,25 +347,28 @@ button {
 .right-content {
   width: 200%;
   padding-top: 25px;
+  padding-right: 5%;
 }
 
 .right-content .subtext {
-  font-size: 1.0vw;
+  font-size: 0.9vw;
 }
 
 .right-content .buttons {
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .right-content .buttons .btn {
   background: black !important;
   width: max-content;
-  border: solid 0.2px;
+  border: solid 1px;
   border-radius: 4px;
-  margin-bottom: 15px;
+  margin-bottom: 9px;
   text-transform: initial;
   font-size: 1.1vw;
+  padding: 16px 20px;
 }
 
 .right-content .buttons .btn:hover {
@@ -352,14 +378,13 @@ button {
 .right-content .logos {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   margin: 29px 0 0 0;
 }
 
 .right-content .logos a {
   width: max-content;
-  width: 30%;
-  padding-left: 15px;
+  width: 33%;
 }
 
 .right-content .logos a img {
