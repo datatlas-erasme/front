@@ -1,4 +1,4 @@
-name: build-publish-dev-container
+name: build-canographia
 
 on:
   push:
