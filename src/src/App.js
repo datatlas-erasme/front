@@ -1,32 +1,23 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import { Route, Routes } from 'react-router-dom';
+import { datalimentaire }  from './styles';
 
-const Back = React.lazy(() => import('./Back'));
-const Front = React.lazy(() => import('./Front'));
-document.title = "M.ind."
-const App = () => {
+const Front = React.lazy(() => import('./components/index'));
+
+export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="*"
-          element={
-            <React.Suspense fallback={null}>
-              <Front />
-            </React.Suspense>
-          }
-        />
-        <Route
-          path="/back"
-          element={
-            <React.Suspense fallback={null}>
-              <Back />
-            </React.Suspense>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider theme={datalimentaire}>
+          <Routes>
+              <Route
+                path="*"
+                element={
+                  <React.Suspense fallback={null}>
+                    <Front />
+                  </React.Suspense>
+                }
+              />
+          </Routes>
+    </ThemeProvider>
   );
 };
-
-export default App;
