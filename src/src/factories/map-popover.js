@@ -114,15 +114,15 @@ const CustomMapPopoverFactory = (...deps) => {
         //ContentBuffer.push({cat: "types-structure", content: "<p><b>Type de structure :</b> " + data[index] + "</p>"})
       }
       if (field.displayName.includes('Activites')) {
-        ContentBuffer.push({cat: "Activites", content:data[index]})
+        ContentBuffer.push({cat: "Activites", content:data[index]+" "})
         //ContentBuffer.push({cat: "activites", content: " <p><b>Activités : </b> " + data[index]+"</p>"})
       }
       if (field.displayName.includes('Domaines-expertise')) {
-        ContentBuffer.push({cat: "Domaines-expertise", content: data[index]})
+        ContentBuffer.push({cat: "Domaines-expertise", content: data[index]+" "})
         //ContentBuffer.push({cat: "Domaines-expertise", content: " <p><b>Expertise :</b> "+data[index]+"</p>"})
       }
       if (field.displayName.includes('Publics')) {
-        ContentBuffer.push({cat: "Publics", content: data[index]})
+        ContentBuffer.push({cat: "Publics", content: data[index]+" "})
         //ContentBuffer.push({cat: "Publics-cibles", content: " <p><b>Publics :</b> "+data[index]+"</p>"}
       }
       if (field.displayName.includes('type_event')) {
@@ -147,6 +147,8 @@ const CustomMapPopoverFactory = (...deps) => {
     const publicsCibles = ContentBuffer.filter((value) => value.cat === "Publics" )[0]?.content
     const typeEvent = ContentBuffer.filter((value) => value.cat === "Types" )[0]?.content
     const url = ContentBuffer.filter((value) => value.cat === "Site-web" )[0]?.content
+
+    console.log(expertises)
 
     return (
       <div className="PointSidePanel">
