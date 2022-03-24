@@ -2,7 +2,7 @@ name: build-publish-dev-industries
 on:
   push:
     branches:
-      - 'dev'
+      - 'dev-industries'
   workflow_dispatch:
 jobs:
   push_to_registry:
