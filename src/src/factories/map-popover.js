@@ -148,8 +148,6 @@ const CustomMapPopoverFactory = (...deps) => {
     const typeEvent = ContentBuffer.filter((value) => value.cat === "Types" )[0]?.content
     const url = ContentBuffer.filter((value) => value.cat === "Site-web" )[0]?.content
 
-    console.log(expertises)
-
     return (
       <div className="PointSidePanel">
          <img
