@@ -71,10 +71,17 @@ body {
     display: none;
   }
 
+  .PointSidePanel .img-container {
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+  }
+
   .PointSidePanel img {
     width: 100%;
     height: auto; 
   }
+
   .PointSidePanel .content {
     padding: 20px 45px 45px 45px;
   }

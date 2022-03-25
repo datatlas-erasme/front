@@ -84,8 +84,8 @@ const CustomMapPopoverFactory = (...deps) => {
     const ContentBuffer = []
 
     const PointFieldsFixImage =  allFields.map((field, index) => {
-      if (field.displayName.includes('image')) {
-        ContentBuffer.push({cat: "image", content: data[index]})
+      if (field.displayName.includes('img')) {
+        ContentBuffer.push({cat: "img", content: data[index]})
 
       }
     });
@@ -134,7 +134,7 @@ const CustomMapPopoverFactory = (...deps) => {
     });
 
     const title = ContentBuffer.filter((value) => value.cat === "title" )[0]?.content
-    const image = ContentBuffer.filter((value) => value.cat === "image" )[0]?.content
+    const image = ContentBuffer.filter((value) => value.cat === "img" )[0]?.content
     const desc = ContentBuffer.filter((value) => value.cat === "description" )[0]?.content
     const adresse = ContentBuffer.filter((value) => value.cat === "adress" )[0]?.content
     const typeStruct = ContentBuffer.filter((value) => value.cat === "types-structure" )[0]?.content
@@ -146,13 +146,15 @@ const CustomMapPopoverFactory = (...deps) => {
 
     return (
       <div className="PointSidePanel">
-         <img
+         <div className='img-container'>
+           <img
             src={
               image
                 ? image
                 : 'https://canographia.datagora.erasme.org/wp-content/themes/canographia/assets/placeholder-ressource.png'
             }
           />
+          </div>
         <div className='content'>
           <h1>{title}</h1>
           <p className='desc'>{desc}</p>
