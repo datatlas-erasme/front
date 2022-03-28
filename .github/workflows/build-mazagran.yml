@@ -1,8 +1,8 @@
-name: build-publish-dev-industries
+name: build-publish-dev-mazagran
 on:
   push:
     branches:
-      - 'dev-industries'
+      - 'dev-mazagran'
   workflow_dispatch:
 jobs:
   push_to_registry:
@@ -25,6 +25,6 @@ jobs:
         with:
           push: true
           repository:  
-          tags: erasme/datatlas-industries:latest, erasme/datatlas-industries:${{ github.sha }}
+          tags: erasme/datatlas-mazagran:latest, erasme/datatlas-mazagran:${{ github.sha }}
           build-args: |
-            REACT_APP_BACKEND_URL=${{ secrets.INDUSTRIE_BACKEND_URL  }}
+            REACT_APP_BACKEND_URL=${{ secrets.MAZAGRAN_BACKEND_URL  }}
