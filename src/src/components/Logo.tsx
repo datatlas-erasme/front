@@ -11,7 +11,6 @@ export default function Logo(props: LogoProps) {
         <img alt="top-left-logo" src={logoGl}></img>
       </div>
       <div className="bottom-left-logo">
-        <img alt="bottom-left-logo" src={logoTI}></img>
       </div>
     </div>
   );

@@ -92,15 +92,15 @@ const CustomMapPopoverFactory = (...deps) => {
 
     const PointFieldsFix =  allFields.map((field, index) => {
       // TODO check if is url and has image extension
-      if (field.displayName.includes('Nom-evenement')) {
+      if (field.displayName.includes('Nom')) {
         ContentBuffer.push({cat: "Nom-structure", content: data[index]})
         //ContentBuffer.push({cat: "Nom-structure", content: " <h1>"+ data[index]+ "</h1>"})
       }
-      if (field.displayName.includes('Nom-structure')) {
+      if (field.displayName.includes('Nom')) {
         ContentBuffer.push({cat: "Nom-structure", content: data[index]})
         //ContentBuffer.push({cat: "Nom-structure", content: " <h1>"+ data[index]+ "</h1>"})
       }
-      if (field.displayName.includes('Description')) {
+      if (field.displayName.includes('Descriptif')) {
         ContentBuffer.push({cat: "Description", content: data[index]})
         //ContentBuffer.push({cat: "Description", content:  "<p className='desc'>"+ data[index] + "</p>"})
 
@@ -109,7 +109,7 @@ const CustomMapPopoverFactory = (...deps) => {
         ContentBuffer.push({cat: "Adresse", content:data[index]})
         //ContentBuffer.push({cat: "Adresse", content: " <p><b>Adresse :</b>"+data[index] +"</p>"})
       }
-      if (field.displayName.includes('Types')) {
+      if (field.displayName.includes('Type de structure')) {
         ContentBuffer.push({cat: "Types", content:data[index]})
         //ContentBuffer.push({cat: "types-structure", content: "<p><b>Type de structure :</b> " + data[index] + "</p>"})
       }
@@ -129,7 +129,7 @@ const CustomMapPopoverFactory = (...deps) => {
         ContentBuffer.push({cat: "type_event", content: data[index]})
         //ContentBuffer.push({cat: "type_event", content: "<p><b>Type Event :</b> "+data[index]+"</p>"})
       }
-      if (field.displayName.includes('Site-web')) {
+      if (field.displayName.includes('Site Web')) {
         ContentBuffer.push({cat: "Site-web", content: data[index]})
         //ContentBuffer.push({cat: "site", content: '<a target="" href='+data[index]+'>Voir le site web</a>'})
       }
@@ -154,7 +154,7 @@ const CustomMapPopoverFactory = (...deps) => {
             src={
               image
                 ? image
-                : 'https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+                : 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Lyon_7e_-_Jardin_partag%C3%A9_Mazagran_2_%28mai_2019%29.jpg'
             }
           />
         <div className='content'>
