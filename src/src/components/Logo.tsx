@@ -8,7 +8,6 @@ export default function Logo(props: LogoProps) {
   return (
     <div {...props}>
       <div className="top-left-logo">
-        <img alt="top-left-logo" src={logoGl}></img>
       </div>
       <div className="bottom-left-logo">
       </div>
