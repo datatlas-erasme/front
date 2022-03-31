@@ -1,8 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400&display=swap');
+
+
+* {
+  font-family: 'Space Grotesk', sans-serif !important;
+}
 
 body {
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Space Grotesk', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -26,7 +31,7 @@ body {
 }
 
 /*TODO FIX hide trough kepler injections*/
-.map-control, .side-panel--container {
+.map-control, side-panel--container {
   display: none !important;
 }
 
@@ -235,7 +240,7 @@ filters .filter-child button.active span {
   margin-top: 0px;
   width: max-content;
   border-radius: 5px 5px 5px 5px;
-  background-color: #df7160;
+  background-color: #CF8EFF;
   text-align: center;
 }
 

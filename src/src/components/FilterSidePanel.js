@@ -56,9 +56,7 @@ const Filters = filterTree.map((value, index, color) => {
   return (
     <div className="filters">
       {Filters}
-      
-      <BottomRightSection />
-      <About/>
+      <BottomRightSection/>
     </div>
   );
 };

@@ -7,12 +7,10 @@ const BottomRightSection = () => {
 
   return (
     <div className="crowdsourcing">
-      {config.map((buttonConf, index) => (
-        <a key={index} href={buttonConf.url} target="_blank" rel="noreferrer">
-          <Button bg="black" fontSize="10" iconName="plus" text={buttonConf.text} />
-        </a>
-      ))}
-    </div>
+      <a href='https://carto.erasme.org/Mazagran'>
+       <Button bg="black" fontSize="10" iconName="plus" text="mise en action" />
+       </a>
+       </div>
   );
 };
 
