@@ -80,5 +80,11 @@ export default function FetchInstanceConf() {
       
     }, [instanceConf, instanceConfLoaded]);
 
-    return (<App instanceConf={instanceConf}/>)
+    if (instanceConfLoaded) {
+      return (<App instanceConf={instanceConf}/>)
+    }
+    else {
+      return (<div>Loading...</div>)
+    }
+   
 }
