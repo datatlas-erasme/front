@@ -17,7 +17,7 @@ export const BlockFilters = styled.div`
     padding: 40px 0;
 
 
-    background-color: #fcfafa;
+    background-color: red;
     border: 1px solid #E8E8E8;
     box-sizing: border-box;
     border-radius: 10px;

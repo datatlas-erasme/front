@@ -67,6 +67,14 @@ export const datalimentaire = {
   letterSpacings: {
 		normal: 'normal'
   },
+
+  Panel: {
+    top: 0,
+    bottom: 0,
+    right: 'auto',
+    left: 0,
+    backgroundColor: '#fff'
+  },
   
   space: [
       // margin and padding
@@ -81,6 +89,72 @@ export const datalimentaire = {
     ],
   
   radii: ['0px', '2px', '4px', '8px', '16px', '20px', '40px']
+
+}
+
+export const industries = {
+
+  colors : {
+      primary: '#0d4559',
+      secondary: '#df7160',
+      darkgray: '#71717E',
+      gray: '#c4c4c4',
+      background: '#fcafafa',
+      red: '#ff4848',
+      blue: '#aad7ff'
+  },
+
+  fontSizes: {
+    xstext : '14px', 
+    paragraphe: '16px', 
+    xltext : '18px', 
+    xstitle : '22px', 
+    mtitle : '28px', 
+    xltitle: '36px'
+  },
+
+  fontWeights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+
+  lineHeights: {
+		normal: 1,
+		title: 1.25,
+		paragraph: 1.5
+	},
+  letterSpacings: {
+		normal: 'normal'
+  },
+  
+  space: [
+      // margin and padding
+      0,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+      256,
+    ],
+  
+  radii: ['0px', '2px', '4px', '8px', '16px', '20px', '40px'],
+
+  collapse: {
+
+  },
+
+  Panel: {
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 'auto',
+    backgroundColor: '#ffffff00',
+    justifyContent: 'flex-start',
+  },
+
+  ButtonCollapse: {
+    backgroundColor: "red",
+    borderRadius: "10px",
+  }
 
 }
 

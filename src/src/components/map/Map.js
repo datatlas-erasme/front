@@ -146,7 +146,7 @@ export default function MapContainer() {
   //       map.addControl(scale, 'bottom-right');
   //     }
   // };
-    
+
     return mapUpdated ? (
       <div style={{position: 'absolute', width: '100%', height: '100%'}}>
          <AutoSizer>
