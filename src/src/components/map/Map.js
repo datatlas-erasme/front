@@ -40,8 +40,7 @@ export default function MapContainer() {
   
     const backendUrl = process.env.REACT_APP_BACKEND_URL
     
-    //TODO create helper to fetch conf ?
-  
+ 
     // Retreive Instance configuration
     useEffect(() => {
       console.log("FETCH DATA" + backendUrl + "/api/conf/instance")
@@ -62,8 +61,6 @@ export default function MapContainer() {
             setKeplerConf(data)
             setKeplerConfLoaded(true)
           });
-     
-      //setTestInstance(promises)
       
     }, []);
       
@@ -89,7 +86,6 @@ export default function MapContainer() {
         Promise.all(promises).then(() => {
           setDataLayers(buffer);
           setDataLoaded(true);
-          //console.log('BUFFER', buffer);
         });
       }
       
@@ -134,18 +130,6 @@ export default function MapContainer() {
         dispatch(updateMap({latitude:0, longitude: 0, zoom: 20}))
       }
     }, [dispatch,mapUpdated]);
-
-// Perform certain actions on the Mapbox reference which kepler.gl may not expose
-  // getMapboxRef = (mapbox, index) => {
-  //     if (mapbox) {
-  //       const map = mapbox.getMap();
-  //       const scale = new mapboxgl.ScaleControl({
-  //             maxWidth: 120,
-  //             unit: 'metric'
-  //       });
-  //       map.addControl(scale, 'bottom-right');
-  //     }
-  // };
 
     return mapUpdated ? (
       <div style={{position: 'absolute', width: '100%', height: '100%'}}>

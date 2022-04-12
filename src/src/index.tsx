@@ -4,7 +4,6 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
-import App from './App';
 import store from './store';
 import FetchInstanceConf from './utils/FetchInstanceConf';
 

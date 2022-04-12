@@ -4,14 +4,12 @@ import {ViewportProvider} from '../utils/ViewportConext'
 import MapContainer from './map';
 import PanelControl from './panel';
 
-export default function Front({theme, instanceConf}) {
-
-  console.log("Front", instanceConf)
+export default function Front({theme, instance}) {
 
   return (
     <ViewportProvider> 
         <Style theme={theme}/>
-        <MapContainer />
+        <MapContainer instance={instance}/>
         <PanelControl />
       </ViewportProvider>
 

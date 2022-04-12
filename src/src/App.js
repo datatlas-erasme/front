@@ -6,8 +6,8 @@ import { industries }  from './styles';
 
 const Front = React.lazy(() => import('./components/index'));
 
-export default function App({instanceConf}) {
-  const theme = instanceConf?.theme?.name === 'Industries' ? industries : datalimentaire;
+export default function App({instance}) {
+  const theme = instance.conf?.theme?.name === 'Industries' ? industries : datalimentaire;
 
   return (
     <ThemeProvider theme={theme}>
@@ -16,7 +16,7 @@ export default function App({instanceConf}) {
                 path="*"
                 element={
                   <React.Suspense fallback={null}>
-                      <Front theme={theme} instanceConf={instanceConf}/>
+                      <Front theme={theme} instance={instance} />
                   </React.Suspense>
                 }
               />

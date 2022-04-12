@@ -25,8 +25,6 @@ export default function FetchInstanceConf() {
   
     const backendUrl = process.env.REACT_APP_BACKEND_URL
     
-    //TODO create helper to fetch conf ?
-  
     // Retreive Instance configuration
     useEffect(() => {
       console.log("FETCH DATA" + backendUrl + "/api/conf/instance")
@@ -47,8 +45,6 @@ export default function FetchInstanceConf() {
             setKeplerConf(data)
             setKeplerConfLoaded(true)
           });
-     
-      //setTestInstance(promises)
       
     }, []);
       
@@ -57,8 +53,7 @@ export default function FetchInstanceConf() {
       if(instanceConfLoaded) {
         const buffer = [];
         const promises = instanceConf.layers.map(async(layer) => {
-          console.log(layer);
-    
+  
           return fetch(layer.url)
             .then((res) => res.json())
             .then((data) => {
@@ -74,14 +69,16 @@ export default function FetchInstanceConf() {
         Promise.all(promises).then(() => {
           setDataLayers(buffer);
           setDataLoaded(true);
-          //console.log('BUFFER', buffer);
+          console.log('BUFFER', buffer);
         });
       }
       
     }, [instanceConf, instanceConfLoaded]);
 
-    if (instanceConfLoaded) {
-      return (<App instanceConf={instanceConf}/>)
+    if (instanceConfLoaded && dataLayers) {
+      console.log("Data Layers", dataLayers);
+
+      return (<App instance={{conf : instanceConf, datalayers: dataLayers, keplerConf: keplerConf }}/>)
     }
     else {
       return (<div>Loading...</div>)
