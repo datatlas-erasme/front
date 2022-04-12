@@ -4,7 +4,9 @@ import {ViewportProvider} from '../utils/ViewportConext'
 import MapContainer from './map';
 import PanelControl from './panel';
 
-export default function Front({theme}) {
+export default function Front({theme, instanceConf}) {
+
+  console.log("Front", instanceConf)
 
   return (
     <ViewportProvider> 
