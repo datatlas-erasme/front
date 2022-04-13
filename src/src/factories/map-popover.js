@@ -51,7 +51,7 @@ const CustomMapPopoverFactory = (...deps) => {
       return fieldsToShow.map((fieldToShow, fieldToShowIndex) => {
         if (field.displayName == fieldToShow.name) {
           // TODO check if is url and has image extension
-          if (field.displayName.includes('image')) {
+          if (field.displayName.includes('img')) {
             return (
               <img
                 src={
@@ -85,6 +85,7 @@ const CustomMapPopoverFactory = (...deps) => {
 
     const PointFieldsFixImage =  allFields.map((field, index) => {
       if (field.displayName.includes('img')) {
+        console.log(data[index])
         ContentBuffer.push({cat: "img", content: data[index]})
 
       }

@@ -72,13 +72,13 @@ body {
   }
 
   .PointSidePanel .img-container {
-    height: 300px;
+    height: 600px;
     width: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
   }
 
   .PointSidePanel img {
-    width: 100%;
+    width: -webkit-fill-available;
     height: auto; 
   }
 
