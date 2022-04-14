@@ -12,7 +12,6 @@ const PanelControl = () => {
     const { width } = useViewport();
     const breakpoint = 1024;
 
-    const dispatch = useDispatch();
     // Get the filter values, id  and map them to buttons
     const filtersDomain = useSelector( state => state.keplerGl.map?.visState?.filters ?? []);
     const layers = useSelector( state => state.keplerGl.map?.visState?.layers ?? {});

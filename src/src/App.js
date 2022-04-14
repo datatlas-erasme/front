@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
 import { datalimentaire }  from './styles';
@@ -12,9 +12,9 @@ export default function App() {
               <Route
                 path="*"
                 element={
-                  <React.Suspense fallback={null}>
+                  <Suspense fallback={null}>
                     <Front />
-                  </React.Suspense>
+                  </Suspense>
                 }
               />
           </Routes>

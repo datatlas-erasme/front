@@ -2,9 +2,6 @@ import styled from 'styled-components';
 import { datalimentaire } from '../../styles';
 
 export const PopHover = styled.div`
-
-      
-
 `
 
 export const ToolTip = styled.div`
