@@ -6,25 +6,10 @@ import {
   addCustomMapStyle, 
   inputMapStyle 
 } from 'erasme-kepler.gl/actions';
-import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import { processGeojson } from 'erasme-kepler.gl/processors';
-import { 
-  MapPopoverFactory, 
-  injectComponents, 
-  PanelToggleFactory 
-} from 'erasme-kepler.gl/components';
-import CustomMapPopoverFactory from '../../factories/map-popover';
-import CustomPanelToggleFactory from '../../factories/panel-toggle'
-import Logo from './Logo';
+import App from '../App';
 
-// import Logo from './Logo';
-
-// Inject the point sidepanel component
-const KeplerGl = injectComponents([
-  [MapPopoverFactory, CustomMapPopoverFactory], 
-]);
-
-export default function MapContainer() {
+export default function FetchInstanceConf() {
     const [dataLayers, setDataLayers] = useState([]);
   
     const [dataLoaded, setDataLoaded] = useState(false);
@@ -40,7 +25,6 @@ export default function MapContainer() {
   
     const backendUrl = process.env.REACT_APP_BACKEND_URL
     
- 
     // Retreive Instance configuration
     useEffect(() => {
       console.log("FETCH DATA" + backendUrl + "/api/conf/instance")
@@ -69,8 +53,7 @@ export default function MapContainer() {
       if(instanceConfLoaded) {
         const buffer = [];
         const promises = instanceConf.layers.map(async(layer) => {
-          console.log(layer);
-    
+  
           return fetch(layer.url)
             .then((res) => res.json())
             .then((data) => {
@@ -86,68 +69,19 @@ export default function MapContainer() {
         Promise.all(promises).then(() => {
           setDataLayers(buffer);
           setDataLoaded(true);
+          console.log('BUFFER', buffer);
         });
       }
       
     }, [instanceConf, instanceConfLoaded]);
-  
-    // Get DataLayers and add data to map
-    useEffect(() => {
-      if (dataLayers) {
-        dataLayers.map((dataset, index) => {
-          dispatch(
-            addDataToMap({
-              datasets: [
-                {
-                  info: {
-                    label: dataset[0],
-                    id: dataset[0],
-                  },
-                  data: dataset[1],
-                },
-              ],
-            }),
-          );
-        });
-      }
-    }, [dispatch, dataLoaded, dataLayers]);
-  
-    // Pass the default kepler styling
-    useEffect(() => {
-      if(keplerConfLoaded && instanceConf){
-        dispatch(addDataToMap({ datasets: [], option: { centerMap: true }, config: keplerConf }));
-  
-        // Load à custum map style from backend
-        dispatch(inputMapStyle({style: instanceConf.defaultMapBoxStyleUrl, id:"maquette", name:"Maquette"}))
-        dispatch(addCustomMapStyle())
-        setMapUpdated(true);
-      }
-    }, [dispatch, keplerConfLoaded, keplerConf, instanceConf]);
-  
-    // TODO updatemap is not taken into account
-    useEffect(() => {
-      if (mapUpdated) {
-        dispatch(updateMap({latitude:0, longitude: 0, zoom: 20}))
-      }
-    }, [dispatch,mapUpdated]);
 
-    return mapUpdated ? (
-      <div style={{position: 'absolute', width: '100%', height: '100%'}}>
-         <AutoSizer>
-            {({height, width }) => 
-              <KeplerGl
-              id="map"
-              mapboxApiAccessToken={instanceConf.mapboxToken}
-              width={width}
-              height={height}
-              appName="Datatlas"
-              />
-            }
-            {/* <Logo /> */}
-        </AutoSizer>
-      </div>
-     
-    ) : (
-      ''
-    );
-  }
+    if (instanceConfLoaded && dataLayers) {
+      console.log("Data Layers", dataLayers);
+
+      return (<App instance={{conf : instanceConf, datalayers: dataLayers, keplerConf: keplerConf }}/>)
+    }
+    else {
+      return (<div>Loading...</div>)
+    }
+   
+}

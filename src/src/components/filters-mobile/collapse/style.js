@@ -1,30 +1,24 @@
 import styled from "styled-components";
-import { datalimentaire } from "../../../styles";
-import { Colors } from "../../../styles";
+import { datalimentaire, Base } from "../../../styles";
+import px2vw from "../../../utils/px2vw";
 
 export const ButtonCollapse = styled.button`
-    background-color: #fcfafa;
-    color: black;
     height: auto;
-    margin: 0;
-    padding: 10px 20px;
-    border: 1px solid ${datalimentaire.colors.primary};
-    box-sizing: border-box;
-    border-radius: 40px;
-    color: ${Colors.text};
+    padding: ${px2vw(10)} ${px2vw(20)};
+    margin: ${px2vw(15)};
 
+    box-sizing: border-box;
+    border-radius: ${px2vw(40)};
+    border: 1px solid ${datalimentaire.colors.primary};
+
+    background-color: ${datalimentaire.colors.background};
+    color: ${datalimentaire.colors.primary};
 
     transition: all ease-in-out 0.2s;
-    cursor: pointer;
 
     font-weight: 500;
-    font-size: ${datalimentaire.fontSizes.xltext};
+    font-size: ${px2vw(16)};
     text-align: left;
-
-    // &:hover{
-    //     border-color: ${ datalimentaire.colors.primary};
-    //     background: ${datalimentaire.colors.secondary};
-    // }
 
     &.active{
         background: ${ datalimentaire.colors.primary};
@@ -32,8 +26,8 @@ export const ButtonCollapse = styled.button`
     }
 
     h4{
-        font-weight: ${datalimentaire.fontWeights[4]};
-        font-size: ${datalimentaire.fontSizes.xstext};
+        font-weight: ${Base.fontWeights[4]};
+        font-size: ${Base.fontSizes.xstext};
 
     }
 
@@ -46,5 +40,5 @@ export const SubHeading = styled.h4`
     border-bottom: 1px solid ${datalimentaire.colors.midgray};
     border-radius: 35px 35px 0px 0px;
 
-    font-size: ${datalimentaire.fontSizes.xstext};
+    font-size: ${Base.fontSizes.xstext};
 `

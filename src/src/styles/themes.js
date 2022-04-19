@@ -36,18 +36,7 @@ export const Style = createGlobalStyle`
   
 `;
 
-export const datalimentaire = {
-
-  colors : {
-      primary: '#343f56',
-      secondary: '#fff',
-      darkgray: '#71717E',
-      gray: '#c4c4c4',
-      background: '#fcafafa',
-      red: '#ff4848',
-      blue: '#aad7ff'
-  },
-
+export const Base = {
   fontSizes: {
     xstext : '14px', 
     paragraphe: '16px', 
@@ -64,28 +53,75 @@ export const datalimentaire = {
 		title: 1.25,
 		paragraph: 1.5
 	},
+
   letterSpacings: {
 		normal: 'normal'
   },
-  
+
   space: [
-      // margin and padding
-      0,
-      4,
-      8,
-      16,
-      32,
-      64,
-      128,
-      256,
-    ],
-  
+    0,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128,
+    256,
+  ],
+
   radii: ['0px', '2px', '4px', '8px', '16px', '20px', '40px']
+}
+
+export const datalimentaire = {
+
+  colors : {
+      primary: '#343f56',
+      secondary: '#fff',
+      darkgray: '#71717E',
+      gray: '#c4c4c4',
+      background: '#FCFAFA',
+      red: '#ff4848',
+      blue: '#aad7ff'
+  },
+
+  // Panel: {
+  //   top: 0,
+  //   bottom: 0,
+  //   right: 'auto',
+  //   left: 0,
+  //   backgroundColor: '#fff'
+  // },
 
 }
 
-export const Colors = {
-  text: datalimentaire.colors.primary,
-  background: datalimentaire.colors.white,
-  backgroundpanel: datalimentaire.colors.background,
+export const industries = {
+
+  colors : {
+      primary: '#0d4559',
+      secondary: '#df7160',
+      darkgray: '#71717E',
+      gray: '#c4c4c4',
+      background: '#fcafafa',
+      red: '#ff4848',
+      blue: '#aad7ff'
+  },
+
+  collapse: {
+
+  },
+
+  Panel: {
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 'auto',
+    backgroundColor: '#ffffff00',
+    justifyContent: 'flex-start',
+  },
+
+  ButtonCollapse: {
+    backgroundColor: "red",
+    borderRadius: "10px",
+  }
+
 }

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { datalimentaire } from "../../../styles";
+import { datalimentaire, Base } from "../../../styles";
 import { device } from "../../../styles/breakpoints";
 
 export const BlockFilters = styled.div`
@@ -8,16 +8,15 @@ export const BlockFilters = styled.div`
     align-items: center;
     justify-content: center;
 
-
-    overflow: overlay;
+    overflow: hidden;
 
     width: 80%;
-    height: auto;
+    height: 60vh;
     margin: 100px auto;
     padding: 40px 0;
 
 
-    background-color: #fcfafa;
+    background-color: ${datalimentaire.colors.background};
     border: 1px solid #E8E8E8;
     box-sizing: border-box;
     border-radius: 10px;
@@ -43,7 +42,7 @@ export const HeadingFilter = styled.h2`
     width: auto;
     margin: 0;
 
-    font-size: ${datalimentaire.fontSizes.xstext};
+    font-size: ${Base.fontSizes.xstext};
     align-text: center;
     background-color: ${datalimentaire.colors.darkgray};
     color: ${datalimentaire.colors.secondary};

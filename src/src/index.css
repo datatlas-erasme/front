@@ -7,11 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 
 .top-left-logo img {
   position: absolute;
@@ -36,6 +31,17 @@ code {
 } */
 
 
+
+/********************** CUSTOM MODAL **************************/
+.modal {
+  position: absolute;
+  top: 0;
+  background-color: red;
+  height: 100%;
+  width: 100%;
+}
+
+
 /********************** POI SIDE PANEL **************************/
 /* .PointSidePanel {
   position: absolute;
@@ -46,11 +52,10 @@ code {
   flex-direction: column;
   background: white;
   z-index: 99;
-  padding: 15px;
-  overflow: scroll;
   overflow-x: hidden;
-  overflow-y: hidden;
+  box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.4);
   animation: 0.2s linear 0s running slidein;
+  background-color: #fbfbfb;
   }
 
   @keyframes slidein {
@@ -78,7 +83,8 @@ code {
   right: 30px;
   display: flex;
   flex-direction: column;
-  height: 70vh;
+  height: max-content;
+  max-height: 84vh;
   overflow: auto;
   width: 30vw;
   padding-right: 10px;
@@ -102,23 +108,29 @@ code {
   transition: all ease-in-out 0.2s;
 }
 
-.filter-parent .active {
+.filter-parent .btn,.crowdsourcing button {
   max-height: 1000px;
   overflow: auto;
   transition: all ease-in-out 0.2s;
   overflow-y: hidden;
   border-radius: 3px;
+  font-size: 11px !important;
+  margin: 2px 0 0 0;
+  padding : 10px 10px 10px 10px;
+  text-transform: uppercase;
+  text-align: left;
 }
 
 
 .filter-parent li button {
  opacity: 0.5;
+ border-radius: 5px 5px 5px 5px;
+ margin-top: 5px;
 }
 
 .filter-parent .selected {
   opacity: 1;
 }
-
 
 .filters ul {
   padding: 20px;
@@ -163,9 +175,6 @@ code {
 }
 
 .crowdsourcing {
-  position: absolute;
-  bottom: 70px;
-  right: 35px;
   display: flex;
   flex-direction: column;
 }
@@ -176,9 +185,10 @@ code {
 
 /* .btn-parent {
   display: flex;
-  padding-left: 12px;
   border-radius: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 0;
+  font-size: 15px;
+  width: max-content;
 }
 
 .btn-parent p {
@@ -203,7 +213,6 @@ code {
   border-radius: 0px 5px 5px 0px;
   border: none;
   margin: 0;
-  background-color: #24435f;
   transition: all ease-in-out 0.2s;
   cursor: pointer;
   font-weight: 400;

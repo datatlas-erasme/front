@@ -22,6 +22,10 @@ WORKDIR /src/src
 
 
 
+WORKDIR /src/src
+
+
+
 RUN npm run build
 
 FROM nginx:1.19.0

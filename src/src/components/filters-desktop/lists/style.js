@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { datalimentaire } from '../../../styles';
+import { datalimentaire, Base } from '../../../styles';
 
 export const ListSelect = styled.ul `
     display: flex;
@@ -22,7 +22,7 @@ export const ListIconButton = styled.ul `
 export const ListCheckbox = styled.div `
     
     width: 80%;
-    font-size: ${datalimentaire.fontSizes.xstext};
+    font-size: ${Base.fontSizes.xstext};
     max-height: 300px;
     overflow: scroll;
 

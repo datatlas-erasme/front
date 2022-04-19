@@ -1,15 +1,17 @@
 import styled, {keyframes} from 'styled-components';
-import { datalimentaire } from '../../../../styles/themes';
+import { datalimentaire, Base } from '../../../../styles/themes';
 
 export const Ouverture = styled.div`
     display flex;
     align-items: center;
     justify-content: space-around;
+    flex-flow: row wrap;
     width: 90%;
-    margin: 15px 0;
+    margin: 15px;
+    padding: 0 20px;
 
     h3{
-        font-size: ${datalimentaire.fontSizes.xltext};
+        font-size: ${Base.fontSizes.xltext};
         color: ${datalimentaire.colors.primary};
         margin: 5px;
     }
@@ -17,7 +19,7 @@ export const Ouverture = styled.div`
     button{
         width: 30px;
         height: 25px;
-        font-size: ${datalimentaire.fontSizes.xstext};
+        font-size: ${Base.fontSizes.xstext};
         color: ${datalimentaire.colors.primary};
         border: none;
         background-color: #fcfafa;

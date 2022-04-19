@@ -10,16 +10,15 @@ const ImgLoad = styled.div`
   position: absolute;
   left: 64%;
 `
-export default function Front() {
+export default function Front({theme, instance}) {
 
   return (
     <ViewportProvider> 
-        <Style/>
+        <Style theme={theme}/>
         <Suspense fallback={<ImgLoad>Loading...<img src={'../assets/logo/logo_gl.png'} alt={'Logo BelleBouffe'}/></ImgLoad>}>
-          <Map/>
+          <Map instance={instance}/>
         </Suspense>
-          <Panel/>
-      </ViewportProvider>
-
-  );
+          <Panel theme={theme}/>
+    </ViewportProvider>
+  )
 }

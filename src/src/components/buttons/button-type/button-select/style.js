@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { device } from '../../../../styles/breakpoints';
-import { datalimentaire } from '../../../../styles/themes';
+import { datalimentaire, Base } from '../../../../styles/themes';
 import px2vw from '../../../../utils/px2vw';
 
 export const ButtonType = styled.button`
@@ -14,7 +14,7 @@ export const ButtonType = styled.button`
     cursor: pointer;
 
     font-weight: ${px2vw(400)};
-    font-size: ${px2vw(datalimentaire.fontSizes.xstext)};
+    font-size: ${px2vw(Base.fontSizes.xstext)};
 
     div{
         width: 60px;

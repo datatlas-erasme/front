@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { datalimentaire } from '../../styles';
+import { datalimentaire, Base } from '../../styles';
 import { device } from '../../styles/breakpoints';
 
 export const WrapperModal = styled.div`
@@ -18,12 +18,12 @@ export const WrapperModal = styled.div`
   background: ${datalimentaire.colors.secondary};
   color: ${datalimentaire.colors.primary};
       
-  border-radius: ${datalimentaire.radii[5]};
+  border-radius: ${Base.radii[5]};
   box-shadow: 0px 2px 18px -1px rgba(0, 0, 0, 0.25);
 
   p{
-    font-size: ${datalimentaire.fontSizes.paragraphe};
-    line-height: ${datalimentaire.lineHeights.normal};
+    font-size: ${Base.fontSizes.paragraphe};
+    line-height: ${Base.lineHeights.normal};
     padding: 10px 0;
   }
 
@@ -33,7 +33,7 @@ export const WrapperModal = styled.div`
     padding: 10px;
 
     background-color: ${datalimentaire.colors.red};
-    border-radius: ${datalimentaire.radii[6]};
+    border-radius: ${Base.radii[6]};
     border: none;
     color: ${datalimentaire.colors.secondary};
 
@@ -45,7 +45,7 @@ export const WrapperModal = styled.div`
   }
 
   li {
-    font-size: ${datalimentaire.fontSizes.paragraphe};    
+    font-size: ${Base.fontSizes.paragraphe};    
     display: flex;
     margin: 20px 0;
   }
@@ -82,7 +82,7 @@ export const ModalColRight = styled.div`
 
       img{
         display: block;
-        border-radius: 0 ${datalimentaire.radii[5]} 0 80px;
+        border-radius: 0 ${Base.radii[5]} 0 80px;
       };
   
       svg {
@@ -114,16 +114,16 @@ export const ModalHeading = styled.div`
       flex-direction: column;
     }
     h2{
-      font-size: ${datalimentaire.fontSizes.xltitle};
-      line-height: ${datalimentaire.lineHeights.title};
+      font-size: ${Base.fontSizes.xltitle};
+      line-height: ${Base.lineHeights.title};
     }
 
     @media ${device.lg} {
       flex-direction: row;
 
       h2{
-        font-size: ${datalimentaire.fontSizes.xstitle};
-        line-height: ${datalimentaire.lineHeights.title};
+        font-size: ${Base.fontSizes.xstitle};
+        line-height: ${Base.lineHeights.title};
       }
     }
 
