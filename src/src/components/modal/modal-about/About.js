@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import Modal from 'react-modal';
-import { ConfContext } from '../providers/ConfProvider';
+import { ConfContext } from '../../../providers/ConfProvider';
 import Bg from '../static/about-modal/bg.jpg';
 import Partner1 from '../static/about-modal/1.png';
 import Partner2 from '../static/about-modal/2.png';
