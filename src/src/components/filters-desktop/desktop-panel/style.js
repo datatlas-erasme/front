@@ -12,7 +12,7 @@ export const BlockFilters = styled.div`
 
     width: 80%;
     height: 60vh;
-    margin: 100px auto;
+    margin: 60px auto;
     padding: 40px 0;
 
 

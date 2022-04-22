@@ -45,7 +45,7 @@ export const AddPoint = styled.button`
     }
 
     @media ${device.lg} {
-        width: 80%;
+        width: 100%;
         margin: auto;
 
         background-color: ${datalimentaire.colors.secondary};
@@ -62,7 +62,7 @@ export const AddPoint = styled.button`
             left: 0;
         
             svg{
-                width: ${px2vw(80)};
+                width: ${px2vw(60)};
                 height: auto;
             }
         }

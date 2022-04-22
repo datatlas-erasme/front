@@ -7,11 +7,11 @@ export const WrapperModal = styled.div`
   flex-direction: column;
 
   position: fixed;
-  top: 5vh;
+  top: 2vh;
   left: 5%;
 
   width: 90vw;
-  height: auto;
+  height: 95vh;
   margin: auto;
   padding: 40px;
 
@@ -20,6 +20,8 @@ export const WrapperModal = styled.div`
       
   border-radius: ${Base.radii[5]};
   box-shadow: 0px 2px 18px -1px rgba(0, 0, 0, 0.25);
+
+  z-index: 99;
 
   p{
     font-size: ${Base.fontSizes.paragraphe};
@@ -53,9 +55,8 @@ export const WrapperModal = styled.div`
   @media ${device.lg} {
     padding: 0;
     flex-direction: row;
-    top: 50px;
-    width: 60vw;
     left: 37%;
+    width: 60vw;
   }
 `
 

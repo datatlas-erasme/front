@@ -52,7 +52,7 @@ const Collapse = ({
   const [height, setHeight] = useState(0);
 
   // useEffect(() => {
-  //   setHeight('auto');
+  //   setHeight();
   // }, []);
   
   // Toggle the button linked layer vibility
@@ -95,9 +95,6 @@ const Collapse = ({
             position: 'fixed',
             bottom: 0,
             width: '100vw',
-            backgroundColor: 'white',
-            borderRadius: '35px 35px 0 0',
-            boxShadow: '0px 0px 29px -3px rgba(0, 0, 0, 0.25)',
 
           }}
           duration={500}

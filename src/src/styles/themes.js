@@ -58,17 +58,6 @@ export const Base = {
 		normal: 'normal'
   },
 
-  space: [
-    0,
-    4,
-    8,
-    16,
-    32,
-    64,
-    128,
-    256,
-  ],
-
   radii: ['0px', '2px', '4px', '8px', '16px', '20px', '40px']
 }
 
