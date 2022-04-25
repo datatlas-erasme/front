@@ -4,7 +4,7 @@ import { IconAdd } from '../../../assets/svg/IconAdd';
 import { AddPoint, WarpperAddPoint } from './style';
 
 export default function AddButton(){
-  const config = useContext(ConfContext).bottomRightButtons;
+  /*const config = useContext(ConfContext).bottomRightButtons;
 
   return (
     <WarpperAddPoint>
@@ -19,5 +19,5 @@ export default function AddButton(){
         </a>
       ))}
     </WarpperAddPoint>
-  );
+  );*/
 };

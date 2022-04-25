@@ -1,5 +1,5 @@
 //export { default } from './Map';
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import { 
@@ -15,14 +15,17 @@ import {
 } from 'erasme-kepler.gl/components';
 import CustomMapPopoverFactory from '../../factories/map-popover';
 import CustomPanelToggleFactory from '../../factories/panel-toggle'
+//import { ConfContext } from '../../providers/ConfProvider';
 
 // Inject the point sidepanel component
 const KeplerGl = injectComponents([
     [MapPopoverFactory, CustomMapPopoverFactory], 
 ]);
 
-export default function MapContainer ({instance}) { 
-    console.log(instance.conf)
+export default function MapContainer () { 
+    //const instance = useContext(ConfContext)
+    const instance = ""
+    console.log(instance)
 
     const dispatch = useDispatch();
     const dataLayers = instance.datalayers;
