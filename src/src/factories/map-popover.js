@@ -121,8 +121,8 @@ const CustomMapPopoverFactory = (...deps) => {
         ContentBuffer.push({cat: "contact", content: data[index]})
         //ContentBuffer.push({cat: "Domaines-expertise", content: " <p><b>Expertise :</b> "+data[index]+"</p>"})
       }
-      if (field.displayName.includes('Publics-cibles')) {
-        ContentBuffer.push({cat: "Publics-cibles", content: data[index]})
+      if (field.displayName.includes('link')) {
+        ContentBuffer.push({cat: "link", content: data[index]})
         //ContentBuffer.push({cat: "Publics-cibles", content: " <p><b>Publics :</b> "+data[index]+"</p>"}
       }
       if (field.displayName.includes('type_event')) {
@@ -143,7 +143,7 @@ const CustomMapPopoverFactory = (...deps) => {
     const tags = ContentBuffer.filter((value) => value.cat === "tags" )[0]?.content
     const activites = ContentBuffer.filter((value) => value.cat === "activites" )[0]?.content
     const contact = ContentBuffer.filter((value) => value.cat === "contact" )[0]?.content
-    const publicsCibles = ContentBuffer.filter((value) => value.cat === "Publics-cibles" )[0]?.content
+    const link = ContentBuffer.filter((value) => value.cat === "link" )[0]?.content
     const typeEvent = ContentBuffer.filter((value) => value.cat === "type_event" )[0]?.content
     const url = ContentBuffer.filter((value) => value.cat === "Site-web" )[0]?.content
 
@@ -161,6 +161,7 @@ const CustomMapPopoverFactory = (...deps) => {
           <p><b>{adresse ? "Adresse : " : ""}</b>{adresse}</p>
           <p><b>{tags ? "Tags : " : ""}</b>{tags}</p>
           <p><b>{contact ? "Contact : " : ""}</b>{DOMPurify.sanitize(he.decode(contact),{FORBID_TAGS: ['a']})}</p>   
+          <p><b>{link ? <a href={link}>Lien vers la fiche projet</a> : ""}</b></p>   
         </div>
       </div>
     )
