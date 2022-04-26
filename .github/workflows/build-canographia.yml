@@ -25,6 +25,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: erasme/datatlas-canographia:dev-latest
+          tags: erasme/datatlas-canographia:latest, erasme/datatlas-canographia:${{ github.sha }}
           build-args: |
             REACT_APP_BACKEND_URL=${{ secrets.CANOGRAPHIA_BACKEND_URL }}
