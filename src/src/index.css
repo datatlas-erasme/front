@@ -72,9 +72,11 @@ body {
   }
 
   .PointSidePanel .img-container {
-    height: 600px;
+    height: 300px;
     width: 100%;
-    /*overflow: hidden;*/
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
   }
 
   .PointSidePanel img {
@@ -88,7 +90,7 @@ body {
  
   .PointSidePanel h1 {
     color: #1a1a1a;
-    font-size: 40px;
+    font-size: 20px;
   }
 
   .PointSidePanel p {

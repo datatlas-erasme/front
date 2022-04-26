@@ -145,16 +145,15 @@ const CustomMapPopoverFactory = (...deps) => {
     const typeEvent = ContentBuffer.filter((value) => value.cat === "type_event" )[0]?.content
     const url = ContentBuffer.filter((value) => value.cat === "Site-web" )[0]?.content
 
+    const imgageUrl =  image ? image : 'https://canographia.datagora.erasme.org/wp-content/themes/canographia/assets/placeholder-ressource.png'
+    const style = {
+      backgroundImage: `url(${imgageUrl})` 
+    }
+
     return (
       <div className="PointSidePanel">
-         <div className='img-container'>
-           <img
-            src={
-              image
-                ? image
-                : 'https://canographia.datagora.erasme.org/wp-content/themes/canographia/assets/placeholder-ressource.png'
-            }
-          />
+         <div className='img-container' style={style}>
+           
           </div>
         <div className='content'>
           <h1>{title}</h1>
