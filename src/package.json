@@ -16,6 +16,7 @@
     "@types/react": "^17.0.35",
     "@types/react-dom": "^17.0.11",
     "classnames": "^2.3.1",
+    "dompurify": "^2.3.6",
     "erasme-kepler.gl": "2.5.6",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",

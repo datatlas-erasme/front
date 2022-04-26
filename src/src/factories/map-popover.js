@@ -21,6 +21,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import he from 'he'
+import DOMPurify from 'dompurify';
 import { MapPopoverFactory } from 'erasme-kepler.gl/components';
 
 //import CustomLayerHoverInfo from "./CustomLayerHoverInfo"
@@ -116,8 +117,8 @@ const CustomMapPopoverFactory = (...deps) => {
         ContentBuffer.push({cat: "activites", content:data[index]})
         //ContentBuffer.push({cat: "activites", content: " <p><b>Activités : </b> " + data[index]+"</p>"})
       }
-      if (field.displayName.includes('Domaines-expertise')) {
-        ContentBuffer.push({cat: "Domaines-expertise", content: data[index]})
+      if (field.displayName.includes('contact')) {
+        ContentBuffer.push({cat: "contact", content: data[index]})
         //ContentBuffer.push({cat: "Domaines-expertise", content: " <p><b>Expertise :</b> "+data[index]+"</p>"})
       }
       if (field.displayName.includes('Publics-cibles')) {
@@ -141,7 +142,7 @@ const CustomMapPopoverFactory = (...deps) => {
     const adresse = ContentBuffer.filter((value) => value.cat === "adress" )[0]?.content
     const tags = ContentBuffer.filter((value) => value.cat === "tags" )[0]?.content
     const activites = ContentBuffer.filter((value) => value.cat === "activites" )[0]?.content
-    const expertises = ContentBuffer.filter((value) => value.cat === "Domaines-expertise" )[0]?.content
+    const contact = ContentBuffer.filter((value) => value.cat === "contact" )[0]?.content
     const publicsCibles = ContentBuffer.filter((value) => value.cat === "Publics-cibles" )[0]?.content
     const typeEvent = ContentBuffer.filter((value) => value.cat === "type_event" )[0]?.content
     const url = ContentBuffer.filter((value) => value.cat === "Site-web" )[0]?.content
@@ -159,10 +160,7 @@ const CustomMapPopoverFactory = (...deps) => {
           <a target="" href={url}>{url ? "Voir le site web" : ""}</a>
           <p><b>{adresse ? "Adresse : " : ""}</b>{adresse}</p>
           <p><b>{tags ? "Tags : " : ""}</b>{tags}</p>
-          <p><b>{expertises ? "Expertises : " : ""}</b>{expertises}</p>
-          <p><b>{publicsCibles ? "Publics Cibles :" : ""}</b>{publicsCibles}</p>
-          <p><b>{typeEvent ? "Type Event : " : ""}</b>{typeEvent}</p>
-
+          <p><b>{contact ? "Contact : " : ""}</b>{DOMPurify.sanitize(he.decode(contact),{FORBID_TAGS: ['a']})}</p>   
         </div>
       </div>
     )
