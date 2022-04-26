@@ -107,8 +107,8 @@ const CustomMapPopoverFactory = (...deps) => {
         //ContentBuffer.push({cat: "Adresse", content: " <p><b>Adresse :</b>"+data[index] +"</p>"})
       }
 
-      if (field.displayName.includes('types-structure')) {
-        ContentBuffer.push({cat: "types-structure", content:data[index]})
+      if (field.displayName.includes('tags')) {
+        ContentBuffer.push({cat: "tags", content:data[index]+" "})
         //ContentBuffer.push({cat: "types-structure", content: "<p><b>Type de structure :</b> " + data[index] + "</p>"})
       }
       if (field.displayName.includes('activites')) {
@@ -138,7 +138,7 @@ const CustomMapPopoverFactory = (...deps) => {
     const image = ContentBuffer.filter((value) => value.cat === "img" )[0]?.content
     const desc = ContentBuffer.filter((value) => value.cat === "description" )[0]?.content
     const adresse = ContentBuffer.filter((value) => value.cat === "adress" )[0]?.content
-    const typeStruct = ContentBuffer.filter((value) => value.cat === "types-structure" )[0]?.content
+    const tags = ContentBuffer.filter((value) => value.cat === "tags" )[0]?.content
     const activites = ContentBuffer.filter((value) => value.cat === "activites" )[0]?.content
     const expertises = ContentBuffer.filter((value) => value.cat === "Domaines-expertise" )[0]?.content
     const publicsCibles = ContentBuffer.filter((value) => value.cat === "Publics-cibles" )[0]?.content
@@ -158,11 +158,9 @@ const CustomMapPopoverFactory = (...deps) => {
           </div>
         <div className='content'>
           <h1>{title}</h1>
-          <p className='desc'>{desc}</p>
           <a target="" href={url}>{url ? "Voir le site web" : ""}</a>
           <p><b>{adresse ? "Adresse : " : ""}</b>{adresse}</p>
-          <p><b>{typeStruct ? "Types structure : " : ""}</b>{typeStruct}</p>
-          <p><b>{activites ? "Activites : " : ""}</b>{activites}</p>
+          <p><b>{tags ? "Tags : " : ""}</b>{tags}</p>
           <p><b>{expertises ? "Expertises : " : ""}</b>{expertises}</p>
           <p><b>{publicsCibles ? "Publics Cibles :" : ""}</b>{publicsCibles}</p>
           <p><b>{typeEvent ? "Type Event : " : ""}</b>{typeEvent}</p>
