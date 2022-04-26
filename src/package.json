@@ -19,6 +19,7 @@
     "erasme-kepler.gl": "2.5.6",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "he": "^1.2.0",
     "history": "^5.1.0",
     "lighten-darken-color": "^1.0.0",
     "prettier": "^2.4.1",

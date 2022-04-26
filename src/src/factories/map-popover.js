@@ -20,6 +20,7 @@
 
 import React from 'react';
 import { useSelector } from 'react-redux';
+import he from 'he'
 import { MapPopoverFactory } from 'erasme-kepler.gl/components';
 
 //import CustomLayerHoverInfo from "./CustomLayerHoverInfo"
@@ -152,11 +153,9 @@ const CustomMapPopoverFactory = (...deps) => {
 
     return (
       <div className="PointSidePanel">
-         <div className='img-container' style={style}>
-           
-          </div>
+         <div className='img-container' style={style}></div>
         <div className='content'>
-          <h1>{title}</h1>
+          <h1>{he.decode(title)}</h1>
           <a target="" href={url}>{url ? "Voir le site web" : ""}</a>
           <p><b>{adresse ? "Adresse : " : ""}</b>{adresse}</p>
           <p><b>{tags ? "Tags : " : ""}</b>{tags}</p>
