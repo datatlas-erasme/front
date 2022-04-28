@@ -157,7 +157,7 @@ const CustomMapPopoverFactory = (...deps) => {
          <div className='img-container' style={style}></div>
         <div className='content'>
           <h1>{he.decode(title)}</h1>
-          <a target="" href={url}>{url ? "Voir le site web" : ""}</a>
+          <a target="_blank" href={url}>{url ? "Voir le site web" : ""}</a>
           <p><b>{adresse ? "Adresse : " : ""}</b>{adresse}</p>
           <p><b>{tags ? "Tags : " : ""}</b>{tags}</p>
           <p><b>{contact ? "Contact : " : ""}</b>{DOMPurify.sanitize(he.decode(contact),{FORBID_TAGS: ['a']})}</p>   
