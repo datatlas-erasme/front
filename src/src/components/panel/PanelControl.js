@@ -16,18 +16,25 @@ const PanelControl = () => {
     const filtersDomain = useSelector( state => state.keplerGl.map?.visState?.filters ?? []);
     const layers = useSelector( state => state.keplerGl.map?.visState?.layers ?? {});
 
+    console.log(filtersDomain);
+    console.log(layers);
+    
     const filterTree = useMemo(() => {
         return Object.values(layers).map((value, i) => {
-            return { label: value.config.label, id: value.config.dataId, key: i};
+            return { label: value.config.label, dataid: value.config.dataId, key: i, id: value.id };
             });
     }, [layers]);
 
     const Filters = filterTree.map((value, index) => {
         return (
+            console.log(value),
+            !!value.id && value.id === 'esul18e' ?
             width < breakpoint ? 
             <MobilePanelControl key={index} value={value} index={index} filtersDomain={filtersDomain} />
             :
             <DesktopPanelControl key={index} value={value} index={index} filtersDomain={filtersDomain}/>
+            :
+            ""
         );
     });
     
