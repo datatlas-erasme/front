@@ -20,6 +20,7 @@
     "noEmit": true,
     "noImplicitAny": false,
     "jsx": "react-jsx",
+    "noImplicitUseStrict": true,
   },
   "include": [
     "src"
