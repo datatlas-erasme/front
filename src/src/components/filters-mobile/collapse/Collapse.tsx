@@ -115,3 +115,72 @@ const Collapse = ({
 };
 
 export default Collapse;
+
+//   const [active, setActive] = useState<string | false>(false);
+
+//   const handleonChange = 
+//     (panel: string) => (event: React.SyntheticEvent, isActive: boolean) => {
+//       setActive(isActive ? panel : false);
+//     // setIsActive(!isActive);
+//   };
+//   const [height] = useState(0);
+  
+//   // Toggle the button linked layer vibility
+//   const [isLayerVisible, setIsLayerVisible] = useState(true);
+//   const isLayerVisibleState = () => {
+//     setIsLayerVisible(!isLayerVisible);
+//   };
+
+//   // Text for the button collapse
+//   function TextCollaps(){
+//     if(text[0] === 'soustype'){
+//       return 'TYPE';
+//     } else if (text[0] === 'produits') {
+//       return 'PRODUITS';
+//     } else if (text[0] === 'label') {
+//       return 'LABEL & CERTIF.';
+//     } else if (text[0] === 'joursouverture') {
+//       return 'OUVERTURE';
+//     }
+//   }
+
+//   return (
+//     <>
+//       <ButtonCollapse
+//       aria-expanded={ height !== 0 }
+//       aria-controls='panel-filter' 
+//       active={active === 'item1'}
+//       onChange={handleonChange('item1')}
+//         // className={classnames(className, { active: isActive })}
+//         {...props}
+//       >
+//         <h4>{TextCollaps()}</h4>
+//       </ButtonCollapse>
+      
+//       <AnimateHeight
+//         id='panel-filter'
+//         style={{
+//           flexShrink: 0,
+//           position: 'fixed',
+//           bottom: 0,
+//           width: '100vw',
+  
+//         }}
+//         duration={500}
+//         delay={300}
+//         height={!active ? 0 : 'auto'} 
+//         easing={'ease'}
+//         className={'animateheight'}
+//       >
+//         <SubHeading>{TextCollaps()}</SubHeading>
+//           <List 
+//             listNames={listNames} 
+//             idFilter={idFilter}
+//             text={text}
+//           />
+//       </AnimateHeight>
+//     </>
+//   ); 
+// };
+
+// export default Collapse;

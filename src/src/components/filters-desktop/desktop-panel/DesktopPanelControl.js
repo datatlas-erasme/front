@@ -2,10 +2,11 @@ import { useState } from 'react';
 import SearchBar from '../../search-bar';
 // import AnimateHeight from 'react-animate-height';
 import Collapse from '../collapse'
+import { setFilterUpdater } from '../../../store/reducer';
 import { ButtonDay } from '../../buttons/button-type';
 import { BlockFilters, ParentFilter, DomainFilter, HeadingFilter } from './style';
 
-const DesktopPanelControl = ({ value, index, filtersDomain, props }) => {
+const DesktopPanelControl = ({ filtersDomain, initialActiveItemIndex, closeOtherItemsOnClick }) => {
 
   // Toggle the visibility of buttons parent list
   // const [isActive, setIsActive] = useState(false);
@@ -113,37 +114,66 @@ const DesktopPanelControl = ({ value, index, filtersDomain, props }) => {
   //     )
   // });
 
-const Domains =  Object.keys(filtersDomain).map((filter, i) =>{
+  const [activeItemIndexes, setActiveItemIndexes] = useState([initialActiveItemIndex || 2])
+
+  const handleItemClick = (index) => {
+    const newIndexes = activeItemIndexes.includes(index)
+
+    if (closeOtherItemsOnClick) {
+      setActiveItemIndexes(newIndexes ? [] : [index])
+
+      return
+      }
+          
+    let newActiveItemIndexes = [activeItemIndexes]
+    console.log(newActiveItemIndexes);
+    if (newIndexes) {
+      newActiveItemIndexes = newActiveItemIndexes.filter(item => item !== index)
+    } else {
+      newActiveItemIndexes.push(index)
+    }
+    setActiveItemIndexes(newActiveItemIndexes)
+  };
+
+  console.log(setActiveItemIndexes);
+
+  // si on clique sur un bouton parent, on affiche les filtres correspondants et on cache les autres.
+
+  console.log(activeItemIndexes);
+  console.log(closeOtherItemsOnClick);
+
+const Domains =  Object.keys(filtersDomain).map((filter, index) =>{
       const filterName = filtersDomain[filter].name
       const filterItem = filtersDomain[filter].domain
       // console.log(filterName);
       // console.log(filterItem);
       
       return (
-        <ParentFilter key={i} id={`filter-parent-${i}`} className="filter-parent">
-        <Collapse
-          btnType="child"
-          text={filterName}
-          idFilter={i}
-          listNames={filterItem}
-        />
-      </ParentFilter>
+        <ParentFilter 
+          key={index} 
+          id={`filter-parent-${index}`} 
+          className="filter-parent"
+          initialActiveItemIndex={index}
+          closeOtherItemsOnClick={closeOtherItemsOnClick}
+
+        >
+          <Collapse
+            btnType="child"
+            text={filterName}
+            idFilter={index}
+            listNames={filterItem}
+            isActive={activeItemIndexes.includes(index)} 
+            onItemClick={() => handleItemClick(index)}
+            />
+          </ParentFilter>
       )
     })
 
-// console.log(Domains);
-
-// const test = Domains.filter((data, i) => {
-//   console.log(data)
-//   console.log(i)
-
-//   return data[i] === [4]} )
   return (
   <>
     
     <BlockFilters> 
     <HeadingFilter>Trouve ton plan Bouffe</HeadingFilter>
-      
       {/* <SearchBar/> */}
       <DomainFilter>
         {Domains}

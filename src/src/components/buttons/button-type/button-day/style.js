@@ -1,4 +1,4 @@
-import styled, {keyframes} from 'styled-components';
+import styled from 'styled-components';
 import { datalimentaire, Base } from '../../../../styles/themes';
 
 export const Ouverture = styled.div`
@@ -34,14 +34,14 @@ export const Ouverture = styled.div`
     }
 `
 
-const activeButton = keyframes`
-    0%   {
-        background-color: transparent;
-    }
-    50%  {
-        background-color: #fff;
-    }
-    100%  {
-        background-color: transparent;
-    }
-`;
+// const activeButton = keyframes`
+//     0%   {
+//         background-color: transparent;
+//     }
+//     50%  {
+//         background-color: #fff;
+//     }
+//     100%  {
+//         background-color: transparent;
+//     }
+// `;
