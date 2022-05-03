@@ -10,7 +10,7 @@ import {
   MarketProducer,
   ProducerShop
 } from '../../../../assets/svg/types';
-import {FarmerIcon} from '../../../../assets/svg/FarmerIcon';
+// import {FarmerIcon} from '../../../../assets/svg/FarmerIcon';
 import { ButtonType } from './style';
 
 export type ButtonProps = Override<
@@ -39,6 +39,10 @@ export default function ButtonSelect ({
   src,
   ...props
 }: ButtonProps){
+
+  console.log(layerConfigChange)
+
+  console.log(text);
   
   const dispatch = useDispatch();  
   // Toggle the visibility of buttons parent list

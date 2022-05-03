@@ -41,14 +41,14 @@ export const List = ({
   
   // console.log(filtersArray);
   // console.log(idFilter);
-  // console.log(listNames);
+  console.log(listNames);
   
   return (
     <>
       <ListSelect>
             {listNames.map((item : string, i: number) => {
                 switch(idFilter) {
-                  case 2 : return (
+                  case 1 : return (
                     <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
                       <ButtonSelect text={item}/>
                     </ButtonWrapper>

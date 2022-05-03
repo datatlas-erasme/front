@@ -57,9 +57,8 @@ const Collapse = ({
   // const isLayerVisibleState = () => {
   //   setIsLayerVisible(!isLayerVisible);
   // };
-
   function TextCollaps(){
-    if(!!text && text[0] === 'soustype'){
+    if(!!text && text[0] === 'type'){
       return 'Type';
     } else if (text[0] === 'produits') {
       return 'Produits';
@@ -69,28 +68,8 @@ const Collapse = ({
   }
 
   // Medium button styling + lits display
-    console.log("ID FILTER", idFilter)
-    console.log(isActive);
-    
+    // console.log("ID FILTER", idFilter)
     // console.log("List Names", listNames)
-
-    // const [activeItemIndexes, setActiveItemIndexes] = useState([initialActiveItemIndex || 2])
-
-    // const handleItemClick = (index) => {
-    //   if (closeOtherItemsOnClick) {
-    //     setActiveItemIndexes(activeItemIndexes.includes(index) ? [] : [index])
-  
-    //     return 
-    //   }
-      
-    //   let newActiveItemIndexes = [...activeItemIndexes]
-    //   if (newActiveItemIndexes.includes(index)) {
-    //     newActiveItemIndexes = newActiveItemIndexes.filter(item => item !== index)
-    //   } else {
-    //     newActiveItemIndexes.push(index)
-    //   }
-    //   setActiveItemIndexes(newActiveItemIndexes)
-    // }
 
     return (
       <>
