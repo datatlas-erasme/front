@@ -3,7 +3,7 @@ import { useDispatch, connect } from 'react-redux';
 import { setFilter } from 'erasme-kepler.gl/actions';
 import { Checkbox, ButtonSelect, ButtonDay, ButtonIcon } from '../../buttons/button-type';
 // import { Ouverture } from '../../buttons/button-type/button-day/style';
-import { ListSelect, ButtonWrapper } from './style';
+import { ListSelect, ButtonWrapper, ListIconButton, ListCheckbox } from './style';
 // import { ListCheckbox, LabelCheckbox } from './style';
 
 export type ListProps = {
@@ -46,27 +46,39 @@ export const List = ({
   return (
     <>
       <ListSelect>
-            {listNames.map((item : string, i: number) => {
-                switch(idFilter) {
-                  case 1 : return (
-                    <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
-                      <ButtonSelect text={item}/>
-                    </ButtonWrapper>
-                  )
-                  case 3 : return (
-                    <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+        {listNames.map((item : string, i: number) => {
+          switch(idFilter) {
+            case 1 : return (
+              <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                <ButtonSelect text={item}/>
+              </ButtonWrapper>
+              )
+            }
+        })}
+      </ListSelect>
+      <ListIconButton>
+        {listNames.map((item : string, i: number) => {
+          switch(idFilter) {
+            case 3 : return (
+              <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
                       <ButtonIcon text={item}/>
                     </ButtonWrapper>
-                  )
-                  case 5 : return ( 
-                    <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
-                      <Checkbox text={item}/>
-                    </ButtonWrapper>
-                  )
-                }  
-              })   
-            }
-      </ListSelect>
+            )
+          }
+        })}
+      </ListIconButton>
+      <ListCheckbox>
+        {listNames.map((item : string, i: number) => {
+          switch(idFilter) {
+            case 4 : return (
+               <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                  <Checkbox text={item}/>
+                </ButtonWrapper>
+            )
+          } 
+        })}
+      </ListCheckbox>
+ 
     </>
       
   );

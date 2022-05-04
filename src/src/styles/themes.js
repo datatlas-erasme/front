@@ -38,7 +38,7 @@ export const Style = createGlobalStyle`
 
 export const Base = {
   fontSizes: {
-    xstext : '14px', 
+    xstext : '12px', 
     paragraphe: '16px', 
     xltext : '18px', 
     xstitle : '22px', 

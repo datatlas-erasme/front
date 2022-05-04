@@ -2,10 +2,10 @@ import * as React from "react";
 
 export const ProducerShop = ({
   height = "auto",
-  width = "50",
+  width = "40",
 ...props} : React.SVGProps<SVGSVGElement>) => (
 
-<svg width={width} height={height} fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width={width} height={height} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M14.344 19.126a4.781 4.781 0 1 0 0-9.562 4.781 4.781 0 0 0 0 9.562Z" fill="#FCBC04"/>
   <path d="M19.125 14.345a4.78 4.78 0 1 1-8.995-2.254 4.762 4.762 0 0 0 4.793 1.507l-2.259-3.258a2.735 2.735 0 0 1-.22-.382 4.781 4.781 0 0 1 6.682 4.387Z" fill="#E59730"/>
   <path d="m7.82 13.81.419-1.12a2.39 2.39 0 0 1 3.076-1.404l-.418 1.12A2.39 2.39 0 0 1 7.82 13.81Z" fill="#7AB92D"/>

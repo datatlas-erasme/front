@@ -46,9 +46,9 @@ export default function Checkbox({
 
     return(
         <>
-                {/* <input type="checkbox" />
-                <label> {text} </label> */}
-        <ButtonType
+                <input type="checkbox" />
+                <label> {text.substring(0, 30)} </label>
+        {/* <ButtonType
         onClick={isActiveState}
         className={classnames('active', className, { selected: isActive })}
         {...props}>
@@ -73,7 +73,7 @@ export default function Checkbox({
         </ul>
         
         <p>{text.substring(0, 30)}</p>
-      </ButtonType>
+      </ButtonType> */}
       </>
     )
 };
