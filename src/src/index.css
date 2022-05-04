@@ -31,7 +31,10 @@ body {
 } */
 
 
+.map-control, .side-panel--container {
+  display: none !important;
 
+}
 /********************** CUSTOM MODAL **************************/
 .modal {
   position: absolute;
