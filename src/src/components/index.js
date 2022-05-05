@@ -15,9 +15,7 @@ export default function Front({theme, instance}) {
   return (
     <ViewportProvider> 
         <Style theme={theme}/>
-        <Suspense fallback={<ImgLoad>Loading...<img src={'../assets/logo/logo_gl.png'} alt={'Logo BelleBouffe'}/></ImgLoad>}>
           <Map instance={instance}/>
-        </Suspense>
           <Panel theme={theme}/>
     </ViewportProvider>
   )
