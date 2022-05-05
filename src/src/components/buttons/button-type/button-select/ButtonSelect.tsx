@@ -40,10 +40,6 @@ export default function ButtonSelect ({
   src,
   ...props
 }: ButtonProps){
-
-  console.log(layerConfigChange)
-
-  console.log(text);
   
   const dispatch = useDispatch();  
   // Toggle the visibility of buttons parent list

@@ -9,7 +9,7 @@ export const Badge = styled.button`
     flex-wrap: wrap;
     cursor: pointer;
 
-    width: 100%;
+    width: auto;
     padding: 5px;
     border: 1px solid ${datalimentaire.colors.gray};
     background-color: #fcfafa;

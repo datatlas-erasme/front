@@ -26,6 +26,10 @@ export type CollapseProps = Override<
     filtername?: string;
     dayList?: string[];
     icon: IconDefinition;
+    index?: number;
+    isActive?: boolean;    
+    onItemClick?: (item: any) => void;
+
   }
 >;
 
@@ -40,29 +44,32 @@ const Collapse = ({
   filtername,
   dayList,
   icon,
+  index,
+  isActive,
+  onItemClick,
   ...props
 }: CollapseProps) => {
   // const dispatch = useDispatch();
   // Toggle the visibility of buttons parent list
-  const [isActive, setIsActive] = useState(false);
-  const isActiveState = () => {
-    setIsActive(!isActive);
-  };
+  // const [isActive, setIsActive] = useState(false);
+  // const isActiveState = () => {
+  //   setIsActive(!isActive);
+  // };
 
-  const [height, setHeight] = useState(0);
+  const [height] = useState(0);
 
   // useEffect(() => {
   //   setHeight();
   // }, []);
   
   // Toggle the button linked layer vibility
-  const [isLayerVisible, setIsLayerVisible] = useState(true);
-  const isLayerVisibleState = () => {
-    setIsLayerVisible(!isLayerVisible);
-  };
+  // const [isLayerVisible, setIsLayerVisible] = useState(true);
+  // const isLayerVisibleState = () => {
+  //   setIsLayerVisible(!isLayerVisible);
+  // };
   
   function TextCollaps(){
-    if(text[0] === 'soustype'){
+    if(text[0] === 'type'){
       return 'TYPE';
     } else if (text[0] === 'produits') {
       return 'PRODUITS';
@@ -82,9 +89,10 @@ const Collapse = ({
         <ButtonCollapse
         aria-expanded={ height !== 0 }
         aria-controls='panel-filter' 
-          onClick={isActiveState}
-          className={classnames(className, { active: isActive })}
-          {...props}
+        className={ isActive ? 'active' : '' }
+        aria-disabled={ isActive === idFilter ? 'true' : 'false' }
+        onClick={onItemClick}
+        {...props}
         >
           <h4>{TextCollaps()}</h4>
         </ButtonCollapse>
@@ -95,6 +103,9 @@ const Collapse = ({
             position: 'fixed',
             bottom: 0,
             width: '100vw',
+            backgroundColor: '#fff',
+            zIndex: 10,
+            borderRadius: '35px 35px 0 0',
 
           }}
           duration={500}

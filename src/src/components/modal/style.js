@@ -23,33 +23,33 @@ export const WrapperModal = styled.div`
 
   z-index: 99;
 
-  p{
+  h4{
     font-size: ${Base.fontSizes.paragraphe};
-    line-height: ${Base.lineHeights.normal};
-    padding: 10px 0;
-  }
-
-  button{
-    width: 200px;
-    margin: 20px auto;
-    padding: 10px;
-
-    background-color: ${datalimentaire.colors.red};
-    border-radius: ${Base.radii[6]};
-    border: none;
-    color: ${datalimentaire.colors.secondary};
-
-    cursor: pointer;
-
-    &:hover{
-      opacity: 0.5;
+    font-weight: ${Base.fontWeights[2]};
+    padding-bottom: 5px;
+    border-bottom: 1px solid ${datalimentaire.colors.gray};
     }
+
+  p{
+    font-size: ${Base.fontSizes.xltext};
+    line-height: ${Base.lineHeights.normal};
+    font-style: italic;
   }
 
   li {
     font-size: ${Base.fontSizes.paragraphe};    
     display: flex;
     margin: 20px 0;
+  }
+
+  a{
+    margin: auto;
+    button{
+      border: none;
+      background-color: ${datalimentaire.colors.secondary};
+      text-decoration-line: underline;
+      font-size: ${Base.fontSizes.paragraphe};
+    }
   }
 
   @media ${device.lg} {
@@ -59,7 +59,37 @@ export const WrapperModal = styled.div`
     width: 60vw;
   }
 `
+export const ModalColLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 
+  a{
+    button{
+      width: 200px;
+      margin: 20px auto;
+      padding: 10px;
+  
+      background-color: ${datalimentaire.colors.red};
+      border-radius: ${Base.radii[6]};
+      border: none;
+      color: ${datalimentaire.colors.secondary};
+      text-decoration: none;
+  
+      cursor: pointer;
+  
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+   }
+
+  @media ${device.lg} {
+    width: 60%;
+    padding: 40px 0 20px 40px;
+  }
+  
+`
 export const ModalColRight = styled.div`
     display: flex;
     flex-direction: column;
@@ -95,23 +125,10 @@ export const ModalColRight = styled.div`
     
 
 `
-
-export const ModalColLeft = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-
-  @media ${device.lg} {
-    width: 60%;
-    padding: 40px 0 20px 40px;
-
-  }
-`
 export const ModalHeading = styled.div`
     display: flex;
     flex-direction: column;
     div{
-      padding: 10px 0 10px 10px;
       flex-direction: column;
     }
     h2{
@@ -129,10 +146,52 @@ export const ModalHeading = styled.div`
     }
 
 `
+
+export const ProvenanceList = styled.div` 
+
+        ul{
+          display: flex;
+        }
+
+        li{
+          width: auto;
+          padding: 5px 10px;
+          border-radius: ${Base.radii[5]};
+          font-size: ${Base.fontSizes.paragraphe};
+          color: ${datalimentaire.colors.secondary};
+          background-color: ${datalimentaire.colors.primary};
+        }
+`
+export const InfoPratique = styled.ul`
+        li{
+          display: flex;
+
+          // &:nth-child(2){
+          //   flex-direction: column;
+          // }
+
+        }
+        p{
+          font-size: ${Base.fontSizes.paragraphe};
+          padding-left: 5px;
+        }
+`
+
 export const LabelRow = styled.div`
     display: flex;
+    margin-bottom: 20px;
     img{
       border-radius: 0;
 
+    }
+`
+
+export const ProductRow = styled.div`
+    display: flex;
+
+    p{
+      margin: 0px 10px;
+      font-style: normal;
+      font-size: ${Base.fontSizes.paragraphe};
     }
 `

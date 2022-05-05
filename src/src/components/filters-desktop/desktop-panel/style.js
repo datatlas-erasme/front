@@ -8,8 +8,6 @@ export const BlockFilters = styled.div`
     align-items: center;
     justify-content: center;
 
-    overflow: hidden;
-
     width: 80%;
     height: 60vh;
     margin: 60px auto;
@@ -24,8 +22,8 @@ export const BlockFilters = styled.div`
 
 export const DomainFilter = styled.ul`
     width: 100%;
-    padding: 0 30px;
-    overflow: overlay;
+    padding: 0px 30px;
+    // overflow: overlay;
 
 `
 

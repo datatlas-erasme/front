@@ -31,9 +31,6 @@ const DesktopPanelControl = ({ filtersDomain, initialActiveItemIndex, closeOther
 const Domains =  Object.keys(filtersDomain).map((filter, index) =>{
       const filterName = filtersDomain[filter].name
       const filterItem = filtersDomain[filter].domain
-
-      console.log(filterItem);
-      console.log(filterName);
       
       return (
         <ParentFilter 

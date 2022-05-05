@@ -1,20 +1,44 @@
+import {useState} from 'react';
 import Collapse from '../collapse'
 import { DomainFilter } from './style';
 
-const MobilePanelControl = ({ index, filtersDomain }) => {
+const MobilePanelControl = ({ closeOtherItemsOnClick, filtersDomain, initialActiveItemIndex }) => {
 
-    const Domains =  Object.keys(filtersDomain).map((filter, i) =>{
+  const [activeItemIndexes, setActiveItemIndexes] = useState([initialActiveItemIndex])
+  const handleItemClick = (index) => {
+    const newIndexes = activeItemIndexes.includes(index)
+
+    if (closeOtherItemsOnClick) {
+      setActiveItemIndexes(newIndexes ? [] : [index])
+
+      return
+      }
+          
+    let newActiveItemIndexes = [activeItemIndexes]
+    console.log(newActiveItemIndexes);
+    if (newIndexes) {
+      newActiveItemIndexes = newActiveItemIndexes.filter(item => item !== index)
+    } else {
+      newActiveItemIndexes.push(index)
+    }
+    setActiveItemIndexes(newActiveItemIndexes)
+  };
+
+    const Domains =  Object.keys(filtersDomain).map((filter, index) =>{
       const filterName = filtersDomain[filter].name
       const filterItem = filtersDomain[filter].domain
-      
+
       return (
         <Collapse
-          key={i} 
-          id={`filter-parent-${i}`} 
+          key={index} 
+          id={`filter-parent-${index}`} 
           className='filter-parent'
           text={filterName}
-          idFilter={i}
+          idFilter={index}
           listNames={filterItem}
+          closeOtherItemsOnClick
+          isActive={activeItemIndexes.includes(index)} 
+          onItemClick={() => handleItemClick(index)}
         /> 
      )
     })

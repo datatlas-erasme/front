@@ -23,7 +23,7 @@ export const Style = createGlobalStyle`
     text-decoration: none;
   }
 
-  #filter-parent-0,  #filter-parent-2, #filter-parent-5, #filter-parent-6, #filter-parent-7, #filter-parent-8, #filter-parent-9 {
+  #filter-parent-0,  #filter-parent-2, #filter-parent-6, #filter-parent-7, #filter-parent-8, #filter-parent-9 {
     display: none;
   }
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'erasme-kepler.gl/actions';
 import classnames from 'classnames';
+import {useViewport} from '../../../../utils/ViewportConext';
 import { Override } from '../../../../types/Override';
 import { Ouverture } from './style';
 
@@ -32,8 +33,11 @@ function Button ({day}) {
 export default function ButtonDay ({
   dayList = [],
   idFilter,
-  className,
+  text,
 }: DayProps){
+
+  const { width } = useViewport();
+  const breakpoint = 1024;
 
   const dispatch = useDispatch();
 
@@ -70,7 +74,12 @@ export default function ButtonDay ({
   // };
 
     return (
-      <>
+      width < breakpoint ? 
+      <Ouverture>
+        <Button day={text}/>
+      </Ouverture>
+
+      :
         <Ouverture>
         <h3>Ouvert</h3>
         {dayList?.map((day, i) => (
@@ -80,6 +89,5 @@ export default function ButtonDay ({
           )
         )}
         </Ouverture>
-      </>
     );
   };

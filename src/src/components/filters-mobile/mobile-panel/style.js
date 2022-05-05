@@ -12,7 +12,7 @@ export const DomainFilter = styled.div`
 `
 
 export const ParentFilter = styled.button`
-    background-color: ${datalimentaire.colors.secondary};
+    background-color: ${datalimentaire.colors.background};
     border: 1px solid ${datalimentaire.colors.gray};
     border-radius: 30px;
 

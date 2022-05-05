@@ -24,8 +24,12 @@ display: none;
                 background-color: ${datalimentaire.colors.secondary};
                 top: 0;
                 bottom: 0;
-                width: 33vw;
+                width: 45vw;
                 height: 100%;
+        }
+        @media ${device.xl} {
+                width: 35vw;
+
         }
 
 `

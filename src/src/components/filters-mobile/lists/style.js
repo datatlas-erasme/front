@@ -2,20 +2,19 @@ import styled from 'styled-components';
 import { datalimentaire, Base } from '../../../styles';
 
 export const ListSelect = styled.ul `
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 0px;
+    display: grid;
+    grid-template-columns: min-content min-content;
+    column-gap: 5px;
+    row-gap: 5px;
+    padding: 10px 0px;
     width: 80%;
-    padding: 20px;
     margin: auto;
 `
 
 export const ListIconButton = styled.ul `
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 5px;
-    row-gap: 5px;
-    padding-left: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 35px;
     max-height: 300px;
     overflow: scroll;
 `
@@ -25,11 +24,7 @@ export const ListCheckbox = styled.div `
     width: 80%;
     font-size: ${Base.fontSizes.xstext};
     max-height: 300px;
-    overflow: scroll;
-
-    ul{
-        padding-left: 0;
-    }
+    margin: auto;
 
     input[type="checkbox"] {
         width: 17px;
@@ -49,12 +44,14 @@ export const LabelCheckbox = styled.label`
     margin-bottom : 10px;
     border-bottom: 1px solid ${datalimentaire.colors.midgray};
 `
-
-export const ButtonWrapperTypes = styled.li`
-    width: 50%;
-    padding: 5px;
+export const ListDay = styled.ul `
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
 `
-export const ButtonWrapperIcon = styled.li`
+
+export const ButtonWrapper = styled.li`
     width: auto;
     padding: 5px;
 `
