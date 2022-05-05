@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 export const MarketProducer = ({
-  height = 'auto',
+  height = '100%',
   width = '40',
   ...props
 }: React.SVGProps<SVGSVGElement>) => (
@@ -12,7 +12,7 @@ export const MarketProducer = ({
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g clip-path="url(#a)">
+    <g clipPath="url(#a)">
       <path
         d="M7.315 14.774h-.584c-.645 0-1.168.524-1.168 1.169v.584a2.924 2.924 0 0 0 2.92 2.92h.585c.645 0 1.168-.522 1.168-1.168v-.584a2.924 2.924 0 0 0-2.921-2.92Z"
         fill="#33BC00"

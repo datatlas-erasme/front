@@ -24,6 +24,7 @@ export type CollapseProps = Override<
     icon: IconDefinition;
     index?: number;
     isActive?: boolean;
+    className?: string;
     onItemClick?: (item: any) => void;
   }
 >;
@@ -61,10 +62,6 @@ const Collapse = ({
       return 'Label et Certifications';
     }
   }
-
-  // Medium button styling + lits display
-  // console.log("ID FILTER", idFilter)
-  // console.log("List Names", listNames)
 
   return (
     <>
