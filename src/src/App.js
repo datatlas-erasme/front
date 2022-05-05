@@ -8,7 +8,7 @@ const Front = React.lazy(() => import('./components/index'));
 
 export default function App({instance}) {
   const theme = instance.conf?.theme?.name === 'Industries' ? industries : datalimentaire;
-
+  
   return (
     <ThemeProvider theme={theme}>
           <Routes>
