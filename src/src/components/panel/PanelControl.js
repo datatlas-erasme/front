@@ -7,8 +7,10 @@ import AddButton from '../buttons/interactiv-button';
 import {useViewport} from '../../utils/ViewportConext';
 import {Panel} from "./style"
 
-const PanelControl = () => {
-
+const PanelControl = (props) => {
+    const instance = props.instance;
+    
+    console.log("PANEL CONTROL : ", instance)
     const { width } = useViewport();
     const breakpoint = 1024;
 
@@ -28,7 +30,7 @@ const PanelControl = () => {
             width < breakpoint ? 
             <MobilePanelControl key={index} value={value} index={index} filtersDomain={filtersDomain} />
             :
-            <DesktopPanelControl key={index} value={value} index={index} filtersDomain={filtersDomain}/>
+            <DesktopPanelControl  key={index} value={value} index={index} filtersDomain={filtersDomain}/>
         );
     });
     
@@ -41,6 +43,7 @@ const PanelControl = () => {
         
 };
 
+const mapStateToProps = (state) => ({})
 const dispatchToProps = (dispatch) => ({ dispatch });
 
-export default connect(dispatchToProps, setFilterUpdater, toggleModal)(PanelControl);
+export default connect(mapStateToProps,dispatchToProps, setFilterUpdater, toggleModal)(PanelControl);
