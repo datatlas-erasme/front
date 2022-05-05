@@ -31,7 +31,10 @@ body {
 } */
 
 
+.map-control, .side-panel--container, .mapbox-attribution-container, .mapboxgl-ctrl {
+  display: none !important;
 
+}
 /********************** CUSTOM MODAL **************************/
 .modal {
   position: absolute;
