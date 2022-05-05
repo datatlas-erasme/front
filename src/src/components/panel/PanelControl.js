@@ -9,8 +9,6 @@ import {Panel} from "./style"
 
 const PanelControl = (props) => {
     const instance = props.instance;
-    
-    console.log("PANEL CONTROL : ", instance)
     const { width } = useViewport();
     const breakpoint = 1024;
 
@@ -30,7 +28,7 @@ const PanelControl = (props) => {
             width < breakpoint ? 
             <MobilePanelControl key={index} value={value} index={index} filtersDomain={filtersDomain} />
             :
-            <DesktopPanelControl  key={index} value={value} index={index} filtersDomain={filtersDomain}/>
+            <DesktopPanelControl instance={instance}  key={index} value={value} index={index} filtersDomain={filtersDomain}/>
         );
     });
     

@@ -5,8 +5,7 @@ import MapContainer from './map';
 import PanelControl from './panel';
 
 export default function Front({theme, instance}) {
-  console.log("instance index",instance)
-
+  
   return (
     <ViewportProvider> 
         <Style theme={theme}/>
