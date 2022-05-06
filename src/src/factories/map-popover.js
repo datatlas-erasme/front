@@ -125,8 +125,8 @@ const CustomMapPopoverFactory = (...deps) => {
         ContentBuffer.push({cat: "link", content: data[index]})
         //ContentBuffer.push({cat: "Publics-cibles", content: " <p><b>Publics :</b> "+data[index]+"</p>"}
       }
-      if (field.displayName.includes('type_event')) {
-        ContentBuffer.push({cat: "type_event", content: data[index]})
+      if (field.displayName.includes('trees')) {
+        ContentBuffer.push({cat: "trees", content: data[index]})
         //ContentBuffer.push({cat: "type_event", content: "<p><b>Type Event :</b> "+data[index]+"</p>"})
       }
       if (field.displayName.includes('Site-web')) {
@@ -144,7 +144,7 @@ const CustomMapPopoverFactory = (...deps) => {
     const activites = ContentBuffer.filter((value) => value.cat === "activites" )[0]?.content
     const contact = ContentBuffer.filter((value) => value.cat === "contact" )[0]?.content
     const link = ContentBuffer.filter((value) => value.cat === "link" )[0]?.content
-    const typeEvent = ContentBuffer.filter((value) => value.cat === "type_event" )[0]?.content
+    const trees = ContentBuffer.filter((value) => value.cat === "trees" )[0]?.content
     const url = ContentBuffer.filter((value) => value.cat === "Site-web" )[0]?.content
 
     const imgageUrl =  image ? image : 'https://canographia.datagora.erasme.org/wp-content/themes/canographia/assets/placeholder-ressource.png'
@@ -159,6 +159,7 @@ const CustomMapPopoverFactory = (...deps) => {
           <h1>{he.decode(title)}</h1>
           <a target="_blank" href={url}>{url ? "Voir le site web" : ""}</a>
           <p><b>{adresse ? "Adresse : " : ""}</b>{adresse}</p>
+          <p><b>{trees ? "Arbres plantés : " : ""}</b>{trees}</p>
           <p><b>{tags ? "Tags : " : ""}</b>{tags}</p>
           <p><b>{contact ? "Contact : " : ""}</b>{DOMPurify.sanitize(he.decode(contact),{FORBID_TAGS: ['a']})}</p>   
           <p><b>{link ? <a href={link}>Lien vers la fiche projet</a> : ""}</b></p>   
