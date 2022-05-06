@@ -1,23 +1,59 @@
-import { useState } from 'react';
+import { useState, useSelector } from 'react';
 import SearchBar from '../../search-bar';
 // import AnimateHeight from 'react-animate-height';
 import Collapse from '../collapse'
-import { ButtonDay } from '../../buttons/button-type';
+import { ButtonDay, ButtonDefault } from '../../buttons/button-type';
 import { BlockFilters, ParentFilter, DomainFilter, HeadingFilter } from './style';
 
-const DesktopPanelControl = ({instance, value, index, filtersDomain, props }) => {
-  const theme = instance.conf.theme.name
-  console.log(instance.conf.theme.name)
-  
+const DesktopPanelControl = ({instance, value, index, filtersDomain, props, color }) => {
+
+// get the theme name
+const theme = instance.conf.theme.name
+
+const datasetLabel = value.label;
+const datasetId = value.id;
+const datasetIndex = index;
+//const datasetIconIndex = useSelector((state) => state.keplerGl.map?.visState?.datasets[datasetId]?.fields.filter((field, index) => field.name  === "icon")[0]?.fieldIdx ?? {});
+//const datasetIcon = useSelector((state) => state.keplerGl.map?.visState.datasets[datasetId]?.allData[0][datasetIconIndex] ?? {});
+
+const [isActive, setIsActive] = useState(false);
+const handleClick = () => {
+  setIsActive(!isActive);
+};
+
+const ParentBtn = (
+  <ButtonDefault
+    onClick={handleClick}
+    btnType="parent"
+    bg={color}
+    text={datasetLabel}
+    layerId={index}
+  />
+);
+
+// For each filter, get the name of the filter and the id
+// Domains returns an html element with the name of the filters
 const Domains =  Object.keys(filtersDomain).map((filter, i) =>{
+
       const filterName = filtersDomain[filter].name
       const filterItem = filtersDomain[filter].domain
-      // console.log(filterName);
-      // console.log(filterItem);
+      const filterId = filtersDomain[filter].dataId
+
+      console.log(filtersDomain[filter])
+
       if(theme == "industries") {
-        return ""
+        console.log("Desktop Panel Control industries", filterId, datasetId)
+        if (filterId == datasetId) {
+          return (
+            <div className='filter'>
+              <li key={index} className="filter-parent">
+                {filterName[0]} {filterItem} {index}
+              </li>
+            </div>
+          );
+        }
       }
-      else{
+      else {
         return (
           <ParentFilter key={i} id={`filter-parent-${i}`} className="filter-parent">
           <Collapse
@@ -32,15 +68,15 @@ const Domains =  Object.keys(filtersDomain).map((filter, i) =>{
     })
 
   if(theme == "industries") {
-   return ""
+   return <>{Domains}</>
   }
   else {
     return (
       <>
-        
-        <BlockFilters> 
+
+        <BlockFilters>
         <HeadingFilter>Trouve ton plan Bouffe</HeadingFilter>
-          
+
           {/* <SearchBar/> */}
           <DomainFilter>
             {Domains}

@@ -12,14 +12,25 @@ const PanelControl = (props) => {
     const { width } = useViewport();
     const breakpoint = 1024;
 
-    const dispatch = useDispatch();
     // Get the filter values, id  and map them to buttons
     const filtersDomain = useSelector( state => state.keplerGl.map?.visState?.filters ?? []);
     const layers = useSelector( state => state.keplerGl.map?.visState?.layers ?? {});
 
+    // Function to convert rgb color to hex color
+    const rgbToHex = (r, g, b) => '#' + [r, g, b].map(x => {
+        const hex = x.toString(16)
+      
+        return hex.length === 1 ? '0' + hex : hex
+    }).join('')
+
     const filterTree = useMemo(() => {
         return Object.values(layers).map((value, i) => {
-            return { label: value.config.label, id: value.config.dataId, key: i};
+
+            // Get the color of the point on map and convert it to hex
+            var colorRgb = value.config.color
+            var colorHexa = rgbToHex(colorRgb[0], colorRgb[1], colorRgb[2])
+
+            return { label: value.config.label, id: value.config.dataId, key: i, colorHexa: colorHexa};
             });
     }, [layers]);
 
@@ -28,7 +39,7 @@ const PanelControl = (props) => {
             width < breakpoint ? 
             <MobilePanelControl key={index} value={value} index={index} filtersDomain={filtersDomain} />
             :
-            <DesktopPanelControl instance={instance}  key={index} value={value} index={index} filtersDomain={filtersDomain}/>
+            <DesktopPanelControl instance={instance}  key={index} value={value} index={index} filtersDomain={filtersDomain}  color={value.colorHexa}/>
         );
     });
     
