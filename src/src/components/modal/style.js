@@ -5,6 +5,7 @@ import { device } from '../../styles/breakpoints';
 export const WrapperModal = styled.div`
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 
   position: fixed;
   top: 2vh;
@@ -34,6 +35,7 @@ export const WrapperModal = styled.div`
     font-size: ${Base.fontSizes.xltext};
     line-height: ${Base.lineHeights.normal};
     font-style: italic;
+    align-self: center;
   }
 
   li {
@@ -55,7 +57,14 @@ export const WrapperModal = styled.div`
   @media ${device.lg} {
     padding: 0;
     flex-direction: row;
-    left: 37%;
+    left: 47%;
+    width: 50vw;
+    height: auto;
+    top: 10%;
+  }
+
+  @media ${device.xl} {
+    left: 38%;
     width: 60vw;
   }
 `
@@ -81,6 +90,9 @@ export const ModalColLeft = styled.div`
       &:hover{
         opacity: 0.5;
       }
+    }
+    @media ${device.lg} {
+      margin: 10% auto;
     }
    }
 
@@ -139,10 +151,19 @@ export const ModalHeading = styled.div`
     @media ${device.lg} {
       flex-direction: row;
 
-      h2{
-        font-size: ${Base.fontSizes.xstitle};
-        line-height: ${Base.lineHeights.title};
+      div{
+        margin-left: 20px;
+        h2{
+          font-size: ${Base.fontSizes.xstitle};
+          line-height: ${Base.lineHeights.title};
+          margin-bottom: 10px;
+        }
       }
+
+      svg{
+        width: 42px;
+      }
+      
     }
 
 `
@@ -156,42 +177,122 @@ export const ProvenanceList = styled.div`
         li{
           width: auto;
           padding: 5px 10px;
+          margin: 5px;
           border-radius: ${Base.radii[5]};
           font-size: ${Base.fontSizes.paragraphe};
           color: ${datalimentaire.colors.secondary};
           background-color: ${datalimentaire.colors.primary};
+
+          @media ${device.lg} {
+            margin: 20px 5px;
+          }
+
         }
+
+        @media ${device.lg} {
+          width: 80%;
+        }
+
+
 `
 export const InfoPratique = styled.ul`
         li{
           display: flex;
 
-          // &:nth-child(2){
-          //   flex-direction: column;
-          // }
-
+          @media ${device.lg} {
+            img{
+              width: 30px;
+              height: 30px;
+            }
+  
+            ul{
+              display: flex;
+              flex-direction: column;
+              padding-left: 20px;
+  
+              li{
+                margin: 0;
+              }
+            }
+          }
         }
         p{
           font-size: ${Base.fontSizes.paragraphe};
-          padding-left: 5px;
+          padding-left: 10px;
+          font-style: normal;
+        }
+        @media ${device.lg} {
+          width: 80%;
         }
 `
 
 export const LabelRow = styled.div`
     display: flex;
+    flex-direction: column;
     margin-bottom: 20px;
+    ul{
+      display: flex;
+      flex-wrap: wrap;
+      li{
+        margin: 5px;
+        p{
+          font-style: normal;
+          font-size: ${Base.fontSizes.xstext};
+        }
+      }
+      
+    }
     img{
       border-radius: 0;
-
     }
+
+    @media ${device.lg} {
+      width: 80%;
+      margin-top: 40px;
 `
 
 export const ProductRow = styled.div`
     display: flex;
+    flex-direction: column;
+    ul{
+      display: flex;
+      flex-wrap: wrap;
+      li{
+        margin: 5px;
+        p{
+          font-style: normal;
+          font-size: ${Base.fontSizes.xstext};
+          margin-left: 5px;
+        }
+      }
+    }
 
-    p{
-      margin: 0px 10px;
-      font-style: normal;
-      font-size: ${Base.fontSizes.paragraphe};
+    @media ${device.lg} {
+      width: 80%;
+      margin-top: 40px;
+      ul{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        li{
+          img{
+            width: 25px;
+            height: 25px;
+          }
+        }
+      }
+    }
+
+`
+export const BottomButton = styled.a`
+    width: 100%;
+    height: 100px;
+    button{
+      display: flex;
+      align-self: center;
+      margin: auto;
+      margin-top: 40px;
+      p{
+        padding-left: 10px;
+      }
     }
 `

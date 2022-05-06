@@ -46,7 +46,7 @@ export default function ButtonIcon ({
           case 'Lait': return icons['icon-milk.png'].default;
           case 'Fromage et produits laitiers': return icons['icon-cheese.png'].default;
           case 'Produits laitiers': return icons['icon-cheese.png'].default;
-          case 'Épicerie': return icons['icon-cookie.png'].default;
+          case 'Epicerie': return icons['icon-cookie.png'].default;
           case 'Traiteur': return icons['icon-caterer.png'].default;
           case 'Boissons': return icons['icon-wine.png'].default;
           default : return icons[`icon-bulle.png`].default;}

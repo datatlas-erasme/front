@@ -1,7 +1,7 @@
 import * as React from "react";
 
 export const Amap = ({
-  height = "auto",
+  height = "100%",
   width = "40",
 ...props} : React.SVGProps<SVGSVGElement>) => (
 

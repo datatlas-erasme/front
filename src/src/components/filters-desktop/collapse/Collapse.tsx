@@ -59,9 +59,9 @@ const Collapse = ({
   // };
   function TextCollaps(){
     if(!!text && text[0] === 'type'){
-      return 'Type';
+      return 'Qui';
     } else if (text[0] === 'produits') {
-      return 'Produits';
+      return 'Quoi';
     } else if (text[0] === 'label') {
       return 'Label et Certifications';
     }

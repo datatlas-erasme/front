@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { MapPopoverFactory, LayerHoverInfoFactory, CoordinateInfoFactory, withState } from 'erasme-kepler.gl/components';
 import {visStateLens} from 'erasme-kepler.gl/reducers';
-import CustomMapModal from '../components/modal';
+import {MapModalLocal, MapModalGlobal} from '../components/modal';
 import CustomMapPopover from '../components/popover';
 import { PopHover } from '../components/popover/style';
 import { WrapperModal } from '../components/modal/style'
@@ -46,7 +46,7 @@ const CustomMapPopoverFactory = (...deps) => {
           // TODO check if is url and has image extension
           if (fieldToShowIndex  === 1 ) {
             return (
-               <CustomMapModal data={data} key={index} onClick={props.onClose}/>
+               <MapModalLocal data={data} key={index} onClick={props.onClose}/>
             );
           }
         }

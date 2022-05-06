@@ -1,12 +1,12 @@
 import * as React from "react";
 
 export const MarketDealer = ({
-  height = "auto",
+  height = "100%",
   width = "40",
 ...props} : React.SVGProps<SVGSVGElement>) => (
 
   <svg width={width} height={height} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#a)">
+    <g clipPath="url(#a)">
       <path d="M.484 23.053h34.518V35H.484V23.053Z" fill="#C4C4C4"/>
       <path d="M4.638 10.004v13.093h-2.38V9.927l2.38.077ZM33.209 9.927v13.17h-2.38V10.004l2.38-.077Z" fill="#343F56"/>
       <path d="m9.641.483-2.38 5.952-.238.595v.595a2.38 2.38 0 0 1-2.38 2.38H2.856a2.378 2.378 0 0 1-2.38-2.38c0-.388.112-.768.32-1.095l2.97-4.666A2.96 2.96 0 0 1 6.274.484h3.368Z" fill="#57B7EB"/>

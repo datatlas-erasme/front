@@ -50,6 +50,7 @@ export const List = ({
             }
         })}
       </ListSelect>
+      
       <ListIconButton>
         {listNames.map((item : string, i: number) => {
           switch(idFilter) {
@@ -61,17 +62,7 @@ export const List = ({
           }
         })}
       </ListIconButton>
-      <ListCheckbox>
-        {listNames.map((item : string, i: number) => {
-          switch(idFilter) {
-            case 4 : return (
-               <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
-                  <Checkbox text={item}/>
-                </ButtonWrapper>
-            )
-          } 
-        })}
-      </ListCheckbox>
+
       <ListDay>
         {listNames.map((item : string, i: number) => {
           switch(idFilter) {
@@ -83,6 +74,18 @@ export const List = ({
           } 
         })}
       </ListDay>
+
+      <ListCheckbox>
+        {listNames.map((item : string, i: number) => {
+          switch(idFilter) {
+            case 4 : return (
+               <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                  <Checkbox text={item}/>
+                </ButtonWrapper>
+            )
+          } 
+        })}
+      </ListCheckbox>
  
     </>
       
