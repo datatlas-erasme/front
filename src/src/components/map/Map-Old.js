@@ -11,10 +11,8 @@ import { processGeojson } from 'erasme-kepler.gl/processors';
 import { 
   MapPopoverFactory, 
   injectComponents, 
-  PanelToggleFactory 
 } from 'erasme-kepler.gl/components';
 import CustomMapPopoverFactory from '../../factories/map-popover';
-import CustomPanelToggleFactory from '../../factories/panel-toggle'
 import Logo from './Logo';
 
 // import Logo from './Logo';
@@ -39,7 +37,6 @@ export default function MapContainer() {
     const dispatch = useDispatch();
   
     const backendUrl = process.env.REACT_APP_BACKEND_URL
-    
  
     // Retreive Instance configuration
     useEffect(() => {

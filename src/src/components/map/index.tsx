@@ -11,10 +11,8 @@ import {
 import { 
     MapPopoverFactory, 
     injectComponents, 
-    PanelToggleFactory 
 } from 'erasme-kepler.gl/components';
 import CustomMapPopoverFactory from '../../factories/map-popover';
-import CustomPanelToggleFactory from '../../factories/panel-toggle'
 
 // Inject the point sidepanel component
 const KeplerGl = injectComponents([
@@ -22,7 +20,6 @@ const KeplerGl = injectComponents([
 ]);
 
 export default function MapContainer ({instance}) { 
-    console.log(instance.conf)
 
     const dispatch = useDispatch();
     const dataLayers = instance.datalayers;

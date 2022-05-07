@@ -1,5 +1,5 @@
 import {useEffect} from 'react';
-import {connect} from 'react-redux';
+import {connect, useSelector} from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import {FarmSale, ProducerShop, Amap, MarketProducer, Solidarity, MarketDealer} from '../../assets/svg/types/index';
@@ -56,11 +56,20 @@ const OpeningTime = ({ data }) => {
   )
 } 
 
-function MapModalLocal({data, onClick, ...props}) {
-    console.log(data);
-    
-    const query_icon = (() => {
-      switch(data[10]){
+// const dispatch = useDispatch();
+
+function MapModalLocal({data, onClick, dataglobal, ...props}) {
+console.log(props);
+
+const datalocal = useSelector((state) => state.keplerGl?.map?.visState?.datasets ?? null);
+
+console.log(datalocal["Manger Local"])
+
+  console.log(dataglobal);
+  console.log(data);
+  
+    const query_icon= (() => {
+      switch(data[10]) {
            case 'Légumes': return icons[`icon-vegetables.png`].default;
            case 'Miel' : return icons['icon-honey.png'].default;
            case 'Fruits': return icons['icon-fruits.png'].default;
@@ -71,38 +80,56 @@ function MapModalLocal({data, onClick, ...props}) {
            case 'Lait': return icons['icon-milk.png'].default;
            case 'Fromage et produits laitiers': return icons['icon-cheese.png'].default;
            case 'Produits laitiers': return icons['icon-cheese.png'].default;
-           case 'Épicerie': return icons['icon-caterer.png'].default;
-           case 'Epicerie': return icons['icon-caterer.png'].default;
+           case 'Epicerie': return icons['icon-cookie.png'].default;
+           case 'Traiteur': return icons['icon-caterer.png'].default;
            case 'Boissons': return icons['icon-wine.png'].default;
            default : return icons[`icon-bulle.png`].default;}
      })();
 
+    //  const iconkey = data[10]
+    //   const array = iconkey.map((item, i) => i );
+    //  console.log(array);
+
 		return (
       <>
+      {}
         <ModalColLeft>
-          <ModalHeading>
-            <span>{ data[6] === 'Vente à la ferme' ? (
-            <FarmSale/>
-          ) : data[6] === 'Magasin de producteurs' ? (
-            <ProducerShop/>
-          ) : data[6] === 'AMAP/Panier' ? (
-            <Amap/>
-          ) : data[6] === 'Distributeur automatique' ? (
-            <MarketProducer/>
-          ) : data[6] === 'Epicerie sociale et solidaire' ? (
-              <Solidarity/>
-          ) : data[6] === 'Distributeur automatique' ? (
-                <MarketProducer/>
-          ) : (<MarketDealer/>) }</span>
-            <div>
-            { data[0] && <h2>{data[2]}</h2> }
-            <p>{data[6]} </p>
-            </div>
-          </ModalHeading>
-
-            <a href={data[14]} target={'_blank'} rel={'noreferrer'}><button >En savoir plus</button></a>
           
-          {!!data[11] ?          
+            {dataglobal ? (
+
+              <ModalHeading>
+                <span>
+                  { data[6] === 'AMAP' ? (
+                          <Amap/>
+                        ) : data[6] === 'Magasin de producteurs' ? (
+                          <ProducerShop/>
+                        ) : data[6] === 'Revendeur du marché (Achète des produits et les revend)' ? (
+                          <MarketDealer/>
+                        ) : data[6] === 'Epicerie sociale et solidaire' ? (
+                          <Solidarity/>
+                        ) : data[6] === 'Producteur du marché (Cultive ses produits et les vend)' ? (
+                          <MarketProducer/>
+                        ) : data[6] === 'Vente à la ferme' ? (
+                          <FarmSale/>
+                        ) : '' }
+                </span>
+                <div>
+                { !!data[0] && <h2>{data[2]}</h2> }
+                <p>{data[6]} </p>
+                </div>
+              </ModalHeading>
+                ) : (
+                  <ModalHeading>
+                { !!data[0] && <h2>Marché</h2> }
+                <p>{data[2]} </p>
+                  </ModalHeading>
+                )}
+            
+          { !!data[14] ?
+           (<a href={data[14]} target={'_blank'} rel={'noreferrer'}><button >En savoir plus</button></a>) 
+            : ''
+          }
+          {!!data[11] && !dataglobal?          
           <ProvenanceList>
             <h4>Provenance des produits</h4>
               <ul>
@@ -138,22 +165,22 @@ function MapModalLocal({data, onClick, ...props}) {
             src={'https://images.unsplash.com/photo-1543083477-4f785aeafaa9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'}
           />
 
-        {!!data[12] ? 
-        <LabelRow>
-        <h4>Labels & certifications</h4>
-          <ul>
-            <li>{data[12]}</li>
-          </ul>
-          {/* <img src={labels[`Group-245.png`].default} width={50} height={50}/>
-          <img src={labels[`Group-245.png`].default} width={50} height={50}/>
-          <img src={labels[`Group-245.png`].default} width={50} height={50}/> */}
-        </LabelRow>
-        : ""}
-
+        {!!data[12] && !dataglobal ? (
+          <LabelRow>
+            <h4>Labels & certifications</h4>
+            {!!data[12] === data[12] ? (
+              <ul>
+                <li>{data[12]}</li>
+              </ul>
+          ) : (<p>{data[2]} ne propose pas encore de produits labelisés</p>)}
+          </LabelRow>
+        ) : ""}
+        
+        {!!data[10] && !dataglobal ? (
         <ProductRow>
         <h4>Produits vendus</h4>
         <ul>
-          {data[10].map((item, index) => (
+          {Object.keys(data[10]).map((item, index) => (
             <li key={index}>
               <img src={query_icon} alt="" />
               <p>{item}</p>
@@ -162,6 +189,7 @@ function MapModalLocal({data, onClick, ...props}) {
         </ul>
           
         </ProductRow>
+        ) : ""}
         
         </ModalColRight>
         <BottomButton href={'https://demarches.guichet-recette.grandlyon.com/projets-de-crowdsourcing/ajouter-un-marchand/'} target='_blank' rel={'noreferrer'}>
@@ -177,7 +205,9 @@ function MapModalLocal({data, onClick, ...props}) {
 const mapStateToProps = state => state;
 const dispatchToProps = dispatch => ({dispatch});
 
+console.log(dispatchToProps);
+
 export default connect(
-  mapStateToProps,
+  mapStateToProps, 
   dispatchToProps
 )(MapModalLocal);

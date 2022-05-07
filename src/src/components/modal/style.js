@@ -60,7 +60,7 @@ export const WrapperModal = styled.div`
     left: 47%;
     width: 50vw;
     height: auto;
-    top: 10%;
+    top: 5%;
   }
 
   @media ${device.xl} {
@@ -124,7 +124,7 @@ export const ModalColRight = styled.div`
       width: 40%;
 
       img{
-        display: block;
+        display: flex;
         border-radius: 0 ${Base.radii[5]} 0 80px;
       };
   
@@ -149,7 +149,7 @@ export const ModalHeading = styled.div`
     }
 
     @media ${device.lg} {
-      flex-direction: row;
+      flex-direction: column;
 
       div{
         margin-left: 20px;
@@ -179,7 +179,7 @@ export const ProvenanceList = styled.div`
           padding: 5px 10px;
           margin: 5px;
           border-radius: ${Base.radii[5]};
-          font-size: ${Base.fontSizes.paragraphe};
+          font-size: ${Base.fontSizes.xstext};
           color: ${datalimentaire.colors.secondary};
           background-color: ${datalimentaire.colors.primary};
 
@@ -235,12 +235,13 @@ export const LabelRow = styled.div`
       flex-wrap: wrap;
       li{
         margin: 5px;
-        p{
-          font-style: normal;
-          font-size: ${Base.fontSizes.xstext};
-        }
       }
-      
+    }
+    p{
+      margin-top: 10px;
+      font-style: normal;
+      font-size: ${Base.fontSizes.xstext};
+      line-height: ${Base.lineHeights.paragraph};
     }
     img{
       border-radius: 0;

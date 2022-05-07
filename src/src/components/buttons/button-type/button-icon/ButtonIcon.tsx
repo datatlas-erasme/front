@@ -34,7 +34,7 @@ export default function ButtonIcon ({
     setIsActive(!isActive);
   };
   
-  const query_icon= (() => {
+  const query_icon = (() => {
      switch(text){
           case 'Légumes': return icons[`icon-vegetables.png`].default;
           case 'Miel' : return icons['icon-honey.png'].default;

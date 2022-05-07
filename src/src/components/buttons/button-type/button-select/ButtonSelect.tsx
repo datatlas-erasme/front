@@ -30,9 +30,6 @@ export type ButtonProps = Override<
 
 export default function ButtonSelect ({
   text,
-  bg,
-  textSize,
-  btnType,
   listNames,
   idFilter,
   layerId,
@@ -54,6 +51,17 @@ export default function ButtonSelect ({
     setIsLayerVisible(!isLayerVisible);
   };
 
+  // Override text data type
+  function TextCollaps(){
+    if(!!text && text === 'Producteur du marché (Cultive ses produits et les vend)'){
+      return 'Producteur du marché';
+    } else if (text === 'Revendeur du marché (Achète des produits et les revend)') {
+      return 'Revendeur du marché';
+    } else {
+      return text;
+    }
+  }
+
     return (
       <ButtonType
         onClick={isActiveState}
@@ -61,22 +69,22 @@ export default function ButtonSelect ({
         {...props}>
           
         <div  className={ isActive ? 'active' : 'inactive' }>
-          { text === 'Vente à la ferme' ? (
-            <FarmSale/>
+          { text === 'AMAP' ? (
+            <Amap/>
           ) : text === 'Magasin de producteurs' ? (
             <ProducerShop/>
-          ) : text === 'AMAP/Panier' ? (
-            <Amap/>
-          ) : text === 'Distributeur automatique' ? (
-            <MarketProducer/>
+          ) : text === 'Revendeur du marché (Achète des produits et les revend)' ? (
+            <MarketDealer/>
           ) : text === 'Epicerie sociale et solidaire' ? (
-              <Solidarity/>
-          ) : text === 'Distributeur automatique' ? (
-                <MarketProducer/>
-          ) : (<MarketDealer/>) }
+            <Solidarity/>
+          ) : text === 'Producteur du marché (Cultive ses produits et les vend)' ? (
+            <MarketProducer/>
+          ) : text === 'Vente à la ferme' ? (
+            <FarmSale/>
+          ) : '' }
         </div>
         
-        <p>{text.substring(0, 30)}</p>
+        <p>{TextCollaps()}</p>
       </ButtonType>
     );
 };

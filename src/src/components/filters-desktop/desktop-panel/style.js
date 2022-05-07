@@ -9,7 +9,7 @@ export const BlockFilters = styled.div`
     justify-content: center;
 
     width: 80%;
-    height: 60vh;
+    height: auto;
     margin: 60px auto;
     padding: 40px 0;
 

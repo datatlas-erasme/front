@@ -32,7 +32,7 @@ export const Badge = styled.button`
     }
 
     img{
-        width: ${px2vw(25)};
+        width: 25px;
         height: auto;
     }
 `

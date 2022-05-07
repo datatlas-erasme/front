@@ -6,13 +6,15 @@ export const ListSelect = styled.ul `
     grid-template-columns: min-content min-content;
     column-gap: 5px;
     row-gap: 5px;
-    padding-bottom: 10px;
+    margin-bottom: 20px;
 `
 
 export const ListIconButton = styled.ul `
     display: flex;
     flex-wrap: wrap;
     padding-left: 0px;
+    margin-bottom: 20px;
+
 `
 
 export const ListCheckbox = styled.div `
@@ -20,7 +22,8 @@ export const ListCheckbox = styled.div `
     width: 80%;
     font-size: ${Base.fontSizes.xstext};
     max-height: 300px;
-    overflow: scroll;
+    margin-bottom: 20px;
+
 
     ul{
         padding-left: 0;

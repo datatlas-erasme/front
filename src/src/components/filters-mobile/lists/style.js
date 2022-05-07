@@ -9,6 +9,7 @@ export const ListSelect = styled.ul `
     padding: 10px 0px;
     width: 80%;
     margin: auto;
+    padding-bottom: 20px;
 `
 
 export const ListIconButton = styled.ul `
@@ -16,7 +17,7 @@ export const ListIconButton = styled.ul `
     flex-wrap: wrap;
     padding: 0px 35px;
     max-height: 300px;
-    overflow: scroll;
+    padding-bottom: 20px;
 `
 
 export const ListCheckbox = styled.div `
@@ -36,6 +37,8 @@ export const ListCheckbox = styled.div `
     li{
         padding-bottom: 10px;
     }
+    padding-bottom: 40px;
+
 `
 
 export const LabelCheckbox = styled.label`
