@@ -10,6 +10,7 @@ export type ListProps = {
   idFilter?: number | string;
   listNames?: string[];
   width?: any;
+  backgroundColor?: string;
 };
 export const List = ({ 
   listNames = [], 

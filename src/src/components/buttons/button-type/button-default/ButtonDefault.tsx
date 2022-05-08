@@ -10,7 +10,7 @@ import classnames from 'classnames';
 import { LightenDarkenColor } from 'lighten-darken-color';
 import { Override } from '../../types/Override';
 import { AppStore } from '../../redux/store';
-import List from './List';
+import { List } from '../../../filters-desktop/lists/Lists';
 
 export const ButtonDefault = ({
   text,
@@ -71,7 +71,7 @@ export const ButtonDefault = ({
           height={!isActive ? 0 : 'auto'} // see props documentation bellow
         >
           <div className='list'>
-            
+            <List listNames={listNames} backgroundColor={bg} idFilter={idFilter} />
           </div>
         </AnimateHeight>
       </div>
