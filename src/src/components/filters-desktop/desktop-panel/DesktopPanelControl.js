@@ -1,6 +1,6 @@
 import { useState, useSelector } from 'react';
+import AnimateHeight from 'react-animate-height';
 import SearchBar from '../../search-bar';
-// import AnimateHeight from 'react-animate-height';
 import Collapse from '../collapse'
 import { ButtonDay, ButtonDefault } from '../../buttons/button-type';
 import { BlockFilters, ParentFilter, DomainFilter, HeadingFilter } from './style';
@@ -47,7 +47,13 @@ const Domains =  Object.keys(filtersDomain).map((filter, i) =>{
           return (
             <div className='filter'>
               <li key={index} className="filter-parent">
-                {filterName[0]} {filterItem} {index}
+                <ButtonDefault
+                  bg={color}
+                  btnType="child"
+                  text={filterName[0]}
+                  listNames={filterItem}
+                  idFilter={index}
+                />
               </li>
             </div>
           );
@@ -68,7 +74,12 @@ const Domains =  Object.keys(filtersDomain).map((filter, i) =>{
     })
 
   if(theme == "industries") {
-   return <>{Domains}</>
+   return (
+     <>
+         {Domains}
+     </>
+
+   )
   }
   else {
     return (

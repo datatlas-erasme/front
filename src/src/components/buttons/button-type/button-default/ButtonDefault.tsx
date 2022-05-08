@@ -1,29 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
+import { IconName, IconPrefix, IconProp, library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faCoffee, faEye, faMapMarked, faMapMarker, faUserFriends, faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';
 import { LightenDarkenColor } from 'lighten-darken-color';
-import { Override } from '../../../../types/Override';
-import { AppStore } from '../../../../redux/store';
-//import List from './List';
+import { Override } from '../../types/Override';
+import { AppStore } from '../../redux/store';
+import List from './List';
 
-export type ButtonProps = Override<
-  React.ComponentPropsWithoutRef<'button'>,
-  {
-    text: string;
-    bg?: string;
-    textSize?: string;
-    btnType?: 'parent' | 'child';
-    listNames?: string[];
-    idFilter?: string;
-    layerId?: string;
-  }
->;
-
-const Button = ({
+export const ButtonDefault = ({
   text,
   bg,
   textSize,
@@ -32,8 +21,11 @@ const Button = ({
   idFilter = '0',
   layerId,
   className,
+  iconName,
   ...props
-}: ButtonProps) => {
+}
+) => {
+
   const dispatch = useDispatch();
 
   // Toggle the visibility of buttons parent list
@@ -60,20 +52,9 @@ const Button = ({
     }
   }, [layer, isLayerVisible, dispatch]);
 
-  // Big button style
-  if (btnType === 'parent') {
-    return (
-      <div className="btn-parent" style={{ backgroundColor: bg, fontSize: textSize }}>
-        <p onClick={isLayerVisibleState}>
-        </p>
-        <button className="btn" {...props} style={{ backgroundColor: bg }}>
-          {text.substring(0, 30)}
-        </button>
-      </div>
-    );
-  }
-  // Medium button styling + lits display
-  else if (btnType === 'child') {
+  console.log("btn type : ", btnType)
+ 
+ if (btnType === 'child') {
 
     return (
       <div>
@@ -90,28 +71,17 @@ const Button = ({
           height={!isActive ? 0 : 'auto'} // see props documentation bellow
         >
           <div className='list'>
-           
+            
           </div>
         </AnimateHeight>
       </div>
     );
-  } else {
-    return (
-      <button
-        onClick={isActiveState}
-        style={{ backgroundColor: LightenDarkenColor(bg, 60), fontSize: textSize }}
-        className={classnames('btn', className, { selected: !isActive })}
-        {...props}
-      >
-        {text.substring(0, 30)}
-      </button>
-    );
   }
-};
+}
 
-Button.defaultProps = {
+ButtonDefault.defaultProps = {
   bg: '#ff241a',
   fontSize: '20px',
 };
 
-export default Button;
+export default ButtonDefault
