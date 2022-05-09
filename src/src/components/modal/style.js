@@ -140,13 +140,17 @@ export const ModalColRight = styled.div`
 export const ModalHeading = styled.div`
     display: flex;
     flex-direction: column;
+
     div{
       flex-direction: column;
+
+      h2{
+        font-size: ${Base.fontSizes.xltitle};
+        line-height: ${Base.lineHeights.title};
+      }
     }
-    h2{
-      font-size: ${Base.fontSizes.xltitle};
-      line-height: ${Base.lineHeights.title};
-    }
+
+
 
     @media ${device.lg} {
       flex-direction: column;
@@ -157,6 +161,9 @@ export const ModalHeading = styled.div`
           font-size: ${Base.fontSizes.xstitle};
           line-height: ${Base.lineHeights.title};
           margin-bottom: 10px;
+        }
+        p{
+          text-align: left;
         }
       }
 
@@ -199,28 +206,32 @@ export const InfoPratique = styled.ul`
         li{
           display: flex;
 
+          ul{
+            display: flex;
+            flex-direction: column;
+            padding-left: 0px;
+
+            li{
+              margin-top: 0;
+              margin-left: 5px;
+            }
+
+          }
+
           @media ${device.lg} {
             img{
               width: 30px;
               height: 30px;
             }
-  
-            ul{
-              display: flex;
-              flex-direction: column;
-              padding-left: 20px;
-  
-              li{
-                margin: 0;
-              }
-            }
           }
         }
+
         p{
           font-size: ${Base.fontSizes.paragraphe};
           padding-left: 10px;
           font-style: normal;
         }
+
         @media ${device.lg} {
           width: 80%;
         }

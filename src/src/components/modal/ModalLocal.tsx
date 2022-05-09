@@ -59,43 +59,19 @@ const OpeningTime = ({ data }) => {
 // const dispatch = useDispatch();
 
 function MapModalLocal({data, onClick, dataglobal, ...props}) {
-console.log(props);
 
-const datalocal = useSelector((state) => state.keplerGl?.map?.visState?.datasets ?? null);
+// const datalocal = useSelector((state) => state.keplerGl?.map?.visState?.datasets ?? null);
 
-console.log(datalocal["Manger Local"])
+// console.log(datalocal["Manger Local"])
 
   console.log(dataglobal);
   console.log(data);
-  
-    const query_icon= (() => {
-      switch(data[10]) {
-           case 'Légumes': return icons[`icon-vegetables.png`].default;
-           case 'Miel' : return icons['icon-honey.png'].default;
-           case 'Fruits': return icons['icon-fruits.png'].default;
-           case 'Oeufs': return icons['icon-egg.png'].default;
-           case 'Poisson': return icons['icon-fish.png'].default;
-           case 'Viande': return icons['icon-chiken.png'].default;
-           case 'Boulangerie': return icons['icon-bread.png'].default;
-           case 'Lait': return icons['icon-milk.png'].default;
-           case 'Fromage et produits laitiers': return icons['icon-cheese.png'].default;
-           case 'Produits laitiers': return icons['icon-cheese.png'].default;
-           case 'Epicerie': return icons['icon-cookie.png'].default;
-           case 'Traiteur': return icons['icon-caterer.png'].default;
-           case 'Boissons': return icons['icon-wine.png'].default;
-           default : return icons[`icon-bulle.png`].default;}
-     })();
-
-    //  const iconkey = data[10]
-    //   const array = iconkey.map((item, i) => i );
-    //  console.log(array);
 
 		return (
       <>
-      {}
         <ModalColLeft>
           
-            {dataglobal ? (
+            {dataglobal === 'Manger Local' ? (
 
               <ModalHeading>
                 <span>
@@ -120,8 +96,7 @@ console.log(datalocal["Manger Local"])
               </ModalHeading>
                 ) : (
                   <ModalHeading>
-                { !!data[0] && <h2>Marché</h2> }
-                <p>{data[2]} </p>
+                { !!data[0] && <h2>Marché - {data[2]}</h2> }
                   </ModalHeading>
                 )}
             
@@ -129,7 +104,7 @@ console.log(datalocal["Manger Local"])
            (<a href={data[14]} target={'_blank'} rel={'noreferrer'}><button >En savoir plus</button></a>) 
             : ''
           }
-          {!!data[11] && !dataglobal?          
+          {!!data[11] && dataglobal === 'Manger Local'?          
           <ProvenanceList>
             <h4>Provenance des produits</h4>
               <ul>
@@ -139,22 +114,38 @@ console.log(datalocal["Manger Local"])
           : ""}
 
             <InfoPratique>
+            {!!data[3] && dataglobal === 'Manger Local' ? (
               <li>
                 <img src={PictoPoi} alt='icon poi' width={20} height={20}/>
-                <address>{data[3]} {data[4]} {data[5]}</address>
+                <address>{data[3]}, {data[4]} - {data[5]}</address>
               </li>
-              {!!data[9] ?
+              ) : ( 
+              <li>
+                <img src={PictoPoi} alt='icon poi' width={20} height={20}/>
+                <address>{data[2]}, {data[3]} - {data[4]}</address>
+              </li> )}
+
+              {!!data[9] && dataglobal === 'Manger Local' ?
+              (<li>
+                <img src={PictoTime} alt='icon horloge' width={20} height={20}/>    
+                  <ul>
+                  {data[9].map((item, index) => (
+                    <li key={index}>
+                      {/* <img src={query_icon} alt="" /> */}
+                      {item}
+                    </li>
+                  ))}
+                  </ul>
+                {/* <OpeningTime data={data}/> */}
+              </li>
+              ) : (
               <li>
                 <img src={PictoTime} alt='icon horloge' width={20} height={20}/>
                   <ul>
-                    <li>{data[9]}</li>
+                    <li>{data[6]} - {data[7]}</li>
                   </ul>
-                {/* <OpeningTime data={data}/> */}
-              </li> : ""}
-              {!!data[13] ?
-              <li>
-                <img src={PictoBulle} alt='icon horloge' width={25} height={25}/>
-              </li> : ""}
+              </li>)}
+
             </InfoPratique>
         </ModalColLeft>
 
@@ -165,7 +156,7 @@ console.log(datalocal["Manger Local"])
             src={'https://images.unsplash.com/photo-1543083477-4f785aeafaa9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'}
           />
 
-        {!!data[12] && !dataglobal ? (
+        {!!data[12] && dataglobal === 'Manger Local' ? (
           <LabelRow>
             <h4>Labels & certifications</h4>
             {!!data[12] === data[12] ? (
@@ -176,13 +167,13 @@ console.log(datalocal["Manger Local"])
           </LabelRow>
         ) : ""}
         
-        {!!data[10] && !dataglobal ? (
+        {!!data[10] && dataglobal === 'Manger Local' ? (
         <ProductRow>
         <h4>Produits vendus</h4>
         <ul>
-          {Object.keys(data[10]).map((item, index) => (
+          {data[10].map((item, index) => (
             <li key={index}>
-              <img src={query_icon} alt="" />
+              {/* <img src={query_icon} alt="" /> */}
               <p>{item}</p>
             </li>
           ))}
