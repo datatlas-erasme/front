@@ -9,7 +9,6 @@ import { ListSelect, ButtonWrapper, ListIconButton, ListCheckbox } from './style
 export type ListProps = {
   idFilter?: number | string;
   listNames?: string[];
-  width?: any;
 };
 export const List = ({ 
   listNames = [], 
@@ -38,10 +37,6 @@ export const List = ({
     // console.log('Filters Array :', filtersArray);
     dispatch(setFilter(idFilter, 'value', filtersArray));
   }, [dispatch, idFilter, filtersArray]);
-  
-  // console.log(filtersArray);
-  // console.log(idFilter);
-  console.log(listNames);
   
   return (
     <>
@@ -85,18 +80,3 @@ export const List = ({
 };
 
 export default connect()(List);
-
-/* <ListCheckbox role="group" aria-labelledby="checkbox-group">
-      <LabelCheckbox>
-        <input type="checkbox" />
-          Voir que les produits labélisés
-      </LabelCheckbox>
-      <ul>
-        {listNames.map((item, index) => (
-          <li key={index} onClick={() => setFilterValue(item)}>
-            <Checkbox text={item}/>
-          </li>
-        ))}
-      </ul>
-    </ListCheckbox>  
-*/

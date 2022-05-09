@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { MapPopoverFactory, LayerHoverInfoFactory, CoordinateInfoFactory, withState } from 'erasme-kepler.gl/components';
 import {visStateLens} from 'erasme-kepler.gl/reducers';
-import {MapModalLocal, ModalGlobal} from '../components/modal';
+import {MapModalLocal, MapModalGobal} from '../components/modal';
 import CustomMapPopover from '../components/popover';
 import { PopHover } from '../components/popover/style';
 import { WrapperModal } from '../components/modal/style'
@@ -14,21 +14,14 @@ const CustomMapPopoverFactory = (...deps) => {
   const MapPopoverWrapper = props => {
     // Fields declared in the kepler conf panel
     const fieldsToShow = props.layerHoverProp.fieldsToShow;
-    console.log(fieldsToShow);
 
     // List of all data fields names
     const allFields = props.layerHoverProp.fields;
-    console.log(allFields);
 
     // All the data related to the point clicked
     const data = props.layerHoverProp.data;
-    console.log(data);
 
-    const dataglobal = props.layerHoverProp.layer._oldDataUpdateTriggers.getData.datasetId;
-    console.log(dataglobal);
-
-    // const dataID = useSelector(state => state.layerHoverProp);
-    // console.log(dataID);
+    const dataID = props.layerHoverProp.layer._oldDataUpdateTriggers.getData.datasetId;
 
     const clicked = useSelector((state) => state.keplerGl.map?.visState?.clicked ?? null);
 
@@ -41,7 +34,7 @@ const CustomMapPopoverFactory = (...deps) => {
         return fieldsToShow.map(fieldToShow => {
           if (field.displayName === fieldToShow.name) {
               return (
-                 <CustomMapPopover data={data} key={index} props={props} dataglobal={dataglobal}/>
+                 <CustomMapPopover data={data} key={index} props={props} dataID={dataID}/>
               );
           }
         });
@@ -59,7 +52,11 @@ const CustomMapPopoverFactory = (...deps) => {
           // TODO check if is url and has image extension
           if (fieldToShowIndex  === 1 ) {
             return (
-               <MapModalLocal data={data} key={index} onClick={props.onClose} dataglobal={dataglobal}/>
+              dataID === 'Manger Local' ? (
+                <MapModalLocal data={data} key={index} onClick={props.onClose} dataID={dataID}/>
+               ) : (
+                <MapModalGobal data={data} key={index} onClick={props.onClose} dataID={dataID}/>
+               )
             );
           }
         }

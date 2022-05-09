@@ -2,13 +2,11 @@ import { useState } from 'react';
 import {connect} from 'react-redux';
 import { ToolTip } from './style';
 
-function CustomMapPopover({data, dataglobal, props}) {
-
-  console.log(dataglobal);
+function CustomMapPopover({data, dataID, props}) {
   
     return (
 
-      dataglobal === "Manger Local" ? (
+      dataID === "Manger Local" ? (
         <ToolTip 
         style={{
           position : "absolute",
@@ -39,6 +37,7 @@ function CustomMapPopover({data, dataglobal, props}) {
               { data[0] && <h2>Marché - {data[2]}</h2> }
             <h4>Ouverture</h4>
             <p>{data[6]} - {data[7]}</p>
+            <h4>Ajoutez vos stands préférés sur ce marché !</h4>
         </ToolTip>
       )
 

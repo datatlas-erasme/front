@@ -156,7 +156,6 @@ export const ModalHeading = styled.div`
       flex-direction: column;
 
       div{
-        margin-left: 20px;
         h2{
           font-size: ${Base.fontSizes.xstitle};
           line-height: ${Base.lineHeights.title};
@@ -174,7 +173,6 @@ export const ModalHeading = styled.div`
     }
 
 `
-
 export const ProvenanceList = styled.div` 
 
         ul{
@@ -198,6 +196,7 @@ export const ProvenanceList = styled.div`
 
         @media ${device.lg} {
           width: 80%;
+          margin-top: 12%;
         }
 
 
@@ -236,7 +235,6 @@ export const InfoPratique = styled.ul`
           width: 80%;
         }
 `
-
 export const LabelRow = styled.div`
     display: flex;
     flex-direction: column;
@@ -245,6 +243,7 @@ export const LabelRow = styled.div`
       display: flex;
       flex-wrap: wrap;
       li{
+        font-size: ${Base.fontSizes.xstext};
         margin: 5px;
       }
     }
@@ -262,7 +261,6 @@ export const LabelRow = styled.div`
       width: 80%;
       margin-top: 40px;
 `
-
 export const ProductRow = styled.div`
     display: flex;
     flex-direction: column;

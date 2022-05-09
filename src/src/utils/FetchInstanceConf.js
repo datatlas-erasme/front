@@ -1,11 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { 
-  addDataToMap,
-  updateMap, 
-  addCustomMapStyle, 
-  inputMapStyle 
-} from 'erasme-kepler.gl/actions';
 import { processGeojson } from 'erasme-kepler.gl/processors';
 import App from '../App';
 
@@ -57,7 +51,6 @@ export default function FetchInstanceConf() {
           return fetch(layer.url)
             .then((res) => res.json())
             .then((data) => {
-              console.log(data);
               if (data.fields) {
                 buffer.push([layer.name, data]);
               } else {
@@ -69,14 +62,14 @@ export default function FetchInstanceConf() {
         Promise.all(promises).then(() => {
           setDataLayers(buffer);
           setDataLoaded(true);
-          console.log('BUFFER', buffer);
+          // console.log('BUFFER', buffer);
         });
       }
       
     }, [instanceConf, instanceConfLoaded]);
 
     if (instanceConfLoaded && dataLayers) {
-      console.log("Data Layers", dataLayers);
+      // console.log("Data Layers", dataLayers);
 
       return (<App instance={{conf : instanceConf, datalayers: dataLayers, keplerConf: keplerConf }}/>)
     }

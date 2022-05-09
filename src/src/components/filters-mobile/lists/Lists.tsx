@@ -2,9 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, connect } from 'react-redux';
 import { setFilter } from 'erasme-kepler.gl/actions';
 import { ButtonSelect, ButtonDay, ButtonIcon, Checkbox } from '../../buttons/button-type';
-// import { Ouverture } from '../../buttons/button-type/button-day/style';
 import { ListSelect, ButtonWrapper, ListIconButton, ListCheckbox, ListDay } from './style';
-// import { ListCheckbox, LabelCheckbox,  } from './style';
 
 export type ListProps = {
   idFilter?: number | string;
@@ -16,6 +14,7 @@ export const List = ({
   listNames = [], 
   idFilter,
   text,
+  ...props
 }: ListProps) => {
 
   const dispatch = useDispatch();
@@ -93,18 +92,3 @@ export const List = ({
 };
 
 export default connect()(List);
-
-/* <ListCheckbox role="group" aria-labelledby="checkbox-group">
-      <LabelCheckbox>
-        <input type="checkbox" />
-          Voir que les produits labélisés
-      </LabelCheckbox>
-      <ul>
-        {listNames.map((item, index) => (
-          <li key={index} onClick={() => setFilterValue(item)}>
-            <Checkbox text={item}/>
-          </li>
-        ))}
-      </ul>
-    </ListCheckbox>  
-*/
