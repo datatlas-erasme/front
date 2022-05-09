@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import classnames from 'classnames';
 import { Override } from '../../../../types/Override';
 import { importAll } from '../../../../utils/import-png';
@@ -29,7 +28,6 @@ export default function ButtonIcon ({
   ...props
 }: ButtonProps){
 
-  const dispatch = useDispatch();
   // Toggle the visibility of buttons parent list
   const [isActive, setIsActive] = useState(false);
   const isActiveState = () => {

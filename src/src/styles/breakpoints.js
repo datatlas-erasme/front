@@ -1,5 +1,3 @@
-import px2vw from "../utils/px2vw"
-
 export const size = {
     xs: '320px',
     sm: '768px',

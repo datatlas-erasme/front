@@ -1,11 +1,11 @@
 import * as React from "react";
 
 export const FarmSale = ({
-  height = "50",
-  width = "50",
+  height = "auto",
+  width = "40",
 ...props} : React.SVGProps<SVGSVGElement>) => (
 
-<svg width={width} height={height} fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width={width} height={height} viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M23.273 11.397 22.062.807H12.51l-2.688 10.59h13.451Z" fill="#D1F7FF"/>
   <path d="M12.844 11.398h-3.02L12.512.807h.332v10.59Z" fill="#A3EFFF"/>
   `<path d="M8.748 11.198 11.386.806h1.637a.806.806 0 0 1-.024.198l-2.688 10.591a.807.807 0 0 1-1.563-.397Z" fill="#8AA818"/>

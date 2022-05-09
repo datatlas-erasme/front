@@ -11,7 +11,7 @@ const PanelControl = (props) => {
     const instance = props.instance;
     const { width } = useViewport();
     const breakpoint = 1024;
-
+    const theme = instance.conf.theme.name
     // Get the filter values, id  and map them to buttons
     const filtersDomain = useSelector( state => state.keplerGl.map?.visState?.filters ?? []);
     const layers = useSelector( state => state.keplerGl.map?.visState?.layers ?? {});
@@ -35,12 +35,27 @@ const PanelControl = (props) => {
     }, [layers]);
 
     const Filters = filterTree.map((value, index) => {
-        return (
-            width < breakpoint ? 
-            <MobilePanelControl key={index} value={value} index={index} filtersDomain={filtersDomain} />
-            :
-            <DesktopPanelControl instance={instance}  key={index} value={value} index={index} filtersDomain={filtersDomain}  color={value.colorHexa}/>
-        );
+        if(theme == "industries") {
+            return (
+                width < breakpoint ? 
+                <MobilePanelControl key={index} value={value} index={index} filtersDomain={filtersDomain} />
+                :
+                <DesktopPanelControl instance={instance}  key={index} value={value} index={index} filtersDomain={filtersDomain}  color={value.colorHexa}/>
+    
+            )
+        }
+        else {
+            return (
+                !!value.id && value.id === 'esul18e' ?
+                width < breakpoint ? 
+                <MobilePanelControl key={index} value={value} index={index} filtersDomain={filtersDomain} />
+                :
+                <DesktopPanelControl instance={instance}  key={index} value={value} index={index} filtersDomain={filtersDomain}  color={value.colorHexa}/>
+                :
+                ""
+            );
+        }
+
     });
     
         return(

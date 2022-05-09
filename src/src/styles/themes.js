@@ -23,33 +23,22 @@ export const Style = createGlobalStyle`
     text-decoration: none;
   }
 
-  #filter-parent-0,  #filter-parent-1, #filter-parent-, #filter-parent-6, #filter-parent-7, #filter-parent-8, #filter-parent-9 {
+  #filter-parent-0,  #filter-parent-2, #filter-parent-5, #filter-parent-6, #filter-parent-7, #filter-parent-8, #filter-parent-9 {
     display: none;
   }
 
 
   @media ${device.lg} {
-    #filter-parent-0,  #filter-parent-1, #filter-parent-5, #filter-parent-6, #filter-parent-7, #filter-parent-8, #filter-parent-9 {
+    #filter-parent-0,  #filter-parent-2, #filter-parent-5, #filter-parent-6, #filter-parent-7, #filter-parent-8, #filter-parent-9 {
       display: none;
     }
   }
   
 `;
 
-export const datalimentaire = {
-
-  colors : {
-      primary: '#343f56',
-      secondary: '#fff',
-      darkgray: '#71717E',
-      gray: '#c4c4c4',
-      background: '#fcafafa',
-      red: '#ff4848',
-      blue: '#aad7ff'
-  },
-
+export const Base = {
   fontSizes: {
-    xstext : '14px', 
+    xstext : '12px', 
     paragraphe: '16px', 
     xltext : '18px', 
     xstitle : '22px', 
@@ -64,31 +53,33 @@ export const datalimentaire = {
 		title: 1.25,
 		paragraph: 1.5
 	},
+
   letterSpacings: {
 		normal: 'normal'
   },
 
-  Panel: {
-    top: 0,
-    bottom: 0,
-    right: 'auto',
-    left: 0,
-    backgroundColor: '#fff'
-  },
-  
-  space: [
-      // margin and padding
-      0,
-      4,
-      8,
-      16,
-      32,
-      64,
-      128,
-      256,
-    ],
-  
   radii: ['0px', '2px', '4px', '8px', '16px', '20px', '40px']
+}
+
+export const datalimentaire = {
+
+  colors : {
+      primary: '#343f56',
+      secondary: '#fff',
+      darkgray: '#71717E',
+      gray: '#c4c4c4',
+      background: '#FCFAFA',
+      red: '#ff4848',
+      blue: '#aad7ff'
+  },
+
+  // Panel: {
+  //   top: 0,
+  //   bottom: 0,
+  //   right: 'auto',
+  //   left: 0,
+  //   backgroundColor: '#fff'
+  // },
 
 }
 
@@ -103,40 +94,6 @@ export const industries = {
       red: '#ff4848',
       blue: '#aad7ff'
   },
-
-  fontSizes: {
-    xstext : '14px', 
-    paragraphe: '16px', 
-    xltext : '18px', 
-    xstitle : '22px', 
-    mtitle : '28px', 
-    xltitle: '36px'
-  },
-
-  fontWeights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
-
-  lineHeights: {
-		normal: 1,
-		title: 1.25,
-		paragraph: 1.5
-	},
-  letterSpacings: {
-		normal: 'normal'
-  },
-  
-  space: [
-      // margin and padding
-      0,
-      4,
-      8,
-      16,
-      32,
-      64,
-      128,
-      256,
-    ],
-  
-  radii: ['0px', '2px', '4px', '8px', '16px', '20px', '40px'],
 
   collapse: {
 
@@ -156,10 +113,4 @@ export const industries = {
     borderRadius: "10px",
   }
 
-}
-
-export const Colors = {
-  text: datalimentaire.colors.primary,
-  background: datalimentaire.colors.white,
-  backgroundpanel: datalimentaire.colors.background,
 }

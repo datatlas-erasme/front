@@ -64,10 +64,10 @@ export default function ButtonDay ({
   }, [dispatch, idFilter, filtersArray]);
   
   // Toggle the button linked layer vibility
-  const [isLayerVisible, setIsLayerVisible] = useState(true);
-  const isLayerVisibleState = () => {
-    setIsLayerVisible(!isLayerVisible);
-  };
+  // const [isLayerVisible, setIsLayerVisible] = useState(true);
+  // const isLayerVisibleState = () => {
+  //   setIsLayerVisible(!isLayerVisible);
+  // };
 
     return (
       <>

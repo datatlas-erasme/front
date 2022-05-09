@@ -8,9 +8,10 @@ import {
   FarmSale,
   MarketDealer,
   MarketProducer,
-  ProducerShop
+  ProducerShop,
+  Solidarity
 } from '../../../../assets/svg/types';
-import {FarmerIcon} from '../../../../assets/svg/FarmerIcon';
+// import {FarmerIcon} from '../../../../assets/svg/FarmerIcon';
 import { ButtonType } from './style';
 
 export type ButtonProps = Override<
@@ -39,6 +40,10 @@ export default function ButtonSelect ({
   src,
   ...props
 }: ButtonProps){
+
+  console.log(layerConfigChange)
+
+  console.log(text);
   
   const dispatch = useDispatch();  
   // Toggle the visibility of buttons parent list
@@ -60,14 +65,18 @@ export default function ButtonSelect ({
         {...props}>
           
         <div  className={ isActive ? 'active' : 'inactive' }>
-          { text === 'fermes en vente directe' ? (
+          { text === 'Vente à la ferme' ? (
             <FarmSale/>
-          ) : text === 'magasins de producteurs/points de vente collectifs' ? (
+          ) : text === 'Magasin de producteurs' ? (
             <ProducerShop/>
-          ) : text === 'Commande/ drive de produits locaux' || 'Points de distribution de paniers avec engagement' ? (
+          ) : text === 'AMAP/Panier' ? (
             <Amap/>
-          ) : text === 'marchés à la ferme' ? (
+          ) : text === 'Distributeur automatique' ? (
             <MarketProducer/>
+          ) : text === 'Epicerie sociale et solidaire' ? (
+              <Solidarity/>
+          ) : text === 'Distributeur automatique' ? (
+                <MarketProducer/>
           ) : (<MarketDealer/>) }
         </div>
         

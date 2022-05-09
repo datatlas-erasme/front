@@ -1,19 +1,17 @@
 import Collapse from '../collapse'
-import {DomainFilter } from './style';
+import { DomainFilter } from './style';
 
 const MobilePanelControl = ({ index, filtersDomain }) => {
 
-const Domains =  Object.keys(filtersDomain).map((filter, i) =>{
+    const Domains =  Object.keys(filtersDomain).map((filter, i) =>{
       const filterName = filtersDomain[filter].name
       const filterItem = filtersDomain[filter].domain
-      // console.log(filterName);
-      // console.log(filterItem);
       
       return (
         <Collapse
           key={i} 
           id={`filter-parent-${i}`} 
-          className="filter-parent"
+          className='filter-parent'
           text={filterName}
           idFilter={i}
           listNames={filterItem}
@@ -26,7 +24,6 @@ const Domains =  Object.keys(filtersDomain).map((filter, i) =>{
     <DomainFilter>
         {Domains}
     </DomainFilter>
-      {/* <SearchBar/> */}
   </>
   );
 };

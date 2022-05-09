@@ -13,7 +13,7 @@ export const Badge = styled.button`
     padding: 5px;
     border: 1px solid ${datalimentaire.colors.gray};
     background-color: #fcfafa;
-    color: ${Colors.text};
+    color: ${datalimentaire.colors.primary};
     box-sizing: border-box;
     border-radius: 40px;
 

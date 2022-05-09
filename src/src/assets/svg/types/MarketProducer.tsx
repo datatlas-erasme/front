@@ -2,10 +2,10 @@ import * as React from "react";
 
 export const MarketProducer = ({
   height = "auto",
-  width = "50",
+  width = "40",
 ...props} : React.SVGProps<SVGSVGElement>) => (
 
-    <svg width={width} height={height} fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={width} height={height} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#a)">
             <path d="M7.315 14.774h-.584c-.645 0-1.168.524-1.168 1.169v.584a2.924 2.924 0 0 0 2.92 2.92h.585c.645 0 1.168-.522 1.168-1.168v-.584a2.924 2.924 0 0 0-2.921-2.92Z" fill="#33BC00"/>
             <path d="M10.807 14.774h-.584c-.645 0-1.168.524-1.168 1.169v.584a2.924 2.924 0 0 0 2.92 2.92h.585c.645 0 1.168-.522 1.168-1.168v-.584a2.924 2.924 0 0 0-2.92-2.92Z" fill="#79D60D"/>

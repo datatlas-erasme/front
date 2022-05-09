@@ -41,16 +41,6 @@ const customizedKeplerGlReducer = keplerGlReducer.initialState({
   visState: {},
   
 })
-.plugin({
-  HIDE_AND_SHOW_SIDE_PANEL: (state : any, action: any) => ({
-    ...state,
-    uiState: {
-      ...state.uiState,
-      readOnly: !state.uiState.readOnly
-    }
-  }),
-  [ActionTypes.SET_FILTER]: (state, action) => state
-});
 
 const reducers = combineReducers({
   keplerGl: customizedKeplerGlReducer,

@@ -21,12 +21,14 @@ export type CollapseProps = Override<
     text: string;
     textType: string;
     textProduits: string;
-    btnType?: 'parent' | 'child';
     listNames?: string[] | any;
-    idFilter?: string;
+    idFilter?: number;
     filtername?: string;
     dayList?: string[];
     icon: IconDefinition;
+    index?: number;
+    isActive?: boolean;
+    onItemClick?: (item: any) => void;
   }
 >;
 
@@ -34,32 +36,29 @@ const Collapse = ({
   text,
   textType,
   textProduits,
-  btnType,
   listNames,
   idFilter,
   className,
   filtername,
   dayList,
   icon,
+  index,
+  isActive,
+  onItemClick,
   ...props
 }: CollapseProps) => {
-  // const dispatch = useDispatch();
+  
   // Toggle the visibility of buttons parent list
-  const [isActive, setIsActive] = useState(false);
-  const isActiveState = () => {
-    setIsActive(!isActive);
-  };
+  // const [isActive, setIsActive] = React.useState<boolean>(false);
+  const [height] = useState(0);
 
-  const [height, setHeight] = useState(0);
-  
   // Toggle the button linked layer vibility
-  const [isLayerVisible, setIsLayerVisible] = useState(true);
-  const isLayerVisibleState = () => {
-    setIsLayerVisible(!isLayerVisible);
-  };
-  
+  // const [isLayerVisible, setIsLayerVisible] = useState(true);
+  // const isLayerVisibleState = () => {
+  //   setIsLayerVisible(!isLayerVisible);
+  // };
   function TextCollaps(){
-    if(text[0] === 'soustype'){
+    if(!!text && text[0] === 'type'){
       return 'Type';
     } else if (text[0] === 'produits') {
       return 'Produits';
@@ -75,12 +74,11 @@ const Collapse = ({
     return (
       <>
         <ButtonCollapse
-        aria-expanded={ height !== 0 }
-        aria-controls='panel-filter' 
-          onClick={isActiveState}
-          className={classnames('btn', className, { active: !isActive })}
-          {...props}
-        >
+          aria-expanded={ height !== 0 }
+          aria-controls='panel-filter' 
+          className={ isActive ? 'active' : '' }
+          aria-disabled={ isActive === idFilter ? 'true' : 'false' }
+          onClick={onItemClick}>
           <span>
             <FontAwesomeIcon 
             icon={!isActive ? faChevronRight : faChevronDown} 
@@ -89,8 +87,9 @@ const Collapse = ({
           </span>
           {TextCollaps()}
         </ButtonCollapse>
-        
+                
         <AnimateHeight
+          id='panel-filter'
           style={{flexShrink: 0}}
           duration={500}
           height={!isActive ? 0 : 'auto'} 

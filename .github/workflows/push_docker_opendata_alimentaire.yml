@@ -25,6 +25,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: erasme/datatlas-opendatalim-dev:latest
+          repository:  
+          tags: erasme/datatlas-opendatalim-dev:latest, erasme/datatlas-opendatalim-dev:${{ github.sha }}
           build-args: |
             REACT_APP_BACKEND_URL=${{ secrets.OPEN_DATA_ALIM_BACKEND_URL }}

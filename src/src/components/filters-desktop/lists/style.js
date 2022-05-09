@@ -1,28 +1,24 @@
 import styled from 'styled-components';
-import { datalimentaire } from '../../../styles';
+import { datalimentaire, Base } from '../../../styles';
 
 export const ListSelect = styled.ul `
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 0px;
-    max-height: 300px;
-    overflow: scroll;
+    display: grid;
+    grid-template-columns: min-content min-content;
+    column-gap: 5px;
+    row-gap: 5px;
+    padding-bottom: 10px;
 `
 
 export const ListIconButton = styled.ul `
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 5px;
-    row-gap: 5px;
+    display: flex;
+    flex-wrap: wrap;
     padding-left: 0px;
-    max-height: 300px;
-    overflow: scroll;
 `
 
 export const ListCheckbox = styled.div `
     
     width: 80%;
-    font-size: ${datalimentaire.fontSizes.xstext};
+    font-size: ${Base.fontSizes.xstext};
     max-height: 300px;
     overflow: scroll;
 
@@ -52,6 +48,7 @@ export const LabelCheckbox = styled.label`
     `
 
 export const ButtonWrapper = styled.li`
-    width: auto;
+    display: inline-block;
     padding: 5px;
+    width: auto;
 `

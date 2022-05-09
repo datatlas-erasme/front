@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 import { device } from '../../../../styles/breakpoints';
-import { datalimentaire } from '../../../../styles/themes';
+import { datalimentaire, Base } from '../../../../styles/themes';
 import px2vw from '../../../../utils/px2vw';
 
 export const ButtonType = styled.button`
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
 
     background-color: ${datalimentaire.colors.secondary};
@@ -14,12 +13,14 @@ export const ButtonType = styled.button`
     cursor: pointer;
 
     font-weight: ${px2vw(400)};
-    font-size: ${px2vw(datalimentaire.fontSizes.xstext)};
+    font-size: ${px2vw(Base.fontSizes.xstext)};
 
     div{
-        width: 60px;
-        height: 60px;
-        padding: 15px;
+        display: flex;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        padding: 10px;
         border-radius: 50px;
         border: 1px solid ${datalimentaire.colors.gray};
         box-sizing: border-box;
@@ -36,7 +37,7 @@ export const ButtonType = styled.button`
 
     p{
         display: block;
-        width: 150px;
+        width: auto;
         text-align: left;
         padding-left: 10px;
     }
