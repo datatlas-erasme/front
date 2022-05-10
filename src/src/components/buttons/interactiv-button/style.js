@@ -30,7 +30,7 @@ export const AddPoint = styled.button`
     background-color: ${datalimentaire.colors.secondary};
     color: ${datalimentaire.colors.primary};
     font-size: ${Base.fontSizes.paragraphe};
-    font-weight: ${Base.fontWeights[0]};
+    font-weight: ${Base.fontWeights[4]};
 
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
 

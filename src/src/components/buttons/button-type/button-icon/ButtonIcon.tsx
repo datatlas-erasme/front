@@ -51,7 +51,7 @@ export default function ButtonIcon ({
           case 'Boissons': return icons['icon-wine.png'].default;
           default : return icons[`icon-bulle.png`].default;}
     })();
-
+    
     return (
       <Badge
         onClick={isActiveState}

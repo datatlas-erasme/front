@@ -31,27 +31,11 @@ export const WrapperModal = styled.div`
     border-bottom: 1px solid ${datalimentaire.colors.gray};
     }
 
-  p{
-    font-size: ${Base.fontSizes.xltext};
+  p, li, address{
+    font-size: ${Base.fontSizes.normal};
     line-height: ${Base.lineHeights.normal};
     font-style: italic;
     align-self: center;
-  }
-
-  li {
-    font-size: ${Base.fontSizes.paragraphe};    
-    display: flex;
-    margin: 20px 0;
-  }
-
-  a{
-    margin: auto;
-    button{
-      border: none;
-      background-color: ${datalimentaire.colors.secondary};
-      text-decoration-line: underline;
-      font-size: ${Base.fontSizes.paragraphe};
-    }
   }
 
   @media ${device.lg} {
@@ -98,7 +82,7 @@ export const ModalColLeft = styled.div`
 
   @media ${device.lg} {
     width: 60%;
-    padding: 40px 0 20px 40px;
+    padding-left: 30px;
   }
   
 `
@@ -139,42 +123,50 @@ export const ModalColRight = styled.div`
 `
 export const ModalHeading = styled.div`
     display: flex;
-    flex-direction: column;
+    Width: 100%;
+    justify-content: space-between;
+        div {
+          &:first-child {
+            h2{
+              font-size: ${Base.fontSizes.xltitle};
+              line-height: ${Base.lineHeights.title};
+              margin-bottom: 10px;
+            };
+            @media ${device.lg} {
+              padding: 30px 0 0 30px;
+            }
+          };
+          &:last-child {
+            img{
+              display: none;
+            };
+            svg {
+              position: absolute;
+              height: 2em;
+              color: ${datalimentaire.colors.primary};
+              right: 25px;
+              top: 15px;
+            };
+            @media ${device.lg} {
+              width: 40%;
+              img{
+                display: flex;
+                width: 100%;
+                border-radius: 0 ${Base.radii[5]} 0 80px;
+              };
 
-    div{
-      flex-direction: column;
-
-      h2{
-        font-size: ${Base.fontSizes.xltitle};
-        line-height: ${Base.lineHeights.title};
-      }
-    }
-
-
-
-    @media ${device.lg} {
-      flex-direction: column;
-
-      div{
-        h2{
-          font-size: ${Base.fontSizes.xstitle};
-          line-height: ${Base.lineHeights.title};
-          margin-bottom: 10px;
-        }
-        p{
-          text-align: left;
-        }
-      }
-
-      svg{
-        width: 42px;
-      }
-      
-    }
+              svg {
+                height: 2em;
+                color: white;
+                cursor: pointer;
+              };
+            };
+          };
+        };
 
 `
 export const ProvenanceList = styled.div` 
-
+        margin: 20px 0;
         ul{
           display: flex;
         }
@@ -196,7 +188,6 @@ export const ProvenanceList = styled.div`
 
         @media ${device.lg} {
           width: 80%;
-          margin-top: 12%;
         }
 
 
@@ -204,41 +195,99 @@ export const ProvenanceList = styled.div`
 export const InfoPratique = styled.ul`
         li{
           display: flex;
-
+          margin: 10px 0;
           ul{
             display: flex;
             flex-direction: column;
             padding-left: 0px;
-
             li{
-              margin-top: 0;
-              margin-left: 5px;
-            }
-
-          }
+              margin-left: 10px;
+            };
+          };
 
           @media ${device.lg} {
             img{
               width: 30px;
               height: 30px;
-            }
-          }
-        }
-
-        p{
-          font-size: ${Base.fontSizes.paragraphe};
-          padding-left: 10px;
-          font-style: normal;
-        }
+            };
+          };
+        };
 
         @media ${device.lg} {
           width: 80%;
-        }
+        };
+`
+export const TitleModal = styled.div`
+      width: 60%;
+      flex-direction: column;
+
+      h2{
+        font-size: ${Base.fontSizes.xltitle};
+        line-height: ${Base.lineHeights.title};
+        margin-bottom: 10px;
+      };
+
+      p{
+        font-size: ${Base.fontSizes.xstitle};
+      }
+
+      svg{
+        height: auto;
+      }
+
+      @media ${device.lg} {
+        flex-direction: row;
+        padding-top: 30px;
+        padding-left: 30px;
+      };
+
+
+`
+export const InfoPratiqueGlobal = styled.ul`
+        display: block;
+        width: 100%;
+
+        li{
+          font-size: ${Base.fontSizes.paragraphe};
+          line-height: ${Base.lineHeights.paragraphe};
+          display: flex;
+          margin-top : 15px;
+            ul{
+              padding-left: 10px;
+              li{
+                margin-top: 0;
+              };
+          };
+        };
+
+        @media ${device.lg} {
+          display: flex;
+          justify-content: space-around;
+          margin-top: 20px !important;
+          li{
+            display: flex;
+            margin-bottom: 5px;
+            &:nth-child(2){
+              margin-left: 10px;
+            };
+            &:last-child{
+              ul{
+                li{
+                  &:last-child{
+                    margin-left: 0;
+                  };
+                };
+              };
+            };
+          };
+        };
+        
 `
 export const LabelRow = styled.div`
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin: 20px 0;
+
     ul{
       display: flex;
       flex-wrap: wrap;
@@ -255,6 +304,8 @@ export const LabelRow = styled.div`
     }
     img{
       border-radius: 0;
+      width: auto;
+      height: 50px;
     }
 
     @media ${device.lg} {
@@ -264,10 +315,12 @@ export const LabelRow = styled.div`
 export const ProductRow = styled.div`
     display: flex;
     flex-direction: column;
+
     ul{
       display: flex;
       flex-wrap: wrap;
       li{
+        display: flex;
         margin: 5px;
         p{
           font-style: normal;
@@ -296,13 +349,19 @@ export const ProductRow = styled.div`
 export const BottomButton = styled.a`
     width: 100%;
     height: 100px;
+    margin: auto;
     button{
       display: flex;
       align-self: center;
       margin: auto;
       margin-top: 40px;
+      border: none;
+      background-color: ${datalimentaire.colors.secondary};
       p{
         padding-left: 10px;
+        background-color: ${datalimentaire.colors.secondary};
+        text-decoration-line: underline;
+        font-size: ${Base.fontSizes.paragraphe};
       }
-    }
+    }      
 `

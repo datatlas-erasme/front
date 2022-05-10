@@ -19,4 +19,9 @@ export const ToolTip = styled.div`
     h3{
         color: ${datalimentaire.colors.gray};
     }
+
+    img{
+        height: 30px;
+        width: auto;
+    }
 `

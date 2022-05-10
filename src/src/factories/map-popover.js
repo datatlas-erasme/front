@@ -10,7 +10,6 @@ const CustomMapPopoverFactory = (...deps) => {
   
   MapPopoverFactory.deps = [LayerHoverInfoFactory, CoordinateInfoFactory];
 
-  console.log(MapPopoverFactory.deps);
   const MapPopoverWrapper = props => {
     // Fields declared in the kepler conf panel
     const fieldsToShow = props.layerHoverProp.fieldsToShow;
