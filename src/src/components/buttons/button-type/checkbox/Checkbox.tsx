@@ -1,9 +1,5 @@
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
-import classnames from 'classnames';
-import { importAll } from "../../../../utils/import-png";
-import { LabelCheckbox } from "../../../filters-desktop/lists/style";
-import { ButtonType } from '../button-select/style';
 import { Override } from '../../../../types/Override';
 
 export type CheckboxProps = Override<
@@ -16,11 +12,6 @@ export type CheckboxProps = Override<
 
   }
 >;
-
-// Import icons products
-const icons = importAll(require.context('../../../../assets/logo/label', false, /\.(png)$/));
-
-const dataCheckbox = {}
 
 export default function Checkbox({  
   text,
@@ -48,32 +39,6 @@ export default function Checkbox({
         <>
                 <input type="checkbox" />
                 <label> {text.substring(0, 30)} </label>
-        {/* <ButtonType
-        onClick={isActiveState}
-        className={classnames('active', className, { selected: isActive })}
-        {...props}>
-          
-        <ul>
-          <li>
-            <img src={icons[`Agriculture-biologique.png`].default} width={50} height={50}/>
-            BIO
-          </li>
-          <li>
-            <img src={icons[`HVE.png`].default} width={50} height={50}/>
-            HVE (Haute Valeur Environnementale)
-          </li>
-          <li>
-            <img src={icons[`Agriculture-biologique.png`].default} width={50} height={50}/>
-            Bienvenue à la ferme
-          </li>
-          <li>
-             <img src={icons[`LVED.png`].default} width={50} height={50}/>
-             LVED (Lyon Ville Équitable et Durable)
-          </li>
-        </ul>
-        
-        <p>{text.substring(0, 30)}</p>
-      </ButtonType> */}
       </>
     )
 };

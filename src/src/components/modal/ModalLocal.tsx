@@ -47,9 +47,9 @@ const icons = importAll(require.context('../../assets/icon', false, /\.(png)$/))
 function MapModalLocal({data, onClick}) {
 
 // Logo labels
-const labelItem = data[12]?.map(label => label);
+const labelItem = !!data[12] && data[12].map(label => label);
 const query_labels = (() => {
-  switch(labelItem[0]){
+  switch(labelItem){
     case 'AB - agriculture biologique': return labels[`Agriculture-biologique.png`].default;
     case 'Autres labels' : return labels['bienvenueferme.png'].default;
     case 'LVED (Lyon Ville Equitable et Durable)': return labels['lyonequitabledurable.png'].default;
@@ -60,12 +60,7 @@ const query_labels = (() => {
  // Icon Products
  console.log(data[10]);
  
- const ProductItem = data[10]?.map((product) => {
-   console.log(product);
-   
-   return (product)
-   
-  });
+ const ProductItem = data[10]?.map(product);
  console.log(ProductItem);
 
  const query_icon = (() => {
@@ -86,7 +81,7 @@ const query_labels = (() => {
        default : return icons[`icon-bulle.png`].default;}
  })();
 
- console.log(query_labels);
+ console.log(query_icon);
  
 		return (
       <WrapperModal>

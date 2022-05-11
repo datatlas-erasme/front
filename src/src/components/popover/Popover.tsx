@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import {importAll} from '../../utils/import-png';
 import { ToolTip } from './style';
 
-const labels = importAll(require.context('../../assets/logo/label', false, /\.(png)$/));
+const labels = importAll(require.context('../../assets/label', false, /\.(png)$/));
 
 function CustomMapPopover({data, dataID, props}) {
   
