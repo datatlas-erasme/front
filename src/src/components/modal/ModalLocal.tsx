@@ -56,9 +56,6 @@ const query_labels = (() => {
     case 'HVE (Haute Valeur Environnementale)': return labels['hve.png'].default;
     default : return '';}
  })();
-
- // Icon Products
- console.log(data[10]);
  
 //  const ProductItem = data[10]?.map(product);
 //  console.log(ProductItem);
