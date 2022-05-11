@@ -26,6 +26,7 @@ display: none;
                 bottom: 0;
                 width: 45vw;
                 height: auto;
+                padding-top: 0px;
         }
         @media ${device.xl} {
                 width: 35vw;

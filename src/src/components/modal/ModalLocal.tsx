@@ -57,11 +57,34 @@ const query_labels = (() => {
     default : return '';}
  })();
  
-//  const ProductItem = data[10]?.map(product);
-//  console.log(ProductItem);
+  const product = data[10]?.map((product) => {
+    const query_icon = (() => {
+     switch(product){
+        case 'Légumes': return icons[`icon-vegetables.png`].default;
+        case 'Miel' : return icons['icon-honey.png'].default;
+        case 'Fruits': return icons['icon-fruits.png'].default;
+        case 'Oeufs': return icons['icon-egg.png'].default;
+        case 'Poisson': return icons['icon-fish.png'].default;
+        case 'Viande': return icons['icon-chiken.png'].default;
+        case 'Boulangerie': return icons['icon-bread.png'].default;
+        case 'Lait': return icons['icon-milk.png'].default;
+        case 'Fromage et produits laitiers': return icons['icon-cheese.png'].default;
+        case 'Produits laitiers': return icons['icon-cheese.png'].default;
+        case 'Epicerie': return icons['icon-cookie.png'].default;
+        case 'Traiteur': return icons['icon-caterer.png'].default;
+        case 'Boissons': return icons['icon-wine.png'].default;
+        default : return icons[`icon-bulle.png`].default;}
+  })();
 
+  console.log(product);
+  console.log(query_icon);
+ 
+     return (query_icon)
+    
+  } )
+  console.log(product);
 //  const query_icon = (() => {
-//   switch(ProductItem){
+//     switch(product){
 //        case 'Légumes': return icons[`icon-vegetables.png`].default;
 //        case 'Miel' : return icons['icon-honey.png'].default;
 //        case 'Fruits': return icons['icon-fruits.png'].default;
@@ -162,12 +185,22 @@ const query_labels = (() => {
         <ProductRow>
         <h4>Produits vendus</h4>
         <ul>
-          {data[10].map((item, index) => (
-            <li key={index}>
-              {/* <img src={query_icon} alt="" /> */}
-              <p>{item}</p>
-            </li>
-          ))}
+          {data[10].map((item, index) => {
+
+            return (
+              <li key={index}>
+                {/* {product.map(icon => {
+                  console.log(icon);
+                  
+                  return( <img src={icon} alt={data[10]} />)
+                 
+                }
+                  
+            )} */}
+                <p>{item}</p>
+              </li>
+            )
+          })}
         </ul>
         </ProductRow>
         
@@ -183,8 +216,6 @@ const query_labels = (() => {
 }
 const mapStateToProps = state => state;
 const dispatchToProps = dispatch => ({dispatch});
-
-console.log(dispatchToProps);
 
 export default connect(
   mapStateToProps, 

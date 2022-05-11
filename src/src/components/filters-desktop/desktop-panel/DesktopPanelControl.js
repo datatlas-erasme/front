@@ -19,7 +19,6 @@ const DesktopPanelControl = ({ filtersDomain, initialActiveItemIndex, closeOther
       }
           
     let newActiveItemIndexes = [activeItemIndexes]
-    console.log(newActiveItemIndexes);
     if (newIndexes) {
       newActiveItemIndexes = newActiveItemIndexes.filter(item => item !== index)
     } else {
@@ -69,28 +68,3 @@ const Domains =  Object.keys(filtersDomain).map((filter, index) =>{
 };
 
 export default DesktopPanelControl;
-
-{/* <ParentFilter key={index} id="filter-parent-1" className="filter-parent">
-<Collapse
-  btnType="child"
-  text={filtersDomain[1].name}
-  listNames={filtersDomain[1].domain}
-  idFilter={1}
-/>
-</ParentFilter>
-<ParentFilter key={index} id="filter-parent-1" className="filter-parent">
-<Collapse
-  btnType="child"
-  text={filtersDomain[3].name}
-  listNames={filtersDomain[3].domain}
-  idFilter={1}
-/>
-</ParentFilter>
-<ParentFilter key={index} id="filter-parent-1" className="filter-parent">
-<Collapse
-  btnType="child"
-  text={filtersDomain[4].name}
-  listNames={filtersDomain[4].domain}
-  idFilter={1}
-/>
-</ParentFilter> */}

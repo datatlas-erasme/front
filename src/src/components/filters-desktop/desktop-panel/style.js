@@ -11,7 +11,7 @@ export const BlockFilters = styled.div`
     width: 80%;
     height: auto;
     margin: 60px auto;
-    padding: 40px 0;
+    padding: 0;
 
 
     background-color: ${datalimentaire.colors.background};

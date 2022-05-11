@@ -325,6 +325,7 @@ export const ProductRow = styled.div`
         p{
           font-style: normal;
           font-size: ${Base.fontSizes.xstext};
+          line-height: ${Base.lineHeights.paragraph};
           margin-left: 5px;
         }
       }

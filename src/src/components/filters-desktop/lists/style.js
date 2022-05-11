@@ -17,7 +17,7 @@ export const ListIconButton = styled.ul `
 
 `
 
-export const ListCheckbox = styled.div `
+export const ListCheckbox = styled.ul `
     
     width: 80%;
     font-size: ${Base.fontSizes.xstext};
