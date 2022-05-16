@@ -162,7 +162,7 @@ const CustomMapPopoverFactory = (...deps) => {
           <p><b>{trees ? "Arbres plantés : " : ""}</b>{trees}</p>
           <p><b>{tags ? "Tags : " : ""}</b>{tags}</p>
           <p><b>{contact ? "Contact : " : ""}</b>{DOMPurify.sanitize(he.decode(contact),{FORBID_TAGS: ['a']})}</p>   
-          <p><b>{link ? <a href={link}>Lien vers la fiche projet</a> : ""}</b></p>   
+          <p><b>{link ? <a href={link} target="_blank">Lien vers la fiche projet</a> : ""}</b></p>   
         </div>
       </div>
     )

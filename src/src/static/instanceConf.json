@@ -18,7 +18,7 @@
   "bottomRightButtons": [
     { "text": "Partager un projet", "url": "https://canographia.datagora.erasme.org/partager/" },
     {
-      "text": "Partager une plantation",
+      "text": "J'ai planté un arbre",
       "url": "https://canographia.datagora.erasme.org/jai-plante-un-arbre/"
     }
   ],
