@@ -4,15 +4,14 @@ import { device } from '../../styles/breakpoints';
 
 export const WrapperModal = styled.div`
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
 
   position: fixed;
-  top: 2vh;
+  top: 1vh;
   left: 5%;
 
   width: 90vw;
-  height: 95vh;
+  height: 90vh;
   margin: auto;
   padding: 40px;
 
@@ -204,6 +203,10 @@ export const InfoPratique = styled.ul`
               margin-left: 10px;
             };
           };
+          
+          p{
+            margin-left: 10px;
+          }
 
           @media ${device.lg} {
             img{

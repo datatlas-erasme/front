@@ -76,13 +76,13 @@ const query_labels = (() => {
         default : return icons[`icon-bulle.png`].default;}
   })();
 
-  console.log(product);
-  console.log(query_icon);
+  // console.log(product);
+  // console.log(query_icon);
  
      return (query_icon)
     
   } )
-  console.log(product);
+  // console.log(product);
 //  const query_icon = (() => {
 //     switch(product){
 //        case 'Légumes': return icons[`icon-vegetables.png`].default;
