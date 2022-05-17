@@ -15,7 +15,10 @@ const PanelControl = () => {
     // Get the filter values, id  and map them to buttons
     const filtersDomain = useSelector( state => state.keplerGl.map?.visState?.filters ?? []);
     const layers = useSelector( state => state.keplerGl.map?.visState?.layers ?? {});
-    
+    // const layerGlobal = useSelector( state => state.keplerGl.map?.visState?.filters ?? []);
+    // console.log(filtersDomain);
+    // console.log(layers);
+
     const filterTree = useMemo(() => {
         return Object.values(layers).map((value, i) => {
             return { label: value.config.label, dataid: value.config.dataId, key: i, id: value.id };
@@ -28,7 +31,7 @@ const PanelControl = () => {
             width < breakpoint ? 
             <MobilePanelControl key={index} value={value} index={index} filtersDomain={filtersDomain} />
             :
-            <DesktopPanelControl key={index} value={value} index={index} filtersDomain={filtersDomain}/>
+            <DesktopPanelControl key={index} value={value} index={index} filtersDomain={filtersDomain} layers={layers}/>
             :
             ""
         );

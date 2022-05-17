@@ -11,9 +11,11 @@ export const WrapperModal = styled.div`
   left: 5%;
 
   width: 90vw;
-  height: 90vh;
+  height: auto;
   margin: auto;
   padding: 40px;
+
+  overflow-y: scroll;
 
   background: ${datalimentaire.colors.secondary};
   color: ${datalimentaire.colors.primary};

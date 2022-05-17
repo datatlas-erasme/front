@@ -3,9 +3,10 @@ import { useState } from 'react';
 // import AnimateHeight from 'react-animate-height';
 import Collapse from '../collapse'
 import { ButtonDay } from '../../buttons/button-type';
+import { ButtonSwitch } from '../../buttons/button-type';
 import { BlockFilters, ParentFilter, DomainFilter, HeadingFilter } from './style';
 
-const DesktopPanelControl = ({ filtersDomain, initialActiveItemIndex, closeOtherItemsOnClick }) => {
+const DesktopPanelControl = ({ filtersDomain, initialActiveItemIndex, closeOtherItemsOnClick, layers }) => {
 
   // Accordion comportment
   const [activeItemIndexes, setActiveItemIndexes] = useState([initialActiveItemIndex || 1])
@@ -61,7 +62,9 @@ const Domains =  Object.keys(filtersDomain).map((filter, index) =>{
       <DomainFilter>
         {Domains}
       </DomainFilter>
+      
       <ButtonDay dayList={filtersDomain[5].domain} text={filtersDomain[5].name[0]} idFilter={5}></ButtonDay>
+      {/* <ButtonSwitch filterglobal={layers[1]}/> */}
     </BlockFilters>
   </>
   );

@@ -32,7 +32,7 @@ export default function FetchInstanceConf() {
   
      // Retreive Kepler configuration
      useEffect(() => {
-      console.log("FETCH DATA" + backendUrl + "/api/conf/kepler")
+      // console.log("FETCH DATA" + backendUrl + "/api/conf/kepler")
       fetch(backendUrl + "/api/conf/kepler", { method: "GET" })
           .then((res) => res.json())
           .then((data) => {
