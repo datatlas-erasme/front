@@ -49,8 +49,6 @@ export default function ButtonDay ({
     
   const setFilterValue = (item: string) => {
     if (filtersArray.includes(item)) {
-      // console.log('already in filters array');
-      // console.log("Filters Array :", filtersArray)
       setFiltersArray((filtersArray) =>      
         filtersArray.filter((cat) => {          
           return cat !== item;
@@ -58,20 +56,12 @@ export default function ButtonDay ({
       );              
     } else {
       setFiltersArray((filtersArray) => [...filtersArray, item]);
-      // console.log("Filters Array :", filtersArray)
     }
   };
   
   useEffect(() => {
-    // console.log('Filters Array :', filtersArray);
     dispatch(setFilter(idFilter, 'value', filtersArray));
   }, [dispatch, idFilter, filtersArray]);
-  
-  // Toggle the button linked layer vibility
-  // const [isLayerVisible, setIsLayerVisible] = useState(true);
-  // const isLayerVisibleState = () => {
-  //   setIsLayerVisible(!isLayerVisible);
-  // };
 
     return (
       width < breakpoint ? 

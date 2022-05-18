@@ -4,7 +4,8 @@ import {
   addDataToMap,
   updateMap, 
   addCustomMapStyle, 
-  inputMapStyle 
+  inputMapStyle,
+  layerTypeChange 
 } from 'erasme-kepler.gl/actions';
 import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import { processGeojson } from 'erasme-kepler.gl/processors';
@@ -105,7 +106,8 @@ export default function Map() {
     useEffect(() => {
       if(keplerConfLoaded && instanceConf){
         dispatch(addDataToMap({ datasets: [], option: { centerMap: true }, config: keplerConf }));
-  
+        // dispatch(layerTypeChange('polygon', 'cluster'));
+        console.log(layerTypeChange);
         // Load à custum map style from backend
         dispatch(inputMapStyle({style: instanceConf.defaultMapBoxStyleUrl, id:"maquette", name:"Maquette"}))
         dispatch(addCustomMapStyle())
@@ -116,7 +118,8 @@ export default function Map() {
     // TODO updatemap is not taken into account
     useEffect(() => {
       if (mapUpdated) {
-        dispatch(updateMap({latitude:0, longitude: 0, zoom: 20}))
+        // dispatch(updateMap({latitude:0, longitude: 0, zoom: 20}))
+        
       }
     }, [dispatch,mapUpdated]);
 

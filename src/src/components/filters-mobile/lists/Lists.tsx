@@ -31,7 +31,7 @@ export const List = ({
       setFiltersArray((filtersArray) => [...filtersArray, item]);
     }
   };
-  
+    
   useEffect(() => {
     dispatch(setFilter(idFilter, 'value', filtersArray));
   }, [dispatch, idFilter, filtersArray]);

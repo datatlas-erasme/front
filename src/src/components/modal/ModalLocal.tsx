@@ -173,9 +173,11 @@ const query_labels = (() => {
 
         <LabelRow>
             <h4>Labels & certifications</h4>
-            { query_labels ? (
+            { !!data[12] && data[12] ? (
               <ul>
-                <li><img src={query_labels} alt="Label" /></li>
+                <li> {data[12]} 
+                {/* <img src={query_labels} alt="Label" /> */}
+                </li>
               </ul> 
               ) : (
                 <p>{data[2]} ne propose pas encore de produits labelisés</p>

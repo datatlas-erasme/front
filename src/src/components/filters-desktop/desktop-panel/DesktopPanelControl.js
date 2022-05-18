@@ -57,7 +57,7 @@ const Domains =  Object.keys(filtersDomain).map((filter, index) =>{
   <>
     
     <BlockFilters> 
-    <HeadingFilter>Trouve ton plan Bouffe</HeadingFilter>
+    {/* <HeadingFilter>Trouve ton plan Bouffe</HeadingFilter> */}
       {/* <SearchBar/> */}
       <DomainFilter>
         {Domains}
