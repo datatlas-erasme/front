@@ -12,7 +12,14 @@ const DesktopPanelControl = ({instance, color,value, filtersDomain, initialActiv
   // get the theme name
   console.log("instance", instance)
   const theme = instance.conf.theme.name
+  const datasetLabel = value.label;
   const datasetId = value.id;
+
+  // Handle Parent button opening
+  const [isActive, setIsActive] = useState(false);
+  const handleClick = () => {
+    setIsActive(!isActive);
+  };
 
   // Accordion comportment
   const [activeItemIndexes, setActiveItemIndexes] = useState([initialActiveItemIndex || 1])
@@ -34,6 +41,15 @@ const DesktopPanelControl = ({instance, color,value, filtersDomain, initialActiv
     }
     setActiveItemIndexes(newActiveItemIndexes)
   };
+
+const ParentBtn = (
+  <ButtonDefault
+    onClick={handleClick}
+    btnType="parent"
+    bg={color}
+    text={datasetLabel}
+  />
+);
 
 const Domains =  Object.keys(filtersDomain).map((filter, index) =>{
       const filterName = filtersDomain[filter].name
@@ -87,9 +103,16 @@ const Domains =  Object.keys(filtersDomain).map((filter, index) =>{
 
     if(theme == "industries") {
       return (
-        <>
-            {Domains}
-        </>
+        <ul>
+      {ParentBtn}
+
+      <AnimateHeight
+        duration={500}
+        height={!isActive ? 0 : 'auto'} // see props documentation bellow
+      >
+        <>{Domains}</>
+      </AnimateHeight>
+    </ul>
    
       )
     }

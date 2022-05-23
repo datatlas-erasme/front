@@ -54,6 +54,20 @@ export const ButtonDefault = ({
 
   console.log("btn type : ", btnType)
  
+  // Big button style
+  if (btnType === 'parent') {
+    return (
+      <div className="btn-parent" style={{ backgroundColor: bg, fontSize: textSize }}>
+        <p onClick={isLayerVisibleState}>
+        
+        </p>
+        <button className="btn" {...props} style={{ backgroundColor: bg }}>
+          {text.substring(0, 30)}
+        </button>
+      </div>
+    );
+  }
+
  if (btnType === 'child') {
 
     return (
