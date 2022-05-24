@@ -1,62 +1,74 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
-import classnames from 'classnames';
+import {useViewport} from '../../../../utils/ViewportConext';
 import { Override } from '../../../../types/Override';
-import { SwitchWrapper } from './style';
+import { CheckBoxWrapper, CheckBox, CheckBoxLabel  } from './style';
 
 export type ButtonProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
   {
     filterglobal: any;
-    handleToggle: any;
-    isOn: boolean; 
     layer : 2;
-  }
+    handleToggle: any;
+    dataOn: any;
+    }
 >;
 
 export default function ButtonSwitch ({
-    isOn,
-    handleToggle,
     filterglobal,
+    handleToggle,
+    dataOn,
     ...props}: ButtonProps) {
 
-        const dispatch = useDispatch();
-
 // Toggle the button linked layer vibility
-        const [isLayerVisible, setIsLayerVisible] = useState(true);
-        const isLayerVisibleState = () => {
+const [isLayerVisible, setIsLayerVisible] = useState(false);
+const handlechange = () => {
         setIsLayerVisible(!isLayerVisible);
+        console.log(isLayerVisible);
         };
 
-        console.log(isLayerVisible);
-        
-// get the old layer state
-        console.log(filterglobal);
+const dispatch = useDispatch();
 
-        useEffect(() => {
-            //console.log(isLayerVisible)
-            if (filterglobal) {
-            dispatch(layerConfigChange(filterglobal, { isVisible: isLayerVisible }));
-            }
-            }, [filterglobal, isLayerVisible, dispatch]);
+useEffect(() => {
+    if (filterglobal) {
+        dispatch(layerConfigChange(filterglobal, { isVisible: !isLayerVisible }));
+    }
+}, [filterglobal, isLayerVisible, dispatch]);
+
+const { width } = useViewport();
+const breakpoint = 1024;
 
     return (
-      <SwitchWrapper>
-        <input
-            onClick={isLayerVisibleState}
-            checked={isOn}
-            onChange={handleToggle}
-            className="switch-checkbox"
-            id={`react-switch-new`}
-            type="checkbox"
-        />
-        <label
-          className="switch-label"
-          htmlFor={`switch-button`}
-        >
-          <span className={`switch-button`} />
-        </label>
-      </SwitchWrapper>
+      width < breakpoint ? (
+        <CheckBoxWrapper>
+        <CheckBox
+              onChange={handlechange}
+              checked={isLayerVisible}
+              id={`checkbox`}
+              type="checkbox"
+            />
+          <CheckBoxLabel
+            className="switch-label"
+            htmlFor={`checkbox`}
+          />
+      </CheckBoxWrapper>
+      ) : (
+      <>
+        <h4>Les marchés de Lyon</h4>
+        <CheckBoxWrapper>
+          <CheckBox
+                onChange={handlechange}
+                checked={isLayerVisible}
+                id={`checkbox`}
+                type="checkbox"
+              />
+            <CheckBoxLabel
+              className="switch-label"
+              htmlFor={`checkbox`}
+            />
+        </CheckBoxWrapper>
+      </>
+          ) 
     );
   };

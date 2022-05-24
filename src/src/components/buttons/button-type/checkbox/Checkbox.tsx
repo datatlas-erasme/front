@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useDispatch } from 'react-redux';
+// import { useState } from "react";
+// import { useDispatch } from 'react-redux';
 import { Override } from '../../../../types/Override';
 
 export type CheckboxProps = Override<
@@ -22,18 +22,17 @@ export default function Checkbox({
   ...props
 }: CheckboxProps){
   
-  const dispatch = useDispatch();
   // Toggle the visibility of buttons parent list
-  const [isActive, setIsActive] = useState(false);
-  const isActiveState = () => {
-    setIsActive(!isActive);
-  };
+  // const [isActive, setIsActive] = useState(false);
+  // const isActiveState = () => {
+  //   setIsActive(!isActive);
+  // };
   
   // Toggle the button linked layer vibility
-  const [isLayerVisible, setIsLayerVisible] = useState(true);
-  const isLayerVisibleState = () => {
-    setIsLayerVisible(!isLayerVisible);
-  };
+  // const [isLayerVisible, setIsLayerVisible] = useState(true);
+  // const isLayerVisibleState = () => {
+  //   setIsLayerVisible(!isLayerVisible);
+  // };
 
     return(
         <>

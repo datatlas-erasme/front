@@ -21,12 +21,14 @@ function Button ({day}) {
     setIsActive(!isActive);
   };
 
+  console.log(day);
+  
   return (
     <button 
     onClick={isActiveState}  
-    className={classnames( isActive ? 'active' : '' )}
+    className={classnames( isActive ? 'active' : 'no-active' )}
     > {day}
-  </button>
+    </button>
   )
 } 
 
@@ -42,9 +44,6 @@ export default function ButtonDay ({
   const dispatch = useDispatch();
 
   // Toggle the visibility of buttons parent list
- 
-// console.log(Ouverture);
-
   const [filtersArray, setFiltersArray] = useState<string[]>([]);
     
   const setFilterValue = (item: string) => {
@@ -63,6 +62,15 @@ export default function ButtonDay ({
     dispatch(setFilter(idFilter, 'value', filtersArray));
   }, [dispatch, idFilter, filtersArray]);
 
+  console.log(text);
+  console.log(dayList);
+  
+  // const newOrder = [...dayList];
+  // newOrder.splice(6, 0, newOrder.splice(0, 1)[0]);
+  // newOrder.splice(3, 0, newOrder.splice(0, 1)[0]);
+  // newOrder.splice(5, 0, newOrder.splice(4, 1)[0]);
+  // console.log(newOrder);
+
     return (
       width < breakpoint ? 
       <Ouverture>
@@ -71,7 +79,7 @@ export default function ButtonDay ({
 
       :
         <Ouverture>
-        <h3>Ouvert</h3>
+        <h3>Quand ?</h3>
         {dayList?.map((day, i) => (
             <div  key={i} onClick={() => { setFilterValue(day); }}>
               <Button day={day}/>

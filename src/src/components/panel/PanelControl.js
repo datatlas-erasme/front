@@ -34,7 +34,7 @@ const PanelControl = () => {
         return (
             !!value.id && value.id === 'esul18e' ? (
                 width < breakpoint ? (
-                    <MobilePanelControl key={index} value={value} index={index} filtersDomain={filtersDomain} />
+                    <MobilePanelControl key={index} value={value} index={index} filtersDomain={filtersDomain} layers={layers}/>
                 ) : (
                     <DesktopPanelControl key={index} value={value} index={index} filtersDomain={filtersDomain} layers={layers}/>
                 )

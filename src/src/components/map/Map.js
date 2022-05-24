@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { 
   addDataToMap,
-  updateMap, 
   addCustomMapStyle, 
   inputMapStyle,
-  layerTypeChange 
+  layerTypeChange,
 } from 'erasme-kepler.gl/actions';
 import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import { processGeojson } from 'erasme-kepler.gl/processors';
@@ -33,6 +32,18 @@ export default function Map() {
     const [keplerConfLoaded, setKeplerConfLoaded] = useState(true)
   
     const dispatch = useDispatch();
+
+    // const geojson = {
+    //   "type": "FeatureCollection",
+    //   "features": [{
+    //     "type": "Feature",
+    //     "properties": {
+    //       "lat": data.geometry.coordinates[0],
+    //       "lon": data.geometry.coordinates[1],
+    //     }
+    //   }]
+
+    // }
   
     const backendUrl = process.env.REACT_APP_BACKEND_URL
     
@@ -56,7 +67,7 @@ export default function Map() {
           });
       
     }, []);
-      
+
     // Get instance config / fetch data and store into DataLayers
     useEffect(() => {
       if(instanceConfLoaded) {
@@ -68,23 +79,40 @@ export default function Map() {
               if (data.fields) {
                 buffer.push([layer.name, data]);
               } else {
+                console.log(processGeojson(data));
                 buffer.push([layer.name, processGeojson(data)]);
                 buffer.push()
               }
+              console.log(data);
             });
         });
         Promise.all(promises).then(() => {
           setDataLayers(buffer);
           setDataLoaded(true);
         });
+        console.log(buffer.rows);
+
       }
       
     }, [instanceConf, instanceConfLoaded]);
+
+    console.log(instanceConf.layers);
   
     // Get DataLayers and add data to map
     useEffect(() => {
       if (dataLayers) {
-        dataLayers.map((dataset, index) => {
+                dataLayers.map((dataset, index) => {
+          // console.log(dataset[index]);
+          // console.log(addDataToMap({datasets: [
+          //   {
+          //     info: {
+          //       label: dataset[index],
+          //       id: dataset[index],
+          //     },
+          //     data: dataset[index],
+          //   },
+          // ],}));
+
           dispatch(
             addDataToMap({
               datasets: [
@@ -96,32 +124,51 @@ export default function Map() {
                   data: dataset[1],
                 },
               ],
+              options: {
+                centerMap: true,
+                readOnly: false,
+                keepExistingConfig: false
+              },
             }),
+            
           );
         });
       }
+      // dispatch(layerTypeChange(dataLayers ,'cluster'));
+      ;
     }, [dispatch, dataLoaded, dataLayers]);
   
+    // const parsedConfig = KeplerGlSchema.parseSavedConfig(keplerConf);
+    // dispatch(receiveMapConfig(parsedConfig));
+    // console.log(parsedConfig);
+
     // Pass the default kepler styling
     useEffect(() => {
+
       if(keplerConfLoaded && instanceConf){
-        dispatch(addDataToMap({ datasets: [], option: { centerMap: true }, config: keplerConf }));
-        // dispatch(layerTypeChange('polygon', 'cluster'));
-        console.log(layerTypeChange);
+
+        dispatch(addDataToMap({ datasets : {}, config: keplerConf }));
+        
+        //  const parsedConfig = KeplerGlSchema.parseSavedConfig(keplerConf);
+        // dispatch(receiveMapConfig(parsedConfig));
+        // console.log(receiveMapConfig(parsedConfig));
+
         // Load à custum map style from backend
         dispatch(inputMapStyle({style: instanceConf.defaultMapBoxStyleUrl, id:"maquette", name:"Maquette"}))
         dispatch(addCustomMapStyle())
         setMapUpdated(true);
+        // dispatch(layerTypeChange(keplerConf ,'cluster'));
+
       }
     }, [dispatch, keplerConfLoaded, keplerConf, instanceConf]);
   
     // TODO updatemap is not taken into account
-    useEffect(() => {
-      if (mapUpdated) {
-        // dispatch(updateMap({latitude:0, longitude: 0, zoom: 20}))
+    // useEffect(() => {
+    //   if (mapUpdated) {
+    //     // dispatch(updateMap({latitude:0, longitude: 0, zoom: 20}))
         
-      }
-    }, [dispatch,mapUpdated]);
+    //   }
+    // }, [dispatch,mapUpdated]);
 
     return mapUpdated ? (
       <div style={{position: 'absolute', width: '100%', height: '100%'}}>

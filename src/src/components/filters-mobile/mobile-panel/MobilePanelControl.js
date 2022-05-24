@@ -1,8 +1,9 @@
 import {useState} from 'react';
+import { ButtonSwitch } from '../../buttons/button-type';
 import Collapse from '../collapse'
 import { DomainFilter } from './style';
 
-const MobilePanelControl = ({ closeOtherItemsOnClick, filtersDomain, initialActiveItemIndex }) => {
+const MobilePanelControl = ({ closeOtherItemsOnClick, filtersDomain, initialActiveItemIndex, layers }) => {
 
   const [activeItemIndexes, setActiveItemIndexes] = useState([initialActiveItemIndex])
   const handleItemClick = (index) => {
@@ -47,6 +48,7 @@ const MobilePanelControl = ({ closeOtherItemsOnClick, filtersDomain, initialActi
   <>
     <DomainFilter>
         {Domains}
+        <ButtonSwitch filterglobal={layers[1]}/>
     </DomainFilter>
   </>
   );

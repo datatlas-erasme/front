@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Collapse from '../collapse'
 import { ButtonDay } from '../../buttons/button-type';
 import { ButtonSwitch } from '../../buttons/button-type';
-import { BlockFilters, ParentFilter, DomainFilter, HeadingFilter } from './style';
+import { BlockFilters, ParentFilter, DomainFilter } from './style';
 
 const DesktopPanelControl = ({ filtersDomain, initialActiveItemIndex, closeOtherItemsOnClick, layers }) => {
 
@@ -52,6 +52,8 @@ const Domains =  Object.keys(filtersDomain).map((filter, index) =>{
           </ParentFilter>
       )
     })
+    // console.log(filtersDomain);
+    // console.log(filtersDomain[5].domain);
 
   return (
   <>
@@ -64,7 +66,10 @@ const Domains =  Object.keys(filtersDomain).map((filter, index) =>{
       </DomainFilter>
       
       <ButtonDay dayList={filtersDomain[5].domain} text={filtersDomain[5].name[0]} idFilter={5}></ButtonDay>
-      {/* <ButtonSwitch filterglobal={layers[1]}/> */}
+      <ButtonSwitch 
+
+          filterglobal={layers[1]}
+          />
     </BlockFilters>
   </>
   );

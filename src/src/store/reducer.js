@@ -1,6 +1,7 @@
 import {createAction, handleActions} from 'redux-actions';
 import KeplerGlSchema from 'erasme-kepler.gl/schemas';
 import {ActionTypes} from 'erasme-kepler.gl/actions';
+import keplerGlReducer, {layerTypeChangeUpdater} from 'erasme-kepler.gl/reducers';
 
 // CONSTANTS
 export const INIT = 'INIT';
@@ -29,7 +30,8 @@ const appReducer = handleActions(
   {
       [INIT]: (state, action) => ({
         ...state,
-        loaded: true
+        loaded: true,
+        action
     }),
 
       [SET_MAP_CONFIG]: (state, action) => ({
@@ -52,6 +54,11 @@ const appReducer = handleActions(
           readOnly: !state.uiState.readOnly
         }
       }),
+
+      // [ActionTypes.TYPE_LAYER_CHANGE]: (state, action) => ({
+      //   ...state,
+      //   layerTypeChangeUpdater: layerTypeChangeUpdater(action.payload)
+      // })
     
   }, 
   initialState

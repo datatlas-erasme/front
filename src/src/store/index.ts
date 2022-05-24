@@ -1,10 +1,9 @@
 import { createStore, combineReducers, applyMiddleware, compose, StoreEnhancer } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { enhanceReduxMiddleware, keplerGlReducer, uiStateUpdaters } from 'erasme-kepler.gl';
+import { enhanceReduxMiddleware, keplerGlReducer, uiStateUpdaters, layerTypeChangeUpdater } from 'erasme-kepler.gl';
 import { taskMiddleware } from 'react-palm/tasks';
 import { logger } from 'redux-logger';
 import thunk from 'redux-thunk';
-import {ActionTypes} from 'erasme-kepler.gl/actions';
 import appReducer from './reducer';
 
 declare global{
@@ -15,7 +14,6 @@ declare global{
 
 const customizedKeplerGlReducer = keplerGlReducer.initialState({
   uiState: {
-    readonly: true,
     // hide side panel when mounted
     activeSidePanel: null,
     // hide all modals when mounted
@@ -38,9 +36,7 @@ const customizedKeplerGlReducer = keplerGlReducer.initialState({
       }
     }
   },
-  visState: {},
-  
-})
+  },)
 
 const reducers = combineReducers({
   keplerGl: customizedKeplerGlReducer,
