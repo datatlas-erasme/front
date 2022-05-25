@@ -42,6 +42,7 @@ const DesktopPanelControl = ({instance, color,value, filtersDomain, initialActiv
     setActiveItemIndexes(newActiveItemIndexes)
   };
 
+// Button related to the first level of the filters
 const ParentBtn = (
   <ButtonDefault
     onClick={handleClick}
@@ -71,6 +72,7 @@ const Domains =  Object.keys(filtersDomain).map((filter, index) =>{
                   text={filterName[0]}
                   listNames={filterItem}
                   idFilter={index}
+                  theme={theme}
                 />
               </li>
             </div>

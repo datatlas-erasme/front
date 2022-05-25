@@ -22,6 +22,7 @@ export const ButtonDefault = ({
   layerId,
   className,
   iconName,
+  theme,
   ...props
 }
 ) => {
@@ -85,10 +86,22 @@ export const ButtonDefault = ({
           height={!isActive ? 0 : 'auto'} // see props documentation bellow
         >
           <div className='list'>
-            <List listNames={listNames} backgroundColor={bg} idFilter={idFilter} />
+            <List theme={theme} listNames={listNames} backgroundColor={bg} idFilter={idFilter} />
           </div>
         </AnimateHeight>
       </div>
+    );
+  }
+  else {
+    return (
+      <button
+        onClick={isActiveState}
+        style={{ backgroundColor: LightenDarkenColor(bg, 60), fontSize: textSize }}
+        className={classnames('btn', className, { selected: !isActive })}
+        {...props}
+      >
+       {text.substring(0, 30)}
+      </button>
     );
   }
 }

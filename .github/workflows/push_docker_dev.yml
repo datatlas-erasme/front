@@ -26,6 +26,6 @@ jobs:
         with:
           push: true
           repository:  
-          tags: erasme/datatlas-front:latest, erasme/datatlas-front:${{ github.sha }}
+          tags: erasme/datatlas-front:dev-latest, erasme/datatlas-front:${{ github.sha }}
           build-args: |
             REACT_APP_BACKEND_URL=${{ secrets.REACT_APP_BACKEND_URL }}

@@ -9,7 +9,7 @@ import { WrapperModal } from '../components/modal/style'
 const CustomMapPopoverFactory = (...deps) => {
   
   MapPopoverFactory.deps = [LayerHoverInfoFactory, CoordinateInfoFactory];
-
+  
   const MapPopoverWrapper = props => {
     // Fields declared in the kepler conf panel
     const fieldsToShow = props.layerHoverProp.fieldsToShow;

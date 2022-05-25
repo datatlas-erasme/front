@@ -14,15 +14,21 @@ import {
     PanelToggleFactory 
 } from 'erasme-kepler.gl/components';
 import CustomMapPopoverFactory from '../../factories/map-popover';
+import IndustriesCustomMapPopoverFactory from '../../factories/industries-mapopover';
 import CustomPanelToggleFactory from '../../factories/panel-toggle'
 
+const IndustriesKeplerGl = injectComponents([
+  [MapPopoverFactory, IndustriesCustomMapPopoverFactory], 
+]);
+
 // Inject the point sidepanel component
-const KeplerGl = injectComponents([
-    [MapPopoverFactory, CustomMapPopoverFactory], 
+const AlimentaireKeplerGl = injectComponents([
+  [MapPopoverFactory, CustomMapPopoverFactory], 
 ]);
 
 export default function MapContainer ({instance}) { 
-    console.log(instance.conf)
+    const theme = instance.conf.theme.name
+    console.log(theme)
 
     const dispatch = useDispatch();
     const dataLayers = instance.datalayers;
@@ -62,12 +68,13 @@ export default function MapContainer ({instance}) {
       useEffect(() => {
           dispatch(updateMap({latitude:0, longitude: 0, zoom: 20}))
       }, [dispatch]);
-  
+      
+    if(theme=="industries"){
       return(
         <div style={{position: 'absolute', width: '100%', height: '100%'}}>
            <AutoSizer>
               {({height, width }) => 
-                <KeplerGl
+                <IndustriesKeplerGl
                 id="map"
                 mapboxApiAccessToken={instanceConf.mapboxToken}
                 width={width}
@@ -80,5 +87,26 @@ export default function MapContainer ({instance}) {
         </div>
        
       ) 
+    }
+    else{
+      return(
+        <div style={{position: 'absolute', width: '100%', height: '100%'}}>
+           <AutoSizer>
+              {({height, width }) => 
+                <AlimentaireKeplerGl
+                id="map"
+                mapboxApiAccessToken={instanceConf.mapboxToken}
+                width={width}
+                height={height}
+                appName="Datatlas"
+                />
+              }
+              {/* <Logo /> */}
+          </AutoSizer>
+        </div>
+       
+      ) 
+    }
+
 }
 
