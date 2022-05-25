@@ -8,7 +8,7 @@ React Front  using [kepler.gl]()
 
 
 
-# Front Setup
+# Front Setup =
 
 [more infos here WIP](docs/front.md)
 
