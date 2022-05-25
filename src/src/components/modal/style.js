@@ -11,7 +11,7 @@ export const WrapperModal = styled.div`
   left: 5%;
 
   width: 90vw;
-  height: auto;
+  height: 100%;
   margin: auto;
   padding: 40px;
 

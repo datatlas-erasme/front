@@ -4,7 +4,6 @@ import {
   addDataToMap,
   addCustomMapStyle, 
   inputMapStyle,
-  layerTypeChange,
 } from 'erasme-kepler.gl/actions';
 import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import { processGeojson } from 'erasme-kepler.gl/processors';
@@ -76,27 +75,21 @@ export default function Map() {
           return fetch(layer.url)
             .then((res) => res.json())
             .then((data) => {
-              if (data.fields) {
-                buffer.push([layer.name, data]);
-              } else {
-                console.log(processGeojson(data));
                 buffer.push([layer.name, processGeojson(data)]);
                 buffer.push()
-              }
-              console.log(data);
+                          })
+            .catch((err) => {
+              console.log(err);
             });
         });
         Promise.all(promises).then(() => {
           setDataLayers(buffer);
           setDataLoaded(true);
         });
-        console.log(buffer.rows);
 
       }
       
     }, [instanceConf, instanceConfLoaded]);
-
-    console.log(instanceConf.layers);
   
     // Get DataLayers and add data to map
     useEffect(() => {
@@ -157,8 +150,6 @@ export default function Map() {
         dispatch(inputMapStyle({style: instanceConf.defaultMapBoxStyleUrl, id:"maquette", name:"Maquette"}))
         dispatch(addCustomMapStyle())
         setMapUpdated(true);
-        // dispatch(layerTypeChange(keplerConf ,'cluster'));
-
       }
     }, [dispatch, keplerConfLoaded, keplerConf, instanceConf]);
   
