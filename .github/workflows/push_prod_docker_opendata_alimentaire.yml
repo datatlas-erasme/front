@@ -1,9 +1,9 @@
-name: build-publish-dev-openDataAlim-container
+name: build-publish-prod-openDataAlim-container
 
 on:
   push:
     branches:
-      - 'dev-opendata-alimentaire'
+      - 'opendata-alimentaire'
   workflow_dispatch:
 jobs:
   push_to_registry:
@@ -26,6 +26,6 @@ jobs:
         with:
           push: true
           repository:  
-          tags: erasme/datatlas-opendatalim-dev:latest, erasme/datatlas-opendatalim-dev:${{ github.sha }}
+          tags: erasme/datatlas-opendatalim:latest, erasme/datatlas-opendatalim:${{ github.sha }}
           build-args: |
-            REACT_APP_BACKEND_URL=${{ secrets.OPEN_DATA_ALIM_BACKEND_URL }}
+            REACT_APP_BACKEND_URL=${{ secrets.PROD_OPEN_DATA_ALIM_BACKEND_URL }}
