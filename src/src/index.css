@@ -214,8 +214,9 @@ button {
 
 
 
+
 /********************** POI SIDE PANEL **************************/
-/* .PointSidePanel {
+.PointSidePanel {
   position: absolute;
   top: 0;
   width: 30%;
@@ -238,5 +239,47 @@ button {
   @keyframes slidedown {
     from { width: 0; }
     to   { height: 50px; }
-  } */
+  }
+  .PointSidePanel {
+    background-color:#f3f3f3;
+  }
+
+  .PointSidePanel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .PointSidePanel img {
+    width: 100%;
+    height: auto; 
+  }
+  .PointSidePanel .content div {
+    padding: 20px 45px 45px 45px;
+  }
+ 
+  .PointSidePanel .infos {
+    background-color:#e9e9e9;
+  }
+
+  .PointSidePanel h1 {
+    color: #1a1a1a;
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .PointSidePanel p {
+    color: #1a1a1a;
+    line-height: 1.5;
+  }
   
+  .PointSidePanel a {
+    color: #1a1a1a;
+    text-decoration: underline !important;
+    display: block;
+    padding-bottom: 25px;
+
+  }
+
+  .PointSidePanel .desc {
+    font-size: 16px;
+    margin-top: 5px;
+  }
