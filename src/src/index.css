@@ -26,11 +26,23 @@ body {
 }
 
 /*TODO FIX hide trough kepler injections*/
-.map-control, .side-panel--container {
+.map-control, side-panel--container {
   display: none !important;
 }
 
+.loading-map {
+  margin: auto;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+  z-index: 9999999;
+}
 
+.loading-map .active {
+  display: block;
+}
 
 /********************** CUSTOM MODAL **************************/
 .modal {

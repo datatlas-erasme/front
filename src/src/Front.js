@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 ////////////////////////// REDUX IMPORT /////////////////////////////////////////
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider, useDispatch } from 'react-redux';
+import ProgressBar from "@ramonak/react-progress-bar";
 ////////////////////////// KEPLER.GL IMPORT /////////////////////////////////////////
 import keplerGlReducer from 'erasme-kepler.gl/reducers';
 import { addDataToMap, updateMap, addCustomMapStyle, loadCustomMapStyle, inputMapStyle } from 'erasme-kepler.gl/actions';
@@ -65,6 +66,9 @@ function Map() {
   const [dataLoaded, setDataLoaded] = useState(false);
   const [mapUpdated, setMapUpdated] = useState(false);
 
+  const [progressBar, setProgressBar] = useState(0);
+  const [progressMsg, setProgressMsg] = useState("");
+
   const [instanceConf, setInstanceConf] = useState({})
   const [instanceConfLoaded, setInstanceConfLoaded] = useState(false)
 
@@ -89,12 +93,16 @@ function Map() {
     fetch(backendUrl + "/api/conf/instance")
         .then((res) => res.json())
         .then((data) => {
+          setProgressMsg("Récuperation des calques")
+          setProgressBar(15)
           setInstanceConf(data)
           setInstanceConfLoaded(true)
         }); 
     fetch(backendUrl + "/api/conf/kepler")
         .then((res) => res.json())
         .then((data) => {
+          setProgressMsg("Récuperation des styles")
+          setProgressBar(25)
           setKeplerConf(data)
           setKeplerConfLoaded(true)
         }); 
@@ -110,6 +118,8 @@ function Map() {
         return fetch(layer.url)
           .then((res) => res.json())
           .then((data) => {
+            setProgressMsg("Traittement des calques")
+            setProgressBar(70)
             if (data.fields) {
               buffer.push([layer.name, data]);
             } else {
@@ -120,16 +130,19 @@ function Map() {
       Promise.all(promises).then(() => {
         setDataLayers(buffer);
         setDataLoaded(true);
+        //setMapUpdated(true);
         //console.log('BUFFER', buffer);
       });
     }
-    
-  }, [instanceConf, instanceConfLoaded]);
+      setProgressBar(70)
+  }, [instanceConf, instanceConfLoaded, mapUpdated]);
 
   // Get DataLayers and add data to map
   useEffect(() => {
     if (dataLayers) {
+      setProgressMsg("Ajout des calques à la carte")
       dataLayers.map((dataset, index) => {
+        setProgressMsg("Ajout du calque " + dataset[0])
         dispatch(
           addDataToMap({
             datasets: [
@@ -141,26 +154,34 @@ function Map() {
                 data: dataset[1],
               },
             ],
-          }),
+          })
         );
+        if (index == dataset.length){
+          setMapUpdated(true)     
+        }
+        
       });
     }
-  }, [dispatch, dataLoaded, dataLayers, keplerConfLoaded, keplerConf]);
+    setProgressBar(90)
+
+  }, [dispatch, dataLoaded, dataLayers, keplerConfLoaded, keplerConf, mapUpdated]);
 
   // Pass the default kepler styling
   useEffect(() => {
     if(keplerConfLoaded && instanceConf){
+      setProgressMsg("Ajout des styles à la carte")
       dispatch(addDataToMap({ datasets: [], option: { centerMap: false }, config: keplerConf }));
       // Load à custum map style from backend
+      setProgressMsg("Ajout du theme de carte")
       dispatch(inputMapStyle({style: instanceConf.defaultMapBoxStyleUrl, id:"monochrome", name:"Monochrome"}))
       dispatch(inputMapStyle({name:"muted"}))
 
       dispatch(addCustomMapStyle())
-      setMapUpdated(true);
     }
-  }, [dispatch, keplerConfLoaded, keplerConf, instanceConf]);
+    setProgressBar(20)
+  }, [dispatch, keplerConfLoaded, keplerConf, instanceConf, mapUpdated]);
 
-  return mapUpdated ? (
+  return mapUpdated & keplerConfLoaded ? (
     <div>
       <KeplerGl
         id="map"
@@ -173,8 +194,12 @@ function Map() {
       <FilterSidePanel />   
     </div>
     ) : (
-      <div>
-        <h1>CHARGEMENT DE LA CARTE</h1>
+      <div className='loading-map'>
+        <div>
+          <h1>CHARGEMENT DE LA CARTE</h1>
+          {progressMsg}
+          <ProgressBar bgColor="#2AE685" completed={progressBar} />
+        </div>
       </div>
     );
 }
