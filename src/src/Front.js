@@ -5,7 +5,7 @@ import { Provider, useDispatch } from 'react-redux';
 import ProgressBar from "@ramonak/react-progress-bar";
 ////////////////////////// KEPLER.GL IMPORT /////////////////////////////////////////
 import keplerGlReducer from 'erasme-kepler.gl/reducers';
-import { addDataToMap, updateMap, addCustomMapStyle, loadCustomMapStyle, inputMapStyle } from 'erasme-kepler.gl/actions';
+import { addDataToMap, updateMap, addCustomMapStyle, layerConfigChange, inputMapStyle } from 'erasme-kepler.gl/actions';
 import { enhanceReduxMiddleware } from 'erasme-kepler.gl/middleware';
 import { MapPopoverFactory, injectComponents } from 'erasme-kepler.gl/components';
 import { processGeojson } from 'erasme-kepler.gl/processors';
@@ -62,6 +62,7 @@ const store = createStore(reducers, initialState, composeEnhancers(...enhancers)
 
 function Map() {
   const [dataLayers, setDataLayers] = useState([]);
+  const [dataLayersUpdated, setDataLayersUpdated] = useState(false);
 
   const [dataLoaded, setDataLoaded] = useState(false);
   const [mapUpdated, setMapUpdated] = useState(false);
@@ -130,7 +131,7 @@ function Map() {
       Promise.all(promises).then(() => {
         setDataLayers(buffer);
         setDataLoaded(true);
-        //setMapUpdated(true);
+        setMapUpdated(true);
         //console.log('BUFFER', buffer);
       });
     }
@@ -139,6 +140,7 @@ function Map() {
 
   // Get DataLayers and add data to map
   useEffect(() => {
+    dispatch(addDataToMap({ datasets: [], option: { centerMap: true }, config: keplerConf }));
     if (dataLayers) {
       setProgressMsg("Ajout des calques à la carte")
       dataLayers.map((dataset, index) => {
@@ -151,35 +153,36 @@ function Map() {
                   label: dataset[0],
                   id: dataset[0],
                 },
-                data: dataset[1],
+                data: dataset[1]
               },
             ],
           })
         );
-        if (index == dataset.length){
-          setMapUpdated(true)     
-        }
         
       });
     }
+    //dispatch(layerConfigChange(keplerConf.visState?.layers['a262y1v'], { isVisible: false }));
+    setDataLayersUpdated(true);
+    //setMapUpdated(true);
     setProgressBar(90)
 
   }, [dispatch, dataLoaded, dataLayers, keplerConfLoaded, keplerConf, mapUpdated]);
 
   // Pass the default kepler styling
   useEffect(() => {
-    if(keplerConfLoaded && instanceConf){
+    if(keplerConfLoaded && instanceConf && dataLayersUpdated) {
       setProgressMsg("Ajout des styles à la carte")
-      dispatch(addDataToMap({ datasets: [], option: { centerMap: false }, config: keplerConf }));
+      //dispatch(addDataToMap({ datasets: [], option: { centerMap: false }, config: keplerConf }));
       // Load à custum map style from backend
       setProgressMsg("Ajout du theme de carte")
       dispatch(inputMapStyle({style: instanceConf.defaultMapBoxStyleUrl, id:"monochrome", name:"Monochrome"}))
       dispatch(inputMapStyle({name:"muted"}))
 
       dispatch(addCustomMapStyle())
+      
     }
     setProgressBar(20)
-  }, [dispatch, keplerConfLoaded, keplerConf, instanceConf, mapUpdated]);
+  }, [dispatch, keplerConfLoaded, keplerConf, instanceConf, mapUpdated, dataLayersUpdated]);
 
   return mapUpdated & keplerConfLoaded ? (
     <div>
