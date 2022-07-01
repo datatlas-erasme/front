@@ -388,6 +388,6 @@ button {
 }
 
 .right-content .logos a img {
-  width: auto;
-  height: 60px;
+  width: 9vw;
+  /*height: 60px;*/
 }
