@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 ////////////////////////// REDUX IMPORT /////////////////////////////////////////
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import { Provider, useDispatch } from 'react-redux';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import ProgressBar from "@ramonak/react-progress-bar";
 ////////////////////////// KEPLER.GL IMPORT /////////////////////////////////////////
 import keplerGlReducer from 'erasme-kepler.gl/reducers';
@@ -163,7 +163,7 @@ function Map() {
     }
     //dispatch(layerConfigChange(keplerConf.visState?.layers['a262y1v'], { isVisible: false }));
     setDataLayersUpdated(true);
-    //setMapUpdated(true);
+    setMapUpdated(true);
     setProgressBar(90)
 
   }, [dispatch, dataLoaded, dataLayers, keplerConfLoaded, keplerConf, mapUpdated]);
@@ -183,6 +183,23 @@ function Map() {
     }
     setProgressBar(20)
   }, [dispatch, keplerConfLoaded, keplerConf, instanceConf, mapUpdated, dataLayersUpdated]);
+
+  // TODO remove hardcoded bellow
+  // Hide loaded layer on map display
+    //console.log(isLayerVisible)
+    const sentiers = useSelector((state) =>
+      state.keplerGl.map?.visState?.layers[0],
+    );
+    const parcsJardins = useSelector((state) =>
+      state.keplerGl.map?.visState?.layers[1],
+    );
+
+  useEffect(() => {
+    if (sentiers && parcsJardins) {
+      dispatch(layerConfigChange(sentiers, { isVisible: false }));
+      dispatch(layerConfigChange(parcsJardins, { isVisible: false }));
+    }
+  }, [sentiers, parcsJardins, dispatch]);
 
   return mapUpdated & keplerConfLoaded ? (
     <div>
