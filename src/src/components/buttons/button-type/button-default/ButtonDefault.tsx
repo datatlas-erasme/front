@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
-import { IconName, IconPrefix, IconProp, library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckSquare, faCoffee, faEye, faMapMarked, faMapMarker, faUserFriends, faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';
 import { LightenDarkenColor } from 'lighten-darken-color';
-import { Override } from '../../types/Override';
 import { AppStore } from '../../redux/store';
 import { List } from '../../../filters-desktop/lists/Lists';
 
@@ -24,9 +19,7 @@ export const ButtonDefault = ({
   iconName,
   theme,
   ...props
-}
-) => {
-
+}) => {
   const dispatch = useDispatch();
 
   // Toggle the visibility of buttons parent list
@@ -53,15 +46,13 @@ export const ButtonDefault = ({
     }
   }, [layer, isLayerVisible, dispatch]);
 
-  console.log("btn type : ", btnType)
- 
+  console.log('btn type : ', btnType);
+
   // Big button style
   if (btnType === 'parent') {
     return (
       <div className="btn-parent" style={{ backgroundColor: bg, fontSize: textSize }}>
-        <p onClick={isLayerVisibleState}>
-        
-        </p>
+        <p onClick={isLayerVisibleState}></p>
         <button className="btn" {...props} style={{ backgroundColor: bg }}>
           {text.substring(0, 30)}
         </button>
@@ -69,8 +60,7 @@ export const ButtonDefault = ({
     );
   }
 
- if (btnType === 'child') {
-
+  if (btnType === 'child') {
     return (
       <div>
         <button
@@ -85,14 +75,13 @@ export const ButtonDefault = ({
           duration={500}
           height={!isActive ? 0 : 'auto'} // see props documentation bellow
         >
-          <div className='list'>
+          <div className="list">
             <List theme={theme} listNames={listNames} backgroundColor={bg} idFilter={idFilter} />
           </div>
         </AnimateHeight>
       </div>
     );
-  }
-  else {
+  } else {
     return (
       <button
         onClick={isActiveState}
@@ -100,15 +89,15 @@ export const ButtonDefault = ({
         className={classnames('btn', className, { selected: !isActive })}
         {...props}
       >
-       {text.substring(0, 30)}
+        {text.substring(0, 30)}
       </button>
     );
   }
-}
+};
 
 ButtonDefault.defaultProps = {
   bg: '#ff241a',
   fontSize: '20px',
 };
 
-export default ButtonDefault
+export default ButtonDefault;

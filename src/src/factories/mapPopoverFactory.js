@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import {LayerHoverInfoFactory, CoordinateInfoFactory} from 'erasme-kepler.gl/components'
-import {ArrowLeft, ArrowRight, Pin} from 'components/common/icons';
-import {injectIntl} from 'react-intl';
-import {FormattedMessage} from 'localization';
+import { LayerHoverInfoFactory, CoordinateInfoFactory } from 'erasme-kepler.gl/components';
+import { ArrowLeft, ArrowRight, Pin } from 'components/common/icons';
+import { injectIntl } from 'react-intl';
+import { FormattedMessage } from 'localization';
 import Tippy from '@tippyjs/react/headless';
 
 const MAX_WIDTH = 500;
@@ -18,20 +18,20 @@ const StyledMapPopover = styled.div`
   & > * + * {
     margin-top: 6px;
   }
-  ${props => props.theme.scrollBar};
-  font-family: ${props => props.theme.fontFamily};
+  ${(props) => props.theme.scrollBar};
+  font-family: ${(props) => props.theme.fontFamily};
   font-size: 11px;
   font-weight: 500;
-  background-color: ${props => props.theme.panelBackground};
-  color: ${props => props.theme.textColor};
+  background-color: ${(props) => props.theme.panelBackground};
+  color: ${(props) => props.theme.textColor};
   z-index: 1000;
   overflow-x: auto;
-  box-shadow: ${props => props.theme.panelBoxShadow};
+  box-shadow: ${(props) => props.theme.panelBoxShadow};
   :hover {
-    background-color: ${props => `${props.theme.panelBackground}dd`};
+    background-color: ${(props) => `${props.theme.panelBackground}dd`};
   }
   .primary-label {
-    color: ${props => props.theme.notificationColors.success};
+    color: ${(props) => props.theme.notificationColors.success};
     font-size: 10px;
   }
   .map-popover__layer-info,
@@ -59,12 +59,12 @@ const StyledMapPopover = styled.div`
   }
   td {
     border-color: transparent;
-    color: ${props => props.theme.textColor};
+    color: ${(props) => props.theme.textColor};
   }
   td.row__value {
     text-align: right;
     font-weight: 500;
-    color: ${props => props.theme.textColorHl};
+    color: ${(props) => props.theme.textColorHl};
   }
 `;
 
@@ -87,10 +87,10 @@ const PopoverContent = styled.div`
 `;
 
 const StyledIcon = styled.div`
-  color: ${props => props.theme.activeColor};
+  color: ${(props) => props.theme.activeColor};
   :hover {
     cursor: pointer;
-    color: ${props => props.theme.linkBtnColor};
+    color: ${(props) => props.theme.linkBtnColor};
   }
 `;
 
@@ -108,11 +108,11 @@ function createVirtualReference(container, x, y, size = 0) {
     right: left + size,
     bottom: top + size,
     width: size,
-    height: size
+    height: size,
   };
 }
 
-function getOffsetForPlacement({placement, reference, popper}, gap = 20) {
+function getOffsetForPlacement({ placement, reference, popper }, gap = 20) {
   switch (placement) {
     case 'top-start':
     case 'bottom-start':
@@ -131,10 +131,10 @@ function getPopperOptions(container) {
       {
         name: 'preventOverflow',
         options: {
-          boundary: container
-        }
-      }
-    ]
+          boundary: container,
+        },
+      },
+    ],
   };
 }
 
@@ -149,7 +149,7 @@ export default function MapPopoverFactory(LayerHoverInfo, CoordinateInfo) {
     isBase,
     zoom,
     container,
-    onClose
+    onClose,
   }) => {
     const [horizontalPlacement, setHorizontalPlacement] = useState('start');
     const moveLeft = () => setHorizontalPlacement('end');
@@ -167,7 +167,7 @@ export default function MapPopoverFactory(LayerHoverInfo, CoordinateInfo) {
         // @ts-ignore
         offset={getOffsetForPlacement}
         appendTo={document.body}
-        render={attrs => (
+        render={(attrs) => (
           <StyledMapPopover {...attrs} className="map-popover">
             {frozen ? (
               <PinnedButtons>
@@ -200,6 +200,6 @@ export default function MapPopoverFactory(LayerHoverInfo, CoordinateInfo) {
       />
     );
   };
-  
+
   return injectIntl(MapPopover);
 }

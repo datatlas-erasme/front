@@ -1,24 +1,18 @@
 {
   "siteTitle": "Open DataAlimentaire",
-  "mapboxToken":"pk.eyJ1IjoieXNpb3VkYSIsImEiOiJja3JnZ2k1cDg1cTMxMnJueGV6cDU4c25iIn0.td9NqwcqkUW1VeRIPB2oTA",
-  "defaultMapLocation": {"latitude":0, "longitude": 0, "zoom": 10},
+  "mapboxToken": "pk.eyJ1IjoieXNpb3VkYSIsImEiOiJja3JnZ2k1cDg1cTMxMnJueGV6cDU4c25iIn0.td9NqwcqkUW1VeRIPB2oTA",
+  "defaultMapLocation": { "latitude": 0, "longitude": 0, "zoom": 10 },
   "defaultMapBoxStyleUrl": "mapbox://styles/canographia/ckwwayufl3lzg14n2td2d3fb9",
   "modules": {
     "exportDataBtn": true
   },
   "theme": {
     "filterSidePanel": {
-      "buttonColorRange": [
-        "#27536f",
-        "#27536f",
-        "#df7160"
-    ]
+      "buttonColorRange": ["#27536f", "#27536f", "#df7160"]
     }
   },
   "bottomRightButtons": [
-    { "text": "Ajouter un point sur la carte", 
-      "url": "https://form.typeform.com/to/V1f3GNXR" 
-    }
+    { "text": "Ajouter un point sur la carte", "url": "https://form.typeform.com/to/V1f3GNXR" }
   ],
   "layers": [
     {

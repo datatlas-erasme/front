@@ -1,4 +1,4 @@
- /* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap'); */
 /*
 body {
   margin: 0;
@@ -30,10 +30,11 @@ body {
   display: none !important;
 } */
 
-
-.map-control, .side-panel--container, .mapbox-attribution-container, .mapboxgl-ctrl {
+.map-control,
+.side-panel--container,
+.mapbox-attribution-container,
+.mapboxgl-ctrl {
   display: none !important;
-
 }
 /********************** CUSTOM MODAL **************************/
 .modal {
@@ -44,17 +45,14 @@ body {
   width: 100%;
 }
 
-
-
- /********************** FILTERS SIDE PANEL *********************/
- .FilterSidePanel {
+/********************** FILTERS SIDE PANEL *********************/
+.FilterSidePanel {
   position: absolute;
   background: white;
   top: 0;
   width: 500px;
   height: 500px;
 }
-
 
 .filters {
   position: absolute;
@@ -67,8 +65,8 @@ body {
   overflow: auto;
   /*width: 11%;*/
   padding-right: 10px;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .filters::-webkit-scrollbar {
@@ -89,7 +87,8 @@ body {
   transition: all ease-in-out 0.2s;
 }
 
-.filter-parent .btn,.crowdsourcing button {
+.filter-parent .btn,
+.crowdsourcing button {
   max-height: 1000px;
   /*overflow: auto;*/
   transition: all ease-in-out 0.2s;
@@ -97,16 +96,15 @@ body {
   border-radius: 3px;
   font-size: 11px !important;
   margin: 2px 0 0 0;
-  padding : 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
   text-transform: uppercase;
   text-align: left;
 }
 
-
 .filter-parent li button {
- opacity: 0.5;
- border-radius: 5px 5px 5px 5px;
- margin-top: 5px;
+  opacity: 0.5;
+  border-radius: 5px 5px 5px 5px;
+  margin-top: 5px;
 }
 
 .filter-parent .selected {
@@ -115,7 +113,7 @@ body {
 
 .filters ul {
   padding: 0;
-  margin : 0 0 5px
+  margin: 0 0 5px;
 }
 
 .filters ul li {
@@ -124,7 +122,6 @@ body {
 
 .filters ul .filter:last-child {
   margin-bottom: 15px;
-
 }
 
 .filters .filter-child button {
@@ -144,17 +141,15 @@ filters .filter-child button.active span {
   transition: all ease-in-out 0.2s;
 }
 
-.filters .filter-sub-child button{
+.filters .filter-sub-child button {
   padding: 8px 10px;
   margin-bottom: 3px;
   margin-right: 0;
 }
 
-.filters .filter-sub-child button.active{
+.filters .filter-sub-child button.active {
   opacity: 0.5;
 }
-
-
 
 .filters button:hover {
   transition: all ease-in-out 0.2s;
@@ -202,18 +197,18 @@ button {
   cursor: pointer;
   font-weight: 400;
   /*width: 100%;*/
-  text-transform : capitalize;
-  letter-spacing : 0.75px
+  text-transform: capitalize;
+  letter-spacing: 0.75px;
 }
 
-.btn-parent button:hover, .crowdsourcing button:hover, .btn-parent p:hover, .filter-parent .btn:hover {
+.btn-parent button:hover,
+.crowdsourcing button:hover,
+.btn-parent p:hover,
+.filter-parent .btn:hover {
   cursor: pointer;
   filter: brightness(0.6);
   transition: all ease-in-out 0.2s;
 }
-
-
-
 
 /********************** POI SIDE PANEL **************************/
 .PointSidePanel {
@@ -226,60 +221,67 @@ button {
   background: white;
   z-index: 99;
   overflow-x: hidden;
-  box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.4);
+  box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.4);
   animation: 0.2s linear 0s running slidein;
   background-color: #fbfbfb;
-  }
+}
 
-  @keyframes slidein {
-    from { width: 0; }
-    to   { width: 30%; }
+@keyframes slidein {
+  from {
+    width: 0;
   }
+  to {
+    width: 30%;
+  }
+}
 
-  @keyframes slidedown {
-    from { width: 0; }
-    to   { height: 50px; }
+@keyframes slidedown {
+  from {
+    width: 0;
   }
-  .PointSidePanel {
-    background-color:#f3f3f3;
+  to {
+    height: 50px;
   }
+}
+.PointSidePanel {
+  background-color: #f3f3f3;
+}
 
-  .PointSidePanel::-webkit-scrollbar {
-    display: none;
-  }
+.PointSidePanel::-webkit-scrollbar {
+  display: none;
+}
 
-  .PointSidePanel img {
-    width: 100%;
-    height: auto; 
-  }
-  .PointSidePanel .content div {
-    padding: 20px 45px 45px 45px;
-  }
- 
-  .PointSidePanel .infos {
-    background-color:#e9e9e9;
-  }
+.PointSidePanel img {
+  width: 100%;
+  height: auto;
+}
+.PointSidePanel .content div {
+  padding: 20px 45px 45px 45px;
+}
 
-  .PointSidePanel h1 {
-    color: #1a1a1a;
-    font-size: 40px;
-    line-height: 40px;
-  }
+.PointSidePanel .infos {
+  background-color: #e9e9e9;
+}
 
-  .PointSidePanel p {
-    color: #1a1a1a;
-    line-height: 1.5;
-  }
-  
-  .PointSidePanel a {
-    color: #1a1a1a;
-    text-decoration: underline !important;
-    display: block;
-    padding-bottom: 25px;
+.PointSidePanel h1 {
+  color: #1a1a1a;
+  font-size: 40px;
+  line-height: 40px;
+}
 
-  }
+.PointSidePanel p {
+  color: #1a1a1a;
+  line-height: 1.5;
+}
 
-  .PointSidePanel .desc {
-    font-size: 16px;
-    margin-top: 5px;
-  }
+.PointSidePanel a {
+  color: #1a1a1a;
+  text-decoration: underline !important;
+  display: block;
+  padding-bottom: 25px;
+}
+
+.PointSidePanel .desc {
+  font-size: 16px;
+  margin-top: 5px;
+}

@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {
-  faChevronRight,
-  faChevronDown,
-} from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from 'react';
+import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import AnimateHeight from 'react-animate-height';
@@ -12,7 +9,7 @@ import { Override } from '../../../types/Override';
 import List from '../lists/Lists';
 import { ButtonCollapse, SubHeading } from './style';
 
-library.add(faChevronRight,faChevronDown);
+library.add(faChevronRight, faChevronDown);
 
 export type CollapseProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
@@ -54,15 +51,15 @@ const Collapse = ({
   // useEffect(() => {
   //   setHeight();
   // }, []);
-  
+
   // Toggle the button linked layer vibility
   const [isLayerVisible, setIsLayerVisible] = useState(true);
   const isLayerVisibleState = () => {
     setIsLayerVisible(!isLayerVisible);
   };
-  
-  function TextCollaps(){
-    if(text[0] === 'soustype'){
+
+  function TextCollaps() {
+    if (text[0] === 'soustype') {
       return 'TYPE';
     } else if (text[0] === 'produits') {
       return 'PRODUITS';
@@ -74,57 +71,52 @@ const Collapse = ({
   }
 
   // Medium button styling + lits display
-    // console.log("ID FILTER", idFilter)
-    // console.log("List Names", listNames)
+  // console.log("ID FILTER", idFilter)
+  // console.log("List Names", listNames)
 
-    return (
-      <>
-        <ButtonCollapse
-        aria-expanded={ height !== 0 }
-        aria-controls='panel-filter' 
-          onClick={isActiveState}
-          className={classnames(className, { active: isActive })}
-          {...props}
-        >
-          <h4>{TextCollaps()}</h4>
-        </ButtonCollapse>
-        
-        <AnimateHeight
-          style={{
-            flexShrink: 0,
-            position: 'fixed',
-            bottom: 0,
-            width: '100vw',
+  return (
+    <>
+      <ButtonCollapse
+        aria-expanded={height !== 0}
+        aria-controls="panel-filter"
+        onClick={isActiveState}
+        className={classnames(className, { active: isActive })}
+        {...props}
+      >
+        <h4>{TextCollaps()}</h4>
+      </ButtonCollapse>
 
-          }}
-          duration={500}
-          delay={300}
-          height={!isActive ? 0 : 'auto'} 
-          easing={'ease'}
-          className={'animateheight'}
-        >
-          <SubHeading>{TextCollaps()}</SubHeading>
-            <List 
-              listNames={listNames} 
-              idFilter={idFilter}
-              text={text}
-            />
-        </AnimateHeight>
-      </>
-    ); 
+      <AnimateHeight
+        style={{
+          flexShrink: 0,
+          position: 'fixed',
+          bottom: 0,
+          width: '100vw',
+        }}
+        duration={500}
+        delay={300}
+        height={!isActive ? 0 : 'auto'}
+        easing={'ease'}
+        className={'animateheight'}
+      >
+        <SubHeading>{TextCollaps()}</SubHeading>
+        <List listNames={listNames} idFilter={idFilter} text={text} />
+      </AnimateHeight>
+    </>
+  );
 };
 
 export default Collapse;
 
 //   const [active, setActive] = useState<string | false>(false);
 
-//   const handleonChange = 
+//   const handleonChange =
 //     (panel: string) => (event: React.SyntheticEvent, isActive: boolean) => {
 //       setActive(isActive ? panel : false);
 //     // setIsActive(!isActive);
 //   };
 //   const [height] = useState(0);
-  
+
 //   // Toggle the button linked layer vibility
 //   const [isLayerVisible, setIsLayerVisible] = useState(true);
 //   const isLayerVisibleState = () => {
@@ -148,7 +140,7 @@ export default Collapse;
 //     <>
 //       <ButtonCollapse
 //       aria-expanded={ height !== 0 }
-//       aria-controls='panel-filter' 
+//       aria-controls='panel-filter'
 //       active={active === 'item1'}
 //       onChange={handleonChange('item1')}
 //         // className={classnames(className, { active: isActive })}
@@ -156,7 +148,7 @@ export default Collapse;
 //       >
 //         <h4>{TextCollaps()}</h4>
 //       </ButtonCollapse>
-      
+
 //       <AnimateHeight
 //         id='panel-filter'
 //         style={{
@@ -164,23 +156,23 @@ export default Collapse;
 //           position: 'fixed',
 //           bottom: 0,
 //           width: '100vw',
-  
+
 //         }}
 //         duration={500}
 //         delay={300}
-//         height={!active ? 0 : 'auto'} 
+//         height={!active ? 0 : 'auto'}
 //         easing={'ease'}
 //         className={'animateheight'}
 //       >
 //         <SubHeading>{TextCollaps()}</SubHeading>
-//           <List 
-//             listNames={listNames} 
+//           <List
+//             listNames={listNames}
 //             idFilter={idFilter}
 //             text={text}
 //           />
 //       </AnimateHeight>
 //     </>
-//   ); 
+//   );
 // };
 
 // export default Collapse;

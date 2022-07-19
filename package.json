@@ -16,12 +16,9 @@
     "@types/react-dom": "^17.0.11",
     "classnames": "^2.3.1",
     "erasme-kepler.gl": "^2.5.6",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
     "formik": "^2.2.9",
     "history": "^5.1.0",
     "lighten-darken-color": "^1.0.0",
-    "prettier": "^2.4.1",
     "react": "^17.0.2",
     "react-animate-height": "^2.0.23",
     "react-dom": "^17.0.2",
@@ -32,7 +29,7 @@
     "react-router": "^6.0.2",
     "react-router-dom": "^6.0.2",
     "react-router-redux": "^4.0.8",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "5.0.1",
     "react-transition-group": "^4.4.2",
     "react-virtualized": "^9.22.3",
     "redux": "^4.0.5",
@@ -45,20 +42,36 @@
     "typescript": "^4.5.2",
     "use-http": "^1.0.26"
   },
+  "devDependencies": {
+    "@types/webpack-env": "^1.16.3",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{js,ts,tsx}",
-    "lint:fix": "eslint --fix src/**/*.{js,ts,tsx}"
+    "lint:staged": "lint-staged -d",
+    "lint:fix": "eslint --fix src/**/*.{js,ts,tsx}",
+    "prettier": "prettier -w -u src/",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
-      "react-app"
+      "react-app",
+      "plugin:prettier/recommended"
     ],
     "plugins": [
-      "react-hooks"
+      "react-hooks",
+      "prettier",
+      "unused-imports"
     ],
     "rules": {
       "react-hooks/rules-of-hooks": "error",
@@ -88,8 +101,21 @@
           "prev": "import",
           "next": "import"
         }
-      ]
+      ],
+      "no-unused-vars": "off",
+      "unused-imports/no-unused-imports": "error",
+      "unused-imports/no-unused-vars": "off",
+      "array-callback-return": "off",
+      "react-hooks/exhaustive-deps": "off",
+      "jsx-a11y/alt-text": "off",
+      "jsx-a11y/anchor-is-valid": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "no-lone-blocks": "off",
+      "eqeqeq": "off"
     }
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   },
   "browserslist": {
     "production": [
@@ -102,8 +128,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/webpack-env": "^1.16.3"
   }
 }

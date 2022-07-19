@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 export const WarpperLogoMap = styled.div`
-    display: flex;
+  display: flex;
 
-    position: absolute;
+  position: absolute;
 
-    img{
-        width: 20vw;
-        height : auto
-    }
-
-` 
+  img {
+    width: 20vw;
+    height: auto;
+  }
+`;

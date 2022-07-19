@@ -1,4 +1,3 @@
 export type AppStore = {
-    keplerGl: any;
-  };
-  
+  keplerGl: any,
+};

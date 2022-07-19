@@ -32,7 +32,7 @@ export const Ouverture = styled.div`
         }
 
     }
-`
+`;
 
 // const activeButton = keyframes`
 //     0%   {

@@ -1,19 +1,15 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faChevronRight,
-  faChevronDown,
-} from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import AnimateHeight from 'react-animate-height';
-import classnames from 'classnames';
 import { Override } from '../../../types/Override';
 // import { AppStore } from '../../store';
 import List from '../lists';
 import { ButtonCollapse } from './style';
 
-library.add(faChevronRight,faChevronDown);
+library.add(faChevronRight, faChevronDown);
 
 export type CollapseProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
@@ -47,7 +43,6 @@ const Collapse = ({
   onItemClick,
   ...props
 }: CollapseProps) => {
-  
   // Toggle the visibility of buttons parent list
   // const [isActive, setIsActive] = React.useState<boolean>(false);
   const [height] = useState(0);
@@ -57,8 +52,8 @@ const Collapse = ({
   // const isLayerVisibleState = () => {
   //   setIsLayerVisible(!isLayerVisible);
   // };
-  function TextCollaps(){
-    if(!!text && text[0] === 'type'){
+  function TextCollaps() {
+    if (!!text && text[0] === 'type') {
       return 'Type';
     } else if (text[0] === 'produits') {
       return 'Produits';
@@ -68,40 +63,35 @@ const Collapse = ({
   }
 
   // Medium button styling + lits display
-    // console.log("ID FILTER", idFilter)
-    // console.log("List Names", listNames)
+  // console.log("ID FILTER", idFilter)
+  // console.log("List Names", listNames)
 
-    return (
-      <>
-        <ButtonCollapse
-          aria-expanded={ height !== 0 }
-          aria-controls='panel-filter' 
-          className={ isActive ? 'active' : '' }
-          aria-disabled={ isActive === idFilter ? 'true' : 'false' }
-          onClick={onItemClick}>
-          <span>
-            <FontAwesomeIcon 
-            icon={!isActive ? faChevronRight : faChevronDown} 
-            />
-            {' '}
-          </span>
-          {TextCollaps()}
-        </ButtonCollapse>
-                
-        <AnimateHeight
-          id='panel-filter'
-          style={{flexShrink: 0}}
-          duration={500}
-          height={!isActive ? 0 : 'auto'} 
-          easing={'ease'}
-        >
-            <List 
-              listNames={listNames} 
-              idFilter={idFilter}
-            />
-        </AnimateHeight>
-      </>
-    ); 
+  return (
+    <>
+      <ButtonCollapse
+        aria-expanded={height !== 0}
+        aria-controls="panel-filter"
+        className={isActive ? 'active' : ''}
+        aria-disabled={isActive === idFilter ? 'true' : 'false'}
+        onClick={onItemClick}
+      >
+        <span>
+          <FontAwesomeIcon icon={!isActive ? faChevronRight : faChevronDown} />{' '}
+        </span>
+        {TextCollaps()}
+      </ButtonCollapse>
+
+      <AnimateHeight
+        id="panel-filter"
+        style={{ flexShrink: 0 }}
+        duration={500}
+        height={!isActive ? 0 : 'auto'}
+        easing={'ease'}
+      >
+        <List listNames={listNames} idFilter={idFilter} />
+      </AnimateHeight>
+    </>
+  );
 };
 
 export default Collapse;

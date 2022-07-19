@@ -4,13 +4,9 @@
     "visState": {
       "filters": [
         {
-          "dataId": [
-            "mediation"
-          ],
+          "dataId": ["mediation"],
           "id": "e6cdj8pth",
-          "name": [
-            "publics"
-          ],
+          "name": ["publics"],
           "type": "multiSelect",
           "value": [],
           "enlarged": false,
@@ -20,13 +16,9 @@
           "speed": 1
         },
         {
-          "dataId": [
-            "mediation"
-          ],
+          "dataId": ["mediation"],
           "id": "0kxerkeub",
-          "name": [
-            "type_event"
-          ],
+          "name": ["type_event"],
           "type": "multiSelect",
           "value": [],
           "enlarged": false,
@@ -36,13 +28,9 @@
           "speed": 1
         },
         {
-          "dataId": [
-            "tiga"
-          ],
+          "dataId": ["tiga"],
           "id": "g61q5ddmr",
-          "name": [
-            "public-cible"
-          ],
+          "name": ["public-cible"],
           "type": "multiSelect",
           "value": [],
           "enlarged": false,
@@ -52,13 +40,9 @@
           "speed": 1
         },
         {
-          "dataId": [
-            "tiga"
-          ],
+          "dataId": ["tiga"],
           "id": "q6vot2hh4",
-          "name": [
-            "type_structure"
-          ],
+          "name": ["type_structure"],
           "type": "multiSelect",
           "value": [],
           "enlarged": false,
@@ -68,13 +52,9 @@
           "speed": 1
         },
         {
-          "dataId": [
-            "tiga"
-          ],
+          "dataId": ["tiga"],
           "id": "hv8sn1pgfo",
-          "name": [
-            "activites"
-          ],
+          "name": ["activites"],
           "type": "multiSelect",
           "value": [],
           "enlarged": false,
@@ -84,13 +64,9 @@
           "speed": 1
         },
         {
-          "dataId": [
-            "tiga"
-          ],
+          "dataId": ["tiga"],
           "id": "f41lbkzfi",
-          "name": [
-            "expertise"
-          ],
+          "name": ["expertise"],
           "type": "multiSelect",
           "value": [],
           "enlarged": false,
@@ -107,17 +83,8 @@
           "config": {
             "dataId": "Agences Pôle Emploi de la Métropole de Lyon",
             "label": "Agences Pôle Emploi de la Métropole de Lyon",
-            "color": [
-              248,
-              149,
-              112
-            ],
-            "highlightColor": [
-              252,
-              242,
-              26,
-              255
-            ],
+            "color": [248, 149, 112],
+            "highlightColor": [252, 242, 26, 255],
             "columns": {
               "geojson": "_geojson"
             },
@@ -131,41 +98,18 @@
                 "name": "Global Warming",
                 "type": "sequential",
                 "category": "Uber",
-                "colors": [
-                  "#5A1846",
-                  "#900C3F",
-                  "#C70039",
-                  "#E3611C",
-                  "#F1920E",
-                  "#FFC300"
-                ]
+                "colors": ["#5A1846", "#900C3F", "#C70039", "#E3611C", "#F1920E", "#FFC300"]
               },
               "strokeColorRange": {
                 "name": "Global Warming",
                 "type": "sequential",
                 "category": "Uber",
-                "colors": [
-                  "#5A1846",
-                  "#900C3F",
-                  "#C70039",
-                  "#E3611C",
-                  "#F1920E",
-                  "#FFC300"
-                ]
+                "colors": ["#5A1846", "#900C3F", "#C70039", "#E3611C", "#F1920E", "#FFC300"]
               },
               "radius": 14.9,
-              "sizeRange": [
-                0,
-                10
-              ],
-              "radiusRange": [
-                0,
-                50
-              ],
-              "heightRange": [
-                0,
-                500
-              ],
+              "sizeRange": [0, 10],
+              "radiusRange": [0, 50],
+              "heightRange": [0, 500],
               "elevationScale": 5,
               "enableElevationZoomFactor": true,
               "stroked": false,
@@ -177,16 +121,9 @@
             "textLabel": [
               {
                 "field": null,
-                "color": [
-                  255,
-                  255,
-                  255
-                ],
+                "color": [255, 255, 255],
                 "size": 18,
-                "offset": [
-                  0,
-                  0
-                ],
+                "offset": [0, 0],
                 "anchor": "start",
                 "alignment": "center"
               }
@@ -211,17 +148,8 @@
           "config": {
             "dataId": "tiga",
             "label": "Tiga",
-            "color": [
-              184,
-              196,
-              54
-            ],
-            "highlightColor": [
-              252,
-              242,
-              26,
-              255
-            ],
+            "color": [184, 196, 54],
+            "highlightColor": [252, 242, 26, 255],
             "columns": {
               "lat": "latitude",
               "lng": "longitude",
@@ -237,34 +165,17 @@
                 "name": "Global Warming",
                 "type": "sequential",
                 "category": "Uber",
-                "colors": [
-                  "#5A1846",
-                  "#900C3F",
-                  "#C70039",
-                  "#E3611C",
-                  "#F1920E",
-                  "#FFC300"
-                ]
+                "colors": ["#5A1846", "#900C3F", "#C70039", "#E3611C", "#F1920E", "#FFC300"]
               },
-              "radiusRange": [
-                0,
-                50
-              ]
+              "radiusRange": [0, 50]
             },
             "hidden": false,
             "textLabel": [
               {
                 "field": null,
-                "color": [
-                  255,
-                  255,
-                  255
-                ],
+                "color": [255, 255, 255],
                 "size": 18,
-                "offset": [
-                  0,
-                  0
-                ],
+                "offset": [0, 0],
                 "anchor": "start",
                 "alignment": "center"
               }
@@ -283,17 +194,8 @@
           "config": {
             "dataId": "mediation",
             "label": "Mediation",
-            "color": [
-              98,
-              206,
-              173
-            ],
-            "highlightColor": [
-              252,
-              242,
-              26,
-              255
-            ],
+            "color": [98, 206, 173],
+            "highlightColor": [252, 242, 26, 255],
             "columns": {
               "lat": "latitude",
               "lng": "longitude",
@@ -309,34 +211,17 @@
                 "name": "Global Warming",
                 "type": "sequential",
                 "category": "Uber",
-                "colors": [
-                  "#5A1846",
-                  "#900C3F",
-                  "#C70039",
-                  "#E3611C",
-                  "#F1920E",
-                  "#FFC300"
-                ]
+                "colors": ["#5A1846", "#900C3F", "#C70039", "#E3611C", "#F1920E", "#FFC300"]
               },
-              "radiusRange": [
-                0,
-                50
-              ]
+              "radiusRange": [0, 50]
             },
             "hidden": false,
             "textLabel": [
               {
                 "field": null,
-                "color": [
-                  255,
-                  255,
-                  255
-                ],
+                "color": [255, 255, 255],
                 "size": 18,
-                "offset": [
-                  0,
-                  0
-                ],
+                "offset": [0, 0],
                 "anchor": "start",
                 "alignment": "center"
               }
@@ -463,11 +348,7 @@
         "land": true,
         "3d building": false
       },
-      "threeDBuildingColor": [
-        9.665468314072013,
-        17.18305478057247,
-        31.1442867897876
-      ],
+      "threeDBuildingColor": [9.665468314072013, 17.18305478057247, 31.1442867897876],
       "mapStyles": {}
     }
   }

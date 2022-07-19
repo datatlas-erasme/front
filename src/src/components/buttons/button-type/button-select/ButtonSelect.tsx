@@ -9,7 +9,7 @@ import {
   MarketDealer,
   MarketProducer,
   ProducerShop,
-  Solidarity
+  Solidarity,
 } from '../../../../assets/svg/types';
 // import {FarmerIcon} from '../../../../assets/svg/FarmerIcon';
 import { ButtonType } from './style';
@@ -28,7 +28,7 @@ export type ButtonProps = Override<
   }
 >;
 
-export default function ButtonSelect ({
+export default function ButtonSelect({
   text,
   bg,
   textSize,
@@ -39,48 +39,49 @@ export default function ButtonSelect ({
   className,
   src,
   ...props
-}: ButtonProps){
-
-  console.log(layerConfigChange)
+}: ButtonProps) {
+  console.log(layerConfigChange);
 
   console.log(text);
-  
-  const dispatch = useDispatch();  
+
+  const dispatch = useDispatch();
   // Toggle the visibility of buttons parent list
   const [isActive, setIsActive] = useState(false);
   const isActiveState = () => {
     setIsActive(!isActive);
   };
-  
+
   // Toggle the button linked layer vibility
   const [isLayerVisible, setIsLayerVisible] = useState(true);
   const isLayerVisibleState = () => {
     setIsLayerVisible(!isLayerVisible);
   };
 
-    return (
-      <ButtonType
-        onClick={isActiveState}
-        className={classnames('active', className, { selected: isActive })}
-        {...props}>
-          
-        <div  className={ isActive ? 'active' : 'inactive' }>
-          { text === 'Vente à la ferme' ? (
-            <FarmSale/>
-          ) : text === 'Magasin de producteurs' ? (
-            <ProducerShop/>
-          ) : text === 'AMAP/Panier' ? (
-            <Amap/>
-          ) : text === 'Distributeur automatique' ? (
-            <MarketProducer/>
-          ) : text === 'Epicerie sociale et solidaire' ? (
-              <Solidarity/>
-          ) : text === 'Distributeur automatique' ? (
-                <MarketProducer/>
-          ) : (<MarketDealer/>) }
-        </div>
-        
-        <p>{text.substring(0, 30)}</p>
-      </ButtonType>
-    );
-};
+  return (
+    <ButtonType
+      onClick={isActiveState}
+      className={classnames('active', className, { selected: isActive })}
+      {...props}
+    >
+      <div className={isActive ? 'active' : 'inactive'}>
+        {text === 'Vente à la ferme' ? (
+          <FarmSale />
+        ) : text === 'Magasin de producteurs' ? (
+          <ProducerShop />
+        ) : text === 'AMAP/Panier' ? (
+          <Amap />
+        ) : text === 'Distributeur automatique' ? (
+          <MarketProducer />
+        ) : text === 'Epicerie sociale et solidaire' ? (
+          <Solidarity />
+        ) : text === 'Distributeur automatique' ? (
+          <MarketProducer />
+        ) : (
+          <MarketDealer />
+        )}
+      </div>
+
+      <p>{text.substring(0, 30)}</p>
+    </ButtonType>
+  );
+}

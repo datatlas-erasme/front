@@ -81,99 +81,114 @@ const IndustriesCustomMapPopoverFactory = (...deps) => {
 
     //TODO Fix because kepler's fields to show panel crashes because of the array input from the dataset
 
-    const ContentBuffer = []
+    const ContentBuffer = [];
 
-    const PointFieldsFixImage =  allFields.map((field, index) => {
+    const PointFieldsFixImage = allFields.map((field, index) => {
       if (field.displayName.includes('image')) {
-        ContentBuffer.push({cat: "image", content: data[index]})
-
+        ContentBuffer.push({ cat: 'image', content: data[index] });
       }
     });
 
-    const PointFieldsFix =  allFields.map((field, index) => {
+    const PointFieldsFix = allFields.map((field, index) => {
       // TODO check if is url and has image extension
       if (field.displayName.includes('Nom-evenement')) {
-        ContentBuffer.push({cat: "Nom-structure", content: data[index]})
+        ContentBuffer.push({ cat: 'Nom-structure', content: data[index] });
         //ContentBuffer.push({cat: "Nom-structure", content: " <h1>"+ data[index]+ "</h1>"})
       }
       if (field.displayName.includes('Nom-structure')) {
-        ContentBuffer.push({cat: "Nom-structure", content: data[index]})
+        ContentBuffer.push({ cat: 'Nom-structure', content: data[index] });
         //ContentBuffer.push({cat: "Nom-structure", content: " <h1>"+ data[index]+ "</h1>"})
       }
       if (field.displayName.includes('Description')) {
-        ContentBuffer.push({cat: "Description", content: data[index]})
+        ContentBuffer.push({ cat: 'Description', content: data[index] });
         //ContentBuffer.push({cat: "Description", content:  "<p className='desc'>"+ data[index] + "</p>"})
-
       }
       if (field.displayName.includes('Adresse')) {
-        ContentBuffer.push({cat: "Adresse", content:data[index]})
+        ContentBuffer.push({ cat: 'Adresse', content: data[index] });
         //ContentBuffer.push({cat: "Adresse", content: " <p><b>Adresse :</b>"+data[index] +"</p>"})
       }
       if (field.displayName.includes('Types')) {
-        ContentBuffer.push({cat: "Types", content:data[index]})
+        ContentBuffer.push({ cat: 'Types', content: data[index] });
         //ContentBuffer.push({cat: "types-structure", content: "<p><b>Type de structure :</b> " + data[index] + "</p>"})
       }
       if (field.displayName.includes('Activites')) {
-        ContentBuffer.push({cat: "Activites", content:data[index]+" "})
+        ContentBuffer.push({ cat: 'Activites', content: data[index] + ' ' });
         //ContentBuffer.push({cat: "activites", content: " <p><b>Activités : </b> " + data[index]+"</p>"})
       }
       if (field.displayName.includes('Domaines-expertise')) {
-        ContentBuffer.push({cat: "Domaines-expertise", content: data[index]+" "})
+        ContentBuffer.push({ cat: 'Domaines-expertise', content: data[index] + ' ' });
         //ContentBuffer.push({cat: "Domaines-expertise", content: " <p><b>Expertise :</b> "+data[index]+"</p>"})
       }
       if (field.displayName.includes('Publics')) {
-        ContentBuffer.push({cat: "Publics", content: data[index]+" "})
+        ContentBuffer.push({ cat: 'Publics', content: data[index] + ' ' });
         //ContentBuffer.push({cat: "Publics-cibles", content: " <p><b>Publics :</b> "+data[index]+"</p>"}
       }
       if (field.displayName.includes('type_event')) {
-        ContentBuffer.push({cat: "type_event", content: data[index]})
+        ContentBuffer.push({ cat: 'type_event', content: data[index] });
         //ContentBuffer.push({cat: "type_event", content: "<p><b>Type Event :</b> "+data[index]+"</p>"})
       }
       if (field.displayName.includes('Site-web')) {
-        ContentBuffer.push({cat: "Site-web", content: data[index]})
+        ContentBuffer.push({ cat: 'Site-web', content: data[index] });
         //ContentBuffer.push({cat: "site", content: '<a target="" href='+data[index]+'>Voir le site web</a>'})
       }
-  
     });
 
-    const titleEvent = ContentBuffer.filter((value) => value.cat === "Nom-evenement" )[0]?.content
-    const title = ContentBuffer.filter((value) => value.cat === "Nom-structure" )[0]?.content
-    const image = ContentBuffer.filter((value) => value.cat === "image" )[0]?.content
-    const desc = ContentBuffer.filter((value) => value.cat === "Description" )[0]?.content
-    const adresse = ContentBuffer.filter((value) => value.cat === "Adresse" )[0]?.content
-    const typeStruct = ContentBuffer.filter((value) => value.cat === "Types" )[0]?.content
-    const activites = ContentBuffer.filter((value) => value.cat === "Activites" )[0]?.content
-    const expertises = ContentBuffer.filter((value) => value.cat === "Domaines-expertise" )[0]?.content
-    const publicsCibles = ContentBuffer.filter((value) => value.cat === "Publics" )[0]?.content
-    const typeEvent = ContentBuffer.filter((value) => value.cat === "Types" )[0]?.content
-    const url = ContentBuffer.filter((value) => value.cat === "Site-web" )[0]?.content
+    const titleEvent = ContentBuffer.filter((value) => value.cat === 'Nom-evenement')[0]?.content;
+    const title = ContentBuffer.filter((value) => value.cat === 'Nom-structure')[0]?.content;
+    const image = ContentBuffer.filter((value) => value.cat === 'image')[0]?.content;
+    const desc = ContentBuffer.filter((value) => value.cat === 'Description')[0]?.content;
+    const adresse = ContentBuffer.filter((value) => value.cat === 'Adresse')[0]?.content;
+    const typeStruct = ContentBuffer.filter((value) => value.cat === 'Types')[0]?.content;
+    const activites = ContentBuffer.filter((value) => value.cat === 'Activites')[0]?.content;
+    const expertises = ContentBuffer.filter((value) => value.cat === 'Domaines-expertise')[0]
+      ?.content;
+    const publicsCibles = ContentBuffer.filter((value) => value.cat === 'Publics')[0]?.content;
+    const typeEvent = ContentBuffer.filter((value) => value.cat === 'Types')[0]?.content;
+    const url = ContentBuffer.filter((value) => value.cat === 'Site-web')[0]?.content;
 
     return (
       <div className="PointSidePanel">
-         <img
-            src={
-              image
-                ? image
-                : 'https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-            }
-          />
-        <div className='content'>
+        <img
+          src={
+            image
+              ? image
+              : 'https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+          }
+        />
+        <div className="content">
           <div>
             <h1>{title}</h1>
             <h1>{titleEvent}</h1>
-            <p className='desc'>{desc}</p>
-            <a target="" href={url}>{url ? "Voir le site web" : ""}</a>
+            <p className="desc">{desc}</p>
+            <a target="" href={url}>
+              {url ? 'Voir le site web' : ''}
+            </a>
           </div>
-          <div className='infos'>
-            <p><b>{adresse ? "Adresse : " : ""}</b>{adresse}</p>
-            <p><b>{typeStruct ? "Types : " : ""}</b>{typeStruct}</p>
-            <p><b>{activites ? "Activites : " : ""}</b>{activites}</p>
-            <p><b>{expertises ? "Expertises : " : ""}</b>{expertises}</p>
-            <p><b>{publicsCibles ? "Publics Cibles : " : ""}</b>{publicsCibles}</p>
+          <div className="infos">
+            <p>
+              <b>{adresse ? 'Adresse : ' : ''}</b>
+              {adresse}
+            </p>
+            <p>
+              <b>{typeStruct ? 'Types : ' : ''}</b>
+              {typeStruct}
+            </p>
+            <p>
+              <b>{activites ? 'Activites : ' : ''}</b>
+              {activites}
+            </p>
+            <p>
+              <b>{expertises ? 'Expertises : ' : ''}</b>
+              {expertises}
+            </p>
+            <p>
+              <b>{publicsCibles ? 'Publics Cibles : ' : ''}</b>
+              {publicsCibles}
+            </p>
           </div>
         </div>
       </div>
-    )
+    );
 
     //return <div className="PointSidePanel">{PointFieldsFixImage}<div className='content'>{PointFieldsFix}</div></div>;
   };

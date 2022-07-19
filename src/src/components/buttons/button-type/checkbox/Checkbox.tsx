@@ -1,9 +1,6 @@
-import { useState } from "react";
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import classnames from 'classnames';
-import { importAll } from "../../../../utils/import-png";
-import { LabelCheckbox } from "../../../filters-desktop/lists/style";
-import { ButtonType } from '../button-select/style';
+import { importAll } from '../../../../utils/import-png';
 import { Override } from '../../../../types/Override';
 
 export type CheckboxProps = Override<
@@ -13,42 +10,40 @@ export type CheckboxProps = Override<
     idFilter?: string;
     layerId?: string | '';
     src?: string;
-
   }
 >;
 
 // Import icons products
 const icons = importAll(require.context('../../../../assets/logo/label', false, /\.(png)$/));
 
-const dataCheckbox = {}
+const dataCheckbox = {};
 
-export default function Checkbox({  
+export default function Checkbox({
   text,
   idFilter,
   layerId,
   className,
   src,
   ...props
-}: CheckboxProps){
-  
+}: CheckboxProps) {
   const dispatch = useDispatch();
   // Toggle the visibility of buttons parent list
   const [isActive, setIsActive] = useState(false);
   const isActiveState = () => {
     setIsActive(!isActive);
   };
-  
+
   // Toggle the button linked layer vibility
   const [isLayerVisible, setIsLayerVisible] = useState(true);
   const isLayerVisibleState = () => {
     setIsLayerVisible(!isLayerVisible);
   };
 
-    return(
-        <>
-                <input type="checkbox" />
-                <label> {text.substring(0, 30)} </label>
-        {/* <ButtonType
+  return (
+    <>
+      <input type="checkbox" />
+      <label> {text.substring(0, 30)} </label>
+      {/* <ButtonType
         onClick={isActiveState}
         className={classnames('active', className, { selected: isActive })}
         {...props}>
@@ -74,6 +69,6 @@ export default function Checkbox({
         
         <p>{text.substring(0, 30)}</p>
       </ButtonType> */}
-      </>
-    )
-};
+    </>
+  );
+}

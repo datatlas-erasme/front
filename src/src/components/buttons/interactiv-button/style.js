@@ -16,69 +16,67 @@ export const WarpperAddPoint = styled.div`
         align-items: center;
         margin-top: 0;
     }
-`
+`;
 
 export const AddPoint = styled.button`
-    display: flex;
-    align-items: center;
-    border: none;
-    width: 250px;
-    height: 40px;
-    padding: 25px;
+  display: flex;
+  align-items: center;
+  border: none;
+  width: 250px;
+  height: 40px;
+  padding: 25px;
 
-    border-radius: 40px;
+  border-radius: 40px;
+  background-color: ${datalimentaire.colors.secondary};
+  color: ${datalimentaire.colors.primary};
+  font-size: ${Base.fontSizes.paragraphe};
+  font-weight: ${Base.fontWeights[0]};
+
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+
+  span {
+    position: relative;
+    left: -26px;
+
+    svg {
+      width: 60px;
+      height: auto;
+    }
+  }
+
+  @media ${device.lg} {
+    width: 100%;
+    margin: auto;
+
     background-color: ${datalimentaire.colors.secondary};
-    color: ${datalimentaire.colors.primary};
-    font-size: ${Base.fontSizes.paragraphe};
-    font-weight: ${Base.fontWeights[0]};
+    color: ${datalimentaire.colors.red};
+    font-size: ${Base.fontSizes.xltext};
+    font-weight: ${Base.fontWeights[5]};
+    line-height: ${Base.lineHeights[1]};
+    box-shadow: none;
 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
 
-    span{
-        position: relative;
-        left: -26px;
-        
-        svg{
-            width: 60px;
-            height: auto;
-        }
+    span {
+      position: relative;
+      left: 0;
+
+      svg {
+        width: ${px2vw(60)};
+        height: auto;
+      }
     }
 
-    @media ${device.lg} {
-        width: 100%;
-        margin: auto;
-
-        background-color: ${datalimentaire.colors.secondary};
-        color: ${datalimentaire.colors.red};
-        font-size: ${Base.fontSizes.xltext};
-        font-weight: ${Base.fontWeights[5]};
-        line-height: ${Base.lineHeights[1]};
-        box-shadow: none;
-
-        cursor: pointer;
-
-        span{
-            position: relative;
-            left: 0;
-        
-            svg{
-                width: ${px2vw(60)};
-                height: auto;
-            }
-        }
-
-        p{
-            padding: 10px;
-        }
-
-        &:before{
-            content: ${GouttesSvg};
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            backrgound: black;
-        }
+    p {
+      padding: 10px;
     }
 
-`
-
+    &:before {
+      content: ${GouttesSvg};
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      backrgound: black;
+    }
+  }
+`;

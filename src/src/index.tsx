@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
@@ -8,13 +8,13 @@ import store from './store';
 import FetchInstanceConf from './utils/FetchInstanceConf';
 
 ReactDOM.render(
-    <Provider store={store}>
-        <React.StrictMode>
-          <Router>
-            <FetchInstanceConf/>
-          </Router>
-        </React.StrictMode>
-    </Provider>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <Router>
+        <FetchInstanceConf />
+      </Router>
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root'),
 );
 

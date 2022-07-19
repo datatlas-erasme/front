@@ -17,19 +17,19 @@ export const WrapperModal = styled.div`
 
   background: ${datalimentaire.colors.secondary};
   color: ${datalimentaire.colors.primary};
-      
+
   border-radius: ${Base.radii[5]};
   box-shadow: 0px 2px 18px -1px rgba(0, 0, 0, 0.25);
 
   z-index: 99;
 
-  p{
+  p {
     font-size: ${Base.fontSizes.paragraphe};
     line-height: ${Base.lineHeights.normal};
     padding: 10px 0;
   }
 
-  button{
+  button {
     width: 200px;
     margin: 20px auto;
     padding: 10px;
@@ -41,13 +41,13 @@ export const WrapperModal = styled.div`
 
     cursor: pointer;
 
-    &:hover{
+    &:hover {
       opacity: 0.5;
     }
   }
 
   li {
-    font-size: ${Base.fontSizes.paragraphe};    
+    font-size: ${Base.fontSizes.paragraphe};
     display: flex;
     margin: 20px 0;
   }
@@ -58,43 +58,40 @@ export const WrapperModal = styled.div`
     left: 37%;
     width: 60vw;
   }
-`
+`;
 
 export const ModalColRight = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 
-    img{
-      display: none;
-    };
+  img {
+    display: none;
+  }
+
+  svg {
+    position: absolute;
+    height: 2em;
+    color: ${datalimentaire.colors.primary};
+    right: 25px;
+    top: 15px;
+  }
+
+  @media ${device.lg} {
+    width: 40%;
+
+    img {
+      display: block;
+      border-radius: 0 ${Base.radii[5]} 0 80px;
+    }
 
     svg {
-      position: absolute;
       height: 2em;
-      color: ${datalimentaire.colors.primary};
-      right: 25px;
-      top: 15px;
-    };
-
-    @media ${device.lg} {
-
-      width: 40%;
-
-      img{
-        display: block;
-        border-radius: 0 ${Base.radii[5]} 0 80px;
-      };
-  
-      svg {
-        height: 2em;
-        color: white;
-        cursor: pointer;
-      };
-    };
-    
-
-`
+      color: white;
+      cursor: pointer;
+    }
+  } ;
+`;
 
 export const ModalColLeft = styled.div`
   display: flex;
@@ -104,35 +101,32 @@ export const ModalColLeft = styled.div`
   @media ${device.lg} {
     width: 60%;
     padding: 40px 0 20px 40px;
-
   }
-`
+`;
 export const ModalHeading = styled.div`
-    display: flex;
+  display: flex;
+  flex-direction: column;
+  div {
+    padding: 10px 0 10px 10px;
     flex-direction: column;
-    div{
-      padding: 10px 0 10px 10px;
-      flex-direction: column;
-    }
-    h2{
-      font-size: ${Base.fontSizes.xltitle};
+  }
+  h2 {
+    font-size: ${Base.fontSizes.xltitle};
+    line-height: ${Base.lineHeights.title};
+  }
+
+  @media ${device.lg} {
+    flex-direction: row;
+
+    h2 {
+      font-size: ${Base.fontSizes.xstitle};
       line-height: ${Base.lineHeights.title};
     }
-
-    @media ${device.lg} {
-      flex-direction: row;
-
-      h2{
-        font-size: ${Base.fontSizes.xstitle};
-        line-height: ${Base.lineHeights.title};
-      }
-    }
-
-`
+  }
+`;
 export const LabelRow = styled.div`
-    display: flex;
-    img{
-      border-radius: 0;
-
-    }
-`
+  display: flex;
+  img {
+    border-radius: 0;
+  }
+`;

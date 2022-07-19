@@ -1,5 +1,4 @@
 node_modules
-old_node_modules
 .env
 build
 .obsidian
