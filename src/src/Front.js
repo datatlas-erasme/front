@@ -112,7 +112,24 @@ function Map() {
             if (data.fields) {
               buffer.push([layer.name, data]);
             } else {
-              buffer.push([layer.name, processGeojson(data)]);
+              const processedData = processGeojson(data)
+              // in data.rows[] filter the geometry.coordinates and return lat, lng
+              const dataRows = processedData.rows.map((row) => {
+                // pushs the lat, lng to the row
+                row.push(row[0].geometry.coordinates[1], row[0].geometry.coordinates[0])
+
+                return row
+              }
+              );
+              // in processedData append {name : lat, type : 'number'} and same for long
+              processedData.fields.push({name: 'lat', type: 'number'})
+              processedData.fields.push({name: 'lng', type: 'number'})
+
+              // replace processedData.rows with dataRows
+              processedData.rows = dataRows
+
+              //console.log('filtered data', data)
+              buffer.push([layer.name, processedData]);
             }
           });
       });
