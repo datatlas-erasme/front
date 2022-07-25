@@ -1,4 +1,4 @@
-name: build-publish-dev-industries
+name: build-industries-dev
 on:
   push:
     branches:
@@ -25,6 +25,6 @@ jobs:
         with:
           push: true
           repository:  
-          tags: erasme/datatlas-industries:latest, erasme/datatlas-industries:${{ github.sha }}
+          tags: erasme/datatlas-industries:dev, erasme/datatlas-industries:${{ github.sha }}
           build-args: |
-            REACT_APP_BACKEND_URL=${{ secrets.INDUSTRIE_BACKEND_URL  }}
+            REACT_APP_BACKEND_URL=${{ secrets.INDUSTRIE_DEV_BACKEND_URL  }}
