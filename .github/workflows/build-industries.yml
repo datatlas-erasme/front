@@ -1,4 +1,4 @@
-name: build-industries-production-dev
+name: build-industries-production
 on:
   push:
     branches:
