@@ -1,4 +1,4 @@
-name: build-publish-dev-industries-production-env
+name: build-industries-production-dev
 on:
   push:
     branches:
