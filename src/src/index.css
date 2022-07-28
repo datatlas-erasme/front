@@ -130,7 +130,7 @@ body {
   height: max-content;
   max-height: 84vh;
   overflow: auto;
-  /*width: 11%;*/
+  width: 35%;
   padding-right: 10px;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
@@ -147,6 +147,15 @@ body {
 .filter-parent .list {
   padding: 0 0 7px 0;
 }
+.filter-parent .layer-gestion {
+  display: flex;
+  flex-direction: row;
+}
+.filter-parent .layer-gestion button{
+  font-size: 10px;
+  text-transform: uppercase;
+  border-radius: 0px 0 0px 5px;
+}
 
 .filter-parent ul {
   max-height: 0;
@@ -155,23 +164,23 @@ body {
 }
 
 .filter-parent .btn,.crowdsourcing button {
+  display: flex;
+  justify-content: space-between;
   max-height: 1000px;
   /*overflow: auto;*/
   transition: all ease-in-out 0.2s;
   overflow-y: hidden;
-  border-radius: 3px;
-  font-size: 11px !important;
-  margin: 2px 0 0 0;
-  padding : 10px 10px 10px 10px;
-  text-transform: uppercase;
+  border-radius: 0px;
+  font-size: 15px ;
+  padding : 16px 16px 16px 10px;
   text-align: left;
+  text-transform: inherit;
 }
 
 
 .filter-parent li button {
  opacity: 0.5;
  border-radius: 5px 5px 5px 5px;
- margin-top: 5px;
 }
 
 .filter-parent .selected {
@@ -247,11 +256,16 @@ filters .filter-child button.active span {
   border-radius: 5px;
   margin-bottom: 0;
   font-size: 15px;
-  width: max-content;
+  background-color: black;
+}
+
+.btn-parent .btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .btn-parent p {
-  border-radius: 5px 0px 0px 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -261,6 +275,14 @@ filters .filter-child button.active span {
   color: white;
   background-color: inherit;
 }
+
+
+.btn-parent p .circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
 
 .btn-child {
   width: max-content;
@@ -277,15 +299,16 @@ button {
   font-size: 16px;
   color: white;
   padding: 16px 16px 16px 10px;
-  border-radius: 0px 5px 5px 0px;
+  border-radius: 5px 5px 0px 0px;
   border: none;
   margin: 0;
   transition: all ease-in-out 0.2s;
   cursor: pointer;
   font-weight: 400;
-  /*width: 100%;*/
+  background-color: black;
   text-transform : capitalize;
-  letter-spacing : 0.75px
+  letter-spacing : 0.75px;
+  width: 100%;
 }
 
 .btn-parent button:hover, .crowdsourcing button:hover, .btn-parent p:hover, .filter-parent .btn:hover {

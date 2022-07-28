@@ -59,18 +59,6 @@ const Button = ({
     layerId !== undefined ? state.keplerGl.map?.visState?.layers[layerId] : undefined,
   );
 
-  const Icon = () => {
-    if (iconName) {
-      return (
-        <FontAwesomeIcon icon={iconName} />
-      )
-    }
-    else {
-      return null
-    }
-    
-  }
-
   useEffect(() => {
     //console.log(isLayerVisible)
     if (layer) {
@@ -81,11 +69,11 @@ const Button = ({
   // Big button style
   if (btnType === 'parent') {
     return (
-      <div className="btn-parent" style={{ backgroundColor: bg, fontSize: textSize }}>
-        <p onClick={isLayerVisibleState}>
-        <Icon/>
-        </p>
-        <button className="btn" {...props} style={{ backgroundColor: bg }}>
+      <div className="btn-parent" style={{fontSize: textSize }}>
+        <button className="btn" {...props}>
+          <p onClick={isLayerVisibleState}>
+            <span className='circle' style={{ backgroundColor: bg}}></span>
+          </p>
           {text.substring(0, 30)}
         </button>
       </div>
@@ -102,7 +90,9 @@ const Button = ({
           className={classnames('btn', className, { active: !isActive })}
           {...props}
         >
-          {text?.substring(0, 30)}
+          Filtrer par {text?.substring(0, 30)}
+          
+          <span>{isActive ? "-" : "+"}</span>
         </button>
         <AnimateHeight
           duration={500}
@@ -118,11 +108,11 @@ const Button = ({
     return (
       <button
         onClick={isActiveState}
-        style={{ backgroundColor: LightenDarkenColor(bg, 60), fontSize: textSize }}
+        style={{ backgroundColor: LightenDarkenColor(bg, 60)}}
         className={classnames('btn', className, { selected: !isActive })}
         {...props}
-      >
-         <Icon/> {text.substring(0, 30)}
+      > 
+        {text.substring(0, 40)}
       </button>
     );
   }
