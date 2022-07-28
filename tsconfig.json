@@ -18,5 +18,5 @@
     "noImplicitUseStrict": true,
     "jsx": "react-jsx"
   },
-  "include": ["."]
+  "include": ["src"]
 }

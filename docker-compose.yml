@@ -9,8 +9,8 @@ services:
     ports:
       - 0.0.0.0:5007:3000
     volumes:
-      - ./src/src:/src/src/src
-      #- ./src/src:/src/src
+      - ./src:/app/src
+      - ./public:/app/public
 
     command: npm start
     stdin_open: true

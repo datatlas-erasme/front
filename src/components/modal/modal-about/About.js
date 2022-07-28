@@ -108,22 +108,22 @@ const About = () => {
               </p>
             </div>
             <div className="logos">
-              <a href="#">
+              <a href="src/components/modal/modal-about/About#">
                 <img src={Partner1} />
               </a>
-              <a href="https://www.grandlyon.com/">
+              <a href="src/components/modal/modal-about/About">
                 <img src={Partner2} />
               </a>
-              <a href="https://www.saint-etienne-metropole.fr/">
+              <a href="src/components/modal/modal-about/About">
                 <img src={Partner3} />
               </a>
-              <a href="https://www.banquedesterritoires.fr/">
+              <a href="src/components/modal/modal-about/About">
                 <img src={Partner4} />
               </a>
               <a href="https://erasme.org">
                 <img src={Partner5} />
               </a>
-              <a href="https://www.tuba-lyon.com/">
+              <a href="src/components/modal/modal-about/About">
                 <img src={Partner6} />
               </a>
             </div>

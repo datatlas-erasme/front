@@ -4,7 +4,7 @@ import { layerConfigChange } from 'erasme-kepler.gl/actions';
 import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';
 import { LightenDarkenColor } from 'lighten-darken-color';
-import { AppStore } from '../../redux/store';
+import { AppStore } from '../../../../redux/store';
 import { List } from '../../../filters-desktop/lists/Lists';
 
 export const ButtonDefault = ({

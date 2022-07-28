@@ -47,7 +47,18 @@ export const List = ({ listNames = [], idFilter, theme }: ListProps) => {
       <div>
         {listNames?.map((item, index) => (
           <li onClick={() => setFilterValue(item)}>
-            <ButtonDefault className="" key={index} textSize="12px" text={item} />
+            <ButtonDefault
+              className=""
+              key={index}
+              textSize="12px"
+              text={item}
+              bg={undefined}
+              btnType={undefined}
+              listNames={undefined}
+              layerId={undefined}
+              iconName={undefined}
+              theme={undefined}
+            />
           </li>
         ))}
       </div>
@@ -110,5 +121,5 @@ export default connect()(List);
           </li>
         ))}
       </ul>
-    </ListCheckbox>  
+    </ListCheckbox>
 */

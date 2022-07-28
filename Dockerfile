@@ -1,30 +1,16 @@
-# TODO Remove the dirty fix (git clone thing) - 
+# TODO Remove the dirty fix (git clone thing) -
 
 FROM node:lts as prod
 ARG REACT_APP_BACKEND_URL
 
-COPY . /src
-WORKDIR /src/src
+COPY . /app
+WORKDIR /app
 RUN ls
-
-WORKDIR /src/src
-
-RUN yarn install
-RUN yarn add @deck.gl/geo-layers
-
-
+RUN npm install --legacy-peer-deps
 
 COPY ./docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 RUN sh /docker-entrypoint.sh
-
-WORKDIR /src/src
-
-
-
-WORKDIR /src/src
-
-
 
 RUN npm run build
 
@@ -35,7 +21,7 @@ WORKDIR /usr/share/nginx/html
 # Remove default nginx static resources
 RUN rm -rf ./*
 # Copies static resources from builder stage
-COPY --from=prod /src/src/build .
+COPY --from=prod /app/build .
 
 EXPOSE 80
 
