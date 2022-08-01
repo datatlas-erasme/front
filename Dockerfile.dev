@@ -1,12 +1,9 @@
-FROM node:lts as prod
+FROM node:lts as dev
 
-COPY . /src
-WORKDIR /src/src
+COPY . /app
+WORKDIR /app
 RUN ls
-WORKDIR /src/src
-RUN yarn install
-RUN yarn add @deck.gl/geo-layers
+RUN npm install --legacy-peer-deps
 
-WORKDIR /src/src
 CMD [ "npm", "start" ]
 EXPOSE 3000
