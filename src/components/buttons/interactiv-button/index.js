@@ -1,8 +1,12 @@
+import React, { useContext } from 'react';
 import { IconAdd } from '../../../assets/svg/IconAdd';
+import { ConfContext } from '../../../providers/ConfProvider';
 import { AddPoint, WarpperAddPoint } from './style';
 
-export default function AddButton({ bottomRightButtons }) {
-  const config = bottomRightButtons;
+export default function AddButton() {
+  const config = useContext(ConfContext).bottomRightButtons;
+
+  console.log('config', config);
 
   return (
     <WarpperAddPoint>
