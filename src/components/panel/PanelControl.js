@@ -7,11 +7,10 @@ import AddButton from '../buttons/interactiv-button';
 import { useViewport } from '../../utils/ViewportConext';
 import { Panel } from './style';
 
-const PanelControl = (props) => {
-  const instance = props.instance;
+const PanelControl = ({ instanceConf }) => {
   const { width } = useViewport();
   const breakpoint = 1024;
-  const theme = instance.conf.theme.name;
+  const theme = instanceConf.theme.name;
   // Get the filter values, id  and map them to buttons
   const filtersDomain = useSelector((state) => state.keplerGl.map?.visState?.filters ?? []);
   const layers = useSelector((state) => state.keplerGl.map?.visState?.layers ?? {});
@@ -43,7 +42,7 @@ const PanelControl = (props) => {
         <MobilePanelControl key={index} value={value} index={index} filtersDomain={filtersDomain} />
       ) : (
         <DesktopPanelControl
-          instance={instance}
+          instanceConf={instanceConf}
           key={index}
           value={value}
           index={index}
@@ -62,7 +61,7 @@ const PanelControl = (props) => {
           />
         ) : (
           <DesktopPanelControl
-            instance={instance}
+            instanceConf={instanceConf}
             key={index}
             value={value}
             index={index}

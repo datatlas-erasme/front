@@ -1,19 +1,22 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { processGeojson } from 'erasme-kepler.gl/processors';
+import { KeplerGlSchema } from 'erasme-kepler.gl/schemas';
+import {
+  addCustomMapStyle,
+  addDataToMap,
+  inputMapStyle,
+  receiveMapConfig,
+} from 'erasme-kepler.gl/actions';
 import App from '../App';
 
 export default function FetchInstanceConf() {
-  const [dataLayers, setDataLayers] = useState([]);
-
   const [dataLoaded, setDataLoaded] = useState(false);
-  const [mapUpdated, setMapUpdated] = useState(false);
 
   const [instanceConf, setInstanceConf] = useState({});
   const [instanceConfLoaded, setInstanceConfLoaded] = useState(false);
 
-  const [keplerConf, setKeplerConf] = useState({});
-  const [keplerConfLoaded, setKeplerConfLoaded] = useState(true);
+  const [keplerConfLoaded, setKeplerConfLoaded] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -21,57 +24,71 @@ export default function FetchInstanceConf() {
 
   // Retreive Instance configuration
   useEffect(() => {
-    console.log('FETCH DATA' + backendUrl + '/api/conf/instance');
+    console.log('FETCH DATA ' + backendUrl + '/api/conf/instance');
     fetch(backendUrl + '/api/conf/instance', { method: 'GET' })
       .then((res) => res.json())
-      .then((data) => {
-        setInstanceConf(data);
+      .then((instanceConf) => {
+        setInstanceConf(instanceConf);
         setInstanceConfLoaded(true);
       });
-  }, []);
+  }, [dispatch]);
 
   // Retreive Kepler configuration
   useEffect(() => {
-    console.log('FETCH DATA' + backendUrl + '/api/conf/kepler');
+    console.log('FETCH DATA ' + backendUrl + '/api/conf/kepler');
     fetch(backendUrl + '/api/conf/kepler', { method: 'GET' })
       .then((res) => res.json())
-      .then((data) => {
-        setKeplerConf(data);
+      .then((config) => {
+        const parsedConfig = KeplerGlSchema.parseSavedConfig(config);
+        console.log('parsedConfig', parsedConfig);
+        dispatch(receiveMapConfig(parsedConfig));
         setKeplerConfLoaded(true);
       });
-  }, []);
+  }, [dispatch]);
 
-  // Get instance config / fetch data and store into DataLayers
-  useEffect(() => {
-    if (instanceConfLoaded) {
-      const buffer = [];
+  useEffect(async () => {
+    if (keplerConfLoaded && instanceConfLoaded) {
+      // Pass the default kepler styling
+      dispatch(addDataToMap({ datasets: [], option: { centerMap: true } }));
+
+      // Load à custum map style from backend
+      dispatch(
+        inputMapStyle({
+          style: instanceConf.defaultMapBoxStyleUrl,
+          id: 'maquette',
+          name: 'Maquette',
+        }),
+      );
+      dispatch(addCustomMapStyle());
+
+      const mapData = {
+        datasets: [],
+      };
       const promises = instanceConf.layers.map(async (layer) => {
         return fetch(layer.url)
           .then((res) => res.json())
           .then((data) => {
-            //console.log(data);
-            if (data.fields) {
-              buffer.push([layer.name, data]);
-            } else {
-              buffer.push([layer.name, processGeojson(data)]);
-              buffer.push();
-            }
-          });
+            mapData.datasets.push({
+              info: {
+                label: layer.name,
+                id: layer.name,
+              },
+              data: data.fields ? data : processGeojson(data),
+            });
+          })
+          .catch(() => {});
       });
-      Promise.all(promises).then(() => {
-        setDataLayers(buffer);
+      await Promise.all(promises).then(() => {
+        dispatch(addDataToMap(mapData));
         setDataLoaded(true);
-        //console.log('BUFFER', buffer);
       });
     }
-  }, [instanceConf, instanceConfLoaded]);
+  }, [dispatch, keplerConfLoaded, instanceConfLoaded]);
 
-  if (instanceConfLoaded && dataLayers) {
+  if (instanceConfLoaded && dataLoaded) {
     //console.log("Data Layers", dataLayers);
 
-    return (
-      <App instance={{ conf: instanceConf, datalayers: dataLayers, keplerConf: keplerConf }} />
-    );
+    return <App instanceConf={instanceConf} />;
   } else {
     return <div>Loading...</div>;
   }

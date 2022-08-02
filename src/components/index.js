@@ -10,7 +10,7 @@ const ImgLoad = styled.div`
   position: absolute;
   left: 64%;
 `;
-export default function Front({ theme, instance }) {
+export default function Front({ theme, instanceConf }) {
   return (
     <ViewportProvider>
       <Style theme={theme} />
@@ -22,9 +22,9 @@ export default function Front({ theme, instance }) {
           </ImgLoad>
         }
       >
-        <Map instance={instance} />
+        <Map instanceConf={instanceConf} />
       </Suspense>
-      <Panel instance={instance} theme={theme} />
+      <Panel instanceConf={instanceConf} theme={theme} />
     </ViewportProvider>
   );
 }
