@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { PanelToggleFactory, Button, Icons, withState } from 'erasme-kepler.gl/components';
 import { visStateLens } from 'erasme-kepler.gl/reducers';
-import { setMapConfig } from '../store/reducer';
+import { setMapConfig } from '../store/app';
 
 const StyledPanelToggleWrapper = styled.div`
   display: flex;

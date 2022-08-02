@@ -7,7 +7,7 @@ import { ButtonDay, ButtonDefault } from '../../buttons/button-type';
 import { BlockFilters, ParentFilter, DomainFilter, HeadingFilter } from './style';
 
 const DesktopPanelControl = ({
-  instance,
+  instanceConf,
   color,
   value,
   filtersDomain,
@@ -15,8 +15,8 @@ const DesktopPanelControl = ({
   closeOtherItemsOnClick,
 }) => {
   // get the theme name
-  console.log('instance', instance);
-  const theme = instance.conf.theme.name;
+  console.log('instanceConf', instanceConf);
+  const theme = instanceConf.theme.name;
   const datasetLabel = value.label;
   const datasetId = value.id;
 
