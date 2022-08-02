@@ -6,8 +6,6 @@ import { AddPoint, WarpperAddPoint } from './style';
 export default function AddButton() {
   const config = useContext(ConfContext).bottomRightButtons;
 
-  console.log('config', config);
-
   return (
     <WarpperAddPoint>
       {config.map((buttonConf, index) => (
