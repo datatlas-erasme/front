@@ -39,6 +39,6 @@ jobs:
           build-args: |
             REACT_APP_BACKEND_URL=${{ secrets.REACT_APP_BACKEND_URL }}
       - name: Move cache
-              run: |
-                rm -rf /tmp/.buildx-cache
-                mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+        run: |
+          rm -rf /tmp/.buildx-cache 
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
