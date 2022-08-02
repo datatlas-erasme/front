@@ -21,7 +21,7 @@ export default function FetchInstanceConf() {
 
   // Retreive Instance configuration
   useEffect(() => {
-    console.log('FETCH DATA' + backendUrl + '/api/conf/instance');
+    console.log('FETCH DATA ' + backendUrl + '/api/conf/instance');
     fetch(backendUrl + '/api/conf/instance', { method: 'GET' })
       .then((res) => res.json())
       .then((data) => {
@@ -32,7 +32,7 @@ export default function FetchInstanceConf() {
 
   // Retreive Kepler configuration
   useEffect(() => {
-    console.log('FETCH DATA' + backendUrl + '/api/conf/kepler');
+    console.log('FETCH DATA ' + backendUrl + '/api/conf/kepler');
     fetch(backendUrl + '/api/conf/kepler', { method: 'GET' })
       .then((res) => res.json())
       .then((data) => {
@@ -56,6 +56,9 @@ export default function FetchInstanceConf() {
               buffer.push([layer.name, processGeojson(data)]);
               buffer.push();
             }
+          })
+          .catch(() => {
+            buffer.push();
           });
       });
       Promise.all(promises).then(() => {
