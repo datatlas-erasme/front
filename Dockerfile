@@ -1,9 +1,12 @@
-# TODO Remove the dirty fix (git clone thing) -
-
 FROM node:lts as prod
 ARG REACT_APP_BACKEND_URL
-
-COPY . /app
+COPY src /app/src
+COPY public /app/public
+COPY package.json /app
+COPY package-lock.json /app
+COPY .prettierrc /app
+COPY tsconfig.json /app
+#COPY . /app
 WORKDIR /app
 RUN ls
 RUN npm install --legacy-peer-deps
