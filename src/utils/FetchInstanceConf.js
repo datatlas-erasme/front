@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { processGeojson } from 'erasme-kepler.gl/processors';
 import App from '../App';
 
+// Import the instance configuration from the backend.
 export default function FetchInstanceConf() {
   const [dataLayers, setDataLayers] = useState([]);
 
