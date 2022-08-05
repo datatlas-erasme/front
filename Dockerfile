@@ -1,3 +1,4 @@
+# Get nodejs last image
 FROM node:lts as prod
 ARG REACT_APP_BACKEND_URL
 COPY src /app/src
