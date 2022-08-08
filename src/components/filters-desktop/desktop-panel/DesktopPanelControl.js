@@ -103,6 +103,7 @@ const DesktopPanelControl = ({
   if (theme == 'industries') {
     return (
       <ul>
+        <ButtonDefault text="HOHOH" />
         {ParentBtn}
 
         <AnimateHeight

@@ -6,6 +6,7 @@ import classnames from 'classnames';
 import { LightenDarkenColor } from 'lighten-darken-color';
 import { AppStore } from '../../../../redux/store';
 import { List } from '../../../filters-desktop/lists/Lists';
+import { Default, Parent } from './style';
 
 export const ButtonDefault = ({
   text,
@@ -51,11 +52,11 @@ export const ButtonDefault = ({
   // Big button style
   if (btnType === 'parent') {
     return (
-      <div className="btn-parent" style={{ backgroundColor: bg, fontSize: textSize }}>
+      <div className="">
         <p onClick={isLayerVisibleState}></p>
-        <button className="btn" {...props} style={{ backgroundColor: bg }}>
+        <Parent {...props} style={{ backgroundColor: bg }}>
           {text.substring(0, 30)}
-        </button>
+        </Parent>
       </div>
     );
   }
@@ -83,14 +84,13 @@ export const ButtonDefault = ({
     );
   } else {
     return (
-      <button
+      <Default
         onClick={isActiveState}
-        style={{ backgroundColor: LightenDarkenColor(bg, 60), fontSize: textSize }}
-        className={classnames('btn', className, { selected: !isActive })}
+        className={classnames(className, { selected: !isActive })}
         {...props}
       >
         {text.substring(0, 30)}
-      </button>
+      </Default>
     );
   }
 };
