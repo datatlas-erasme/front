@@ -1,4 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
+import InstanceConfigurationInterface from '../domain/InstanceConfigurationInterface';
 
 // Constants
 export const INIT = 'INIT';
@@ -8,14 +9,20 @@ export const UPDATE_INSTANCE_CONFIGURATION = 'UPDATE_INSTANCE_CONFIGURATION';
 export const appInit = createAction(INIT);
 export const updateInstanceConfiguration = createAction(UPDATE_INSTANCE_CONFIGURATION);
 
+export interface AppState {
+  appName: string;
+  loaded: boolean;
+  configuration?: InstanceConfigurationInterface;
+}
+
 // Reducer
-const initialState = {
+const initialState: AppState = {
   appName: 'Opendata alimentaire',
   loaded: false,
-  configuration: null,
+  configuration: undefined,
 };
 
-const app = handleActions(
+const app = handleActions<AppState, any>(
   {
     [INIT]: (state) => ({
       ...state,

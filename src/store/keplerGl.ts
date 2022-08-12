@@ -1,7 +1,9 @@
 import { keplerGlReducer, uiStateUpdaters } from 'erasme-kepler.gl';
+import { KeplerGlState } from 'erasme-kepler.gl/src/reducers/core';
+import { Reducer } from 'redux';
 
 // Reducer
-const keplerGl = keplerGlReducer.initialState({
+const keplerGl: Reducer<KeplerGlState> = keplerGlReducer.initialState({
   uiState: {
     readonly: true,
     // hide side panel when mounted
