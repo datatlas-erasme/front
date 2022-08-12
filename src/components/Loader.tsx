@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import logoGL from '../assets/logo/logo_gl.png';
 
 const ImgLoad = styled.div`
   position: absolute;
@@ -10,7 +11,7 @@ export default function Loader() {
   return (
     <ImgLoad>
       Loading...
-      <img src={'../assets/logo/logo_gl.png'} alt={'Logo BelleBouffe'} />
+      <img src={logoGL} alt={'Logo Grand Lyon'} />
     </ImgLoad>
   );
 }
