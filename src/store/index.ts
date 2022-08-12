@@ -1,10 +1,11 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { enhanceReduxMiddleware, keplerGlReducer, uiStateUpdaters } from 'erasme-kepler.gl';
+import { enhanceReduxMiddleware } from 'erasme-kepler.gl';
 import { taskMiddleware } from 'react-palm/tasks';
 import { logger } from 'redux-logger';
 import thunk from 'redux-thunk';
-import appReducer from './reducer';
+import keplerGlReducer from './keplerGl';
+import appReducer from './app';
 
 declare global {
   interface Window {
@@ -12,43 +13,14 @@ declare global {
   }
 }
 
-const customizedKeplerGlReducer = keplerGlReducer.initialState({
-  uiState: {
-    readonly: true,
-    // hide side panel when mounted
-    activeSidePanel: null,
-    // hide all modals when mounted
-    currentModal: null,
-
-    mapControls: {
-      ...uiStateUpdaters.DEFAULT_MAP_CONTROLS,
-      visibleLayers: {
-        show: false,
-      },
-      mapLegend: {
-        show: false,
-        active: false,
-      },
-      toggle3d: {
-        show: false,
-      },
-      splitMap: {
-        show: false,
-      },
-    },
-  },
-  visState: {},
-});
-
+const initialState = {};
 const reducers = combineReducers({
-  keplerGl: customizedKeplerGlReducer,
+  keplerGl: keplerGlReducer,
   app: appReducer,
 });
 
 const middlewares = enhanceReduxMiddleware([thunk, taskMiddleware]);
 const enhancers = [applyMiddleware(...middlewares)];
-
-const initialState = {};
 
 // Add redux devtools
 

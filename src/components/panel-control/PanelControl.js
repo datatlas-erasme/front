@@ -5,17 +5,18 @@ import { DesktopPanelControl } from '../filters-desktop';
 import { MobilePanelControl } from '../filters-mobile';
 import AddButton from '../buttons/interactiv-button';
 import { useViewport } from '../../utils/ViewportConext';
+import { getFilters, getLayers } from '../../store/keplerGl';
+import { getThemeName } from '../../store/app';
 import { Panel } from './style';
 
-const PanelControl = (props) => {
-  const instance = props.instance;
+const PanelControl = () => {
   const { width } = useViewport();
   const breakpoint = 1024;
-  console.log('props', props);
-  const theme = instance.conf.theme.name;
+
   // Get the filter values, id  and map them to buttons
-  const filtersDomain = useSelector((state) => state.keplerGl.map?.visState?.filters ?? []);
-  const layers = useSelector((state) => state.keplerGl.map?.visState?.layers ?? {});
+  const filtersDomain = useSelector(getFilters);
+  const layers = useSelector(getLayers);
+  const themeName = useSelector(getThemeName);
 
   // Function to convert rgb color to hex color
   const rgbToHex = (r, g, b) =>
@@ -39,12 +40,11 @@ const PanelControl = (props) => {
   }, [layers]);
 
   const Filters = filterTree.map((value, index) => {
-    if (theme === 'industries') {
+    if (themeName === 'industries') {
       return width < breakpoint ? (
         <MobilePanelControl key={index} value={value} index={index} filtersDomain={filtersDomain} />
       ) : (
         <DesktopPanelControl
-          instance={instance}
           key={index}
           value={value}
           index={index}
@@ -63,7 +63,6 @@ const PanelControl = (props) => {
           />
         ) : (
           <DesktopPanelControl
-            instance={instance}
             key={index}
             value={value}
             index={index}

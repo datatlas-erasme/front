@@ -2,20 +2,20 @@ import { useState } from 'react';
 import AnimateHeight from 'react-animate-height';
 // import SearchBar from '../../search-bar';
 // import AnimateHeight from 'react-animate-height';
+import { useSelector } from 'react-redux';
 import Collapse from '../collapse';
 import { ButtonDay, ButtonDefault, ButtonSwitch } from '../../buttons/button-type';
+import { getThemeName } from '../../../store/app';
 import { BlockFilters, ParentFilter, DomainFilter, HeadingFilter } from './style';
 
 const DesktopPanelControl = ({
-  instance,
   color,
   value,
   filtersDomain,
   initialActiveItemIndex,
   closeOtherItemsOnClick,
 }) => {
-  // get the theme name
-  const theme = instance.conf.theme.name;
+  const theme = useSelector(getThemeName);
   const datasetLabel = value.label;
   const datasetId = value.id;
 
@@ -115,10 +115,7 @@ const DesktopPanelControl = ({
         <BlockFilters>
           <HeadingFilter>Trouve ton plan Bouffe</HeadingFilter>
           {/* <SearchBar/> */}
-          <DomainFilter>
-            {console.log(Domains)}
-            {Domains}
-          </DomainFilter>
+          <DomainFilter>{Domains}</DomainFilter>
           <ButtonDay
             dayList={filtersDomain[5].domain}
             text={filtersDomain[5].name[0]}
