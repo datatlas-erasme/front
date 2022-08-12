@@ -14,10 +14,12 @@ declare global {
 }
 
 const initialState = {};
-const reducers = combineReducers({
+const rootReducer = combineReducers({
   keplerGl: keplerGlReducer,
   app: appReducer,
 });
+
+export type RootState = ReturnType<typeof rootReducer>;
 
 const middlewares = enhanceReduxMiddleware([thunk, taskMiddleware]);
 const enhancers = [applyMiddleware(...middlewares)];
@@ -44,4 +46,4 @@ if (process.env.NODE_ENV === 'development') {
   middlewares.push(logger);
 }
 
-export default createStore(reducers, initialState, composeEnhancers(...enhancers));
+export default createStore(rootReducer, initialState, composeEnhancers(...enhancers));
