@@ -4,7 +4,7 @@ import { layerConfigChange } from 'erasme-kepler.gl/actions';
 import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';
 import { LightenDarkenColor } from 'lighten-darken-color';
-import { AppStore } from '../../../../redux/store';
+import { RootState } from '../../../../store';
 import { List } from '../../../filters-desktop/lists/Lists';
 
 export const ButtonDefault = ({
@@ -35,8 +35,8 @@ export const ButtonDefault = ({
   };
 
   // get the old layer state
-  const layer = useSelector((state: AppStore) =>
-    layerId !== undefined ? state.keplerGl.map?.visState?.layers[layerId] : undefined,
+  const layer = useSelector<RootState>((state) =>
+    layerId !== undefined ? state.keplerGl.visState?.layers[layerId] : undefined,
   );
 
   useEffect(() => {

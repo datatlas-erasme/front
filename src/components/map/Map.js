@@ -1,11 +1,10 @@
-//export { default } from './Map';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
-import { addDataToMap, addCustomMapStyle, inputMapStyle } from 'erasme-kepler.gl/actions';
 import { MapPopoverFactory, injectComponents } from 'erasme-kepler.gl/components';
 import CustomMapPopoverFactory from '../../factories/map-popover';
 import IndustriesCustomMapPopoverFactory from '../../factories/industries-mapopover';
+import { getMapboxToken, getThemeName } from '../../store/app';
 
 const IndustriesKeplerGl = injectComponents([
   [MapPopoverFactory, IndustriesCustomMapPopoverFactory],
@@ -14,58 +13,19 @@ const IndustriesKeplerGl = injectComponents([
 // Inject the point sidepanel component
 const AlimentaireKeplerGl = injectComponents([[MapPopoverFactory, CustomMapPopoverFactory]]);
 
-export default function MapContainer({ instance }) {
-  const theme = instance.conf.theme.name;
-  console.log(theme);
+export default function MapContainer() {
+  const mapboxToken = useSelector(getMapboxToken);
+  const themeName = useSelector(getThemeName);
+  console.log('themeName', themeName);
 
-  const dispatch = useDispatch();
-  const dataLayers = instance.datalayers;
-  const instanceConf = instance.conf;
-  const keplerConf = instance.keplerConf;
-
-  useEffect(() => {
-    if (dataLayers) {
-      dataLayers.map((dataset, index) => {
-        dispatch(
-          addDataToMap({
-            datasets: [
-              {
-                info: {
-                  label: dataset[0],
-                  id: dataset[0],
-                },
-                data: dataset[1],
-              },
-            ],
-          }),
-        );
-      });
-    }
-  }, [dispatch, dataLayers]);
-
-  // Pass the default kepler styling
-  useEffect(() => {
-    dispatch(addDataToMap({ datasets: [], option: { centerMap: true }, config: keplerConf }));
-
-    // Load à custum map style from backend
-    dispatch(
-      inputMapStyle({
-        style: instanceConf.defaultMapBoxStyleUrl,
-        id: 'maquette',
-        name: 'Maquette',
-      }),
-    );
-    dispatch(addCustomMapStyle());
-  }, [dispatch, keplerConf, instanceConf]);
-
-  if (theme == 'industries') {
+  if (themeName === 'industries') {
     return (
       <div style={{ position: 'absolute', width: '100%', height: '100%' }}>
         <AutoSizer>
           {({ height, width }) => (
             <IndustriesKeplerGl
               id="map"
-              mapboxApiAccessToken={instanceConf.mapboxToken}
+              mapboxApiAccessToken={mapboxToken}
               width={width}
               height={height}
               appName="Datatlas"
@@ -82,7 +42,7 @@ export default function MapContainer({ instance }) {
           {({ height, width }) => (
             <AlimentaireKeplerGl
               id="map"
-              mapboxApiAccessToken={instanceConf.mapboxToken}
+              mapboxApiAccessToken={mapboxToken}
               width={width}
               height={height}
               appName="Datatlas"
