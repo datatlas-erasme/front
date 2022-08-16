@@ -1,13 +1,13 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
-import { datalimentaire, industries, Style } from './styles';
+import { datalimentaire, industries, GlobalStyle } from './styles';
 import useInstanceConfiguration from './hooks/useInstanceConfiguration';
 import { ViewportProvider } from './utils/ViewportConext';
 import Loader from './components/Loader';
 
 const Map = React.lazy(() => import('./components/map'));
-const Panel = React.lazy(() => import('./components/panel'));
+const PanelControl = React.lazy(() => import('./components/panel-control'));
 
 export default function App() {
   const instanceConfiguration = useInstanceConfiguration();
@@ -20,7 +20,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Style theme={theme} />
+      <GlobalStyle theme={theme} />
       <ViewportProvider>
         <Routes>
           <Route
@@ -28,7 +28,7 @@ export default function App() {
             element={
               <>
                 <Map />
-                <Panel />
+                <PanelControl />
               </>
             }
           />

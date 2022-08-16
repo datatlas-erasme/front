@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { processGeojson } from 'erasme-kepler.gl/processors';
 import { KeplerGlSchema } from 'erasme-kepler.gl/schemas';
+import { AddDataToMapPayload, ProtoDataset } from 'erasme-kepler.gl/src/actions/actions';
+import { ParsedConfig } from 'erasme-kepler.gl/src/schemas';
 import {
   addCustomMapStyle,
   addDataToMap,
@@ -10,13 +12,13 @@ import {
 } from 'erasme-kepler.gl/actions';
 import { appInit, updateInstanceConfiguration } from '../store/app';
 import InstanceConfigurationInterface from '../domain/InstanceConfigurationInterface';
-import Dataset from '../domain/Dataset';
 
 export default function useInstanceConfiguration() {
   const [instanceConf, setInstanceConf] = useState<InstanceConfigurationInterface | undefined>(
     undefined,
   );
 
+  const [parsedConfig, setParsedConfig] = useState<ParsedConfig | undefined>(undefined);
   const [keplerConfLoaded, setKeplerConfLoaded] = useState(false);
 
   const dispatch = useDispatch();
@@ -39,6 +41,7 @@ export default function useInstanceConfiguration() {
       .then((res) => res.json())
       .then((config) => {
         const parsedConfig = KeplerGlSchema.parseSavedConfig(config);
+        setParsedConfig(parsedConfig);
         console.log('parsedConfig', parsedConfig);
         dispatch(receiveMapConfig(parsedConfig));
         setKeplerConfLoaded(true);
@@ -58,8 +61,10 @@ export default function useInstanceConfiguration() {
         );
         dispatch(addCustomMapStyle());
 
-        const mapData: { datasets: Dataset[] } = {
+        const mapData: AddDataToMapPayload & { datasets: ProtoDataset[] } = {
           datasets: [],
+          config: parsedConfig,
+          options: { keepExistingConfig: true },
         };
         const promises = instanceConf.layers.map(async (layer) => {
           return fetch(layer.url)
