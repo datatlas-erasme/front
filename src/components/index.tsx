@@ -29,7 +29,7 @@ export default function Front({ theme, instance }: any) {
         <Header />
         <Map instance={instance} />
       </Suspense>
-      <PanelControl instance={instance} />
+      <PanelControl instance={instance} theme={theme} />
     </ViewportProvider>
   );
 }

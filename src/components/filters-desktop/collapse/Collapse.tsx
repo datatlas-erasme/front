@@ -85,7 +85,7 @@ const Collapse = ({
         height={!isActive ? 0 : 'auto'}
         easing={'ease'}
       >
-        <List listNames={listNames} idFilter={idFilter} />
+        <List listNames={listNames} idFilter={idFilter} className={className} text={text} />
       </AnimateHeight>
     </>
   );

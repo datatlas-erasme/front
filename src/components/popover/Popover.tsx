@@ -40,7 +40,7 @@ function CustomMapPopover({ data, dataID, props }: any) {
       <h4>Ouverture</h4>
       {data[9] ? (
         <ul>
-          {data[9].map((item, index) => (
+          {data[9].map((item: string, index: number) => (
             <li key={index}>{item}</li>
           ))}
         </ul>
