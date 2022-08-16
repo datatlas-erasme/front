@@ -1,6 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Modal from 'react-modal';
-import { ConfContext } from '../../../providers/ConfProvider';
 import Bg from '../static/about-modal/bg.jpg';
 import Partner1 from '../static/about-modal/1.png';
 import Partner2 from '../static/about-modal/2.png';
@@ -8,6 +8,7 @@ import Partner3 from '../static/about-modal/3.png';
 import Partner4 from '../static/about-modal/4.png';
 import Partner5 from '../static/about-modal/5.png';
 import Partner6 from '../static/about-modal/6.png';
+import { getBottomRightButtons } from '../../../store/app';
 import Button from './filter-side-panel/Button';
 
 const customStyles = {
@@ -26,7 +27,7 @@ const customStyles = {
 };
 
 const About = () => {
-  const config = useContext(ConfContext).bottomRightButtons;
+  const bottomRightButtons = useSelector(getBottomRightButtons);
   let subtitle;
 
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -89,7 +90,7 @@ const About = () => {
           </div>
           <div className="right-content">
             <div className="buttons">
-              {config.map((buttonConf, index) => (
+              {bottomRightButtons.map((buttonConf, index) => (
                 <a key={index} href={buttonConf.url} target="_blank" rel="noreferrer">
                   <Button fontSize="10" text={buttonConf.text} />
                 </a>

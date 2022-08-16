@@ -1,14 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { IconAdd } from '../../../assets/svg/IconAdd';
-import { ConfContext } from '../../../providers/ConfProvider';
+import { getBottomRightButtons } from '../../../store/app';
 import { AddPoint, WarpperAddPoint } from './style';
 
 export default function AddButton() {
-  const config = useContext(ConfContext).bottomRightButtons;
+  const bottomRightButtons = useSelector(getBottomRightButtons);
 
   return (
     <WarpperAddPoint>
-      {config.map((buttonConf, index) => (
+      {bottomRightButtons.map((buttonConf, index) => (
         <a
           key={index}
           href="https://demarches.guichet-recette.grandlyon.com/projets-de-crowdsourcing/ajouter-un-marchand/"
