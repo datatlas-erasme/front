@@ -61,10 +61,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint **/*.{js,ts,tsx}",
+    "lint": "eslint '**/*.{js,ts,tsx}'",
     "lint:staged": "lint-staged -d",
-    "lint:fix": "eslint --fix **/*.{js,ts,tsx}",
-    "prettier": "prettier -w -u **/*.{js,ts,tsx}",
+    "lint:fix": "eslint --fix '**/*.{js,ts,tsx}'",
+    "prettier": "prettier -w -u '**/*.{js,ts,tsx}'",
     "prepare": "husky install"
   },
   "eslintConfig": {
@@ -77,7 +77,7 @@
       "prettier",
       "unused-imports"
     ],
-    "ignorePatterns": ["build/", "site/"],
+    "ignorePatterns": ["build/", "site/", "node_modules/"],
     "rules": {
       "react-hooks/rules-of-hooks": "error",
       "import/order": "error",
