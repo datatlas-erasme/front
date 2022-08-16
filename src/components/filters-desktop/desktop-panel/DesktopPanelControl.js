@@ -3,7 +3,7 @@ import AnimateHeight from 'react-animate-height';
 // import SearchBar from '../../search-bar';
 // import AnimateHeight from 'react-animate-height';
 import Collapse from '../collapse';
-import { ButtonDay, ButtonDefault } from '../../buttons/button-type';
+import { ButtonDay, ButtonDefault, ButtonSwitch } from '../../buttons/button-type';
 import { BlockFilters, ParentFilter, DomainFilter, HeadingFilter } from './style';
 
 const DesktopPanelControl = ({
@@ -15,7 +15,6 @@ const DesktopPanelControl = ({
   closeOtherItemsOnClick,
 }) => {
   // get the theme name
-  console.log('instance', instance);
   const theme = instance.conf.theme.name;
   const datasetLabel = value.label;
   const datasetId = value.id;
@@ -57,12 +56,9 @@ const DesktopPanelControl = ({
     const filterItem = filtersDomain[filter].domain;
     const filterId = filtersDomain[filter].dataId;
 
-    console.log(filterItem);
-    console.log(filterName);
-    console.log('theme', theme);
-    if (theme == 'industries') {
+    if (theme === 'industries') {
       console.log('Desktop Panel Control industries', filterId, datasetId);
-      if (filterId == datasetId) {
+      if (filterId === datasetId) {
         return (
           <div className="filter">
             <li key={index} className="filter-parent">
@@ -100,7 +96,7 @@ const DesktopPanelControl = ({
     }
   });
 
-  if (theme == 'industries') {
+  if (theme === 'industries') {
     return (
       <ul>
         {ParentBtn}
@@ -119,12 +115,16 @@ const DesktopPanelControl = ({
         <BlockFilters>
           <HeadingFilter>Trouve ton plan Bouffe</HeadingFilter>
           {/* <SearchBar/> */}
-          <DomainFilter>{Domains}</DomainFilter>
+          <DomainFilter>
+            {console.log(Domains)}
+            {Domains}
+          </DomainFilter>
           <ButtonDay
             dayList={filtersDomain[5].domain}
             text={filtersDomain[5].name[0]}
             idFilter={5}
           ></ButtonDay>
+          <ButtonSwitch />
         </BlockFilters>
       </>
     );
@@ -132,30 +132,3 @@ const DesktopPanelControl = ({
 };
 
 export default DesktopPanelControl;
-
-{
-  /* <ParentFilter key={index} id="filter-parent-1" className="filter-parent">
-<Collapse
-  btnType="child"
-  text={filtersDomain[1].name}
-  listNames={filtersDomain[1].domain}
-  idFilter={1}
-/>
-</ParentFilter>
-<ParentFilter key={index} id="filter-parent-1" className="filter-parent">
-<Collapse
-  btnType="child"
-  text={filtersDomain[3].name}
-  listNames={filtersDomain[3].domain}
-  idFilter={1}
-/>
-</ParentFilter>
-<ParentFilter key={index} id="filter-parent-1" className="filter-parent">
-<Collapse
-  btnType="child"
-  text={filtersDomain[4].name}
-  listNames={filtersDomain[4].domain}
-  idFilter={1}
-/>
-</ParentFilter> */
-}

@@ -9,7 +9,12 @@ export default function AddButton() {
   return (
     <WarpperAddPoint>
       {config.map((buttonConf, index) => (
-        <a key={index} href={buttonConf.url} target="_blank" rel="noreferrer">
+        <a
+          key={index}
+          href="https://demarches.guichet-recette.grandlyon.com/projets-de-crowdsourcing/ajouter-un-marchand/"
+          target="_blank"
+          rel="noreferrer"
+        >
           <AddPoint>
             <span>
               <IconAdd />

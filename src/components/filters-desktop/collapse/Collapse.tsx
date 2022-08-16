@@ -24,6 +24,7 @@ export type CollapseProps = Override<
     icon: IconDefinition;
     index?: number;
     isActive?: boolean;
+    className?: string;
     onItemClick?: (item: any) => void;
   }
 >;
@@ -62,10 +63,6 @@ const Collapse = ({
     }
   }
 
-  // Medium button styling + lits display
-  // console.log("ID FILTER", idFilter)
-  // console.log("List Names", listNames)
-
   return (
     <>
       <ButtonCollapse
@@ -88,7 +85,7 @@ const Collapse = ({
         height={!isActive ? 0 : 'auto'}
         easing={'ease'}
       >
-        <List listNames={listNames} idFilter={idFilter} />
+        <List listNames={listNames} idFilter={idFilter} className={className} text={text} />
       </AnimateHeight>
     </>
   );

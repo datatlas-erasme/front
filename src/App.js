@@ -1,8 +1,7 @@
 import React, { Suspense } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
-import { datalimentaire } from './styles';
-import { industries } from './styles';
+import { datalimentaire, industries } from './styles';
 
 const Front = React.lazy(() => import('./components/index'));
 

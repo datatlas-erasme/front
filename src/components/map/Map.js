@@ -2,12 +2,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
-import {
-  addDataToMap,
-  updateMap,
-  addCustomMapStyle,
-  inputMapStyle,
-} from 'erasme-kepler.gl/actions';
+import { addDataToMap, addCustomMapStyle, inputMapStyle } from 'erasme-kepler.gl/actions';
 import { MapPopoverFactory, injectComponents } from 'erasme-kepler.gl/components';
 import CustomMapPopoverFactory from '../../factories/map-popover';
 import IndustriesCustomMapPopoverFactory from '../../factories/industries-mapopover';
@@ -62,11 +57,6 @@ export default function MapContainer({ instance }) {
     );
     dispatch(addCustomMapStyle());
   }, [dispatch, keplerConf, instanceConf]);
-
-  // TODO updatemap is not taken into account
-  useEffect(() => {
-    dispatch(updateMap({ latitude: 0, longitude: 0, zoom: 20 }));
-  }, [dispatch]);
 
   if (theme == 'industries') {
     return (

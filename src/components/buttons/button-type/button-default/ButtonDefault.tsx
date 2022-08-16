@@ -76,7 +76,7 @@ export const ButtonDefault = ({
           height={!isActive ? 0 : 'auto'} // see props documentation bellow
         >
           <div className="list">
-            <List theme={theme} listNames={listNames} backgroundColor={bg} idFilter={idFilter} />
+            <List listNames={listNames} idFilter={idFilter} />
           </div>
         </AnimateHeight>
       </div>

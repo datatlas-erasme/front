@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classnames from 'classnames';
 import { Override } from '../../../../types/Override';
-import { importAll } from '../../../../utils/import-png';
+import { queryIcon } from '../../../../utils/queryIcon';
 import { Badge } from './style';
 
 export type ButtonProps = Override<
@@ -12,11 +12,9 @@ export type ButtonProps = Override<
     idFilter?: string;
     src?: string;
     item?: any;
+    icons?: any;
   }
 >;
-
-// Import icons products
-const icons = importAll(require.context('../../../../assets/icon', false, /\.(png)$/));
 
 export default function ButtonIcon({
   text,
@@ -33,21 +31,10 @@ export default function ButtonIcon({
     setIsActive(!isActive);
   };
 
-  const query_icon = (() => {
-    switch (text) {
-      case 'Légumes':
-        return icons[`icon-vegetables.png`].default;
-      case 'Miel':
-        return icons['icon-honey.png'].default;
-      default:
-        return icons[`icon-bulle.png`].default;
-    }
-  })();
-
   return (
     <Badge onClick={isActiveState} className={classnames(isActive ? 'active' : '')} {...props}>
-      <img src={query_icon} alt="" />
-      <p>{text.substring(0, 30)}</p>
+      <img src={queryIcon(text)} alt="" />
+      <p>{text}</p>
     </Badge>
   );
 }

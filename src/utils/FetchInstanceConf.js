@@ -57,7 +57,8 @@ export default function FetchInstanceConf() {
               buffer.push([layer.name, processGeojson(data)]);
               buffer.push();
             }
-          });
+          })
+          .catch();
       });
       Promise.all(promises).then(() => {
         setDataLayers(buffer);

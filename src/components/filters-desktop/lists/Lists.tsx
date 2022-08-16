@@ -12,15 +12,17 @@ export type ListProps = {
   width?: any;
   backgroundColor?: string;
   theme?: string;
+  btnType?: string;
+  layerId?: number;
+  className?: string;
+  text?: string;
 };
-export const List = ({ listNames = [], idFilter, theme }: ListProps) => {
+export const List = ({ listNames = [], idFilter, theme, text }: ListProps) => {
   const dispatch = useDispatch();
   const [filtersArray, setFiltersArray] = useState<string[]>([]);
 
   const setFilterValue = (item: string) => {
     if (filtersArray.includes(item)) {
-      // console.log('already in filters array');
-      // console.log("Filters Array :", filtersArray)
       setFiltersArray((filtersArray) =>
         filtersArray.filter((cat) => {
           return cat !== item;
@@ -36,10 +38,6 @@ export const List = ({ listNames = [], idFilter, theme }: ListProps) => {
     // console.log('Filters Array :', filtersArray);
     dispatch(setFilter(idFilter, 'value', filtersArray));
   }, [dispatch, idFilter, filtersArray]);
-
-  // console.log(filtersArray);
-  // console.log(idFilter);
-  console.log(listNames);
 
   // return based on theme name
   if (theme === 'industries') {
@@ -64,62 +62,47 @@ export const List = ({ listNames = [], idFilter, theme }: ListProps) => {
       </div>
     );
   } else {
-    return (
-      <>
-        <ListSelect>
-          {listNames.map((item: string, i: number) => {
-            switch (idFilter) {
-              case 1:
-                return (
-                  <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
-                    <ButtonSelect text={item} />
-                  </ButtonWrapper>
-                );
-            }
-          })}
-        </ListSelect>
-        <ListIconButton>
-          {listNames.map((item: string, i: number) => {
-            switch (idFilter) {
-              case 3:
-                return (
-                  <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
-                    <ButtonIcon text={item} />
-                  </ButtonWrapper>
-                );
-            }
-          })}
-        </ListIconButton>
-        <ListCheckbox>
-          {listNames.map((item: string, i: number) => {
-            switch (idFilter) {
-              case 4:
-                return (
-                  <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
-                    <Checkbox text={item} />
-                  </ButtonWrapper>
-                );
-            }
-          })}
-        </ListCheckbox>
-      </>
-    );
+    return !!text && text[0] === 'type' ? (
+      <ListSelect>
+        {listNames.map((item: string, i: number) => {
+          switch (idFilter) {
+            case 1:
+              return (
+                <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                  <ButtonSelect text={item} />
+                </ButtonWrapper>
+              );
+          }
+        })}
+      </ListSelect>
+    ) : !!text && text[0] === 'produits' ? (
+      <ListIconButton>
+        {listNames.map((item: string, i: number) => {
+          switch (idFilter) {
+            case 3:
+              return (
+                <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                  <ButtonIcon text={item} />
+                </ButtonWrapper>
+              );
+          }
+        })}
+      </ListIconButton>
+    ) : !!text && text[0] === 'label' ? (
+      <ListCheckbox>
+        {listNames.map((item: string, i: number) => {
+          switch (idFilter) {
+            case 4:
+              return (
+                <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                  <Checkbox text={item} />
+                </ButtonWrapper>
+              );
+          }
+        })}
+      </ListCheckbox>
+    ) : null;
   }
 };
 
 export default connect()(List);
-
-/* <ListCheckbox role="group" aria-labelledby="checkbox-group">
-      <LabelCheckbox>
-        <input type="checkbox" />
-          Voir que les produits labélisés
-      </LabelCheckbox>
-      <ul>
-        {listNames.map((item, index) => (
-          <li key={index} onClick={() => setFilterValue(item)}>
-            <Checkbox text={item}/>
-          </li>
-        ))}
-      </ul>
-    </ListCheckbox>
-*/

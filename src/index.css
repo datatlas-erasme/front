@@ -1,76 +1,23 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap'); */
-/*
-body {
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-
-.top-left-logo img {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  width: 200px;
-  pointer-events: none;
-}
-
-
-.bottom-left-logo img {
-  position: absolute;
-  bottom: 50px;
-  left: 50px;
-  width: 200px;
-  pointer-events: none;
-}
-
-/*TODO FIX hide trough kepler injections*/
-/* .map-control, side-panel--container {
+/* .map-control, .side-panel--container, .mapbox-attribution-container, .mapboxgl-ctrl {
   display: none !important;
 } */
 
-.map-control,
-.side-panel--container,
-.mapbox-attribution-container,
-.mapboxgl-ctrl {
-  display: none !important;
-}
 /********************** CUSTOM MODAL **************************/
-.modal {
+/* .modal {
   position: absolute;
   top: 0;
   background-color: red;
   height: 100%;
   width: 100%;
-}
+} */
 
 /********************** FILTERS SIDE PANEL *********************/
-.FilterSidePanel {
+/* .FilterSidePanel {
   position: absolute;
   background: white;
   top: 0;
   width: 500px;
   height: 500px;
-}
-
-.filters {
-  position: absolute;
-  top: 85px;
-  right: 30px;
-  display: flex;
-  flex-direction: column;
-  height: max-content;
-  max-height: 84vh;
-  overflow: auto;
-  /*width: 11%;*/
-  padding-right: 10px;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-.filters::-webkit-scrollbar {
-  display: none;
 }
 
 .filter.filter-parent:last-of-type {
@@ -90,7 +37,7 @@ body {
 .filter-parent .btn,
 .crowdsourcing button {
   max-height: 1000px;
-  /*overflow: auto;*/
+  overflow: auto;
   transition: all ease-in-out 0.2s;
   overflow-y: hidden;
   border-radius: 3px;
@@ -125,7 +72,7 @@ body {
 }
 
 .filters .filter-child button {
-  /*font-size: 10px;*/
+  font-size: 10px;
   padding: 10px 10px 10px 10px;
   margin: 0 10px 5px 0;
   border-radius: 5px;
@@ -196,7 +143,7 @@ button {
   transition: all ease-in-out 0.2s;
   cursor: pointer;
   font-weight: 400;
-  /*width: 100%;*/
+  width: 100%;
   text-transform: capitalize;
   letter-spacing: 0.75px;
 }
@@ -208,80 +155,4 @@ button {
   cursor: pointer;
   filter: brightness(0.6);
   transition: all ease-in-out 0.2s;
-}
-
-/********************** POI SIDE PANEL **************************/
-.PointSidePanel {
-  position: absolute;
-  top: 0;
-  width: 30%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background: white;
-  z-index: 99;
-  overflow-x: hidden;
-  box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.4);
-  animation: 0.2s linear 0s running slidein;
-  background-color: #fbfbfb;
-}
-
-@keyframes slidein {
-  from {
-    width: 0;
-  }
-  to {
-    width: 30%;
-  }
-}
-
-@keyframes slidedown {
-  from {
-    width: 0;
-  }
-  to {
-    height: 50px;
-  }
-}
-.PointSidePanel {
-  background-color: #f3f3f3;
-}
-
-.PointSidePanel::-webkit-scrollbar {
-  display: none;
-}
-
-.PointSidePanel img {
-  width: 100%;
-  height: auto;
-}
-.PointSidePanel .content div {
-  padding: 20px 45px 45px 45px;
-}
-
-.PointSidePanel .infos {
-  background-color: #e9e9e9;
-}
-
-.PointSidePanel h1 {
-  color: #1a1a1a;
-  font-size: 40px;
-  line-height: 40px;
-}
-
-.PointSidePanel p {
-  color: #1a1a1a;
-  line-height: 1.5;
-}
-
-.PointSidePanel a {
-  color: #1a1a1a;
-  text-decoration: underline !important;
-  display: block;
-  padding-bottom: 25px;
-}
-
-.PointSidePanel .desc {
-  font-size: 16px;
-  margin-top: 5px;
-}
+} */

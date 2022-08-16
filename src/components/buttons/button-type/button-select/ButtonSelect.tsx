@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { layerConfigChange } from 'erasme-kepler.gl/actions';
 import classnames from 'classnames';
 import { Override } from '../../../../types/Override';
 import {
@@ -20,7 +18,6 @@ export type ButtonProps = Override<
     text: string;
     bg?: string;
     textSize?: string;
-    btnType?: 'parent' | 'child';
     listNames?: string[];
     idFilter?: string;
     layerId?: string | '';
@@ -30,9 +27,6 @@ export type ButtonProps = Override<
 
 export default function ButtonSelect({
   text,
-  bg,
-  textSize,
-  btnType,
   listNames,
   idFilter,
   layerId,
@@ -40,11 +34,6 @@ export default function ButtonSelect({
   src,
   ...props
 }: ButtonProps) {
-  console.log(layerConfigChange);
-
-  console.log(text);
-
-  const dispatch = useDispatch();
   // Toggle the visibility of buttons parent list
   const [isActive, setIsActive] = useState(false);
   const isActiveState = () => {
@@ -52,10 +41,21 @@ export default function ButtonSelect({
   };
 
   // Toggle the button linked layer vibility
-  const [isLayerVisible, setIsLayerVisible] = useState(true);
-  const isLayerVisibleState = () => {
-    setIsLayerVisible(!isLayerVisible);
-  };
+  // const [isLayerVisible, setIsLayerVisible] = useState(true);
+  // const isLayerVisibleState = () => {
+  //   setIsLayerVisible(!isLayerVisible);
+  // };
+
+  // Override text data type
+  function TextCollaps() {
+    if (!!text && text === 'Producteur du marché (Cultive ses produits et les vend)') {
+      return 'Producteur du marché';
+    } else if (text === 'Revendeur du marché (Achète des produits et les revend)') {
+      return 'Revendeur du marché';
+    } else {
+      return text;
+    }
+  }
 
   return (
     <ButtonType
@@ -64,24 +64,24 @@ export default function ButtonSelect({
       {...props}
     >
       <div className={isActive ? 'active' : 'inactive'}>
-        {text === 'Vente à la ferme' ? (
-          <FarmSale />
+        {text === 'AMAP' ? (
+          <Amap />
         ) : text === 'Magasin de producteurs' ? (
           <ProducerShop />
-        ) : text === 'AMAP/Panier' ? (
-          <Amap />
-        ) : text === 'Distributeur automatique' ? (
-          <MarketProducer />
+        ) : text === 'Revendeur du marché (Achète des produits et les revend)' ? (
+          <MarketDealer />
         ) : text === 'Epicerie sociale et solidaire' ? (
           <Solidarity />
-        ) : text === 'Distributeur automatique' ? (
+        ) : text === 'Producteur du marché (Cultive ses produits et les vend)' ? (
           <MarketProducer />
+        ) : text === 'Vente à la ferme' ? (
+          <FarmSale />
         ) : (
-          <MarketDealer />
+          ''
         )}
       </div>
 
-      <p>{text.substring(0, 30)}</p>
+      <p>{TextCollaps()}</p>
     </ButtonType>
   );
 }
