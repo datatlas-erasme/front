@@ -108,6 +108,7 @@
           "next": "import"
         }
       ],
+      "no-console": "warn",
       "no-unused-vars": "off",
       "unused-imports/no-unused-imports": "error",
       "unused-imports/no-unused-vars": "off",

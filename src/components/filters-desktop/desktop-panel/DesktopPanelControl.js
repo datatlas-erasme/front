@@ -37,7 +37,6 @@ const DesktopPanelControl = ({
     }
 
     let newActiveItemIndexes = [activeItemIndexes];
-    console.log(newActiveItemIndexes);
     if (newIndexes) {
       newActiveItemIndexes = newActiveItemIndexes.filter((item) => item !== index);
     } else {
@@ -57,7 +56,6 @@ const DesktopPanelControl = ({
     const filterId = filtersDomain[filter].dataId;
 
     if (theme === 'industries') {
-      console.log('Desktop Panel Control industries', filterId, datasetId);
       if (filterId === datasetId) {
         return (
           <div className="filter">
