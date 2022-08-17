@@ -13,7 +13,7 @@ export default function ButtonSwitch() {
   const dispatch = useDispatch();
 
   // Get isVisible from Kepler state
-  const layerGlobalMarket = useSelector((state: any) => state.keplerGl.map.visState.layers[1]);
+  const layerGlobalMarket = useSelector((state: any) => state.keplerGl.map.visState.layers[0]);
   const handlechange = () => setIsLayerVisible(!isLayerVisible);
 
   useEffect(() => {

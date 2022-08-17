@@ -51,15 +51,6 @@ export default function useInstanceConfiguration() {
     (async function () {
       if (keplerConfLoaded && instanceConf) {
         // Load custom map style.
-        dispatch(
-          inputMapStyle({
-            style: instanceConf.defaultMapBoxStyleUrl,
-            id: 'maquette',
-            name: 'Maquette',
-          }),
-        );
-        dispatch(addCustomMapStyle());
-
         const mapData: AddDataToMapPayload & { datasets: ProtoDataset[] } = {
           datasets: [],
           config: parsedConfig,
@@ -82,6 +73,14 @@ export default function useInstanceConfiguration() {
         await Promise.all(promises).then(() => {
           dispatch(addDataToMap(mapData));
         });
+        dispatch(
+          inputMapStyle({
+            style: instanceConf.defaultMapBoxStyleUrl,
+            id: 'maquette',
+            name: 'Maquette',
+          }),
+        );
+        dispatch(addCustomMapStyle());
 
         dispatch(appInit());
       }
