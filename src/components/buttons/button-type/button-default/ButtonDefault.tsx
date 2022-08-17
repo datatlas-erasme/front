@@ -46,8 +46,6 @@ export const ButtonDefault = ({
     }
   }, [layer, isLayerVisible, dispatch]);
 
-  console.log('btn type : ', btnType);
-
   // Big button style
   if (btnType === 'parent') {
     return (

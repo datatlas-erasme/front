@@ -42,7 +42,6 @@ export default function useInstanceConfiguration() {
       .then((config) => {
         const parsedConfig = KeplerGlSchema.parseSavedConfig(config);
         setParsedConfig(parsedConfig);
-        console.log('parsedConfig', parsedConfig);
         dispatch(receiveMapConfig(parsedConfig));
         setKeplerConfLoaded(true);
       });

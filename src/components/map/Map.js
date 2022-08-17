@@ -16,7 +16,6 @@ const AlimentaireKeplerGl = injectComponents([[MapPopoverFactory, CustomMapPopov
 export default function MapContainer() {
   const mapboxToken = useSelector(getMapboxToken);
   const themeName = useSelector(getThemeName);
-  console.log('themeName', themeName);
 
   if (themeName === 'industries') {
     return (
