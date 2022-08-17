@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import { MapPopoverFactory, injectComponents } from 'erasme-kepler.gl/components';
@@ -44,7 +43,7 @@ export default function MapContainer() {
               mapboxApiAccessToken={mapboxToken}
               width={width}
               height={height}
-              appName="Datatlas"
+              appName="Opendata alimentaire"
             />
           )}
           {/* <Logo /> */}
