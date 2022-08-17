@@ -17,7 +17,7 @@ export interface AppState {
 
 // Reducer
 const initialState: AppState = {
-  appName: 'Opendata alimentaire',
+  appName: 'Datatlas',
   loaded: false,
   configuration: undefined,
 };
