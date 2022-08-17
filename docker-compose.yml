@@ -7,10 +7,11 @@ services:
       #target: dev
     restart: always
     ports:
-      - 0.0.0.0:5007:3000
+      - 0.0.0.0:3000:3000
     volumes:
       - ./src:/app/src
       - ./public:/app/public
+      - ./.env:/app/.env
 
     command: npm start
     stdin_open: true
