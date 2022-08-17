@@ -43,7 +43,7 @@ export default function MapContainer() {
               mapboxApiAccessToken={mapboxToken}
               width={width}
               height={height}
-              appName="Datatlas"
+              appName="Opendata alimentaire"
             />
           )}
           {/* <Logo /> */}
