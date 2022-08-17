@@ -4,7 +4,6 @@ import { MapPopoverFactory, injectComponents } from 'erasme-kepler.gl/components
 import CustomMapPopoverFactory from '../../factories/map-popover';
 import IndustriesCustomMapPopoverFactory from '../../factories/industries-mapopover';
 import { getMapboxToken, getThemeName } from '../../store/app';
-import Header from '../header/Header';
 
 const IndustriesKeplerGl = injectComponents([
   [MapPopoverFactory, IndustriesCustomMapPopoverFactory],
@@ -36,22 +35,20 @@ export default function MapContainer() {
     );
   } else {
     return (
-      <>
-        <Header />
-        <div style={{ position: 'absolute', width: '100%', height: '100%' }}>
-          <AutoSizer>
-            {({ height, width }) => (
-              <AlimentaireKeplerGl
-                id="map"
-                mapboxApiAccessToken={mapboxToken}
-                width={width}
-                height={height}
-                appName="Datatlas"
-              />
-            )}
-          </AutoSizer>
-        </div>
-      </>
+      <div style={{ position: 'absolute', width: '100%', height: '100%' }}>
+        <AutoSizer>
+          {({ height, width }) => (
+            <AlimentaireKeplerGl
+              id="map"
+              mapboxApiAccessToken={mapboxToken}
+              width={width}
+              height={height}
+              appName="Datatlas"
+            />
+          )}
+          {/* <Logo /> */}
+        </AutoSizer>
+      </div>
     );
   }
 }
