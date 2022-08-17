@@ -40,5 +40,6 @@ const app = handleActions<AppState, any>(
 export const getTheme = (state) => state.app.configuration.theme;
 export const getThemeName = (state) => getTheme(state).name;
 export const getMapboxToken = (state) => state.app.configuration.mapboxToken;
+export const getBottomRightButtons = (state) => state.app.configuration.bottomRightButtons;
 
 export default app;
