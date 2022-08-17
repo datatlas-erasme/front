@@ -21,8 +21,10 @@
     "history": "^5.1.0",
     "lighten-darken-color": "^1.0.0",
     "node-polyfill-webpack-plugin": "^2.0.0",
+    "querystring-es3": "^0.2.1",
     "react": "^17.0.2",
     "react-animate-height": "^2.0.23",
+    "react-app-rewired": "^2.2.1",
     "react-dom": "^17.0.2",
     "react-fontawesome": "^1.7.1",
     "react-modal": "^3.14.4",
@@ -58,10 +60,10 @@
     "react-error-overlay": "^6.0.9"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
     "lint": "eslint '**/*.{js,ts,tsx}'",
     "lint:staged": "lint-staged -d",
     "lint:fix": "eslint --fix '**/*.{js,ts,tsx}'",
@@ -78,7 +80,11 @@
       "prettier",
       "unused-imports"
     ],
-    "ignorePatterns": ["build/", "site/", "node_modules/"],
+    "ignorePatterns": [
+      "build/",
+      "site/",
+      "node_modules/"
+    ],
     "rules": {
       "react-hooks/rules-of-hooks": "error",
       "import/order": "error",
