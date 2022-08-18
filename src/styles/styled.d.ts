@@ -50,5 +50,17 @@ declare module 'styled-components' {
       backgroundColor: string;
       borderRadius: string;
     };
+
+    // Header: {
+    //   position: string;
+    //   top: string;
+    //   left: string;
+    //   right: string;
+    //   height: string;
+    //   witdh: string;
+    //   display: string;
+    //   backgroundColor: string;
+    //   color: string;
+    // };
   }
 }
