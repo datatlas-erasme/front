@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
-import { IconName, IconPrefix, IconProp, library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckSquare, faCoffee, faEye, faMapMarked, faMapMarker, faUserFriends, faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconName, library } from '@fortawesome/fontawesome-svg-core';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';
 import { LightenDarkenColor } from 'lighten-darken-color';
-import { Override } from '../../types/Override';
-import { AppStore } from '../../redux/store';
+import { Override } from '../../../../types/Override';
 import { RootState } from '../../../../store';
 import { List } from '../../../filters-desktop/lists/Lists';
 
-library.add(fab, faCheckSquare, faCoffee, faMapMarker, faUserFriends, faEye, faPlus, faTimes)
+library.add(faTimes);
 
-export type ButtonProps = Override<
+export type ButtonDefaultProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
   {
     text: string;
@@ -29,7 +26,7 @@ export type ButtonProps = Override<
   }
 >;
 
-const Button = ({
+const ButtonDefault = ({
   text,
   bg,
   textSize,
@@ -39,9 +36,8 @@ const Button = ({
   layerId,
   className,
   iconName,
-  theme,
   ...props
-}: ButtonProps) => {
+}: ButtonDefaultProps) => {
   const dispatch = useDispatch();
 
   // Toggle the visibility of buttons parent list
@@ -74,7 +70,7 @@ const Button = ({
       <div className="btn-parent" style={{ backgroundColor: bg, fontSize: textSize }}>
         <button className="btn" style={{ backgroundColor: bg }} {...props}>
           <p onClick={isLayerVisibleState}>
-            <span className='circle' style={{ backgroundColor: bg}}></span>
+            <span className="circle" style={{ backgroundColor: bg }}></span>
           </p>
           {text.substring(0, 30)}
         </button>
@@ -83,7 +79,6 @@ const Button = ({
   }
   // Medium button styling + lits display
   else if (btnType === 'child') {
-
     return (
       <div>
         <button
@@ -93,8 +88,7 @@ const Button = ({
           {...props}
         >
           Filtrer par {text?.substring(0, 30)}
-
-          <span>{isActive ? "-" : "+"}</span>
+          <span>{isActive ? '-' : '+'}</span>
         </button>
         <AnimateHeight
           duration={500}
