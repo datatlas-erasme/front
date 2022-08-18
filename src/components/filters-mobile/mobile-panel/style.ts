@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const DomainFilter = styled.div`
   position: relative;
-  top: 80px;
+  top: 0;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;

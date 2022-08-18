@@ -27,6 +27,7 @@ export default function App() {
             path="*"
             element={
               <>
+                {theme === datalimentaire ? <Header /> : null}
                 <Map />
                 <PanelControl />
               </>
