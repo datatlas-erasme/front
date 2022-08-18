@@ -7,7 +7,7 @@ export const WarpperAddPoint = styled.div`
     display: flex;
     align-items: 
     width: 80%;
-    margin: 65vh auto 0 auto;
+    margin: 600px auto 0 auto;
     z-index: 1;
 
     @media ${device.lg} {
@@ -18,24 +18,17 @@ export const WarpperAddPoint = styled.div`
 `;
 
 export const AddPoint = styled.button`
-  display: flex;
-  align-items: center;
   border: none;
-  width: 250px;
-  height: 40px;
-  padding: 25px;
-
-  border-radius: 40px;
-  background-color: ${({ theme }) => theme.colors.secondary};
-  color: ${({ theme }) => theme.colors.primary};
-  font-size: ${({ theme }) => theme.fontSizes.paragraphe};
-  font-weight: ${({ theme }) => theme.fontWeights[4]};
-
+  background: rgba(255, 255, 255, 0);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+
+  p {
+    display: none;
+  }
 
   span {
     position: relative;
-    left: -26px;
+    left: 140px;
 
     svg {
       width: 60px;
@@ -44,6 +37,11 @@ export const AddPoint = styled.button`
   }
 
   @media ${device.lg} {
+    display: flex;
+    align-items: center;
+    border: none;
+    height: 40px;
+    padding: 25px;
     width: 100%;
     margin: auto;
 
