@@ -5,7 +5,6 @@ import { datalimentaire, industries, GlobalStyle } from './styles';
 import useInstanceConfiguration from './hooks/useInstanceConfiguration';
 import { ViewportProvider } from './utils/ViewportConext';
 import Loader from './components/Loader';
-import CursorHandler from './components/CursorHandler';
 
 const Map = React.lazy(() => import('./components/map'));
 const PanelControl = React.lazy(() => import('./components/panel-control'));
@@ -30,7 +29,6 @@ export default function App() {
               <>
                 <Map />
                 <PanelControl />
-                <CursorHandler />
               </>
             }
           />
