@@ -44,24 +44,7 @@ const Collapse = ({
   onItemClick,
   ...props
 }: CollapseProps) => {
-  // const dispatch = useDispatch();
-  // Toggle the visibility of buttons parent list
-  // const [isActive, setIsActive] = useState(false);
-  // const isActiveState = () => {
-  //   setIsActive(!isActive);
-  // };
-
   const [height] = useState(0);
-
-  // useEffect(() => {
-  //   setHeight();
-  // }, []);
-
-  // Toggle the button linked layer vibility
-  // const [isLayerVisible, setIsLayerVisible] = useState(true);
-  // const isLayerVisibleState = () => {
-  //   setIsLayerVisible(!isLayerVisible);
-  // };
 
   function TextCollaps() {
     if (text[0] === 'type') {

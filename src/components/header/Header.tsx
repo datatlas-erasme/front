@@ -17,11 +17,11 @@ const HeaderBlock = styled.header`
 
   nav {
     display: flex;
-    margin-top: 5vh;
+    margin-top: 50px;
     a {
-      position: absolute;
-      top: 580px;
-      right: 25px;
+      position: fixed;
+      bottom: 150px;
+      right: 40px;
       color: ${({ theme }) => theme.colors.red};
       p {
         display: none;
@@ -35,15 +35,18 @@ const HeaderBlock = styled.header`
 
   @media ${device.lg} {
     background-color: ${({ theme }) => theme.colors.secondary};
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
 
     nav {
       display: flex;
       justify-content: space-between;
       margin: 1rem 5rem;
       a {
+        position: static;
         display: flex;
         align-items: center;
         p {
+          display: block;
           margin-right: 10px;
         }
         svg {
@@ -77,8 +80,8 @@ const BlockLogo = styled.div`
   }
 
   @media ${device.lg} {
+    flex-direction: row;
     background-color: ${({ theme }) => theme.colors.secondary};
-    margin: 1rem;
     img {
       width: auto;
       height: 5vh;
