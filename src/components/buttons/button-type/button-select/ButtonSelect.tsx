@@ -9,42 +9,16 @@ import {
   ProducerShop,
   Solidarity,
 } from '../../../../assets/svg/types';
-// import {FarmerIcon} from '../../../../assets/svg/FarmerIcon';
 import { ButtonType } from './style';
 
-export type ButtonProps = Override<
-  React.ComponentPropsWithoutRef<'button'>,
-  {
-    text: string;
-    bg?: string;
-    textSize?: string;
-    listNames?: string[];
-    idFilter?: string;
-    layerId?: string | '';
-    src?: string;
-  }
->;
+export type ButtonProps = Override<React.ComponentPropsWithoutRef<'button'>, { text: string }>;
 
-export default function ButtonSelect({
-  text,
-  listNames,
-  idFilter,
-  layerId,
-  className,
-  src,
-  ...props
-}: ButtonProps) {
+export default function ButtonSelect({ text, className, ...props }: ButtonProps) {
   // Toggle the visibility of buttons parent list
   const [isActive, setIsActive] = useState(false);
   const isActiveState = () => {
     setIsActive(!isActive);
   };
-
-  // Toggle the button linked layer vibility
-  // const [isLayerVisible, setIsLayerVisible] = useState(true);
-  // const isLayerVisibleState = () => {
-  //   setIsLayerVisible(!isLayerVisible);
-  // };
 
   // Override text data type
   function TextCollaps() {

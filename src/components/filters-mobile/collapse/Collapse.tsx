@@ -54,7 +54,7 @@ const Collapse = ({
     } else if (text[0] === 'joursouverture') {
       return 'QUAND ?';
     } else if (text[0] === 'label') {
-      return 'LABEL & CERTIF.';
+      return 'LABEL';
     }
   }
 
