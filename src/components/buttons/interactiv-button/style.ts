@@ -7,7 +7,7 @@ export const WarpperAddPoint = styled.div`
     display: flex;
     align-items: 
     width: 80%;
-    margin: 65vh auto 0 auto;
+    margin: 600px auto 0 auto;
     z-index: 1;
 
     @media ${device.lg} {
@@ -18,25 +18,18 @@ export const WarpperAddPoint = styled.div`
 `;
 
 export const AddPoint = styled.button`
-  display: flex;
-  align-items: center;
   border: none;
-  width: 250px;
-  height: 40px;
-  padding: 25px;
+  background: rgba(255, 255, 255, 0);
 
-  border-radius: 40px;
-  background-color: ${({ theme }) => theme.colors.secondary};
-  color: ${({ theme }) => theme.colors.primary};
-  font-size: ${({ theme }) => theme.fontSizes.paragraphe};
-  font-weight: ${({ theme }) => theme.fontWeights[4]};
+  position: fixed;
+  right: 40px;
+  bottom: 70px;
 
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+  p {
+    display: none;
+  }
 
   span {
-    position: relative;
-    left: -26px;
-
     svg {
       width: 60px;
       height: auto;
@@ -44,15 +37,19 @@ export const AddPoint = styled.button`
   }
 
   @media ${device.lg} {
+    position: static;
+    display: flex;
+    align-items: center;
+    border: none;
+    height: 40px;
+    padding: 25px;
     width: 100%;
     margin: auto;
 
-    background-color: ${({ theme }) => theme.colors.secondary};
     color: ${({ theme }) => theme.colors.red};
     font-size: ${({ theme }) => theme.fontSizes.xltext};
     font-weight: ${({ theme }) => theme.fontWeights[5]};
     line-height: ${({ theme }) => theme.lineHeights.paragraph};
-    box-shadow: none;
 
     cursor: pointer;
 
@@ -67,6 +64,7 @@ export const AddPoint = styled.button`
     }
 
     p {
+      display: block;
       padding: 10px;
     }
 
