@@ -1,6 +1,22 @@
 import styled from 'styled-components';
 import { device } from '../../../../styles/breakpoints';
 
+export const MobileSwitch = styled.div`
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+
+  // background-color: ${({ theme }) => theme.colors.background};
+  // border: 1px solid ${({ theme }) => theme.colors.gray};
+  // border-radius: 30px;
+  // h4 {
+  //   font-size: ${({ theme }) => theme.fontSizes.xstext};
+  //   font-weight: ${({ theme }) => theme.fontWeights[2]};
+  //   line-height: ${({ theme }) => theme.lineHeights.paragraph};
+  //   color: ${({ theme }) => theme.colors.primary};
+  // }
+`;
+
 export const CheckBoxWrapper = styled.div`
   position: relative;
   margin: 10px 0;

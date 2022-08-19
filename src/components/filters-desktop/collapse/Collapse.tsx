@@ -45,19 +45,13 @@ const Collapse = ({
   ...props
 }: CollapseProps) => {
   // Toggle the visibility of buttons parent list
-  // const [isActive, setIsActive] = React.useState<boolean>(false);
   const [height] = useState(0);
 
-  // Toggle the button linked layer vibility
-  // const [isLayerVisible, setIsLayerVisible] = useState(true);
-  // const isLayerVisibleState = () => {
-  //   setIsLayerVisible(!isLayerVisible);
-  // };
   function TextCollaps() {
     if (!!text && text[0] === 'type') {
-      return 'Type';
+      return 'Qui ?';
     } else if (text[0] === 'produits') {
-      return 'Produits';
+      return 'Quoi ?';
     } else if (text[0] === 'label') {
       return 'Label et Certifications';
     }

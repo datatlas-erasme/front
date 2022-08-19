@@ -33,27 +33,6 @@ const icons: { [index: string]: any } = importAll(
   require.context('../../assets/icon', false, /\.(png)$/),
 );
 
-// const OpeningTime = ({ data }) => {
-
-//   useEffect(() => {
-//   }, []);
-
-//   const today = new Date()
-//   const time = today.getDay() + '' + today.getHours();
-
-//   const dataDay = Date.parse("Fr 15:30-18:30");
-//   console.log(dataDay);
-
-//   function openDay (currentTime, openingTime){
-//     const actualDay = new Date(currentTime);
-//     const openTime = openingTime;
-//   };
-
-//   return(
-//     <h3>{today ? 'Ouvert maintenant' : 'Fermer actuellement'}</h3>
-//   )
-// }
-
 function MapModalLocal({ data, onClick }: any) {
   return (
     <WrapperModal>
@@ -131,10 +110,7 @@ function MapModalLocal({ data, onClick }: any) {
           <h4>Labels & certifications</h4>
           {!!data[12] && data[12] ? (
             <ul>
-              <li>
-                {data[12]}
-                {/* <img src={query_labels} alt="Label" /> */}
-              </li>
+              <li>{data[12]}</li>
             </ul>
           ) : (
             <p>{data[2]} ne propose pas encore de produits labelisés</p>
@@ -146,14 +122,6 @@ function MapModalLocal({ data, onClick }: any) {
             {data[10].map((item: string, index: number) => {
               return (
                 <li key={index}>
-                  {/* {product.map(icon => {
-                  console.log(icon);
-
-                  return( <img src={icon} alt={data[10]} />)
-
-                }
-
-            )} */}
                   <p>{item}</p>
                 </li>
               );

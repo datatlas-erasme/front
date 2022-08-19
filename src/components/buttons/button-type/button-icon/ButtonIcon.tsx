@@ -4,27 +4,9 @@ import { Override } from '../../../../types/Override';
 import { queryIcon } from '../../../../utils/queryIcon';
 import { Badge } from './style';
 
-export type ButtonProps = Override<
-  React.ComponentPropsWithoutRef<'button'>,
-  {
-    text: string;
-    listNames?: string[];
-    idFilter?: string;
-    src?: string;
-    item?: any;
-    icons?: any;
-  }
->;
+export type ButtonProps = Override<React.ComponentPropsWithoutRef<'button'>, { text: string }>;
 
-export default function ButtonIcon({
-  text,
-  listNames,
-  idFilter,
-  className,
-  src,
-  item,
-  ...props
-}: ButtonProps) {
+export default function ButtonIcon({ text, className, ...props }: ButtonProps) {
   // Toggle the visibility of buttons parent list
   const [isActive, setIsActive] = useState(false);
   const isActiveState = () => {
