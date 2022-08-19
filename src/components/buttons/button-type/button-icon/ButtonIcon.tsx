@@ -5,6 +5,7 @@ import { queryIcon } from '../../../../utils/queryIcon';
 import { Badge } from './style';
 
 export type ButtonProps = Override<React.ComponentPropsWithoutRef<'button'>, { text: string }>;
+
 export default function ButtonIcon({ text, className, ...props }: ButtonProps) {
   // Toggle the visibility of buttons parent list
   const [isActive, setIsActive] = useState(false);
@@ -14,7 +15,7 @@ export default function ButtonIcon({ text, className, ...props }: ButtonProps) {
 
   return (
     <Badge onClick={isActiveState} className={classnames(isActive ? 'active' : '')} {...props}>
-      <img src={queryIcon(text)} alt={text} />
+      <img src={queryIcon(text)} alt="" />
       <p>{text}</p>
     </Badge>
   );

@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
-import { getFirstLayers } from '../../../../store/keplerGl';
 import { useViewport } from '../../../../utils/ViewportConext';
-import { CheckBoxWrapper, CheckBox, CheckBoxLabel, CheckBoxTitle } from './style';
+// import { Override } from '../../../../types/Override';
+import { CheckBoxWrapper, CheckBox, CheckBoxLabel, MobileSwitch } from './style';
 
 export default function ButtonSwitch() {
   // Toggle the button linked layer vibility
@@ -13,24 +13,29 @@ export default function ButtonSwitch() {
   const dispatch = useDispatch();
 
   // Get isVisible from Kepler state
-  const layerGlobalMarket = useSelector(getFirstLayers);
+  const layerGlobalMarket = useSelector((state: any) => state.keplerGl.map.visState.layers[0]);
   const handlechange = () => setIsLayerVisible(!isLayerVisible);
 
   useEffect(() => {
-    if (layerGlobalMarket) {
-      dispatch(layerConfigChange(layerGlobalMarket, { isVisible: isLayerVisible }));
-    }
-
-    return;
+    dispatch(layerConfigChange(layerGlobalMarket, { isVisible: isLayerVisible }));
   }, [layerGlobalMarket, isLayerVisible, dispatch]);
 
-  return (
+  return width < breakpoint ? (
+    <MobileSwitch>
+      <h4>Visualiser les marchés</h4>
+      <CheckBoxWrapper>
+        <CheckBox
+          onChange={handlechange}
+          checked={isLayerVisible}
+          id={`checkbox`}
+          type="checkbox"
+        />
+        <CheckBoxLabel className="switch-label" htmlFor={`checkbox`} />
+      </CheckBoxWrapper>
+    </MobileSwitch>
+  ) : (
     <>
-      {width < breakpoint ? (
-        <CheckBoxTitle>VOIR LES MARCHÉS</CheckBoxTitle>
-      ) : (
-        <CheckBoxTitle>Voir les marchés de la métropole</CheckBoxTitle>
-      )}
+      <h4>Visualiser les marchés de la métropole</h4>
       <CheckBoxWrapper>
         <CheckBox
           onChange={handlechange}
