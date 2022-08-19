@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
 import { useViewport } from '../../../../utils/ViewportConext';
 // import { Override } from '../../../../types/Override';
-import { CheckBoxWrapper, CheckBox, CheckBoxLabel } from './style';
+import { CheckBoxWrapper, CheckBox, CheckBoxLabel, MobileSwitch } from './style';
 
 export default function ButtonSwitch() {
   // Toggle the button linked layer vibility
@@ -21,13 +21,21 @@ export default function ButtonSwitch() {
   }, [layerGlobalMarket, isLayerVisible, dispatch]);
 
   return width < breakpoint ? (
-    <CheckBoxWrapper>
-      <CheckBox onChange={handlechange} checked={isLayerVisible} id={`checkbox`} type="checkbox" />
-      <CheckBoxLabel className="switch-label" htmlFor={`checkbox`} />
-    </CheckBoxWrapper>
+    <MobileSwitch>
+      <h4>Visualiser les marchés</h4>
+      <CheckBoxWrapper>
+        <CheckBox
+          onChange={handlechange}
+          checked={isLayerVisible}
+          id={`checkbox`}
+          type="checkbox"
+        />
+        <CheckBoxLabel className="switch-label" htmlFor={`checkbox`} />
+      </CheckBoxWrapper>
+    </MobileSwitch>
   ) : (
     <>
-      <h4>Les marchés de Lyon</h4>
+      <h4>Visualiser les marchés de la métropole</h4>
       <CheckBoxWrapper>
         <CheckBox
           onChange={handlechange}

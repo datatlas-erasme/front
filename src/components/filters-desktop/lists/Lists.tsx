@@ -2,9 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, connect } from 'react-redux';
 import { setFilter } from 'erasme-kepler.gl/actions';
 import { Checkbox, ButtonSelect, ButtonIcon, ButtonDefault } from '../../buttons/button-type';
-// import { Ouverture } from '../../buttons/button-type/button-day/style';
 import { ListSelect, ButtonWrapper, ListIconButton, ListCheckbox } from './style';
-// import { ListCheckbox, LabelCheckbox } from './style';
 
 export type ListProps = {
   idFilter?: number | string;
@@ -30,12 +28,10 @@ export const List = ({ listNames = [], idFilter, theme, text }: ListProps) => {
       );
     } else {
       setFiltersArray((filtersArray) => [...filtersArray, item]);
-      // console.log("Filters Array :", filtersArray)
     }
   };
 
   useEffect(() => {
-    // console.log('Filters Array :', filtersArray);
     dispatch(setFilter(idFilter, 'value', filtersArray));
   }, [dispatch, idFilter, filtersArray]);
 

@@ -38,8 +38,6 @@ export default function ButtonDay({ dayList = [], idFilter, text }: DayProps) {
   // Toggle the visibility of buttons parent list
   const [filtersArray, setFiltersArray] = useState<string[]>([]);
 
-  // const dayFilter = useSelector((state: any) => state.keplerGl.map.visState.filters[idFilter]);
-
   const setFilterValue = (item: string) => {
     if (filtersArray.includes(item)) {
       setFiltersArray((filtersArray) =>
@@ -55,12 +53,6 @@ export default function ButtonDay({ dayList = [], idFilter, text }: DayProps) {
   useEffect(() => {
     dispatch(setFilter(idFilter, 'value', filtersArray));
   }, [dispatch, idFilter, filtersArray]);
-
-  // const newOrder = [...dayList];
-  // newOrder.splice(6, 0, newOrder.splice(0, 1)[0]);
-  // newOrder.splice(3, 0, newOrder.splice(0, 1)[0]);
-  // newOrder.splice(5, 0, newOrder.splice(4, 1)[0]);
-  // console.log(newOrder);
 
   return width < breakpoint ? (
     <Ouverture>
