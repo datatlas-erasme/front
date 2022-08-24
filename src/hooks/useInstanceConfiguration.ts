@@ -13,18 +13,6 @@ import {
 import { appInit, updateInstanceConfiguration } from '../store/app';
 import InstanceConfigurationInterface from '../domain/InstanceConfigurationInterface';
 
-// Order an array with objects based on an string in order array
-function mapOrder(array, order, key) {
-  array.sort(function (a, b) {
-    var A = a[key],
-      B = b[key];
-
-    return order.indexOf(A) > order.indexOf(B) ? 1 : -1;
-  });
-
-  return array;
-}
-
 export default function useInstanceConfiguration() {
   const [instanceConf, setInstanceConf] = useState<InstanceConfigurationInterface | undefined>(
     undefined,
