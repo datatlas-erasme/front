@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { queryIcon } from '../../utils/queryIcon';
 import {
   FarmSale,
   ProducerShop,
@@ -122,6 +123,7 @@ function MapModalLocal({ data, onClick }: any) {
             {data[10].map((item: string, index: number) => {
               return (
                 <li key={index}>
+                  <img src={queryIcon(item)} alt={item} />
                   <p>{item}</p>
                 </li>
               );
