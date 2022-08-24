@@ -50,6 +50,8 @@ const HeaderBlock = styled.header`
         p {
           display: block;
           margin-right: 10px;
+          font-size: ${({ theme }) => theme.fontSizes.xltext};
+          font-weight: ${({ theme }) => theme.fontWeights[5]};
         }
         svg {
           width: 35px;

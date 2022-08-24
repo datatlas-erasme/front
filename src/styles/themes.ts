@@ -4,7 +4,7 @@ export const Base: DefaultTheme = {
   name: 'Base',
 
   fontSizes: {
-    xstext: '12px',
+    xstext: '14px',
     paragraphe: '16px',
     xltext: '18px',
     xstitle: '22px',
@@ -64,7 +64,7 @@ export const datalimentaire: DefaultTheme = {
   },
 
   fontSizes: {
-    xstext: '12px',
+    xstext: '14px',
     paragraphe: '16px',
     xltext: '18px',
     xstitle: '22px',
