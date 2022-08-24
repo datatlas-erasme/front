@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
 import { useViewport } from '../../../../utils/ViewportConext';
-// import { Override } from '../../../../types/Override';
 import { CheckBoxWrapper, CheckBox, CheckBoxLabel, MobileSwitch } from './style';
 
 export default function ButtonSwitch() {
@@ -22,7 +21,6 @@ export default function ButtonSwitch() {
 
   return width < breakpoint ? (
     <MobileSwitch>
-      <h4>Visualiser les marchés</h4>
       <CheckBoxWrapper>
         <CheckBox
           onChange={handlechange}
