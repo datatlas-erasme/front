@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { ButtonSwitch } from '../../buttons/button-type';
 import Collapse from '../collapse';
 import { DomainFilter } from './style';
 
@@ -44,10 +43,7 @@ const MobilePanelControl = ({ closeOtherItemsOnClick, filtersDomain, initialActi
 
   return (
     <>
-      <DomainFilter>
-        {Domains}
-        <ButtonSwitch />
-      </DomainFilter>
+      <DomainFilter>{Domains}</DomainFilter>
     </>
   );
 };

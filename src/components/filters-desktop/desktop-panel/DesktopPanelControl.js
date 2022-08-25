@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import AnimateHeight from 'react-animate-height';
-// import SearchBar from '../../search-bar';
-// import AnimateHeight from 'react-animate-height';
 import { useSelector } from 'react-redux';
 import Collapse from '../collapse';
 import { ButtonDay, ButtonDefault, ButtonSwitch } from '../../buttons/button-type';

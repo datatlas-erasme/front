@@ -3,21 +3,18 @@ import px2vw from '../../../utils/px2vw';
 
 export const ButtonCollapse = styled.button`
   height: auto;
-  padding: ${px2vw(10)} ${px2vw(20)};
+  padding: ${px2vw(20)} ${px2vw(30)};
   margin: ${px2vw(15)};
 
   box-sizing: border-box;
-  border-radius: ${px2vw(40)};
+  border-radius: ${({ theme }) => theme.radii[4]};
   border: 1px solid ${({ theme }) => theme.colors.gray};
 
   background-color: ${({ theme }) => theme.colors.background};
   color: ${({ theme }) => theme.colors.primary};
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
 
   transition: all ease-in-out 0.2s;
-
-  font-weight: 500;
-  font-size: ${px2vw(16)};
-  text-align: left;
 
   &.active {
     background: ${({ theme }) => theme.colors.primary};
@@ -25,7 +22,7 @@ export const ButtonCollapse = styled.button`
   }
 
   h4 {
-    font-weight: ${({ theme }) => theme.fontWeights[4]};
+    font-weight: ${({ theme }) => theme.fontWeights[5]};
     font-size: ${({ theme }) => theme.fontSizes.xstext};
   }
 `;
