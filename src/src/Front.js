@@ -187,25 +187,29 @@ function Map() {
   // TODO remove hardcoded bellow
   // Hide loaded layer on map display
     //console.log(isLayerVisible)
-    const sentiers = useSelector((state) =>
-      state.keplerGl.map?.visState?.layers[0],
-    );
-    const parcsJardins = useSelector((state) =>
-      state.keplerGl.map?.visState?.layers[1],
-    );
+  const arbres = useSelector((state) =>
+  state.keplerGl.map?.visState?.layers[1],
+  );
+  const sentiers = useSelector((state) =>
+  state.keplerGl.map?.visState?.layers[4],
+  );
+  const parcsJardins = useSelector((state) =>
+    state.keplerGl.map?.visState?.layers[3],
+  );
 
-  useEffect(() => {
-    if (sentiers && parcsJardins) {
+  /*useEffect(() => {
+    if (sentiers && parcsJardins && arbres) {
       dispatch(layerConfigChange(sentiers, { isVisible: false }));
       dispatch(layerConfigChange(parcsJardins, { isVisible: false }));
+      dispatch(layerConfigChange(arbres, { isVisible: false }));
     }
-  }, [sentiers, parcsJardins, dispatch]);
+  }, [arbres,sentiers, parcsJardins, dispatch]);*/
 
   return mapUpdated & keplerConfLoaded ? (
     <div>
       <KeplerGl
         id="map"
-        mapboxApiAccessToken={instanceConf.mapboxToken}
+        mapboxApiAccessToken='pk.eyJ1IjoiYWFuZ2Vsb3QiLCJhIjoiY2twbXQ3aXl5MDUzbDJ2cDRtdTJoMjlvbyJ9.XlluG8Wj1k_QsGstSd62xA'
         width={window.innerWidth}
         height={window.innerHeight}
         appName="Datatlas"

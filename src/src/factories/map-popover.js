@@ -87,7 +87,7 @@ const CustomMapPopoverFactory = (...deps) => {
 
     const PointFieldsFixImage =  allFields.map((field, index) => {
       if (field.displayName.includes('img')) {
-        console.log(data[index])
+        //console.log(data[index])
         ContentBuffer.push({cat: "img", content: data[index]})
 
       }
@@ -95,12 +95,17 @@ const CustomMapPopoverFactory = (...deps) => {
 
     const PointFieldsFix =  allFields.map((field, index) => {
       // TODO check if is url and has image extension
-      if (field.displayName.includes('title')) {
-        ContentBuffer.push({cat: "title", content: data[index]})
+      if (field.displayName.includes('titre')) {
+        ContentBuffer.push({cat: "titre", content: data[index]})
         //ContentBuffer.push({cat: "Nom-structure", content: " <h1>"+ data[index]+ "</h1>"})
       }
       if (field.displayName.includes('description')) {
         ContentBuffer.push({cat: "description", content: data[index]})
+        //ContentBuffer.push({cat: "Description", content:  "<p className='desc'>"+ data[index] + "</p>"})
+
+      }
+      if (field.displayName.includes('date')) {
+        ContentBuffer.push({cat: "date", content: data[index]})
         //ContentBuffer.push({cat: "Description", content:  "<p className='desc'>"+ data[index] + "</p>"})
 
       }
@@ -136,8 +141,9 @@ const CustomMapPopoverFactory = (...deps) => {
   
     });
 
-    const title = ContentBuffer.filter((value) => value.cat === "title" )[0]?.content
+    const title = ContentBuffer.filter((value) => value.cat === "titre" )[0]?.content
     const image = ContentBuffer.filter((value) => value.cat === "img" )[0]?.content
+    const date = ContentBuffer.filter((value) => value.cat === "date" )[0]?.content
     const desc = ContentBuffer.filter((value) => value.cat === "description" )[0]?.content
     const adresse = ContentBuffer.filter((value) => value.cat === "adress" )[0]?.content
     const tags = ContentBuffer.filter((value) => value.cat === "tags" )[0]?.content
@@ -156,12 +162,13 @@ const CustomMapPopoverFactory = (...deps) => {
       <div className="PointSidePanel">
          <div className='img-container' style={style}></div>
         <div className='content'>
-          <h1>{he.decode(title)}</h1>
+          <h1>{title ? he.decode(title) : '' }</h1>
           <a target="_blank" href={url}>{url ? "Voir le site web" : ""}</a>
+          <p><b>{date ? "Date : " : ""}</b>{date}</p>
           <p><b>{adresse ? "Adresse : " : ""}</b>{adresse}</p>
           <p><b>{trees ? "Arbres plantés : " : ""}</b>{trees}</p>
           <p><b>{tags ? "Tags : " : ""}</b>{tags}</p>
-          <p><b>{contact ? "Contact : " : ""}</b>{DOMPurify.sanitize(he.decode(contact),{FORBID_TAGS: ['a']})}</p>   
+          <p><b>{contact ? "Contact : " : ""}</b>{contact ? DOMPurify.sanitize(he.decode(contact),{FORBID_TAGS: ['a']}) : ''}</p>   
           <p><b>{link ? <a href={link} target="_blank">Lien vers la fiche projet</a> : ""}</b></p>   
         </div>
       </div>
