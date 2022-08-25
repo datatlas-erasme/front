@@ -4,6 +4,7 @@ import { MapPopoverFactory, injectComponents } from 'erasme-kepler.gl/components
 import CustomMapPopoverFactory from '../../factories/map-popover';
 import IndustriesCustomMapPopoverFactory from '../../factories/industries-mapopover';
 import { getMapboxToken, getThemeName } from '../../store/app';
+import Header from '../header/Header';
 
 const IndustriesKeplerGl = injectComponents([
   [MapPopoverFactory, IndustriesCustomMapPopoverFactory],
@@ -43,7 +44,7 @@ export default function MapContainer() {
               mapboxApiAccessToken={mapboxToken}
               width={width}
               height={height}
-              appName="Opendata alimentaire"
+              appName="Datatlas"
             />
           )}
           {/* <Logo /> */}

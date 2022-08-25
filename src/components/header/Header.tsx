@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { device } from '../../styles';
+import { useViewport } from '../../utils/ViewportConext';
+import ButtonSwitch from '../buttons/button-type/button-switch';
+import px2vw from '../../utils/px2vw';
 import LogoGl from '../../assets/logo/logo_gl.png';
 import LogoMl from '../../assets/logo/logo-mangerlocal.png';
 
@@ -15,9 +18,12 @@ const HeaderBlock = styled.header`
   flex-direction: column;
   height: auto;
 
+  background-color: ${({ theme }) => theme.colors.secondary};
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+
   nav {
     display: flex;
-    margin-top: 50px;
+    justify-content: space-between;
     a {
       position: fixed;
       bottom: 150px;
@@ -27,6 +33,7 @@ const HeaderBlock = styled.header`
         display: none;
       }
       svg {
+        color: ${({ theme }) => theme.colors.primary};
         background: ${({ theme }) => theme.colors.background};
         border-radius: 50%;
         width: 60px;
@@ -36,12 +43,7 @@ const HeaderBlock = styled.header`
   }
 
   @media ${device.lg} {
-    background-color: ${({ theme }) => theme.colors.secondary};
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
-
     nav {
-      display: flex;
-      justify-content: space-between;
       margin: 1rem 5rem;
       a {
         position: static;
@@ -63,42 +65,42 @@ const HeaderBlock = styled.header`
 `;
 
 const PreHeader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 5px;
-  background-color: ${({ theme }) => theme.colors.red};
+  background-color: #ca3228;
   p {
+    text-align: center;
     color: ${({ theme }) => theme.colors.secondary};
-    font-size: ${({ theme }) => theme.fontSizes.xstext};
+    font-size: ${px2vw(40)};
+    @media ${device.lg} {
+      font-size: ${({ theme }) => theme.fontSizes.xstext};
+    }
   }
 `;
 
 const BlockLogo = styled.div`
   display: flex;
-  flex-direction: column;
   padding: 1rem;
   img {
-    width: 20vw;
-    height: auto;
+    width: auto;
+    height: 2.5vh;
+    &:last-child {
+      border-left: 1px solid ${({ theme }) => theme.colors.red};
+      padding-left: 0;
+      margin-left: ${px2vw(20)};
+    }
   }
 
   @media ${device.lg} {
-    flex-direction: row;
-    background-color: ${({ theme }) => theme.colors.secondary};
     img {
-      width: auto;
       height: 5vh;
-      &:last-child {
-        border-left: 1px solid ${({ theme }) => theme.colors.red};
-        padding-left: 0;
-        margin-left: 0.75rem;
-      }
     }
   }
 `;
 
 export default function Header() {
+  const { width } = useViewport();
+  const breakpoint = 1024;
+
   return (
     <HeaderBlock>
       <PreHeader>
@@ -112,8 +114,9 @@ export default function Header() {
         </BlockLogo>
         <a href={'#'}>
           <p>En savoir plus sur le projet</p>
-          <FontAwesomeIcon icon={faArrowCircleRight} />
+          <FontAwesomeIcon icon={faInfoCircle} />
         </a>
+        {width < breakpoint ? <ButtonSwitch /> : null}
       </nav>
     </HeaderBlock>
   );
