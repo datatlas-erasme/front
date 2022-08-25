@@ -1,6 +1,6 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
-import { IconAdd } from '../../../assets/svg/IconAdd';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { getBottomRightButtons } from '../../../store/app';
 import { AddPoint, WarpperAddPoint } from './style';
 
@@ -18,7 +18,7 @@ export default function AddButton() {
         >
           <AddPoint>
             <span>
-              <IconAdd />
+              <FontAwesomeIcon icon={faPlusCircle} />
             </span>
             <p>{buttonConf.text}</p>
           </AddPoint>

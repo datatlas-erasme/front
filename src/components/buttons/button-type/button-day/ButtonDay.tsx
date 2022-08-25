@@ -22,7 +22,7 @@ function Button({ day }: { day: any }) {
   };
 
   return (
-    <button onClick={isActiveState} className={classnames(isActive ? 'active' : 'no-active')}>
+    <button onClick={isActiveState} className={classnames(isActive ? 'active' : '')}>
       {' '}
       {day}
     </button>

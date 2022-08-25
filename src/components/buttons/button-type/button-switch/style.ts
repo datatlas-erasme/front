@@ -1,25 +1,30 @@
 import styled from 'styled-components';
 import { device } from '../../../../styles/breakpoints';
+import px2vw from '../../../../utils/px2vw';
+
+export const CheckBoxTitle = styled.h4`
+  margin: 10px 0;
+  align-self: center;
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: ${px2vw(40)};
+  @media ${device.lg} {
+    font-size: ${({ theme }) => theme.fontSizes.paragraphe};
+  }
+`;
 
 export const MobileSwitch = styled.div`
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-
-  // background-color: ${({ theme }) => theme.colors.background};
-  // border: 1px solid ${({ theme }) => theme.colors.gray};
-  // border-radius: 30px;
-  // h4 {
-  //   font-size: ${({ theme }) => theme.fontSizes.xstext};
-  //   font-weight: ${({ theme }) => theme.fontWeights[2]};
-  //   line-height: ${({ theme }) => theme.lineHeights.paragraph};
-  //   color: ${({ theme }) => theme.colors.primary};
-  // }
+  display: flex;
+  align-items: center;
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: ${({ theme }) => theme.fontSizes.xstext};
+  h4 {
+    padding: 10px;
+  }
 `;
 
 export const CheckBoxWrapper = styled.div`
   position: relative;
-  margin: 10px 0;
+  margin: 10px;
 
   @media ${device.lg} {
     margin: 10px auto;

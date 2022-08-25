@@ -26,13 +26,14 @@ export const Ouverture = styled.div`
         background-color: #fff;
         cursor: pointer;
         margin-bottom: 40px;
-        @media ${device.lg} {
-            background-color: #fcfafa;
-            margin-bottom: 0;
-        }
-        &:hover, &.active{
+
+        &.active{
             background: ${({ theme }) => theme.colors.primary};
             border-radius: 40px;
             color: ${({ theme }) => theme.colors.secondary};
+        }
+         @media ${device.lg} {
+            background-color: #fcfafa;
+            margin-bottom: 0;
         }
     }`;

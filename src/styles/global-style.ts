@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
   * {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Space Grotesk', 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
