@@ -31,6 +31,7 @@ export const AddPoint = styled.button`
 
   span {
     svg {
+      color: ${({ theme }) => theme.colors.red};
       background: ${({ theme }) => theme.colors.background};
       border-radius: 50%;
       width: 60px;
