@@ -109,8 +109,8 @@ const CustomMapPopoverFactory = (...deps) => {
         //ContentBuffer.push({cat: "Description", content:  "<p className='desc'>"+ data[index] + "</p>"})
 
       }
-      if (field.displayName.includes('adress')) {
-        ContentBuffer.push({cat: "adress", content:data[index]})
+      if (field.displayName.includes('address')) {
+        ContentBuffer.push({cat: "address", content:data[index]})
         //ContentBuffer.push({cat: "Adresse", content: " <p><b>Adresse :</b>"+data[index] +"</p>"})
       }
 
@@ -134,8 +134,12 @@ const CustomMapPopoverFactory = (...deps) => {
         ContentBuffer.push({cat: "trees", content: data[index]})
         //ContentBuffer.push({cat: "type_event", content: "<p><b>Type Event :</b> "+data[index]+"</p>"})
       }
-      if (field.displayName.includes('Site-web')) {
-        ContentBuffer.push({cat: "Site-web", content: data[index]})
+      if (field.displayName.includes('nb_arbres')) {
+        ContentBuffer.push({cat: "trees", content: data[index]})
+        //ContentBuffer.push({cat: "type_event", content: "<p><b>Type Event :</b> "+data[index]+"</p>"})
+      }
+      if (field.displayName.includes('url')) {
+        ContentBuffer.push({cat: "url", content: data[index]})
         //ContentBuffer.push({cat: "site", content: '<a target="" href='+data[index]+'>Voir le site web</a>'})
       }
   
@@ -145,14 +149,14 @@ const CustomMapPopoverFactory = (...deps) => {
     const image = ContentBuffer.filter((value) => value.cat === "img" )[0]?.content
     const date = ContentBuffer.filter((value) => value.cat === "date" )[0]?.content
     const desc = ContentBuffer.filter((value) => value.cat === "description" )[0]?.content
-    const adresse = ContentBuffer.filter((value) => value.cat === "adress" )[0]?.content
+    const address = ContentBuffer.filter((value) => value.cat === "address" )[0]?.content
     const tags = ContentBuffer.filter((value) => value.cat === "tags" )[0]?.content
     const activites = ContentBuffer.filter((value) => value.cat === "activites" )[0]?.content
     const contact = ContentBuffer.filter((value) => value.cat === "contact" )[0]?.content
     const link = ContentBuffer.filter((value) => value.cat === "link" )[0]?.content
     const trees = ContentBuffer.filter((value) => value.cat === "trees" )[0]?.content
-    const url = ContentBuffer.filter((value) => value.cat === "Site-web" )[0]?.content
-
+    const url = ContentBuffer.filter((value) => value.cat === "url" )[0]?.content
+    
     const imgageUrl =  image ? image : 'https://canographia.datagora.erasme.org/wp-content/themes/canographia/assets/placeholder-ressource.png'
     const style = {
       backgroundImage: `url(${imgageUrl})` 
@@ -163,13 +167,12 @@ const CustomMapPopoverFactory = (...deps) => {
          <div className='img-container' style={style}></div>
         <div className='content'>
           <h1>{title ? he.decode(title) : '' }</h1>
-          <a target="_blank" href={url}>{url ? "Voir le site web" : ""}</a>
           <p><b>{date ? "Date : " : ""}</b>{date}</p>
-          <p><b>{adresse ? "Adresse : " : ""}</b>{adresse}</p>
           <p><b>{trees ? "Arbres plantés : " : ""}</b>{trees}</p>
+          <p><b>{address ? "Adresse : " : ""}</b>{address}</p>
           <p><b>{tags ? "Tags : " : ""}</b>{tags}</p>
           <p><b>{contact ? "Contact : " : ""}</b>{contact ? DOMPurify.sanitize(he.decode(contact),{FORBID_TAGS: ['a']}) : ''}</p>   
-          <p><b>{link ? <a href={link} target="_blank">Lien vers la fiche projet</a> : ""}</b></p>   
+          <p><b>{url ? <a href={url} target="_blank">Lien vers la fiche </a> : ""}</b></p>   
         </div>
       </div>
     )
