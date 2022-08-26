@@ -29,61 +29,59 @@ export const List = ({ listNames = [], idFilter, text, ...props }: ListProps) =>
     dispatch(setFilter(idFilter, 'value', filtersArray));
   }, [dispatch, idFilter, filtersArray]);
 
-  return (
-    <>
-      <ListSelect>
-        {listNames.map((item: string, i: number) => {
-          switch (idFilter) {
-            case 1:
-              return (
-                <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
-                  <ButtonSelect text={item} />
-                </ButtonWrapper>
-              );
-          }
-        })}
-      </ListSelect>
-
-      <ListIconButton>
-        {listNames.map((item: string, i: number) => {
-          switch (idFilter) {
-            case 3:
-              return (
-                <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
-                  <ButtonIcon text={item} />
-                </ButtonWrapper>
-              );
-          }
-        })}
-      </ListIconButton>
-
-      <ListDay>
-        {listNames.map((item: string, i: number) => {
-          switch (idFilter) {
-            case 5:
-              return (
-                <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
-                  <ButtonDay text={item} />
-                </ButtonWrapper>
-              );
-          }
-        })}
-      </ListDay>
-
-      <ListCheckbox>
-        {listNames.map((item: string, i: number) => {
-          switch (idFilter) {
-            case 4:
-              return (
-                <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
-                  <Checkbox text={item} />
-                </ButtonWrapper>
-              );
-          }
-        })}
-      </ListCheckbox>
-    </>
-  );
+  return !!text && text[0] === 'type' ? (
+    <ListSelect>
+      {listNames.map((item: string, i: number) => {
+        switch (idFilter) {
+          case 1:
+            return (
+              <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                <ButtonSelect text={item} />
+              </ButtonWrapper>
+            );
+        }
+      })}
+    </ListSelect>
+  ) : !!text && text[0] === 'produits' ? (
+    <ListIconButton>
+      {listNames.map((item: string, i: number) => {
+        switch (idFilter) {
+          case 3:
+            return (
+              <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                <ButtonIcon text={item} />
+              </ButtonWrapper>
+            );
+        }
+      })}
+    </ListIconButton>
+  ) : !!text && text[0] === 'label' ? (
+    <ListCheckbox>
+      {listNames.map((item: string, i: number) => {
+        switch (idFilter) {
+          case 4:
+            return (
+              <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                <Checkbox text={item} />
+              </ButtonWrapper>
+            );
+        }
+      })}
+    </ListCheckbox>
+  ) : !!text && text[0] === 'joursouverture' ? (
+    <ListDay>
+      {listNames.map((item: string, i: number) => {
+        switch (idFilter) {
+          case 5:
+            return (
+              <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                <ButtonDay text={item} />
+              </ButtonWrapper>
+            );
+        }
+      })}
+    </ListDay>
+  ) : null;
 };
 
 export default connect()(List);

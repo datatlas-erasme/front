@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { library } from '@fortawesome/fontawesome-svg-core';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import AnimateHeight from 'react-animate-height';
 import { Override } from '../../../types/Override';
-// import { AppStore } from '../../store';
 import List from '../lists';
 import { ButtonCollapse } from './style';
-
-library.add(faChevronRight, faChevronDown);
 
 export type CollapseProps = Override<
   React.ComponentPropsWithoutRef<'button'>,

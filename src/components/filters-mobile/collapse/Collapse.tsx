@@ -1,50 +1,37 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { library } from '@fortawesome/fontawesome-svg-core';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import AnimateHeight from 'react-animate-height';
 import { Override } from '../../../types/Override';
-// import { AppStore } from '../../store';
 import List from '../lists/Lists';
 import { ButtonCollapse, SubHeading } from './style';
-
-library.add(faChevronRight, faChevronDown);
 
 export type CollapseProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
   {
     text: string;
-    textType: string;
-    textProduits: string;
-    btnType?: 'parent' | 'child';
     listNames?: string[] | any;
     idFilter?: string;
-    filtername?: string;
-    dayList?: string[];
     icon: IconDefinition;
-    index?: number;
     isActive?: boolean;
+    className?: string;
     onItemClick?: (item: any) => void;
   }
 >;
 
 const Collapse = ({
   text,
-  textType,
-  textProduits,
-  btnType,
   listNames,
   idFilter,
-  className,
-  filtername,
-  dayList,
-  icon,
-  index,
   isActive,
+  className,
   onItemClick,
   ...props
 }: CollapseProps) => {
   const [height] = useState(0);
+
+  console.log(className);
 
   function TextCollaps() {
     if (text[0] === 'type') {
@@ -87,7 +74,12 @@ const Collapse = ({
         easing={'ease'}
         className={'animateheight'}
       >
-        <SubHeading>{TextCollaps()}</SubHeading>
+        <SubHeading onClick={onItemClick}>
+          {TextCollaps()}
+          <span>
+            <FontAwesomeIcon icon={!isActive ? faChevronDown : faChevronRight} />{' '}
+          </span>
+        </SubHeading>
         <List listNames={listNames} idFilter={idFilter} text={text} />
       </AnimateHeight>
     </>
