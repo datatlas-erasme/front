@@ -1,12 +1,31 @@
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { getLayers } from '../../store/keplerGl';
 import PictoTime from '../../assets/icon/icon-time.png';
 import PictoPoi from '../../assets/icon/icon-poi.png';
 import PictoPen from '../../assets/icon/icon-pen.png';
-import { ModalHeading, InfoPratiqueGlobal, BottomButton, WrapperModal } from './style';
+import { ModalHeading, InfoPratiqueGlobal, BottomButton, WrapperModal, ModalList } from './style';
 
-function MapModalGobal({ data, day, onClick }: any) {
+function ModalGlobalMarket({ data, day, onClick }: any) {
+  const dataLayer = useSelector(getLayers);
+  console.log(dataLayer[0]);
+  console.log(dataLayer[1]);
+
+  const marketGlobalAdress = dataLayer[0].dataToFeature;
+  console.log(marketGlobalAdress);
+
+  const marketLocalAdress = dataLayer[1].dataToFeature;
+  console.log(marketLocalAdress);
+
+  const GlobalAdress = marketGlobalAdress.map((a) => {
+    console.log(a.properties.adresse);
+  });
+
+  const LocalAdress = marketLocalAdress.map((a) => {
+    console.log(a.properties.adresse);
+  });
+
   return (
     <WrapperModal>
       <ModalHeading>
@@ -40,6 +59,16 @@ function MapModalGobal({ data, day, onClick }: any) {
         </li>
       </InfoPratiqueGlobal>
 
+      <ModalList>
+        <ul>
+          {GlobalAdress === LocalAdress ? (
+            <li>
+              <p>{marketLocalAdress.properties.nom}</p>
+            </li>
+          ) : null}
+        </ul>
+      </ModalList>
+
       <BottomButton
         href={
           'https://demarches.guichet-recette.grandlyon.com/projets-de-crowdsourcing/ajouter-un-marchand/'
@@ -58,4 +87,4 @@ function MapModalGobal({ data, day, onClick }: any) {
 const mapStateToProps = (state: any) => state;
 const dispatchToProps = (dispatch: any) => ({ dispatch });
 
-export default connect(mapStateToProps, dispatchToProps)(MapModalGobal);
+export default connect(mapStateToProps, dispatchToProps)(ModalGlobalMarket);

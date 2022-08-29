@@ -366,3 +366,7 @@ export const BottomButton = styled.a`
     }
   }
 `;
+
+export const ModaList = styled.div`
+  display: flex;
+`;

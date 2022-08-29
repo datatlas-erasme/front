@@ -1,2 +1,2 @@
 export { default as MapModalLocal } from './ModalLocal';
-export { default as MapModalGobal } from './ModalGlobal';
+export { default as ModalGlobalMarket } from './ModalGlobalMarket';
