@@ -6,7 +6,7 @@ import {
   withState,
 } from 'erasme-kepler.gl/components';
 import { visStateLens } from 'erasme-kepler.gl/reducers';
-import { MapModalLocal, MapModalGobal } from '../components/modal';
+import { MapModalLocal, ModalGlobalMarket } from '../components/modal';
 import CustomMapPopover from '../components/popover';
 import { PopHover } from '../components/popover/style';
 import { WrapperModal } from '../components/modal/style';
@@ -54,7 +54,7 @@ const CustomMapPopoverFactory = (...deps) => {
             return dataID === 'Manger Local' ? (
               <MapModalLocal data={data} key={index} onClick={props.onClose} dataID={dataID} />
             ) : (
-              <MapModalGobal data={data} key={index} onClick={props.onClose} dataID={dataID} />
+              <ModalGlobalMarket data={data} key={index} onClick={props.onClose} dataID={dataID} />
             );
           }
         }
