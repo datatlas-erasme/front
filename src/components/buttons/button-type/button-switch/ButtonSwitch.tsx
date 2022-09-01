@@ -16,7 +16,9 @@ export default function ButtonSwitch() {
   const handlechange = () => setIsLayerVisible(!isLayerVisible);
 
   useEffect(() => {
-    dispatch(layerConfigChange(layerGlobalMarket, { isVisible: isLayerVisible }));
+    if (layerGlobalMarket) {
+      dispatch(layerConfigChange(layerGlobalMarket, { isVisible: isLayerVisible }));
+    }
 
     return;
   }, [layerGlobalMarket, isLayerVisible, dispatch]);
@@ -26,7 +28,7 @@ export default function ButtonSwitch() {
       {width < breakpoint ? (
         <CheckBoxTitle>VOIR LES MARCHÉS</CheckBoxTitle>
       ) : (
-        <CheckBoxTitle>Visualiser les marchés de la métropole</CheckBoxTitle>
+        <CheckBoxTitle>Voir les marchés de la métropole</CheckBoxTitle>
       )}
       <CheckBoxWrapper>
         <CheckBox
