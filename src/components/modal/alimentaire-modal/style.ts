@@ -1,52 +1,52 @@
 import styled from 'styled-components';
-import { device, datalimentaire, Base } from '../../styles';
+import { device } from '../../../styles';
 
 export const WrapperModal = styled.div`
   display: flex;
   flex-wrap: wrap;
 
   position: fixed;
-  top: 1vh;
-  left: 5%;
-
-  width: 90vw;
-  height: auto;
-  margin: auto;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 96vh;
   padding: 40px;
 
-  overflow-y: scroll;
+  background: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.primary};
 
-  background: ${datalimentaire.colors.secondary};
-  color: ${datalimentaire.colors.primary};
-
-  border-radius: ${Base.radii[5]};
+  border-top-right-radius: ${({ theme }) => theme.radii[5]};
+  border-top-left-radius: ${({ theme }) => theme.radii[5]};
   box-shadow: 0px 2px 18px -1px rgba(0, 0, 0, 0.25);
-
+  overflow: scroll;
   z-index: 99;
 
   h4 {
-    font-size: ${Base.fontSizes.paragraphe};
-    font-weight: ${Base.fontWeights[2]};
+    font-size: ${({ theme }) => theme.fontSizes.paragraphe};
+    font-weight: ${({ theme }) => theme.fontWeights[2]};
     padding-bottom: 5px;
-    border-bottom: 1px solid ${datalimentaire.colors.gray};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
   }
 
   p,
   li,
   address {
-    font-size: ${Base.fontSizes.paragraphe};
-    line-height: ${Base.lineHeights.normal};
+    font-size: ${({ theme }) => theme.fontSizes.paragraphe};
+    line-height: ${({ theme }) => theme.lineHeights.normal};
     font-style: italic;
     align-self: center;
   }
 
   @media ${device.lg} {
-    padding: 0;
     flex-direction: row;
-    left: 47%;
-    width: 50vw;
+    left: 475px;
+    bottom: 10px;
+    top: 130px;
+    width: 52vw;
     height: auto;
-    top: 5%;
+    padding: 0;
+    border-bottom-right-radius: ${({ theme }) => theme.radii[5]};
+    border-bottom-left-radius: ${({ theme }) => theme.radii[5]};
   }
 
   @media ${device.xl} {
@@ -65,10 +65,10 @@ export const ModalColLeft = styled.div`
       margin: 20px auto;
       padding: 10px;
 
-      background-color: ${datalimentaire.colors.red};
-      border-radius: ${Base.radii[6]};
+      background-color: ${({ theme }) => theme.colors.red};
+      border-radius: ${({ theme }) => theme.radii[6]};
       border: none;
-      color: ${datalimentaire.colors.secondary};
+      color: ${({ theme }) => theme.colors.secondary};
       text-decoration: none;
 
       cursor: pointer;
@@ -99,7 +99,7 @@ export const ModalColRight = styled.div`
   svg {
     position: absolute;
     height: 2em;
-    color: ${datalimentaire.colors.primary};
+    color: ${({ theme }) => theme.colors.primary};
     right: 25px;
     top: 15px;
   }
@@ -109,7 +109,6 @@ export const ModalColRight = styled.div`
 
     img {
       display: flex;
-      border-radius: 0 ${Base.radii[5]} 0 80px;
     }
 
     svg {
@@ -126,13 +125,8 @@ export const ModalHeading = styled.div`
   div {
     &:first-child {
       h2 {
-        font-size: ${Base.fontSizes.xltitle};
-        line-height: ${Base.lineHeights.title};
-        margin-bottom: 10px;
-      }
-
-      @media ${device.lg} {
-        padding: 30px 0 0 30px;
+        font-size: ${({ theme }) => theme.fontSizes.xltitle};
+        line-height: ${({ theme }) => theme.lineHeights.title};
       }
     }
     &:last-child {
@@ -142,18 +136,27 @@ export const ModalHeading = styled.div`
       svg {
         position: absolute;
         height: 2em;
-        color: ${datalimentaire.colors.primary};
+        color: ${({ theme }) => theme.colors.primary};
         right: 25px;
         top: 15px;
       }
-      @media ${device.lg} {
-        width: 40%;
+    }
+  }
+  @media ${device.lg} {
+    div {
+      width: 40%;
+      &:first-child {
+          padding: 30px 0 0 30px;
+          h2 {
+            margin-bottom: 10px;
+          }
+      }
+      &:last-child {
         img {
           display: flex;
           width: 100%;
-          border-radius: 0 ${Base.radii[5]} 0 80px;
+          border-radius: 0 ${({ theme }) => theme.radii[5]} 0 80px;
         }
-
         svg {
           height: 2em;
           color: white;
@@ -162,7 +165,7 @@ export const ModalHeading = styled.div`
       }
     }
   }
-`;
+}`;
 
 export const ProvenanceList = styled.div`
   margin: 20px 0;
@@ -174,10 +177,10 @@ export const ProvenanceList = styled.div`
     width: auto;
     padding: 5px 10px;
     margin: 5px;
-    border-radius: ${Base.radii[5]};
-    font-size: ${Base.fontSizes.xstext};
-    color: ${datalimentaire.colors.secondary};
-    background-color: ${datalimentaire.colors.primary};
+    border-radius: ${({ theme }) => theme.radii[5]};
+    font-size: ${({ theme }) => theme.fontSizes.xstext};
+    color: ${({ theme }) => theme.colors.secondary};
+    background-color: ${({ theme }) => theme.colors.primary};
 
     @media ${device.lg} {
       margin: 20px 5px;
@@ -207,6 +210,7 @@ export const InfoPratique = styled.ul`
 
     @media ${device.lg} {
       img {
+        overflow: visible;
         width: 30px;
         height: 30px;
       }
@@ -214,6 +218,7 @@ export const InfoPratique = styled.ul`
   }
 
   @media ${device.lg} {
+    margin: auto;
     width: 80%;
   }
 `;
@@ -222,13 +227,13 @@ export const TitleModal = styled.div`
   flex-direction: column;
 
   h2 {
-    font-size: ${Base.fontSizes.xltitle};
-    line-height: ${Base.lineHeights.title};
+    font-size: ${({ theme }) => theme.fontSizes.xltitle};
+    line-height: ${({ theme }) => theme.lineHeights.title};
     margin-bottom: 10px;
   }
 
   p {
-    font-size: ${Base.fontSizes.xstitle};
+    font-size: ${({ theme }) => theme.fontSizes.xstitle};
   }
 
   svg {
@@ -244,13 +249,17 @@ export const TitleModal = styled.div`
 
 export const InfoPratiqueGlobal = styled.ul`
   display: block;
-  width: 100%;
+  width: 90%;
 
   li {
-    font-size: ${Base.fontSizes.paragraphe};
-    line-height: ${Base.lineHeights.normal};
+    font-size: ${({ theme }) => theme.fontSizes.xstext};
+    line-height: ${({ theme }) => theme.lineHeights.normal};
     display: flex;
     margin-top: 15px;
+    width: 100%;
+    address {
+      font-size: ${({ theme }) => theme.fontSizes.xstext};
+    }
     ul {
       padding-left: 10px;
       li {
@@ -262,11 +271,17 @@ export const InfoPratiqueGlobal = styled.ul`
   @media ${device.lg} {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px !important;
+
+    width: 100%;
+    margin: auto;
+    padding: 10px 20px !important;
+
     li {
       display: flex;
       margin-bottom: 5px;
+      width: 70%;
       &:nth-child(2) {
+        width: auto;
         margin-left: 10px;
       }
       &:last-child {
@@ -291,15 +306,15 @@ export const LabelRow = styled.div`
       display: flex;
       flex-wrap: wrap;
       li{
-        font-size: ${Base.fontSizes.xstext};
+        font-size: ${({ theme }) => theme.fontSizes.xstext};
         margin: 5px;
       }
     }
     p{
       margin-top: 10px;
       font-style: normal;
-      font-size: ${Base.fontSizes.xstext};
-      line-height: ${Base.lineHeights.paragraph};
+      font-size: ${({ theme }) => theme.fontSizes.xstext};
+      line-height: ${({ theme }) => theme.lineHeights.paragraph};
     }
     img{
       border-radius: 0;
@@ -324,8 +339,8 @@ export const ProductRow = styled.div`
       margin: 5px;
       p {
         font-style: normal;
-        font-size: ${Base.fontSizes.xstext};
-        line-height: ${Base.lineHeights.paragraph};
+        font-size: ${({ theme }) => theme.fontSizes.xstext};
+        line-height: ${({ theme }) => theme.lineHeights.paragraph};
         margin-left: 5px;
       }
     }
@@ -357,16 +372,81 @@ export const BottomButton = styled.a`
     margin: auto;
     margin-top: 40px;
     border: none;
-    background-color: ${datalimentaire.colors.secondary};
+    background-color: ${({ theme }) => theme.colors.secondary};
     p {
       padding-left: 10px;
-      background-color: ${datalimentaire.colors.secondary};
+      background-color: ${({ theme }) => theme.colors.secondary};
       text-decoration-line: underline;
-      font-size: ${Base.fontSizes.paragraphe};
+      font-size: ${({ theme }) => theme.fontSizes.paragraphe};
     }
   }
 `;
 
-export const ModaList = styled.div`
+export const TabsMarket = styled.div`
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px 0;
+
+  .tab {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: solid 1px ${({ theme }) => theme.colors.gray};
+    .tablinks {
+      padding: 10px;
+      background: none;
+      border: none;
+    }
+  }
+  @media ${device.lg} {
+    width: 100%;
+    margin: auto;
+    padding: 10px 20px;
+
+    .tab {
+      margin: auto;
+      .tablinks {
+      }
+    }
+  }
+`;
+
+export const ModalList = styled.ul`
+  margin: auto;
+  li {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 0;
+
+    background-color: ${({ theme }) => (theme ? theme.colors.secondary : theme)};
+
+    h5 {
+      flex: 14;
+      font-size: ${({ theme }) => theme.fontSizes.paragraphe};
+      font-weight : ${({ theme }) => theme.fontWeights[5]}
+      border-bottom: none;
+    }
+    span {
+      flex: 1;
+    }
+    ul {
+      flex: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      li {
+        display: flex;
+        width: auto;
+        padding: 5px;
+        p{
+          font-size: 10px;
+          padding-left: 5px; 
+        }
+        img{
+          width: auto;
+          height: 15px;
+        }
+
+      }
+    }
+  }
 `;

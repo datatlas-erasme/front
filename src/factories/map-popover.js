@@ -6,12 +6,12 @@ import {
   withState,
 } from 'erasme-kepler.gl/components';
 import { visStateLens } from 'erasme-kepler.gl/reducers';
-import { MapModalLocal, ModalGlobalMarket } from '../components/modal';
+import CustomMapModal from '../components/modal/Modal';
 import CustomMapPopover from '../components/popover';
 import { PopHover } from '../components/popover/style';
-import { WrapperModal } from '../components/modal/style';
+import { WrapperModal } from '../components/modal/alimentaire-modal/style';
 
-const CustomMapPopoverFactory = (...deps) => {
+const CustomMapPopoverFactory = () => {
   MapPopoverFactory.deps = [LayerHoverInfoFactory, CoordinateInfoFactory];
 
   const MapPopoverWrapper = (props) => {
@@ -20,7 +20,6 @@ const CustomMapPopoverFactory = (...deps) => {
 
     // List of all data fields names
     const allFields = props.layerHoverProp.fields;
-
     // All the data related to the point clicked
     const data = props.layerHoverProp.data;
 
@@ -28,9 +27,10 @@ const CustomMapPopoverFactory = (...deps) => {
 
     const clicked = useSelector((state) => state.keplerGl.map?.visState?.clicked ?? null);
 
-    if (props.layerHoverProp?.layer?.id === 'point_layer') {
-      return null;
-    }
+    // if (props.layerHoverProp?.layer?.id === 'point_layer') {
+    //   return null;
+    // }
+    // Display PopHover
     if (!clicked) {
       const HoverField = allFields.map((field, index) => {
         return fieldsToShow.map((fieldToShow) => {
@@ -51,10 +51,8 @@ const CustomMapPopoverFactory = (...deps) => {
         if (field.displayName === fieldToShow.name) {
           // TODO check if is url and has image extension
           if (fieldToShowIndex === 1) {
-            return dataID === 'Manger Local' ? (
-              <MapModalLocal data={data} key={index} onClick={props.onClose} dataID={dataID} />
-            ) : (
-              <ModalGlobalMarket data={data} key={index} onClick={props.onClose} dataID={dataID} />
+            return (
+              <CustomMapModal data={data} key={index} onClick={props.onClose} dataID={dataID} />
             );
           }
         }

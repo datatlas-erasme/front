@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import { queryIcon } from '../../utils/queryIcon';
+import { queryIcon } from '../../../utils/queryIcon';
 import {
   FarmSale,
   ProducerShop,
@@ -9,11 +9,11 @@ import {
   MarketProducer,
   Solidarity,
   MarketDealer,
-} from '../../assets/svg/types/index';
-import PictoTime from '../../assets/icon/icon-time.png';
-import PictoPoi from '../../assets/icon/icon-poi.png';
-import PictoPen from '../../assets/icon/icon-pen.png';
-import { importAll } from '../../utils/import-png';
+} from '../../../assets/svg/types/index';
+import PictoTime from '../../../assets/icon/icon-time.png';
+import PictoPoi from '../../../assets/icon/icon-poi.png';
+import PictoPen from '../../../assets/icon/icon-pen.png';
+import { importAll } from '../../../utils/import-png';
 import {
   ModalColLeft,
   ModalColRight,
@@ -23,20 +23,19 @@ import {
   ProvenanceList,
   InfoPratique,
   BottomButton,
-  WrapperModal,
   TitleModal,
 } from './style';
 
 const labels: { [index: string]: any } = importAll(
-  require.context('../../assets/label', false, /\.(png)$/),
+  require.context('../../../assets/label', false, /\.(png)$/),
 );
 const icons: { [index: string]: any } = importAll(
-  require.context('../../assets/icon', false, /\.(png)$/),
+  require.context('../../../assets/icon', false, /\.(png)$/),
 );
 
 function MapModalLocal({ data, onClick }: any) {
   return (
-    <WrapperModal>
+    <>
       <ModalHeading>
         <TitleModal>
           <span>
@@ -143,7 +142,7 @@ function MapModalLocal({ data, onClick }: any) {
           <p>Modifier les informations</p>
         </button>
       </BottomButton>
-    </WrapperModal>
+    </>
   );
 }
 const mapStateToProps = (state: any) => state;

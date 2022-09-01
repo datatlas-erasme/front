@@ -44,7 +44,7 @@ const HeaderBlock = styled.header`
 
   @media ${device.lg} {
     nav {
-      margin: 1rem 5rem;
+      margin: 0.25rem 5rem;
       a {
         position: static;
         display: flex;
@@ -70,8 +70,8 @@ const PreHeader = styled.div`
   p {
     text-align: center;
     color: ${({ theme }) => theme.colors.secondary};
-    font-size: ${px2vw(40)};
-    @media ${device.lg} {
+    font-size: 10px;
+    @media ${device.sm} {
       font-size: ${({ theme }) => theme.fontSizes.xstext};
     }
   }
