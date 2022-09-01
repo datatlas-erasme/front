@@ -32,7 +32,8 @@ const keplerGl: Reducer<KeplerGlState> = keplerGlReducer.initialState({
 });
 
 // Selectors
-export const getLayers = (state) => state.keplerGl.map?.visState?.layers ?? {};
+export const getLayers = (state) => state.keplerGl.map?.visState?.layers ?? [];
 export const getFilters = (state) => state.keplerGl.map?.visState?.filters ?? [];
+export const getFirstLayers = (state) => getLayers(state)[0];
 
 export default keplerGl;

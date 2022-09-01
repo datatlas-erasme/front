@@ -272,7 +272,7 @@ export const InfoPratiqueGlobal = styled.ul`
     display: flex;
     justify-content: space-around;
 
-    width: 100%;
+    width: 90%;
     margin: auto;
     padding: 10px 20px !important;
 
@@ -280,6 +280,11 @@ export const InfoPratiqueGlobal = styled.ul`
       display: flex;
       margin-bottom: 5px;
       width: 70%;
+      font-size: ${({ theme }) => theme.fontSizes.paragraphe};
+      address {
+        font-size: ${({ theme }) => theme.fontSizes.paragraphe};
+      }
+
       &:nth-child(2) {
         width: auto;
         margin-left: 10px;
@@ -386,7 +391,7 @@ export const TabsMarket = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 10px 0;
+  padding: 20px 0;
 
   .tab {
     display: flex;
@@ -416,7 +421,7 @@ export const ModalList = styled.ul`
   li {
     display: flex;
     flex-wrap: wrap;
-    padding: 10px 0;
+    padding: 15px 0;
 
     background-color: ${({ theme }) => (theme ? theme.colors.secondary : theme)};
 
@@ -448,5 +453,39 @@ export const ModalList = styled.ul`
 
       }
     }
+  }
+
+  @media ${device.lg} {
+    li {
+      padding: 20px 100px;
+    h5 {
+      flex: 10;
+      font-size: ${({ theme }) => theme.fontSizes.xstitle};
+      font-weight : ${({ theme }) => theme.fontWeights[5]}
+      border-bottom: none;
+    }
+    span {
+      flex: 1;
+    }
+    ul {
+      flex: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      li {
+        display: flex;
+        width: auto;
+        padding: 5px;
+        p{
+          font-size: ${({ theme }) => theme.fontSizes.xstext};
+          padding-left: 5px; 
+        }
+        img{
+          width: auto;
+          height: 20px;
+        }
+
+      }
+    }
+  }
   }
 `;
