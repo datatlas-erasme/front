@@ -51,7 +51,9 @@ export default function ButtonDay({ dayList = [], idFilter, text }: DayProps) {
   };
 
   useEffect(() => {
-    dispatch(setFilter(idFilter, 'value', filtersArray));
+    if (filtersArray) {
+      dispatch(setFilter(idFilter, 'value', filtersArray));
+    }
   }, [dispatch, idFilter, filtersArray]);
 
   return width < breakpoint ? (

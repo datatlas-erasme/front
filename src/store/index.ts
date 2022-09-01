@@ -27,7 +27,12 @@ const enhancers = [applyMiddleware(...middlewares)];
 // Add redux devtools
 
 const composeEnhancers = composeWithDevTools({
-  actionsBlacklist: ['@@kepler.gl/MOUSE_MOVE', '@@kepler.gl/UPDATE_MAP', '@@kepler.gl/LAYER_HOVER'],
+  actionsBlacklist: [
+    '@@kepler.gl/MOUSE_MOVE',
+    '@@kepler.gl/UPDATE_MAP',
+    '@@kepler.gl/SET_FILTER',
+    '@@kepler.gl/LAYER_HOVER',
+  ],
 });
 /**
  * comment out code below to enable Redux Devtools
