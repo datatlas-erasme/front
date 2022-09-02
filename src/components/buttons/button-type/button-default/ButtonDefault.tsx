@@ -8,6 +8,7 @@ import { LightenDarkenColor } from 'lighten-darken-color';
 import { Override } from '../../../../types/Override';
 import { RootState } from '../../../../store';
 import { List } from '../../../filters-desktop/lists/Lists';
+import { IndustriesButton, ColorDot } from './style';
 
 export type ButtonDefaultProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
@@ -65,12 +66,10 @@ const ButtonDefault = ({
   if (btnType === 'parent') {
     return (
       <div className="btn-parent" style={{ backgroundColor: bg, fontSize: textSize }}>
-        <button className="btn" style={{ backgroundColor: bg }} {...props}>
-          <p onClick={isLayerVisibleState}>
-            <span className="circle" style={{ backgroundColor: bg }}></span>
-          </p>
+        <IndustriesButton {...props}>
+          <ColorDot onClick={isLayerVisibleState} style={{ backgroundColor: bg }} />
           {text.substring(0, 30)}
-        </button>
+        </IndustriesButton>
       </div>
     );
   }
@@ -78,6 +77,7 @@ const ButtonDefault = ({
   else if (btnType === 'child') {
     return (
       <div>
+        CHILD
         <button
           onClick={isActiveState}
           style={{ backgroundColor: LightenDarkenColor(bg, 30), fontSize: textSize }}
@@ -105,6 +105,7 @@ const ButtonDefault = ({
         className={classnames('btn', className, { selected: !isActive })}
         {...props}
       >
+        DEFAULT
         {text.substring(0, 30)}
       </button>
     );

@@ -3,10 +3,33 @@ import styled from 'styled-components';
 
 export const StyleFilters = styled.div``;
 
+export const IndustriesButton = styled.button`
+  font-size: 16px;
+  color: white;
+  padding: 16px 16px 16px 10px;
+  border-radius: 0px 5px 5px 0px;
+  border: none;
+  margin: 0;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.75px;
+  background-color: black;
+`;
+
+export const ColorDot = styled.div`
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: aliceblue;
+`;
+
 export const ButtonLayer = styled.div`
     display: flex;
     border-radius: 5px;
     margin-bottom: 0;
+    border: none;
     font-size: 15px;
     width: max-content;
     color : ${({ theme }) => theme.colors.primary};)}
