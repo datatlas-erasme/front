@@ -1,13 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
+import { IconName } from '@fortawesome/fontawesome-svg-core';
 import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';
 import { LightenDarkenColor } from 'lighten-darken-color';
+import { Override } from '../../../../types/Override';
 import { RootState } from '../../../../store';
 import { List } from '../../../filters-desktop/lists/Lists';
 
-export const ButtonDefault = ({
+export type ButtonDefaultProps = Override<
+  React.ComponentPropsWithoutRef<'button'>,
+  {
+    text: string;
+    bg?: string;
+    textSize?: string;
+    btnType?: 'parent' | 'child';
+    listNames?: string[];
+    idFilter?: string;
+    layerId?: string;
+    iconName?: IconName;
+  }
+>;
+
+const ButtonDefault = ({
   text,
   bg,
   textSize,
@@ -17,9 +33,8 @@ export const ButtonDefault = ({
   layerId,
   className,
   iconName,
-  theme,
   ...props
-}) => {
+}: ButtonDefaultProps) => {
   const dispatch = useDispatch();
 
   // Toggle the visibility of buttons parent list
@@ -50,15 +65,17 @@ export const ButtonDefault = ({
   if (btnType === 'parent') {
     return (
       <div className="btn-parent" style={{ backgroundColor: bg, fontSize: textSize }}>
-        <p onClick={isLayerVisibleState}></p>
-        <button className="btn" {...props} style={{ backgroundColor: bg }}>
+        <button className="btn" style={{ backgroundColor: bg }} {...props}>
+          <p onClick={isLayerVisibleState}>
+            <span className="circle" style={{ backgroundColor: bg }}></span>
+          </p>
           {text.substring(0, 30)}
         </button>
       </div>
     );
   }
-
-  if (btnType === 'child') {
+  // Medium button styling + lits display
+  else if (btnType === 'child') {
     return (
       <div>
         <button
@@ -67,14 +84,15 @@ export const ButtonDefault = ({
           className={classnames('btn', className, { active: !isActive })}
           {...props}
         >
-          {text?.substring(0, 30)}
+          Filtrer par {text?.substring(0, 30)}
+          <span>{isActive ? '-' : '+'}</span>
         </button>
         <AnimateHeight
           duration={500}
           height={!isActive ? 0 : 'auto'} // see props documentation bellow
         >
           <div className="list">
-            <List listNames={listNames} idFilter={idFilter} />
+            <List listNames={listNames} backgroundColor={bg} idFilter={idFilter} />
           </div>
         </AnimateHeight>
       </div>

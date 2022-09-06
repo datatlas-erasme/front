@@ -51,7 +51,6 @@ export const List = ({ listNames = [], idFilter, theme, text }: ListProps) => {
               listNames={undefined}
               layerId={undefined}
               iconName={undefined}
-              theme={undefined}
             />
           </li>
         ))}

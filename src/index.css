@@ -11,6 +11,67 @@
   width: 100%;
 } */
 
+
+/********************** POI SIDE PANEL **************************/
+.PointSidePanel {
+  position: absolute;
+  top: 0;
+  width: 30%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  z-index: 99;
+  overflow-x: hidden;
+  box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.4);
+  animation: 0.2s linear 0s running slidein;
+  }
+
+  @keyframes slidein {
+    from { width: 0; }
+    to   { width: 30%; }
+  }
+
+  @keyframes slidedown {
+    from { width: 0; }
+    to   { height: 50px; }
+  }
+
+  .PointSidePanel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .PointSidePanel img {
+    width: 100%;
+    height: auto;
+  }
+  .PointSidePanel .content {
+    padding: 20px 45px 45px 45px;
+  }
+
+  .PointSidePanel h1 {
+    color: #1a1a1a;
+    font-size: 40px;
+  }
+
+  .PointSidePanel p {
+    color: #1a1a1a;
+    line-height: 1.5;
+  }
+
+  .PointSidePanel a {
+    color: #1a1a1a;
+    text-decoration: underline !important;
+    display: block;
+    padding-bottom: 25px;
+
+  }
+
+  .PointSidePanel .desc {
+    font-size: 20px;
+    margin-top: 5px;
+  }
+
 /********************** FILTERS SIDE PANEL *********************/
 /* .FilterSidePanel {
   position: absolute;
@@ -18,8 +79,27 @@
   top: 0;
   width: 500px;
   height: 500px;
+} */
+
+.filters {
+  position: absolute;
+  top: 85px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 84vh;
+  overflow: auto;
+  /*width: 11%;*/
+  padding-right: 10px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
+.filters::-webkit-scrollbar {
+  display: none;
+}
+
+/*
 .filter.filter-parent:last-of-type {
   margin-bottom: 15px !important;
 }
@@ -34,10 +114,8 @@
   transition: all ease-in-out 0.2s;
 }
 
-.filter-parent .btn,
-.crowdsourcing button {
+.filter-parent .btn, .crowdsourcing button {
   max-height: 1000px;
-  overflow: auto;
   transition: all ease-in-out 0.2s;
   overflow-y: hidden;
   border-radius: 3px;
@@ -79,7 +157,7 @@
   text-align: left;
 }
 
-filters .filter-child button.active span {
+.filters .filter-child button.active span {
   transform: rotate(90deg) !important;
 }
 
@@ -100,8 +178,27 @@ filters .filter-child button.active span {
 
 .filters button:hover {
   transition: all ease-in-out 0.2s;
+} */
+
+.crowdsourcing {
+  display: flex;
+  flex-direction: column;
 }
 
+.crowdsourcing button {
+  margin-bottom: 2px;
+  margin-top: 0px;
+  width: max-content;
+  border-radius: 5px 5px 5px 5px;
+  background-color: #df7160;
+  text-align: center;
+}
+
+.crowdsourcing button a:first-of-type {
+  margin-bottom: 2px;
+}
+
+/*
 .btn-parent {
   display: flex;
   border-radius: 5px;
@@ -143,9 +240,8 @@ button {
   transition: all ease-in-out 0.2s;
   cursor: pointer;
   font-weight: 400;
-  width: 100%;
-  text-transform: capitalize;
-  letter-spacing: 0.75px;
+  text-transform : capitalize;
+  letter-spacing : 0.75px;
 }
 
 .btn-parent button:hover,
@@ -156,3 +252,92 @@ button {
   filter: brightness(0.6);
   transition: all ease-in-out 0.2s;
 } */
+
+.instance-config {
+  position: absolute;
+  top: 44px;
+  background: white;
+  padding: 15px;
+  left: 30%;
+}
+
+/********************** ABOUT PANEL *********************/
+.header {
+  display: flex;
+}
+.header h2 {
+  font-size: 7vw;
+  font-style: italic;
+  margin: 0 0 0 7%;
+}
+.header h3 {
+  font-size: 1.8vw;
+  margin: 1% 14% 0 5%;
+}
+
+.header button {
+  border-radius: 5px;
+  height: 50px;
+  color: black;
+  padding: 9px;
+  width: 100px;
+  font-size: 32px;
+  margin-left: 5px;
+}
+
+.modal-content {
+  display: flex;
+  width: 100%;
+}
+
+.modal-content .left-content {
+  font-size: 1.1vw;
+  margin: 0% 7% 0 7%;
+  line-height: 1.6;
+}
+
+.right-content {
+  width: 200%;
+  padding-top: 25px;
+}
+
+.right-content .subtext {
+  font-size: 1.0vw;
+}
+
+.right-content .buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.right-content .buttons .btn {
+  background: black !important;
+  width: max-content;
+  border: solid 0.2px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-transform: initial;
+  font-size: 1.1vw;
+}
+
+.right-content .buttons .btn:hover {
+  filter: brightness(0.2);
+}
+
+.right-content .logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin: 29px 0 0 0;
+}
+
+.right-content .logos a {
+  width: max-content;
+  width: 30%;
+  padding-left: 15px;
+}
+
+.right-content .logos a img {
+  width: 9vw;
+  /*height: 60px;*/
+}
