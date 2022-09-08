@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faChevronRight } from '@fortawesome/free-solid-svg-icons';
@@ -18,15 +18,21 @@ import { queryIcon } from '../../../utils/queryIcon';
 import { ModalHeading, InfoPratiqueGlobal, BottomButton, TabsMarket, ModalList } from './style';
 import { ModalInside } from './index';
 
-function ModalGlobalMarket({ data, onClick, props }: any) {
+function ModalGlobalMarket({ data, onClick }: any) {
   const [modalOpen, setIsModalOpen] = useState(false);
+  const [modalData, setIsModalData] = useState({});
   const dataLayer = useSelector(getLayers);
   const marketLocalList = dataLayer[1].dataToFeature;
 
-  const openModal = (i) => {
-    console.log(i);
+  const openModal = (info) => {
+    console.log(info.index);
     setIsModalOpen(true);
+    setIsModalData(info.properties);
   };
+
+  useEffect(() => {
+    console.log(modalData);
+  }, [modalData]);
 
   return (
     <>
@@ -85,7 +91,7 @@ function ModalGlobalMarket({ data, onClick, props }: any) {
         <ModalList>
           {marketLocalList.map((info, i) => {
             return info.properties.adresse.includes(data[2]) ? (
-              <li key={i}>
+              <li key={i} onClick={() => openModal(info)}>
                 <div>
                   {info.properties.type === 'AMAP' ? (
                     <Amap />
@@ -106,12 +112,9 @@ function ModalGlobalMarket({ data, onClick, props }: any) {
                   )}
                 </div>
                 <h5>{info.properties.nom}</h5>
-                <span onClick={() => openModal(info.properties.i)}>
+                <span>
                   <FontAwesomeIcon icon={faChevronRight} />
                 </span>
-                {info.properties.index === info.properties.index
-                  ? modalOpen && <ModalInside key={i} info={info.properties} onClick={onClick} />
-                  : null}
                 <ul>
                   {info.properties.produits.map((p) => (
                     <li key={p}>
@@ -137,6 +140,7 @@ function ModalGlobalMarket({ data, onClick, props }: any) {
           <p>Ajouter un stand au marché</p>
         </button>
       </BottomButton>
+      {modalOpen && <ModalInside info={modalData} onClick={onClick} />}
     </>
   );
 }
