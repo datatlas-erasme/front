@@ -32,3 +32,20 @@ export const queryIcon = (text) => {
       return icons[`icon-bulle.png`];
   }
 };
+
+const labels = importAll(require.context('../assets/label/', false, /\.(png)$/));
+
+export const queryLabels = (text) => {
+  switch (text) {
+    case 'AB - agriculture biologique':
+      return labels[`Agriculture-biologique.png`];
+    case 'Autres labels':
+      return labels['bienvenueferme.png'];
+    case 'LVED (Lyon Ville Equitable et Durable)':
+      return labels['lyonequitabledurable.png'];
+    case 'HVE (Haute Valeur Environnementale)':
+      return labels['hve.png'];
+    default:
+      return '';
+  }
+};

@@ -22,7 +22,7 @@ export const WrapperModal = styled.div`
   z-index: 99;
 
   h4 {
-    font-size: ${({ theme }) => theme.fontSizes.paragraphe};
+    font-size: ${({ theme }) => theme.fontSizes.xstext};
     font-weight: ${({ theme }) => theme.fontWeights[2]};
     padding-bottom: 5px;
     border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
@@ -31,7 +31,7 @@ export const WrapperModal = styled.div`
   p,
   li,
   address {
-    font-size: ${({ theme }) => theme.fontSizes.paragraphe};
+    font-size: ${({ theme }) => theme.fontSizes.xstext};
     line-height: ${({ theme }) => theme.lineHeights.normal};
     font-style: italic;
     align-self: center;
@@ -47,6 +47,9 @@ export const WrapperModal = styled.div`
     padding: 0;
     border-bottom-right-radius: ${({ theme }) => theme.radii[5]};
     border-bottom-left-radius: ${({ theme }) => theme.radii[5]};
+    h4 {
+      font-size: ${({ theme }) => theme.fontSizes.paragraphe};
+    }
   }
 
   @media ${device.xl} {
@@ -54,6 +57,7 @@ export const WrapperModal = styled.div`
     width: 60vw;
   }
 `;
+
 export const ModalColLeft = styled.div`
   display: flex;
   flex-direction: column;
@@ -87,6 +91,7 @@ export const ModalColLeft = styled.div`
     padding-left: 30px;
   }
 `;
+
 export const ModalColRight = styled.div`
   display: flex;
   flex-direction: column;
@@ -118,6 +123,7 @@ export const ModalColRight = styled.div`
     }
   }
 `;
+
 export const ModalHeading = styled.div`
   display: flex;
   width: 100%;
@@ -174,13 +180,12 @@ export const ProvenanceList = styled.div`
   }
 
   li {
-    width: auto;
-    padding: 5px 10px;
-    margin: 5px;
+    padding: 5px 10px !important;
+    margin: 5px !important;
     border-radius: ${({ theme }) => theme.radii[5]};
     font-size: ${({ theme }) => theme.fontSizes.xstext};
     color: ${({ theme }) => theme.colors.secondary};
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.primary} !important;
 
     @media ${device.lg} {
       margin: 20px 5px;
@@ -222,18 +227,17 @@ export const InfoPratique = styled.ul`
     width: 80%;
   }
 `;
-export const TitleModal = styled.div`
-  width: 60%;
-  flex-direction: column;
 
+export const TitleModal = styled.div`
+  flex-direction: column;
+  justify-content: center;
   h2 {
     font-size: ${({ theme }) => theme.fontSizes.xltitle};
     line-height: ${({ theme }) => theme.lineHeights.title};
-    margin-bottom: 10px;
   }
 
   p {
-    font-size: ${({ theme }) => theme.fontSizes.xstitle};
+    font-size: ${({ theme }) => theme.fontSizes.paragraphe};
   }
 
   svg {
@@ -257,9 +261,6 @@ export const InfoPratiqueGlobal = styled.ul`
     display: flex;
     margin-top: 15px;
     width: 100%;
-    address {
-      font-size: ${({ theme }) => theme.fontSizes.xstext};
-    }
     ul {
       padding-left: 10px;
       li {
@@ -280,11 +281,6 @@ export const InfoPratiqueGlobal = styled.ul`
       display: flex;
       margin-bottom: 5px;
       width: 70%;
-      font-size: ${({ theme }) => theme.fontSizes.paragraphe};
-      address {
-        font-size: ${({ theme }) => theme.fontSizes.paragraphe};
-      }
-
       &:nth-child(2) {
         width: auto;
         margin-left: 10px;
@@ -348,6 +344,11 @@ export const ProductRow = styled.div`
         line-height: ${({ theme }) => theme.lineHeights.paragraph};
         margin-left: 5px;
       }
+      img {
+        display: block;
+        width: 25px;
+        height: 25px;
+      }
     }
   }
 
@@ -357,12 +358,6 @@ export const ProductRow = styled.div`
     ul {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      li {
-        img {
-          width: 25px;
-          height: 25px;
-        }
-      }
     }
   }
 `;
@@ -422,6 +417,7 @@ export const ModalList = styled.ul`
     display: flex;
     flex-wrap: wrap;
     padding: 15px 0;
+    cursor: pointer;
 
     background-color: ${({ theme }) => (theme ? theme.colors.secondary : theme)};
 

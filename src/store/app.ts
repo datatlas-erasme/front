@@ -4,10 +4,12 @@ import InstanceConfigurationInterface from '../domain/InstanceConfigurationInter
 // Constants
 export const INIT = 'INIT';
 export const UPDATE_INSTANCE_CONFIGURATION = 'UPDATE_INSTANCE_CONFIGURATION';
+export const SHOW_MODAL = 'SHOW_MODAL';
 
 // Actions
 export const appInit = createAction(INIT);
 export const updateInstanceConfiguration = createAction(UPDATE_INSTANCE_CONFIGURATION);
+export const showModal = createAction(SHOW_MODAL);
 
 export interface AppState {
   appName: string;
@@ -31,6 +33,10 @@ const app = handleActions<AppState, any>(
     [UPDATE_INSTANCE_CONFIGURATION]: (state, action) => ({
       ...state,
       configuration: action.payload,
+    }),
+    [SHOW_MODAL]: (state, action) => ({
+      ...state,
+      modal: action.payload,
     }),
   },
   initialState,
