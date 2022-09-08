@@ -1,26 +1,5 @@
 import styled from 'styled-components';
 import { device } from '../../../../styles/breakpoints';
-import px2vw from '../../../../utils/px2vw';
-
-export const CheckBoxTitle = styled.h4`
-  margin: 10px 0;
-  align-self: center;
-  color: ${({ theme }) => theme.colors.primary};
-  font-size: ${px2vw(40)};
-  @media ${device.lg} {
-    font-size: ${({ theme }) => theme.fontSizes.paragraphe};
-  }
-`;
-
-export const MobileSwitch = styled.div`
-  display: flex;
-  align-items: center;
-  color: ${({ theme }) => theme.colors.primary};
-  font-size: ${({ theme }) => theme.fontSizes.xstext};
-  h4 {
-    padding: 10px;
-  }
-`;
 
 export const CheckBoxTitle = styled.h4`
   margin: 10px 0;
@@ -29,16 +8,6 @@ export const CheckBoxTitle = styled.h4`
   font-size: ${({ theme }) => theme.fontSizes.xstext};
   @media ${device.lg} {
     font-size: ${({ theme }) => theme.fontSizes.paragraphe};
-  }
-`;
-
-export const MobileSwitch = styled.div`
-  display: flex;
-  align-items: center;
-  color: ${({ theme }) => theme.colors.primary};
-  font-size: ${({ theme }) => theme.fontSizes.xstext};
-  h4 {
-    padding: 10px;
   }
 `;
 

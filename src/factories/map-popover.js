@@ -10,22 +10,22 @@ import CustomMapModal from '../components/modal/Modal';
 import CustomMapPopover from '../components/popover';
 import { PopHover } from '../components/popover/style';
 import { WrapperModal } from '../components/modal/alimentaire-modal/style';
+import { getClicked } from '../store/keplerGl';
 
 const CustomMapPopoverFactory = () => {
   MapPopoverFactory.deps = [LayerHoverInfoFactory, CoordinateInfoFactory];
-
   const MapPopoverWrapper = (props) => {
+    const clicked = useSelector(getClicked);
     // Fields declared in the kepler conf panel
     const fieldsToShow = props.layerHoverProp.fieldsToShow;
 
     // List of all data fields names
     const allFields = props.layerHoverProp.fields;
+
     // All the data related to the point clicked
     const data = props.layerHoverProp.data;
 
     const dataID = props.layerHoverProp.layer._oldDataUpdateTriggers.getData.datasetId;
-
-    const clicked = useSelector((state) => state.keplerGl.map?.visState?.clicked ?? null);
 
     // if (props.layerHoverProp?.layer?.id === 'point_layer') {
     //   return null;
@@ -52,7 +52,13 @@ const CustomMapPopoverFactory = () => {
           // TODO check if is url and has image extension
           if (fieldToShowIndex === 1) {
             return (
-              <CustomMapModal data={data} key={index} onClick={props.onClose} dataID={dataID} />
+              <CustomMapModal
+                data={data}
+                key={index}
+                onClick={props.onClose}
+                dataID={dataID}
+                props={props}
+              />
             );
           }
         }
