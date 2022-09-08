@@ -1,9 +1,8 @@
-import { useState } from 'react';
-import { connect, useSelector, useDispatch } from 'react-redux';
-// import { onLayerClick } from 'erasme-kepler.gl/actions';
+import { useState, useEffect } from 'react';
+import { connect, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { getLayers, getFilters } from '../../../store/keplerGl';
+import { getLayers } from '../../../store/keplerGl';
 import PictoTime from '../../../assets/icon/icon-time.png';
 import PictoPoi from '../../../assets/icon/icon-poi.png';
 import PictoPen from '../../../assets/icon/icon-pen.png';
@@ -17,42 +16,23 @@ import {
 } from '../../../assets/svg/types';
 import { queryIcon } from '../../../utils/queryIcon';
 import { ModalHeading, InfoPratiqueGlobal, BottomButton, TabsMarket, ModalList } from './style';
+import { ModalInside } from './index';
 
-const types = ['Tous', 'Producteurs', 'Revendeurs'];
-
-function ModalGlobalMarket({ data, onClick, props }: any) {
-  // const [active, setActive] = useState<string>(types[0]);
-  const [isLayerLocal, setIsLayerLocal] = useState(false);
+function ModalGlobalMarket({ data, onClick }: any) {
+  const [modalOpen, setIsModalOpen] = useState(false);
+  const [modalData, setIsModalData] = useState({});
   const dataLayer = useSelector(getLayers);
-  const dataFilter = useSelector(getFilters);
   const marketLocalList = dataLayer[1].dataToFeature;
-  const handleclick = () => setIsLayerLocal(!isLayerLocal);
 
-  const dispatch = useDispatch();
-  const filtersDomain = dataFilter[1].domain;
-  const [filtersMarket, setFiltersMarket] = useState<string[]>([]);
+  const openModal = (info) => {
+    console.log(info.index);
+    setIsModalOpen(true);
+    setIsModalData(info.properties);
+  };
 
-  // const setFilterValue = (item: string) => {
-  //   if (filtersDomain.includes(item)) {
-  //     setFiltersMarket((filtersDomain) =>
-  //       filtersDomain.filter((cat) => {
-  //         return cat !== item;
-  //       }),
-  //     );
-  //   } else {
-  //     setFiltersMarket((filtersDomain) => [...filtersDomain, item]);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   dispatch(setFilter(filtersDomain, 'value', filtersMarket));
-  // }, [dispatch, filtersDomain, filtersMarket]);
-
-  // useEffect(() => {
-  //   if (marketLocalList) {
-  //     dispatch(onLayerClick(isLayerLocal, marketLocalList));
-  //   }
-  // }, [isLayerLocal, dispatch, marketLocalList]);
+  useEffect(() => {
+    console.log(modalData);
+  }, [modalData]);
 
   return (
     <>
@@ -87,31 +67,31 @@ function ModalGlobalMarket({ data, onClick, props }: any) {
         </li>
       </InfoPratiqueGlobal>
       <TabsMarket>
-        <div className="tab">
-          {/* {types.map((type) => (
-            <button key={type} data-active={active === type} onClick={() => setActive(type)}>
-              {type}
-            </button>
-          ))} */}
-          <button className="tablinks" onClick={() => setFiltersMarket}>
-            Tous
-          </button>
-          <button className="tablinks" onClick={() => setFiltersMarket}>
-            Producteur
-          </button>
-          <button
-            className="tablinks"
-            onClick={() =>
-              setFiltersMarket(['Producteur du marché (Cultive ses produits et les vend)'])
-            }
-          >
-            Revendeur
-          </button>
-        </div>
+        {/*<div className="tab">*/}
+        {/*  /!* {types.map((type) => (*/}
+        {/*    <button key={type} data-active={active === type} onClick={() => setActive(type)}>*/}
+        {/*      {type}*/}
+        {/*    </button>*/}
+        {/*  ))} *!/*/}
+        {/*  <button className="tablinks" onClick={() => setFiltersMarket}>*/}
+        {/*    Tous*/}
+        {/*  </button>*/}
+        {/*  <button className="tablinks" onClick={() => setFiltersMarket}>*/}
+        {/*    Producteur*/}
+        {/*  </button>*/}
+        {/*  <button*/}
+        {/*    className="tablinks"*/}
+        {/*    onClick={() =>*/}
+        {/*      setFiltersMarket(['Producteur du marché (Cultive ses produits et les vend)'])*/}
+        {/*    }*/}
+        {/*  >*/}
+        {/*    Revendeur*/}
+        {/*  </button>*/}
+        {/*</div>*/}
         <ModalList>
           {marketLocalList.map((info, i) => {
             return info.properties.adresse.includes(data[2]) ? (
-              <li key={i} onClick={props}>
+              <li key={i} onClick={() => openModal(info)}>
                 <div>
                   {info.properties.type === 'AMAP' ? (
                     <Amap />
@@ -132,7 +112,7 @@ function ModalGlobalMarket({ data, onClick, props }: any) {
                   )}
                 </div>
                 <h5>{info.properties.nom}</h5>
-                <span onClick={handleclick}>
+                <span>
                   <FontAwesomeIcon icon={faChevronRight} />
                 </span>
                 <ul>
@@ -160,6 +140,7 @@ function ModalGlobalMarket({ data, onClick, props }: any) {
           <p>Ajouter un stand au marché</p>
         </button>
       </BottomButton>
+      {modalOpen && <ModalInside info={modalData} onClick={onClick} />}
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { queryIcon } from '../../../utils/queryIcon';
 import {
   FarmSale,
   ProducerShop,
@@ -9,10 +10,10 @@ import {
   Solidarity,
   MarketDealer,
 } from '../../../assets/svg/types/index';
+import { Override } from '../../../types/Override';
 import PictoTime from '../../../assets/icon/icon-time.png';
 import PictoPoi from '../../../assets/icon/icon-poi.png';
 import PictoPen from '../../../assets/icon/icon-pen.png';
-import { queryIcon } from '../../../utils/queryIcon';
 import {
   ModalColLeft,
   ModalColRight,
@@ -23,32 +24,43 @@ import {
   InfoPratique,
   BottomButton,
   TitleModal,
+  WrapperModal,
 } from './style';
 
-function MapModalLocal({ data, onClick }: any) {
+export type ModalInsideProps = Override<
+  React.ComponentPropsWithoutRef<'span'>,
+  {
+    info?: string[] | any;
+    onClick?: (item: any) => void;
+  }
+>;
+
+const ModalInside = ({ onClick, info }: ModalInsideProps) => {
+  console.log(info);
+
   return (
-    <>
+    <WrapperModal>
       <ModalHeading>
         <TitleModal>
           <span>
-            {data[6] === 'AMAP' ? (
+            {!!info.type && info.type === 'AMAP' ? (
               <Amap />
-            ) : data[6] === 'Magasin de producteurs' ? (
+            ) : info.type === 'Magasin de producteurs' ? (
               <ProducerShop />
-            ) : data[6] === 'Revendeur du marché (Achète des produits et les revend)' ? (
+            ) : info.type === 'Revendeur du marché (Achète des produits et les revend)' ? (
               <MarketDealer />
-            ) : data[6] === 'Epicerie sociale et solidaire' ? (
+            ) : info.type === 'Epicerie sociale et solidaire' ? (
               <Solidarity />
-            ) : data[6] === 'Producteur du marché (Cultive ses produits et les vend)' ? (
+            ) : info.type === 'Producteur du marché (Cultive ses produits et les vend)' ? (
               <MarketProducer />
-            ) : data[6] === 'Vente à la ferme' ? (
+            ) : info.type === 'Vente à la ferme' ? (
               <FarmSale />
             ) : (
               ''
             )}
           </span>
-          {!!data[0] && <h2>{data[2]}</h2>}
-          <p>{data[6]} </p>
+          {!!info && <h2>{info.nom}</h2>}
+          <p>{info.type}</p>
         </TitleModal>
         <div>
           <FontAwesomeIcon icon={faXmark} onClick={onClick} />
@@ -60,8 +72,8 @@ function MapModalLocal({ data, onClick }: any) {
           />
         </div>
 
-        {!!data[14] ? (
-          <a href={data[14]} target={'_blank'} rel={'noreferrer'}>
+        {!!info.url ? (
+          <a href={info.url} target={'_blank'} rel={'noreferrer'}>
             <button>En savoir plus</button>
           </a>
         ) : (
@@ -72,21 +84,21 @@ function MapModalLocal({ data, onClick }: any) {
         <ProvenanceList>
           <h4>Provenance des produits</h4>
           <ul>
-            <li>{data[11]}</li>
+            <li>{info.origine_produits}</li>
           </ul>
         </ProvenanceList>
         <InfoPratique>
           <li>
             <img src={PictoPoi} alt="icon poi" width={20} height={20} />
             <address>
-              {data[3]}, {data[4]} - {data[5]}
+              {info.adresse}, {info.insee} - {info.commune}
             </address>
           </li>
           <li>
             <img src={PictoTime} alt="icon horloge" width={20} height={20} />
-            {!!data[9] && data[9] ? (
+            {!!info.horaires && info.horaires ? (
               <ul>
-                {data[9].map((item: any, index: number) => (
+                {info.horaires.map((item: any, index: number) => (
                   <li key={index}>{item}</li>
                 ))}
               </ul>
@@ -100,18 +112,18 @@ function MapModalLocal({ data, onClick }: any) {
       <ModalColRight>
         <LabelRow>
           <h4>Labels & certifications</h4>
-          {!!data[12] && data[12] ? (
+          {!!info.label && info.label ? (
             <ul>
-              <li>{data[12]}</li>
+              <li>{info.label}</li>
             </ul>
           ) : (
-            <p>{data[2]} ne propose pas encore de produits labelisés</p>
+            <p>{info.nom} ne propose pas encore de produits labelisés</p>
           )}
         </LabelRow>
         <ProductRow>
           <h4>Produits vendus</h4>
           <ul>
-            {data[10].map((item: string, index: number) => {
+            {info.produits.map((item: string, index: number) => {
               return (
                 <li key={index}>
                   <img src={queryIcon(item)} alt={item} />
@@ -134,10 +146,10 @@ function MapModalLocal({ data, onClick }: any) {
           <p>Modifier les informations</p>
         </button>
       </BottomButton>
-    </>
+    </WrapperModal>
   );
-}
+};
 const mapStateToProps = (state: any) => state;
 const dispatchToProps = (dispatch: any) => ({ dispatch });
 
-export default connect(mapStateToProps, dispatchToProps)(MapModalLocal);
+export default connect(mapStateToProps, dispatchToProps)(ModalInside);
