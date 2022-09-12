@@ -36,8 +36,6 @@ export type ModalInsideProps = Override<
 >;
 
 const ModalInside = ({ onClick, info }: ModalInsideProps) => {
-  console.log(info);
-
   return (
     <WrapperModal>
       <ModalHeading>

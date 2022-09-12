@@ -112,7 +112,7 @@ export default function Header() {
           <img src={LogoGl} alt="Logo Grand Lyon" />
           <img src={LogoMl} alt="Logo Manger Local" />
         </BlockLogo>
-        <a href={'#'}>
+        <a href={'https://carte-mangerlocal.datagora.erasme.org/'} target="_blank" rel="noreferrer">
           <p>En savoir plus sur le projet</p>
           <FontAwesomeIcon icon={faInfoCircle} />
         </a>
