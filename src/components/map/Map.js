@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import { MapPopoverFactory, injectComponents } from 'erasme-kepler.gl/components';

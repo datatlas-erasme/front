@@ -1,0 +1,14 @@
+name: Rebase instance development branch
+on:
+  push:
+    branches: [dev]
+
+jobs:
+  rebase:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: peter-evans/rebase@v2
+        with:
+          base: dev
+          include-labels: |
+            instance-development-branch
