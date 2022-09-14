@@ -49,14 +49,12 @@ const DesktopPanelControl = ({
   const ParentBtn = (
     <ButtonDefault onClick={handleClick} btnType="parent" bg={color} text={datasetLabel} />
   );
-
   const Domains = Object.keys(filtersDomain).map((filter, index) => {
     const filterName = filtersDomain[filter].name;
     const filterItem = filtersDomain[filter].domain;
     const filterId = filtersDomain[filter].dataId;
-
     if (theme === 'industries') {
-      if (filterId === datasetId) {
+      if (filterId[0] === datasetId) {
         return (
           <div className="filter">
             <li key={index} className="filter-parent">
