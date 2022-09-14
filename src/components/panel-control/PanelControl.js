@@ -41,6 +41,8 @@ const PanelControl = () => {
 
   const Filters = filterTree.map((value, index) => {
     if (themeName === 'industries') {
+      console.log('filterdomain', filtersDomain);
+
       return width < breakpoint ? (
         <MobilePanelControl key={index} value={value} index={index} filtersDomain={filtersDomain} />
       ) : (
