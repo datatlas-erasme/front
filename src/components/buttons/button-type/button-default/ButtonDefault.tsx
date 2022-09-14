@@ -77,8 +77,7 @@ const ButtonDefault = ({
   else if (btnType === 'child') {
     return (
       <div>
-        CHILD
-        <button
+        <IndustriesButton
           onClick={isActiveState}
           style={{ backgroundColor: LightenDarkenColor(bg, 30), fontSize: textSize }}
           className={classnames('btn', className, { active: !isActive })}
@@ -86,7 +85,7 @@ const ButtonDefault = ({
         >
           Filtrer par {text?.substring(0, 30)}
           <span>{isActive ? '-' : '+'}</span>
-        </button>
+        </IndustriesButton>
         <AnimateHeight
           duration={500}
           height={!isActive ? 0 : 'auto'} // see props documentation bellow
@@ -99,15 +98,14 @@ const ButtonDefault = ({
     );
   } else {
     return (
-      <button
+      <IndustriesButton
         onClick={isActiveState}
-        style={{ backgroundColor: LightenDarkenColor(bg, 60), fontSize: textSize }}
+        style={{ backgroundColor: LightenDarkenColor(bg), fontSize: textSize }}
         className={classnames('btn', className, { selected: !isActive })}
         {...props}
       >
-        DEFAULT
         {text.substring(0, 30)}
-      </button>
+      </IndustriesButton>
     );
   }
 };

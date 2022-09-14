@@ -4,9 +4,11 @@ import styled from 'styled-components';
 export const StyleFilters = styled.div``;
 
 export const IndustriesButton = styled.button`
+  display: flex;
+  align-items: center;
   font-size: 16px;
   color: white;
-  padding: 16px 16px 16px 10px;
+  padding: 20px 16px 20px 10px;
   border-radius: 0px 5px 5px 0px;
   border: none;
   margin: 0;
@@ -15,7 +17,8 @@ export const IndustriesButton = styled.button`
   font-weight: 400;
   text-transform: capitalize;
   letter-spacing: 0.75px;
-  background-color: black;
+  ${(props) => props.inputColor || 'black'};
+  width: 100%;
 `;
 
 export const ColorDot = styled.div`
@@ -23,6 +26,7 @@ export const ColorDot = styled.div`
   height: 10px;
   border-radius: 50%;
   background-color: aliceblue;
+  margin-right: 10px;
 `;
 
 export const ButtonLayer = styled.div`
@@ -30,7 +34,7 @@ export const ButtonLayer = styled.div`
     border-radius: 5px;
     margin-bottom: 0;
     border: none;
-    font-size: 15px;
+    font-size: ${({ theme }) => theme.fontSizes.paragraphe};
     width: max-content;
     color : ${({ theme }) => theme.colors.primary};)}
 `;
