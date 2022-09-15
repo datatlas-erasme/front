@@ -3,6 +3,7 @@ import { connect, useSelector } from 'react-redux';
 import { toggleModal, setFilterUpdater } from 'erasme-kepler.gl/actions';
 import { DesktopPanelControl } from '../filters-desktop';
 import { MobilePanelControl } from '../filters-mobile';
+import MenuButtonMobile from '../buttons/menu-button-mobile';
 import AddButton from '../buttons/interactiv-button';
 import { useViewport } from '../../utils/ViewportConext';
 import { getFilters, getLayers } from '../../store/keplerGl';
@@ -77,7 +78,7 @@ const PanelControl = () => {
   return (
     <Panel>
       {Filters}
-      <AddButton />
+      {width < breakpoint ? <MenuButtonMobile /> : <AddButton />}
     </Panel>
   );
 };
