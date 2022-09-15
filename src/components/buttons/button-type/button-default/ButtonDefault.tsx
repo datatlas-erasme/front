@@ -65,8 +65,8 @@ const ButtonDefault = ({
   // Big button style
   if (btnType === 'parent') {
     return (
-      <div className="btn-parent" style={{ backgroundColor: bg, fontSize: textSize }}>
-        <IndustriesButton {...props}>
+      <div className="btn-parent">
+        <IndustriesButton {...props} style={{ backgroundColor: 'black' }}>
           <ColorDot onClick={isLayerVisibleState} style={{ backgroundColor: bg }} />
           {text.substring(0, 30)}
         </IndustriesButton>
@@ -100,7 +100,7 @@ const ButtonDefault = ({
     return (
       <IndustriesButton
         onClick={isActiveState}
-        style={{ backgroundColor: LightenDarkenColor(bg), fontSize: textSize }}
+        style={{ backgroundColor: LightenDarkenColor(bg, 10), fontSize: textSize }}
         className={classnames('btn', className, { selected: !isActive })}
         {...props}
       >

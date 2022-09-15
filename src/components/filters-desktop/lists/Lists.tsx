@@ -17,7 +17,7 @@ export type ListProps = {
   className?: string;
   text?: string;
 };
-export const List = ({ listNames = [], idFilter, text }: ListProps) => {
+export const List = ({ listNames = [], idFilter, text, backgroundColor }: ListProps) => {
   // Get the theme name
   const theme = useSelector(getThemeName);
 
@@ -54,7 +54,7 @@ export const List = ({ listNames = [], idFilter, text }: ListProps) => {
               key={index}
               textSize="12px"
               text={item}
-              bg={undefined}
+              bg={backgroundColor}
               btnType={undefined}
               listNames={undefined}
               layerId={undefined}

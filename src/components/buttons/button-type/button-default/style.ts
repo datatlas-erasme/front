@@ -17,7 +17,7 @@ export const IndustriesButton = styled.button`
   font-weight: 400;
   text-transform: capitalize;
   letter-spacing: 0.75px;
-  ${(props) => props.inputColor || 'black'};
+  background-color: 'black';
   width: 100%;
 `;
 
