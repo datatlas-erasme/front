@@ -60,6 +60,7 @@ export const List = ({ listNames = [], idFilter, theme, text }: ListProps) => {
     return !!text && text[0] === 'type' ? (
       <ListSelect>
         {listNames.map((item: string, i: number) => {
+          console.log(item);
           switch (idFilter) {
             case 1:
               return (

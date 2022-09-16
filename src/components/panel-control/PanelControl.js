@@ -18,7 +18,7 @@ const PanelControl = () => {
   const filtersDomain = useSelector(getFilters);
   const layers = useSelector(getLayers);
   const themeName = useSelector(getThemeName);
-
+  console.log(layers);
   // Function to convert rgb color to hex color
   const rgbToHex = (r, g, b) =>
     '#' +

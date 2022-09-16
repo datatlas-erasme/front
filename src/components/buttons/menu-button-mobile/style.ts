@@ -1,12 +1,37 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const WarpperMobilebutton = styled.div`
-  position: relative;
-  height: max-content;
+  position: fixed;
+  bottom: 100px;
   display: flex;
   flex-direction: column;
-  top: 450px;
+  align-self: end;
   margin: auto;
+  left: 50%;
+  transform: translateX(-50%);
+`;
+
+const AnimOpenMenu = keyframes`
+  from{
+    opacity: 0;
+    scale: 0;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+`;
+
+const AnimCloseMenu = keyframes`
+  0%{
+    transform: translate(0, 0);
+    opacity: 0;
+    scale: 0;
+  }
+  100%{
+    transform: translate(0, 10%s);
+  }
 `;
 export const NavButton = styled.button`
   border: none;
@@ -28,13 +53,18 @@ export const NavButton = styled.button`
 `;
 
 export const ExtLink = styled.a`
+  position: relative;
   width: 70vw;
   margin: 10px auto;
   padding: 10px;
   border-radius: 33px;
   background: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.primary};
   text-align: center;
-}
+  animation: ${AnimOpenMenu} ease-in-out 0.75s both;
+  &[isShow='true'] {
+    animation: ${AnimCloseMenu} ease-in-out 0.75s both;
+  }
 `;
 
 // export const ButtonWarpper = styled.div`

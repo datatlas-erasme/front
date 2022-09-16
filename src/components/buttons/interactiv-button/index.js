@@ -9,21 +9,14 @@ export default function AddButton() {
 
   return (
     <WarpperAddPoint>
-      {bottomRightButtons.map((buttonConf, index) => (
-        <a
-          key={index}
-          href="https://demarches.guichet-recette.grandlyon.com/projets-de-crowdsourcing/ajouter-un-marchand/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <AddPoint>
-            <span>
-              <FontAwesomeIcon icon={faPlusCircle} />
-            </span>
-            <p>{buttonConf.text}</p>
-          </AddPoint>
-        </a>
-      ))}
+      <a href={bottomRightButtons[0].url} target="_blank" rel="noreferrer">
+        <AddPoint>
+          <span>
+            <FontAwesomeIcon icon={faPlusCircle} />
+          </span>
+          <p>{bottomRightButtons[0].text}</p>
+        </AddPoint>
+      </a>
     </WarpperAddPoint>
   );
 }

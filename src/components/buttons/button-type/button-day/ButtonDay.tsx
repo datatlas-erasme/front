@@ -34,7 +34,6 @@ export default function ButtonDay({ dayList = [], idFilter, text }: DayProps) {
   const breakpoint = 1024;
 
   const dispatch = useDispatch();
-
   // Toggle the visibility of buttons parent list
   const [filtersArray, setFiltersArray] = useState<string[]>([]);
 

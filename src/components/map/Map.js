@@ -12,7 +12,7 @@ const IndustriesKeplerGl = injectComponents([
 
 // Inject the point sidepanel component
 const AlimentaireKeplerGl = injectComponents([[MapPopoverFactory, CustomMapPopoverFactory]]);
-
+console.log(AlimentaireKeplerGl);
 export default function MapContainer() {
   const mapboxToken = useSelector(getMapboxToken);
   const themeName = useSelector(getThemeName);
