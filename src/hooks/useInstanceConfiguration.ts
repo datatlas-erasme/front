@@ -101,6 +101,7 @@ export default function useInstanceConfiguration() {
           config: parsedConfig,
           options: { keepExistingConfig: true },
         };
+
         const promises = instanceConf.layers.map(async (layer) => {
           return fetch(layer.url)
             .then((res) => res.json())
