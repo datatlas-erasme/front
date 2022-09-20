@@ -21,6 +21,7 @@ export type ButtonDefaultProps = Override<
     idFilter?: string;
     layerId?: string;
     iconName?: IconName;
+    btnActive?: boolean;
   }
 >;
 
@@ -34,14 +35,21 @@ const ButtonDefault = ({
   layerId,
   className,
   iconName,
+  btnActive,
   ...props
 }: ButtonDefaultProps) => {
   const dispatch = useDispatch();
 
-  // Toggle the visibility of buttons parent list
+  // Toggle the visibility of buttons child list
   const [isActive, setIsActive] = useState(false);
   const isActiveState = () => {
     setIsActive(!isActive);
+  };
+
+  // Toggle the visibility of buttons child list
+  const [isActiveParent, setIsActiveParent] = useState(false);
+  const isActiveParentState = () => {
+    setIsActiveParent(!isActiveParent);
   };
 
   // Toggle the button linked layer vibility
@@ -69,6 +77,7 @@ const ButtonDefault = ({
         <IndustriesButton {...props} style={{ backgroundColor: 'black' }}>
           <ColorDot onClick={isLayerVisibleState} style={{ backgroundColor: bg }} />
           {text.substring(0, 30)}
+          <span>{btnActive ? '-' : '+'}</span>
         </IndustriesButton>
       </div>
     );

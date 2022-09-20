@@ -6,6 +6,7 @@ export const StyleFilters = styled.div``;
 export const IndustriesButton = styled.button`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   font-size: 16px;
   color: white;
   padding: 20px 16px 20px 10px;

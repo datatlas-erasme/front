@@ -47,7 +47,13 @@ const DesktopPanelControl = ({
 
   // Button related to the first level of the filters
   const ParentBtn = (
-    <ButtonDefault onClick={handleClick} btnType="parent" bg={color} text={datasetLabel} />
+    <ButtonDefault
+      onClick={handleClick}
+      btnActive={isActive}
+      btnType="parent"
+      bg={color}
+      text={datasetLabel}
+    />
   );
   const Domains = Object.keys(filtersDomain).map((filter, index) => {
     const filterName = filtersDomain[filter].name;
