@@ -30,14 +30,19 @@ export const ColorDot = styled.div`
   margin-right: 10px;
 `;
 
-export const ButtonLayer = styled.div`
-    display: flex;
-    border-radius: 5px;
-    margin-bottom: 0;
-    border: none;
-    font-size: ${({ theme }) => theme.fontSizes.paragraphe};
-    width: max-content;
-    color : ${({ theme }) => theme.colors.primary};)}
+export const IndustriesParentBtnFooterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const IndustriesParentBtnFooter = styled(IndustriesButton)`
+  background-color: black;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-align: center;
+  padding: 15px 0px;
+  display: flex;
+  justify-content: center;
 `;
 
 /********************** FILTERS SIDE PANEL *********************/

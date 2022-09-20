@@ -8,7 +8,12 @@ import { LightenDarkenColor } from 'lighten-darken-color';
 import { Override } from '../../../../types/Override';
 import { RootState } from '../../../../store';
 import { List } from '../../../filters-desktop/lists/Lists';
-import { IndustriesButton, ColorDot } from './style';
+import {
+  IndustriesButton,
+  ColorDot,
+  IndustriesParentBtnFooter,
+  IndustriesParentBtnFooterContainer,
+} from './style';
 
 export type ButtonDefaultProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
@@ -104,6 +109,13 @@ const ButtonDefault = ({
           </div>
         </AnimateHeight>
       </div>
+    );
+  } else if (btnType === 'parent-footer') {
+    return (
+      <IndustriesParentBtnFooterContainer>
+        <IndustriesParentBtnFooter>Masquer ce calque</IndustriesParentBtnFooter>
+        <IndustriesParentBtnFooter> A Propos du calque</IndustriesParentBtnFooter>
+      </IndustriesParentBtnFooterContainer>
     );
   } else {
     return (

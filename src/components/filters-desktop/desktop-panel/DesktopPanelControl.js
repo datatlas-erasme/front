@@ -55,6 +55,9 @@ const DesktopPanelControl = ({
       text={datasetLabel}
     />
   );
+
+  const ParentBtnFooter = <ButtonDefault btnType="parent-footer" text={datasetLabel} />;
+
   const Domains = Object.keys(filtersDomain).map((filter, index) => {
     const filterName = filtersDomain[filter].name;
     const filterItem = filtersDomain[filter].domain;
@@ -108,6 +111,7 @@ const DesktopPanelControl = ({
           height={!isActive ? 0 : 'auto'} // see props documentation bellow
         >
           <>{Domains}</>
+          {ParentBtnFooter}
         </AnimateHeight>
       </ul>
     );
