@@ -1,4 +1,5 @@
 # 🌍 DatAtlas
+
 DatAtlas allows you to create a map of the territory on the fly by embedding data from different sources: open sourced data but also crowdsourced data
 
 All infos about the front and the back are stored here
@@ -76,3 +77,24 @@ more infos on routes [here](docs/back.md)
 
 ## Production
 DatAtlas is not ready for production yet
+
+## Configuration
+
+> See [InstanceConfigurationInterface.ts](./src/domain/InstanceConfigurationInterface.ts).
+
+### Search
+
+A search field shows up when you configure a list of `searchfilters` :
+
+```json
+{
+  "searchFilters": ["s66961zse"]
+}
+```
+
+> Where `s66961zse` is a `filter` `id`.
+
+The search query look for matches in the specified filter `domains` via a [_fuzzy_ search](https://github.com/farzher/fuzzysort)
+and sort them using a scoring algorithm.
+
+> **Warning :** Specifying more than on filter `id` may lead to unexpected results.

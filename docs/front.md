@@ -12,7 +12,8 @@ This extension includes a formatter to automatically reformat written code based
 
 DatAtlas needs a custom version of Kepler where a column can have multiple values. This is achieved by using a JSON value.
 
-Having an array value represented as a JSON is specific to DatAtlas and may not be fitted for every projects. This is why the custom Kepler cannot be the subject of a GitHub PR, and should stay as a standalone until a consensus on what is an array value in CSV can be.
+Having an array value represented as a JSON is specific to DatAtlas and may not be fitted for every projects. 
+This is why the custom Kepler cannot be the subject of a GitHub PR, and should stay as a standalone until a consensus on what is an array value in CSV can be.
 
 Next sections describe how to deal with this for developing and building DatAtlas.
 
