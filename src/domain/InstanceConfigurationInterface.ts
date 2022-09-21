@@ -1,3 +1,5 @@
+import { FilterBase } from 'erasme-kepler.gl/src/reducers/vis-state-updaters';
+
 export default interface InstanceConfigurationInterface {
   mapboxToken: string;
   theme: {
@@ -10,4 +12,5 @@ export default interface InstanceConfigurationInterface {
       name: string;
     },
   ];
+  searchFilters: FilterBase['id'][];
 }
