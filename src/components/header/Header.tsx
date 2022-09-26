@@ -5,8 +5,9 @@ import { device } from '../../styles';
 import { useViewport } from '../../utils/ViewportConext';
 import ButtonSwitch from '../buttons/button-type/button-switch';
 import px2vw from '../../utils/px2vw';
-import LogoGl from '../../assets/logo/logo_gl.png';
+import LogoGl from '../../assets/logo/logo-metropole-grand-lyon.png';
 import LogoMl from '../../assets/logo/logo-mangerlocal.png';
+import LogoBb from '../../assets/logo/bellebouffe-logo.png';
 
 const HeaderBlock = styled.header`
   position: absolute;
@@ -83,16 +84,16 @@ const BlockLogo = styled.div`
   img {
     width: auto;
     height: 2.5vh;
-    &:last-child {
+    &:nth-child(1n + 2) {
       border-left: 1px solid ${({ theme }) => theme.colors.red};
-      padding-left: 0;
-      margin-left: ${px2vw(20)};
+      padding-left: 5px;
+      margin-left: ${px2vw(15)};
     }
   }
 
   @media ${device.lg} {
     img {
-      height: 5vh;
+      height: 4vh;
     }
   }
 `;
@@ -111,6 +112,7 @@ export default function Header() {
         <BlockLogo>
           <img src={LogoGl} alt="Logo Grand Lyon" />
           <img src={LogoMl} alt="Logo Manger Local" />
+          <img src={LogoBb} alt="Logo Belle Bouffe" />
         </BlockLogo>
         {width < breakpoint ? null : (
           <a
