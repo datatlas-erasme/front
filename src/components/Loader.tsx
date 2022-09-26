@@ -1,7 +1,7 @@
 import React from 'react';
 import { ProgressBar } from 'erasme-kepler.gl/components';
 import styled from 'styled-components';
-import logoGL from '../assets/logo/logo_gl.png';
+import logoGL from '../assets/logo/logo-metropole-grand-lyon.png';
 
 const ImgLoad = styled.div`
   display: flex;
