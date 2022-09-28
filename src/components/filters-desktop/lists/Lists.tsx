@@ -33,17 +33,14 @@ export const List = ({ listNames = [], idFilter, text, backgroundColor }: ListPr
       );
     } else {
       setFiltersArray((filtersArray) => [...filtersArray, item]);
-      // console.log("Filters Array :", filtersArray)
     }
   };
 
   useEffect(() => {
-    // console.log('Filters Array :', filtersArray);
     dispatch(setFilter(idFilter, 'value', filtersArray));
   }, [dispatch, idFilter, filtersArray]);
 
   // return based on theme name
-  console.log('In list theme is:', theme);
   if (theme === 'industries') {
     return (
       <div>
