@@ -121,7 +121,7 @@ const ButtonDefault = ({
     return (
       <IndustriesButton
         onClick={isActiveState}
-        style={{ backgroundColor: LightenDarkenColor(bg, 10), fontSize: textSize }}
+        style={{ backgroundColor: bg, fontSize: textSize }}
         className={classnames('btn', className, { selected: !isActive })}
         {...props}
       >
