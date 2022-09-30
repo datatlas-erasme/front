@@ -110,9 +110,11 @@ export default function Header() {
 
       <nav>
         <BlockLogo>
-          <img src={LogoGl} alt="Logo Grand Lyon" />
-          <img src={LogoMl} alt="Logo Manger Local" />
-          <img src={LogoBb} alt="Logo Belle Bouffe" />
+          <a href={'https://mangerlocal.grandlyon.com/'}>
+            <img src={LogoGl} alt="Logo Grand Lyon" />
+            <img src={LogoMl} alt="Logo Manger Local" />
+            <img src={LogoBb} alt="Logo Belle Bouffe" />
+          </a>
         </BlockLogo>
         {width < breakpoint ? null : (
           <a
