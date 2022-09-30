@@ -31,6 +31,8 @@ export default function ButtonSelect({ text, className, ...props }: ButtonProps)
     }
   }
 
+  console.log(text);
+
   return (
     <ButtonType
       onClick={isActiveState}

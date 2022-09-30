@@ -23,6 +23,7 @@ function ModalGlobalMarket({ data, onClick }: any) {
   const [modalData, setIsModalData] = useState({});
   const dataLayer = useSelector(getLayers);
   const marketLocalList = dataLayer[1].dataToFeature;
+  console.log(dataLayer);
 
   const openModal = (info) => {
     setIsModalOpen(true);

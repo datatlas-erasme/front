@@ -60,7 +60,6 @@ export const List = ({ listNames = [], idFilter, theme, text }: ListProps) => {
     return !!text && text[0] === 'type' ? (
       <ListSelect>
         {listNames.map((item: string, i: number) => {
-          console.log(item);
           switch (idFilter) {
             case 1:
               return (
@@ -90,8 +89,8 @@ export const List = ({ listNames = [], idFilter, theme, text }: ListProps) => {
           switch (idFilter) {
             case 4:
               return (
-                <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
-                  <Checkbox text={item} />
+                <ButtonWrapper key={i}>
+                  <Checkbox text={item} onClick={() => setFilterValue(item)} />
                 </ButtonWrapper>
               );
           }
