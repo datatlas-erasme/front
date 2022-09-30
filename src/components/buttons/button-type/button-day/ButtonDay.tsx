@@ -23,7 +23,6 @@ function Button({ day }: { day: any }) {
 
   return (
     <button onClick={isActiveState} className={classnames(isActive ? 'active' : '')}>
-      {' '}
       {day}
     </button>
   );
@@ -32,7 +31,6 @@ function Button({ day }: { day: any }) {
 export default function ButtonDay({ dayList = [], idFilter, text }: DayProps) {
   const { width } = useViewport();
   const breakpoint = 1024;
-
   const dispatch = useDispatch();
   // Toggle the visibility of buttons parent list
   const [filtersArray, setFiltersArray] = useState<string[]>([]);
@@ -55,6 +53,26 @@ export default function ButtonDay({ dayList = [], idFilter, text }: DayProps) {
     }
   }, [dispatch, idFilter, filtersArray]);
 
+  // Function reorder data day
+  function reorderDayList(
+    list,
+    currentIndexDi,
+    newIndexDi,
+    currentIndexJe,
+    newIndexJe,
+    currentIndexVe,
+    newIndexVe,
+  ) {
+    const newList = [...list];
+    newList.splice(newIndexDi, 0, newList.splice(currentIndexDi, 1)[0]);
+    newList.splice(newIndexJe, 0, newList.splice(currentIndexJe, 1)[0]);
+    newList.splice(newIndexVe, 0, newList.splice(currentIndexVe, 1)[0]);
+
+    return newList;
+  }
+
+  const newDayList = reorderDayList(dayList, 0, 6, 0, 3, 5, 4);
+
   return width < breakpoint ? (
     <Ouverture>
       <Button day={text} />
@@ -62,7 +80,7 @@ export default function ButtonDay({ dayList = [], idFilter, text }: DayProps) {
   ) : (
     <Ouverture>
       <h3>Quand ?</h3>
-      {dayList?.map((day, i) => (
+      {newDayList?.map((day, i) => (
         <div
           key={i}
           onClick={() => {

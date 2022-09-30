@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import opening_hours from 'opening_hours';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -26,6 +27,46 @@ import {
 } from './style';
 
 function MapModalLocal({ data, onClick }: any) {
+  const openingDay = data[9].map((item: any, i: number) => item);
+  function getReadableState(startString, endString, openingNow, past) {
+    if (past === true) past = 'd';
+    else past = '';
+    let output = '';
+    if (openingNow.getUnknown()) {
+      output +=
+        ' maybe open' +
+        (openingNow.getComment() ? ' but that depends on: "' + openingNow.getComment() + '"' : '');
+    } else {
+      output +=
+        ' ' +
+        (openingNow.getState() ? 'open' : 'close' + past) +
+        (openingNow.getComment() ? ', comment "' + openingNow.getComment() + '"' : '');
+    }
+
+    return startString + output + endString + '.';
+  }
+  const shop = new opening_hours('Mo,Tu,Th,Fr 12:00-18:00');
+  console.log(shop.getState());
+  console.log(data[9]);
+
+  const from = new Date();
+  const to = new Date('01 Feb 2023');
+  console.log(from);
+  const intervals = shop.getOpenIntervals(from, to);
+  for (let i in intervals)
+    console.log(
+      'We are ' +
+        (intervals[i][2] ? 'maybe ' : '') +
+        'open from ' +
+        (intervals[i][3] ? '("' + intervals[i][3] + '") ' : '') +
+        intervals[i][0] +
+        ' till ' +
+        intervals[i][1] +
+        '.',
+    );
+
+  console.log(intervals);
+
   return (
     <>
       <ModalHeading>

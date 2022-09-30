@@ -52,7 +52,6 @@ const DesktopPanelControl = ({
     const filterName = filtersDomain[filter].name;
     const filterItem = filtersDomain[filter].domain;
     const filterId = filtersDomain[filter].dataId;
-
     if (theme === 'industries') {
       if (filterId === datasetId) {
         return (
