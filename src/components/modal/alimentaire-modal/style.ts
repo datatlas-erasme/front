@@ -32,7 +32,7 @@ export const WrapperModal = styled.div`
   li,
   address {
     font-size: ${({ theme }) => theme.fontSizes.xstext};
-    line-height: ${({ theme }) => theme.lineHeights.normal};
+    line-height: ${({ theme }) => theme.lineHeights.paragraph};
     font-style: italic;
     align-self: center;
   }
@@ -211,6 +211,9 @@ export const InfoPratique = styled.ul`
     }
     p {
       margin-left: 10px;
+      font-size: ${({ theme }) => theme.fontSizes.paragraphe};
+      color: ${({ theme }) => theme.colors.red};
+      font-weight: ${({ theme }) => theme.fontWeights[5]};
     }
 
     @media ${device.lg} {
@@ -261,10 +264,15 @@ export const InfoPratiqueGlobal = styled.ul`
     display: flex;
     margin-top: 15px;
     width: 100%;
-    ul {
-      padding-left: 10px;
-      li {
+      p {
         margin-top: 0;
+        margin-left: 10px;
+        &:nth-child(3) {
+          font-size: ${({ theme }) => theme.fontSizes.paragraphe};
+          color: ${({ theme }) => theme.colors.red};
+          font-weight: ${({ theme }) => theme.fontWeights[5]};
+          text-align: center;
+        }
       }
     }
   }

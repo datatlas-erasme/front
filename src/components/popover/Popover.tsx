@@ -1,12 +1,29 @@
 import { connect } from 'react-redux';
+import opening_hours from 'opening_hours';
 import { queryLabels } from '../../utils/queryIcon';
 import { ToolTip } from './style';
 
-// const labels: { [index: string]: any } = importAll(
-//   require.context('../../assets/label', false, /\.(png)$/),
-// );
-
 function CustomMapPopover({ data, dataID, props }: any) {
+  const openingDay = !!data[9] && data[9].map((item: any, i: number) => item);
+  const locale = navigator.language;
+  const shopIsOpen = new opening_hours(openingDay.toString(), {
+    lat: 45.764043,
+    lon: 4.835659,
+    address: {
+      country_code: locale,
+      state: locale,
+    },
+  });
+  const translateFR = openingDay
+    .toLocaleString()
+    .replace('Mo', 'Lundi')
+    .replace('Tu', ' Mardi')
+    .replace('We', ' Mercredi')
+    .replace('Th', ' Jeudi')
+    .replace('Fr', ' Vendredi')
+    .replace('Sa', ' Samedi')
+    .replace('Su', ' Dimanche');
+
   return dataID === 'Manger Local' ? (
     <ToolTip
       style={{
@@ -27,15 +44,7 @@ function CustomMapPopover({ data, dataID, props }: any) {
       </ul>
       {data[0] && <h2>{data[2]}</h2>}
       <h4>Ouverture</h4>
-      {data[9] ? (
-        <ul>
-          {data[9].map((item: string, index: number) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      ) : (
-        <p>Les horaires n'ont pas été renseigné</p>
-      )}
+      {translateFR === null ? <p>Les horaires n'ont pas été renseigné</p> : <p>{translateFR}</p>}
     </ToolTip>
   ) : (
     <ToolTip
