@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import opening_hours from 'opening_hours';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -14,6 +13,8 @@ import PictoTime from '../../../assets/icon/icon-time.png';
 import PictoPoi from '../../../assets/icon/icon-poi.png';
 import PictoPen from '../../../assets/icon/icon-pen.png';
 import { queryIcon } from '../../../utils/queryIcon';
+import { OpeningHours } from '../../../utils/opening-hours';
+import { translateDay } from '../../../utils/translateDay';
 import {
   ModalColLeft,
   ModalColRight,
@@ -28,24 +29,8 @@ import {
 
 function MapModalLocal({ data, onClick }: any) {
   const openingDay = !!data[9] && data[9].map((item: any, i: number) => item);
-  const locale = navigator.language;
-  const shopIsOpen = new opening_hours(openingDay.toString(), {
-    lat: 45.764043,
-    lon: 4.835659,
-    address: {
-      country_code: locale,
-      state: locale,
-    },
-  });
-  const translateFR = openingDay
-    .toLocaleString()
-    .replace('Mo', 'Lundi')
-    .replace('Tu', ' Mardi')
-    .replace('We', ' Mercredi')
-    .replace('Th', ' Jeudi')
-    .replace('Fr', ' Vendredi')
-    .replace('Sa', ' Samedi')
-    .replace('Su', ' Dimanche');
+  const shopIsOpen = OpeningHours(openingDay);
+  const translateFR = translateDay(openingDay);
 
   return (
     <>
@@ -105,14 +90,14 @@ function MapModalLocal({ data, onClick }: any) {
           </li>
           <li>
             <img src={PictoTime} alt="icon horloge" width={20} height={20} />
-            {openingDay === null ? (
-              <p>Les horaires n'ont pas été renseigné</p>
-            ) : (
+            {!!translateFR && translateFR ? (
               <ul>
                 <li>{translateFR}</li>
-                {shopIsOpen.getState() ? <p>Ouvert Maintenant</p> : <p>Fermé actuellement</p>}
               </ul>
+            ) : (
+              <p>Les horaires n'ont pas été renseigné</p>
             )}
+            {shopIsOpen}
           </li>
         </InfoPratique>
       </ModalColLeft>
