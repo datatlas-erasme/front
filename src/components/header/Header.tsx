@@ -26,10 +26,6 @@ const HeaderBlock = styled.header`
     display: flex;
     justify-content: space-between;
     a {
-      position: fixed;
-      bottom: 150px;
-      right: 40px;
-      color: ${({ theme }) => theme.colors.red};
       p {
         display: none;
       }
@@ -47,9 +43,9 @@ const HeaderBlock = styled.header`
     nav {
       margin: 0.25rem 5rem;
       a {
-        position: static;
         display: flex;
         align-items: center;
+        color: ${({ theme }) => theme.colors.red};
         p {
           display: block;
           margin-right: 10px;

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
-import opening_hours from 'opening_hours';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { getLayers } from '../../../store/keplerGl';
@@ -16,6 +15,8 @@ import {
   Solidarity,
 } from '../../../assets/svg/types';
 import { queryIcon } from '../../../utils/queryIcon';
+import { OpeningHours } from '../../../utils/opening-hours';
+import { translateDay } from '../../../utils/translateDay';
 import { ModalHeading, InfoPratiqueGlobal, BottomButton, TabsMarket, ModalList } from './style';
 import { ModalInside } from './index';
 
@@ -24,26 +25,9 @@ function ModalGlobalMarket({ data, onClick }: any) {
   const [modalData, setIsModalData] = useState({});
   const dataLayer = useSelector(getLayers);
   const marketLocalList = dataLayer[1].dataToFeature;
-  console.log(data[7]);
-  const locale = navigator.language;
-  const shopIsOpen = new opening_hours(data[7].toString(), {
-    lat: 45.764043,
-    lon: 4.835659,
-    address: {
-      country_code: locale,
-      state: locale,
-    },
-  });
-
-  const translateFR = data[7]
-    .toLocaleString()
-    .replace('Mo', 'Lundi')
-    .replace('Tu', ' Mardi')
-    .replace('We', ' Mercredi')
-    .replace('Th', ' Jeudi')
-    .replace('Fr', ' Vendredi')
-    .replace('Sa', ' Samedi')
-    .replace('Su', ' Dimanche');
+  const openingDay = !!data[7] && data[7].map((item: any, i: number) => item);
+  const shopIsOpen = OpeningHours(openingDay);
+  const translateFR = translateDay(openingDay);
 
   const openModal = (info) => {
     setIsModalOpen(true);
@@ -79,7 +63,7 @@ function ModalGlobalMarket({ data, onClick }: any) {
         <li>
           <img src={PictoTime} alt="icon horloge" width={20} height={20} />
           <p>{translateFR}</p>
-          {shopIsOpen.getState() ? <p>Ouvert Maintenant</p> : <p>Fermé actuellement</p>}
+          {shopIsOpen}
         </li>
       </InfoPratiqueGlobal>
       <TabsMarket>
