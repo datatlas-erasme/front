@@ -109,7 +109,6 @@ const DesktopPanelControl = ({
       <>
         <BlockFilters>
           <HeadingFilter>Trouve ton plan Bouffe</HeadingFilter>
-          {/* <SearchBar/> */}
           <DomainFilter>{Domains}</DomainFilter>
           <ButtonDay
             dayList={filtersDomain[5].domain}

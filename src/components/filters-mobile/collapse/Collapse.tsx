@@ -12,6 +12,7 @@ export type CollapseProps = Override<
   {
     text: string;
     listNames?: string[] | any;
+    dayList: string[] | any;
     idFilter?: string;
     icon: IconDefinition;
     isActive?: boolean;
@@ -27,6 +28,7 @@ const Collapse = ({
   isActive,
   className,
   onItemClick,
+  dayList,
   ...props
 }: CollapseProps) => {
   const [height] = useState(0);
@@ -78,7 +80,7 @@ const Collapse = ({
             <FontAwesomeIcon icon={!isActive ? faChevronDown : faChevronRight} />{' '}
           </span>
         </SubHeading>
-        <List listNames={listNames} idFilter={idFilter} text={text} />
+        <List listNames={listNames} idFilter={idFilter} text={text} dayList={dayList} />
       </AnimateHeight>
     </>
   );

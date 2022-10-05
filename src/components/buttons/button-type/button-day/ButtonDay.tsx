@@ -4,6 +4,7 @@ import { setFilter } from 'erasme-kepler.gl/actions';
 import classnames from 'classnames';
 import { useViewport } from '../../../../utils/ViewportConext';
 import { Override } from '../../../../types/Override';
+import { reorderDayList } from '../../../../utils/reoderDayList';
 import { Ouverture } from './style';
 
 export type DayProps = Override<
@@ -52,24 +53,6 @@ export default function ButtonDay({ dayList = [], idFilter, text }: DayProps) {
       dispatch(setFilter(idFilter, 'value', filtersArray));
     }
   }, [dispatch, idFilter, filtersArray]);
-
-  // Function reorder data day
-  function reorderDayList(
-    list,
-    currentIndexDi,
-    newIndexDi,
-    currentIndexJe,
-    newIndexJe,
-    currentIndexVe,
-    newIndexVe,
-  ) {
-    const newList = [...list];
-    newList.splice(newIndexDi, 0, newList.splice(currentIndexDi, 1)[0]);
-    newList.splice(newIndexJe, 0, newList.splice(currentIndexJe, 1)[0]);
-    newList.splice(newIndexVe, 0, newList.splice(currentIndexVe, 1)[0]);
-
-    return newList;
-  }
 
   const newDayList = reorderDayList(dayList, 0, 6, 0, 3, 5, 4);
 

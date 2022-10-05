@@ -47,9 +47,8 @@ export const LabelCheckbox = styled.label`
 
 export const ListDay = styled.ul`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  width: 80%;
-  margin: auto;
 `;
 
 export const ButtonWrapper = styled.li`
