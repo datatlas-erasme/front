@@ -25,8 +25,11 @@ function ModalGlobalMarket({ data, onClick }: any) {
   const [modalData, setIsModalData] = useState({});
   const dataLayer = useSelector(getLayers);
   const marketLocalList = dataLayer[1].dataToFeature;
+
   const openingDay = !!data[7] && data[7].map((item: any, i: number) => item);
+  // Ouvert maintenant
   const shopIsOpen = OpeningHours(openingDay);
+  // Day in french
   const translateFR = translateDay(openingDay);
 
   const openModal = (info) => {
