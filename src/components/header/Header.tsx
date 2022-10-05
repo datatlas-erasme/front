@@ -25,6 +25,10 @@ const HeaderBlock = styled.header`
   nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    h4 {
+      font-size: 10px;
+    }
     a {
       p {
         display: none;
@@ -79,7 +83,7 @@ const BlockLogo = styled.div`
   padding: 1rem;
   img {
     width: auto;
-    height: 2.5vh;
+    height: 2vh;
     &:nth-child(1n + 2) {
       border-left: 1px solid ${({ theme }) => theme.colors.red};
       padding-left: 5px;

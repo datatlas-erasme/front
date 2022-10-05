@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, connect } from 'react-redux';
 import { setFilter } from 'erasme-kepler.gl/actions';
 import { ButtonSelect, ButtonDay, ButtonIcon, Checkbox } from '../../buttons/button-type';
+import { reorderDayList } from '../../../utils/reoderDayList';
 import { ListSelect, ButtonWrapper, ListIconButton, ListCheckbox, ListDay } from './style';
 
 export type ListProps = {
@@ -9,8 +10,9 @@ export type ListProps = {
   listNames?: string[];
   width?: any;
   text?: string | undefined;
+  dayList?: string[] | any;
 };
-export const List = ({ listNames = [], idFilter, text, ...props }: ListProps) => {
+export const List = ({ listNames = [], idFilter, text, dayList, ...props }: ListProps) => {
   const dispatch = useDispatch();
   const [filtersArray, setFiltersArray] = useState<string[]>([]);
 
@@ -28,6 +30,8 @@ export const List = ({ listNames = [], idFilter, text, ...props }: ListProps) =>
   useEffect(() => {
     dispatch(setFilter(idFilter, 'value', filtersArray));
   }, [dispatch, idFilter, filtersArray]);
+
+  const newDayList = reorderDayList(dayList, 0, 6, 0, 3, 5, 4);
 
   return !!text && text[0] === 'type' ? (
     <ListSelect>
@@ -70,7 +74,7 @@ export const List = ({ listNames = [], idFilter, text, ...props }: ListProps) =>
     </ListCheckbox>
   ) : !!text && text[0] === 'joursouverture' ? (
     <ListDay>
-      {listNames.map((item: string, i: number) => {
+      {newDayList.map((item: string, i: number) => {
         switch (idFilter) {
           case 5:
             return (

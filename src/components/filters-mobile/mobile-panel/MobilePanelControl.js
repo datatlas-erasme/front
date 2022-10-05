@@ -33,6 +33,8 @@ const MobilePanelControl = ({ closeOtherItemsOnClick, filtersDomain, initialActi
         className="filter-parent"
         text={filterName}
         idFilter={index}
+        dayList={filtersDomain[5].domain}
+        dayText={filtersDomain[5].name[0]}
         listNames={filterItem}
         closeOtherItemsOnClick
         isActive={activeItemIndexes.includes(index)}
