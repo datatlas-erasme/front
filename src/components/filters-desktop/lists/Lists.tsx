@@ -90,7 +90,7 @@ export const List = ({ listNames = [], idFilter, theme, text }: ListProps) => {
             case 4:
               return (
                 <ButtonWrapper key={i}>
-                  <Checkbox text={item} onClick={() => setFilterValue(item)} />
+                  <Checkbox text={item} setFilterValue={() => setFilterValue(item)} />
                 </ButtonWrapper>
               );
           }
