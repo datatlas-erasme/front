@@ -8,12 +8,15 @@ export const InputCheckbox = styled.input`
   accent-color: ${({ theme }) => theme.colors.primary};
 `;
 
-export type CheckboxProps = Override<React.ComponentPropsWithoutRef<'button'>, { text: string }>;
+export type CheckboxProps = Override<
+  React.ComponentPropsWithoutRef<'button'>,
+  { text: string; setFilterValue: () => void }
+>;
 
-export default function Checkbox({ text }: CheckboxProps) {
+export default function Checkbox({ text, setFilterValue }: CheckboxProps) {
   return (
     <>
-      <InputCheckbox type="checkbox" />
+      <InputCheckbox type="checkbox" onChange={setFilterValue} />
       <LabelCheckbox> {text.substring(0, 30)} </LabelCheckbox>
     </>
   );

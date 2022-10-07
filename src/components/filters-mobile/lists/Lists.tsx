@@ -65,8 +65,8 @@ export const List = ({ listNames = [], idFilter, text, dayList, ...props }: List
         switch (idFilter) {
           case 4:
             return (
-              <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
-                <Checkbox text={item} />
+              <ButtonWrapper key={i}>
+                <Checkbox text={item} setFilterValue={() => setFilterValue(item)} />
               </ButtonWrapper>
             );
         }
