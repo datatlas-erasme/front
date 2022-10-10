@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';
 import { LightenDarkenColor } from 'lighten-darken-color';
 import { Override } from '../../../../types/Override';
-import { RootState } from '../../../../store';
 import { List } from '../../../filters-desktop/lists/Lists';
 import { Button, ColorDot, ParentBtnFooter, ParentBtnFooterContainer } from './style';
 
@@ -22,6 +21,7 @@ export type ButtonDefaultProps = Override<
     layerId?: string;
     iconName?: IconName;
     btnActive?: boolean;
+    layer?: object;
   }
 >;
 
@@ -32,10 +32,11 @@ const ButtonDefault = ({
   btnType,
   listNames,
   idFilter = '0',
-  layerId,
+  layerId = '0',
   className,
   iconName,
   btnActive,
+  layer,
   ...props
 }: ButtonDefaultProps) => {
   const dispatch = useDispatch();
@@ -58,17 +59,11 @@ const ButtonDefault = ({
     setIsLayerVisible(!isLayerVisible);
   };
 
-  // get the old layer state
-  const layer = useSelector<RootState>((state) =>
-    layerId !== undefined ? state.keplerGl.visState?.layers[layerId] : undefined,
-  );
-
   useEffect(() => {
-    //console.log(isLayerVisible)
     if (layer) {
       dispatch(layerConfigChange(layer, { isVisible: isLayerVisible }));
     }
-  }, [layer, isLayerVisible, dispatch]);
+  }, [layer, layerId, isLayerVisible, dispatch]);
 
   // Big button style
   if (btnType === 'parent') {
@@ -108,7 +103,7 @@ const ButtonDefault = ({
   } else if (btnType === 'parent-footer') {
     return (
       <ParentBtnFooterContainer>
-        <ParentBtnFooter>Masquer ce calque</ParentBtnFooter>
+        <ParentBtnFooter onClick={isLayerVisibleState}>Masquer ce calque</ParentBtnFooter>
         <ParentBtnFooter> A Propos du calque</ParentBtnFooter>
       </ParentBtnFooterContainer>
     );

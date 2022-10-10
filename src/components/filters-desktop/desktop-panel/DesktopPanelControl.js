@@ -14,6 +14,8 @@ const DesktopPanelControl = ({
   filtersDomain,
   initialActiveItemIndex,
   closeOtherItemsOnClick,
+  layerIndex,
+  layer,
 }) => {
   const theme = useSelector(getThemeName);
   const datasetLabel = value.label;
@@ -56,7 +58,14 @@ const DesktopPanelControl = ({
     />
   );
 
-  const ParentBtnFooter = <ButtonDefault btnType="parent-footer" text={datasetLabel} />;
+  const ParentBtnFooter = (
+    <ButtonDefault
+      btnType="parent-footer"
+      text={datasetLabel}
+      layerIndex={layerIndex}
+      layer={layer}
+    />
+  );
 
   const Domains = Object.keys(filtersDomain).map((filter, index) => {
     const filterName = filtersDomain[filter].name;
