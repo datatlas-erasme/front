@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const StyleFilters = styled.div``;
 
-export const IndustriesButton = styled.button`
+export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,12 +30,12 @@ export const ColorDot = styled.div`
   margin-right: 10px;
 `;
 
-export const IndustriesParentBtnFooterContainer = styled.div`
+export const ParentBtnFooterContainer = styled.div`
   display: flex;
   flex-direction: row;
 `;
 
-export const IndustriesParentBtnFooter = styled(IndustriesButton)`
+export const ParentBtnFooter = styled(Button)`
   background-color: black;
   text-transform: uppercase;
   font-size: 12px;

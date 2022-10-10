@@ -8,12 +8,7 @@ import { LightenDarkenColor } from 'lighten-darken-color';
 import { Override } from '../../../../types/Override';
 import { RootState } from '../../../../store';
 import { List } from '../../../filters-desktop/lists/Lists';
-import {
-  IndustriesButton,
-  ColorDot,
-  IndustriesParentBtnFooter,
-  IndustriesParentBtnFooterContainer,
-} from './style';
+import { Button, ColorDot, ParentBtnFooter, ParentBtnFooterContainer } from './style';
 
 export type ButtonDefaultProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
@@ -79,11 +74,11 @@ const ButtonDefault = ({
   if (btnType === 'parent') {
     return (
       <div className="btn-parent">
-        <IndustriesButton {...props} style={{ backgroundColor: 'black' }}>
+        <Button {...props} style={{ backgroundColor: 'black' }}>
           <ColorDot onClick={isLayerVisibleState} style={{ backgroundColor: bg }} />
           {text.substring(0, 30)}
           <span>{btnActive ? '-' : '+'}</span>
-        </IndustriesButton>
+        </Button>
       </div>
     );
   }
@@ -91,7 +86,7 @@ const ButtonDefault = ({
   else if (btnType === 'child') {
     return (
       <div>
-        <IndustriesButton
+        <Button
           onClick={isActiveState}
           style={{ backgroundColor: LightenDarkenColor(bg, 30), fontSize: textSize }}
           className={classnames('btn', className, { active: !isActive })}
@@ -99,7 +94,7 @@ const ButtonDefault = ({
         >
           Filtrer par {text?.substring(0, 30)}
           <span>{isActive ? '-' : '+'}</span>
-        </IndustriesButton>
+        </Button>
         <AnimateHeight
           duration={500}
           height={!isActive ? 0 : 'auto'} // see props documentation bellow
@@ -112,21 +107,21 @@ const ButtonDefault = ({
     );
   } else if (btnType === 'parent-footer') {
     return (
-      <IndustriesParentBtnFooterContainer>
-        <IndustriesParentBtnFooter>Masquer ce calque</IndustriesParentBtnFooter>
-        <IndustriesParentBtnFooter> A Propos du calque</IndustriesParentBtnFooter>
-      </IndustriesParentBtnFooterContainer>
+      <ParentBtnFooterContainer>
+        <ParentBtnFooter>Masquer ce calque</ParentBtnFooter>
+        <ParentBtnFooter> A Propos du calque</ParentBtnFooter>
+      </ParentBtnFooterContainer>
     );
   } else {
     return (
-      <IndustriesButton
+      <Button
         onClick={isActiveState}
         style={{ backgroundColor: bg, fontSize: textSize }}
         className={classnames('btn', className, { selected: !isActive })}
         {...props}
       >
         {text.substring(0, 30)}
-      </IndustriesButton>
+      </Button>
     );
   }
 };
