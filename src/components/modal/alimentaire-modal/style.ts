@@ -395,27 +395,10 @@ export const TabsMarket = styled.div`
   flex-direction: column;
   width: 100%;
   padding: 20px 0;
-
-  .tab {
-    display: flex;
-    justify-content: space-around;
-    border-bottom: solid 1px ${({ theme }) => theme.colors.gray};
-    .tablinks {
-      padding: 10px;
-      background: none;
-      border: none;
-    }
-  }
   @media ${device.lg} {
     width: 100%;
     margin: auto;
     padding: 10px 20px;
-
-    .tab {
-      margin: auto;
-      .tablinks {
-      }
-    }
   }
 `;
 

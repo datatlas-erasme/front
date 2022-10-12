@@ -15,7 +15,7 @@ const ImgLoad = styled.div`
   }
 `;
 
-const CustomProgressBar = () => ProgressBar;
+const CustomProgressBar = ProgressBar;
 
 export default function Loader() {
   return (

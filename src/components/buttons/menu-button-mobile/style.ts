@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 
 export const WarpperMobilebutton = styled.div`
   position: fixed;
-  bottom: 100px;
+  bottom: 40px;
   display: flex;
   flex-direction: column;
   align-self: end;

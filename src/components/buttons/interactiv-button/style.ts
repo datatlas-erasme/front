@@ -1,29 +1,19 @@
 import styled from 'styled-components';
-import GouttesSvg from '../../../assets/svg/gouttes.svg';
-import { device } from '../../../styles/breakpoints';
+import { device } from '../../../styles';
 import px2vw from '../../../utils/px2vw';
 
 export const WarpperAddPoint = styled.div`
-    display: flex;
-    align-items: 
-    width: 80%;
-    margin: 600px auto 0 auto;
-    z-index: 1;
-
-    @media ${device.lg} {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 0;
-    }
+  display: flex;
+  width: 80%;
+  z-index: 1;
+  @media ${device.lg} {
+    margin: 0 auto 0 auto;
+  }
 `;
 
 export const AddPoint = styled.button`
   border: none;
   background: rgba(255, 255, 255, 0);
-
-  position: fixed;
-  right: 40px;
-  bottom: 70px;
 
   p {
     display: none;
@@ -40,10 +30,8 @@ export const AddPoint = styled.button`
   }
 
   @media ${device.lg} {
-    position: static;
     display: flex;
     align-items: center;
-    border: none;
     height: 40px;
     padding: 25px;
     width: 100%;
@@ -57,9 +45,6 @@ export const AddPoint = styled.button`
     cursor: pointer;
 
     span {
-      position: relative;
-      left: 0;
-
       svg {
         width: ${px2vw(60)};
         height: auto;
@@ -69,14 +54,6 @@ export const AddPoint = styled.button`
     p {
       display: block;
       padding: 10px;
-    }
-
-    &:before {
-      content: ${GouttesSvg};
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      backrgound: black;
     }
   }
 `;
