@@ -14,9 +14,10 @@ export const Panel = styled.div`
   padding-top: ${px2vw(40)};
 
   @media ${device.lg} {
+    display: flex;
     justify-content: center;
     flex-direction: column;
-    position: relative;
+    //position: relative;
     background-color: ${({ theme }) => theme.colors.secondary};
     top: 0;
     bottom: 0;

@@ -10,7 +10,7 @@ export const BlockFilters = styled.div`
 
   width: 80%;
   height: auto;
-  margin: 60px auto;
+  margin: 60px auto 20px;
   padding: 0;
 
   background-color: ${({ theme }) => theme.colors.background};

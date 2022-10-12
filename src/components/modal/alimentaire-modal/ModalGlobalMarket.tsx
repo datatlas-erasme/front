@@ -1,43 +1,50 @@
-import { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { getLayers } from '../../../store/keplerGl';
 import PictoTime from '../../../assets/icon/icon-time.png';
 import PictoPoi from '../../../assets/icon/icon-poi.png';
 import PictoPen from '../../../assets/icon/icon-pen.png';
-import {
-  Amap,
-  FarmSale,
-  MarketDealer,
-  MarketProducer,
-  ProducerShop,
-  Solidarity,
-} from '../../../assets/svg/types';
-import { queryIcon } from '../../../utils/queryIcon';
 import { OpeningHours } from '../../../utils/opening-hours';
 import { translateDay } from '../../../utils/translateDay';
-import { ModalHeading, InfoPratiqueGlobal, BottomButton, TabsMarket, ModalList } from './style';
+import Tab from './tabs';
+import Tabs from './tabs/Tabs';
+import { ModalHeading, InfoPratiqueGlobal, BottomButton, TabsMarket } from './style';
+import TabContent from './tabs/TabContent';
 import { ModalInside } from './index';
 
 function ModalGlobalMarket({ data, onClick }: any) {
-  const [modalOpen, setIsModalOpen] = useState(false);
-  const [modalData, setIsModalData] = useState({});
   const dataLayer = useSelector(getLayers);
   const marketLocalList = dataLayer[1].dataToFeature;
+  // Open ModalInside
+  const [modalOpen, setIsModalOpen] = useState(false);
+  const [modalData, setIsModalData] = useState({});
+
+  // Open Modal Inside
+  const openModal = (info) => {
+    setIsModalOpen(true);
+    setIsModalData(info.properties);
+  };
+  useEffect(() => {}, [modalData]);
+
+  const getStandAll: any = marketLocalList.filter(
+    (stand) =>
+      stand.properties.type === 'Producteur du marché (Cultive ses produits et les vend)' ||
+      stand.properties.type === 'Revendeur du marché (Achète des produits et les revend)',
+  );
+  const getProducerStand: any = marketLocalList.filter(
+    (stand) => stand.properties.type === 'Producteur du marché (Cultive ses produits et les vend)',
+  );
+  const getSellerStand: any = marketLocalList.filter(
+    (stand) => stand.properties.type === 'Revendeur du marché (Achète des produits et les revend)',
+  );
 
   const openingDay = !!data[7] && data[7].map((item: any, i: number) => item);
   // Ouvert maintenant
   const shopIsOpen = OpeningHours(openingDay);
   // Day in french
   const translateFR = translateDay(openingDay);
-
-  const openModal = (info) => {
-    setIsModalOpen(true);
-    setIsModalData(info.properties);
-  };
-
-  useEffect(() => {}, [modalData]);
 
   return (
     <>
@@ -70,67 +77,19 @@ function ModalGlobalMarket({ data, onClick }: any) {
         </li>
       </InfoPratiqueGlobal>
       <TabsMarket>
-        {/*<div className="tab">*/}
-        {/*  /!* {types.map((type) => (*/}
-        {/*    <button key={type} data-active={active === type} onClick={() => setActive(type)}>*/}
-        {/*      {type}*/}
-        {/*    </button>*/}
-        {/*  ))} *!/*/}
-        {/*  <button className="tablinks" onClick={() => setFiltersMarket}>*/}
-        {/*    Tous*/}
-        {/*  </button>*/}
-        {/*  <button className="tablinks" onClick={() => setFiltersMarket}>*/}
-        {/*    Producteur*/}
-        {/*  </button>*/}
-        {/*  <button*/}
-        {/*    className="tablinks"*/}
-        {/*    onClick={() =>*/}
-        {/*      setFiltersMarket(['Producteur du marché (Cultive ses produits et les vend)'])*/}
-        {/*    }*/}
-        {/*  >*/}
-        {/*    Revendeur*/}
-        {/*  </button>*/}
-        {/*</div>*/}
-        <ModalList>
-          {marketLocalList.map((info, i) => {
-            return info.properties.adresse.includes(data[2]) ? (
-              <li key={i} onClick={() => openModal(info)}>
-                <div>
-                  {info.properties.type === 'AMAP' ? (
-                    <Amap />
-                  ) : info.properties.type === 'Magasin de producteurs' ? (
-                    <ProducerShop />
-                  ) : info.properties.type ===
-                    'Revendeur du marché (Achète des produits et les revend)' ? (
-                    <MarketDealer />
-                  ) : info.properties.type === 'Epicerie sociale et solidaire' ? (
-                    <Solidarity />
-                  ) : info.properties.type ===
-                    'Producteur du marché (Cultive ses produits et les vend)' ? (
-                    <MarketProducer />
-                  ) : info.properties.type === 'Vente à la ferme' ? (
-                    <FarmSale />
-                  ) : (
-                    ''
-                  )}
-                </div>
-                <h5>{info.properties.nom}</h5>
-                <span>
-                  <FontAwesomeIcon icon={faChevronRight} />
-                </span>
-                <ul>
-                  {info.properties.produits.map((p) => (
-                    <li key={p}>
-                      <img src={queryIcon(p)} alt={p} />
-                      <p>{p}</p>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ) : null;
-          })}
-        </ModalList>
+        <Tabs>
+          <Tab title={'Producteur'}>
+            <TabContent getStand={getProducerStand} data={data} onClick={openModal} />
+          </Tab>
+          <Tab title={'Revendeur'}>
+            <TabContent getStand={getSellerStand} data={data} onClick={openModal} />
+          </Tab>
+          <Tab title={'Tous'}>
+            <TabContent getStand={getStandAll} data={data} onClick={openModal} />
+          </Tab>
+        </Tabs>
       </TabsMarket>
+      {modalOpen && <ModalInside info={modalData} onClick={onClick} />}
       <BottomButton
         href={
           'https://demarches.guichet-recette.grandlyon.com/projets-de-crowdsourcing/ajouter-un-marchand/'
@@ -143,7 +102,6 @@ function ModalGlobalMarket({ data, onClick }: any) {
           <p>Ajouter un stand au marché</p>
         </button>
       </BottomButton>
-      {modalOpen && <ModalInside info={modalData} onClick={onClick} />}
     </>
   );
 }

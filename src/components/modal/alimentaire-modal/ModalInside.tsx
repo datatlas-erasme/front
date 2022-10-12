@@ -1,15 +1,9 @@
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 import { queryIcon } from '../../../utils/queryIcon';
-import {
-  FarmSale,
-  ProducerShop,
-  Amap,
-  MarketProducer,
-  Solidarity,
-  MarketDealer,
-} from '../../../assets/svg/types/index';
+import { MarketProducer, MarketDealer } from '../../../assets/svg/types';
 import { Override } from '../../../types/Override';
 import PictoTime from '../../../assets/icon/icon-time.png';
 import PictoPoi from '../../../assets/icon/icon-poi.png';
@@ -41,18 +35,11 @@ const ModalInside = ({ onClick, info }: ModalInsideProps) => {
       <ModalHeading>
         <TitleModal>
           <span>
-            {!!info.type && info.type === 'AMAP' ? (
-              <Amap />
-            ) : info.type === 'Magasin de producteurs' ? (
-              <ProducerShop />
-            ) : info.type === 'Revendeur du marché (Achète des produits et les revend)' ? (
+            {!!info.type &&
+            info.type === 'Revendeur du marché (Achète des produits et les revend)' ? (
               <MarketDealer />
-            ) : info.type === 'Epicerie sociale et solidaire' ? (
-              <Solidarity />
             ) : info.type === 'Producteur du marché (Cultive ses produits et les vend)' ? (
               <MarketProducer />
-            ) : info.type === 'Vente à la ferme' ? (
-              <FarmSale />
             ) : (
               ''
             )}
