@@ -8,6 +8,8 @@ import { Override } from '../../../types/Override';
 import PictoTime from '../../../assets/icon/icon-time.png';
 import PictoPoi from '../../../assets/icon/icon-poi.png';
 import PictoPen from '../../../assets/icon/icon-pen.png';
+import { OpeningHours } from '../../../utils/opening-hours';
+import { translateDay } from '../../../utils/translateDay';
 import {
   ModalColLeft,
   ModalColRight,
@@ -30,6 +32,12 @@ export type ModalInsideProps = Override<
 >;
 
 const ModalInside = ({ onClick, info }: ModalInsideProps) => {
+  const openingDay = !!info.horaires && info.horaires.map((item: any, i: number) => item);
+  // Ouvert maintenant
+  const shopIsOpen = OpeningHours(openingDay);
+  // Day in french
+  const translateFR = translateDay(openingDay);
+
   return (
     <WrapperModal>
       <ModalHeading>
@@ -81,15 +89,14 @@ const ModalInside = ({ onClick, info }: ModalInsideProps) => {
           </li>
           <li>
             <img src={PictoTime} alt="icon horloge" width={20} height={20} />
-            {!!info.horaires && info.horaires ? (
+            {!!translateFR && translateFR ? (
               <ul>
-                {info.horaires.map((item: any, index: number) => (
-                  <li key={index}>{item}</li>
-                ))}
+                <li>{translateFR}</li>
               </ul>
             ) : (
               <p>Les horaires n'ont pas été renseigné</p>
             )}
+            {shopIsOpen}
           </li>
         </InfoPratique>
       </ModalColLeft>
