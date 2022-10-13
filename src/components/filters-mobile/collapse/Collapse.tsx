@@ -33,8 +33,6 @@ const Collapse = ({
 }: CollapseProps) => {
   const [height] = useState(0);
 
-  console.log(className);
-
   function TextCollaps() {
     if (text[0] === 'type') {
       return 'QUI ?';
