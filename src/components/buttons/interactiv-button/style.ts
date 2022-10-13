@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { device } from '../../../styles';
-import px2vw from '../../../utils/px2vw';
 
 export const WarpperAddPoint = styled.div`
   display: flex;
+  justify-content: center;
   width: 80%;
   z-index: 1;
   @media ${device.lg} {
@@ -43,13 +43,6 @@ export const AddPoint = styled.button`
     line-height: ${({ theme }) => theme.lineHeights.paragraph};
 
     cursor: pointer;
-
-    span {
-      svg {
-        width: ${px2vw(60)};
-        height: auto;
-      }
-    }
 
     p {
       display: block;
