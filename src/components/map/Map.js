@@ -34,20 +34,22 @@ export default function MapContainer() {
     );
   } else {
     return (
-      <div style={{ position: 'absolute', width: '100%', height: '100%' }}>
-        <AutoSizer>
-          {({ height, width }) => (
-            <AlimentaireKeplerGl
-              id="map"
-              mapboxApiAccessToken={mapboxToken}
-              width={width}
-              height={height}
-              appName="Datatlas"
-            />
-          )}
-          {/* <Logo /> */}
-        </AutoSizer>
-      </div>
+      <>
+        <Header />
+        <div style={{ position: 'absolute', width: '100%', height: '100%' }}>
+          <AutoSizer>
+            {({ height, width }) => (
+              <AlimentaireKeplerGl
+                id="map"
+                mapboxApiAccessToken={mapboxToken}
+                width={width}
+                height={height}
+                appName="Datatlas"
+              />
+            )}
+          </AutoSizer>
+        </div>
+      </>
     );
   }
 }

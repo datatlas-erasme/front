@@ -94,32 +94,6 @@ export default function useInstanceConfiguration() {
         });
 
         // Load custom map style.
-<<<<<<< HEAD
-=======
-        const mapData: AddDataToMapPayload & { datasets: ProtoDataset[] } = {
-          datasets: [],
-          config: parsedConfig,
-          options: { keepExistingConfig: true },
-        };
-
-        const promises = instanceConf.layers.map(async (layer) => {
-          return fetch(layer.url)
-            .then((res) => res.json())
-            .then((data) => {
-              mapData.datasets.push({
-                info: {
-                  label: layer.name,
-                  id: layer.name,
-                },
-                data: data.fields ? data : processGeojson(data),
-              });
-            })
-            .catch(() => {});
-        });
-        await Promise.all(promises).then(() => {
-          dispatch(addDataToMap(mapData));
-        });
->>>>>>> fbbca2e (FIX: inputMapStyle Kepler to load the defaultMapBoxStyleUrl)
         dispatch(
           inputMapStyle({
             style: instanceConf.defaultMapBoxStyleUrl,
