@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, connect } from 'react-redux';
+import { useDispatch, connect, useSelector } from 'react-redux';
 import { setFilter } from 'erasme-kepler.gl/actions';
 import { Checkbox, ButtonSelect, ButtonIcon, ButtonDefault } from '../../buttons/button-type';
 // import { Ouverture } from '../../buttons/button-type/button-day/style';
+import { getThemeName } from '../../../store/app';
 import { ListSelect, ButtonWrapper, ListIconButton, ListCheckbox } from './style';
 // import { ListCheckbox, LabelCheckbox } from './style';
 
@@ -11,13 +12,15 @@ export type ListProps = {
   listNames?: string[];
   width?: any;
   backgroundColor?: string;
-  theme?: string;
   btnType?: string;
   layerId?: number;
   className?: string;
   text?: string;
 };
-export const List = ({ listNames = [], idFilter, theme, text }: ListProps) => {
+export const List = ({ listNames = [], idFilter, text, backgroundColor }: ListProps) => {
+  // Get the theme name
+  const theme = useSelector(getThemeName);
+
   const dispatch = useDispatch();
   const [filtersArray, setFiltersArray] = useState<string[]>([]);
 
@@ -30,12 +33,10 @@ export const List = ({ listNames = [], idFilter, theme, text }: ListProps) => {
       );
     } else {
       setFiltersArray((filtersArray) => [...filtersArray, item]);
-      // console.log("Filters Array :", filtersArray)
     }
   };
 
   useEffect(() => {
-    // console.log('Filters Array :', filtersArray);
     dispatch(setFilter(idFilter, 'value', filtersArray));
   }, [dispatch, idFilter, filtersArray]);
 
@@ -50,7 +51,7 @@ export const List = ({ listNames = [], idFilter, theme, text }: ListProps) => {
               key={index}
               textSize="12px"
               text={item}
-              bg={undefined}
+              bg={backgroundColor}
               btnType={undefined}
               listNames={undefined}
               layerId={undefined}

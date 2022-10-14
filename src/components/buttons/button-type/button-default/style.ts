@@ -3,13 +3,46 @@ import styled from 'styled-components';
 
 export const StyleFilters = styled.div``;
 
-export const ButtonLayer = styled.div`
-    display: flex;
-    border-radius: 5px;
-    margin-bottom: 0;
-    font-size: 15px;
-    width: max-content;
-    color : ${({ theme }) => theme.colors.primary};)}
+export const Button = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  color: white;
+  padding: 20px 16px 20px 10px;
+  border-radius: 0px 5px 5px 0px;
+  border: none;
+  margin: 0;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.75px;
+  background-color: 'black';
+  width: 100%;
+`;
+
+export const ColorDot = styled.div`
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: aliceblue;
+  margin-right: 10px;
+`;
+
+export const ParentBtnFooterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const ParentBtnFooter = styled(Button)`
+  background-color: black;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-align: center;
+  padding: 15px 0px;
+  display: flex;
+  justify-content: center;
 `;
 
 /********************** FILTERS SIDE PANEL *********************/
