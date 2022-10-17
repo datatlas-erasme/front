@@ -142,6 +142,10 @@ const CustomMapPopoverFactory = (...deps) => {
         ContentBuffer.push({cat: "url", content: data[index]})
         //ContentBuffer.push({cat: "site", content: '<a target="" href='+data[index]+'>Voir le site web</a>'})
       }
+      if (field.displayName.includes('inscription_url')) {
+        ContentBuffer.push({cat: "inscription_url", content: data[index]})
+        //ContentBuffer.push({cat: "site", content: '<a target="" href='+data[index]+'>Voir le site web</a>'})
+      }
   
     });
 
@@ -156,6 +160,7 @@ const CustomMapPopoverFactory = (...deps) => {
     const link = ContentBuffer.filter((value) => value.cat === "link" )[0]?.content
     const trees = ContentBuffer.filter((value) => value.cat === "trees" )[0]?.content
     const url = ContentBuffer.filter((value) => value.cat === "url" )[0]?.content
+    const inscription_url = ContentBuffer.filter((value) => value.cat === "inscription_url" )[0]?.content
     
     const imgageUrl =  image ? image : 'https://canographia.datagora.erasme.org/wp-content/themes/canographia/assets/placeholder-ressource.png'
     const style = {
@@ -172,6 +177,7 @@ const CustomMapPopoverFactory = (...deps) => {
           <p><b>{address ? "Adresse : " : ""}</b>{address}</p>
           <p><b>{tags ? "Tags : " : ""}</b>{tags}</p>
           <p><b>{contact ? "Contact : " : ""}</b>{contact ? DOMPurify.sanitize(he.decode(contact),{FORBID_TAGS: ['a']}) : ''}</p>   
+          <p><b>{inscription_url ? <a href={inscription_url} target="_blank">Lien vers l'inscription </a> : ""}</b></p>
           <p><b>{url ? <a href={url} target="_blank">Lien vers la fiche </a> : ""}</b></p>   
         </div>
       </div>
