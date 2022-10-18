@@ -32,8 +32,9 @@ export const getFirstResultScore = (results) => (results.length > 0 ? results[0]
 const isValidSearchFilter = (filter: FilterBase) =>
   filter.type === FILTER_TYPES.multiSelect && filter.domain && filter.domain.length > 0;
 
-const isFilterAllowed = (allowedFilters: FilterBase['id'][]) => (filter: FilterBase) =>
-  allowedFilters.includes(filter.id);
+export const isFilterAllowed =
+  (allowedFilters: FilterBase['id'][]) => (filter: { id: FilterBase['id'] }) =>
+    allowedFilters.includes(filter.id);
 
 export const findMatches =
   (searchQuery: string, allowedFilters: FilterBase['id'][]) =>

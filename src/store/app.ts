@@ -1,5 +1,7 @@
 import { createAction, handleActions } from 'redux-actions';
 import InstanceConfigurationInterface from '../domain/InstanceConfigurationInterface';
+import { getFilters } from './keplerGl';
+import { isFilterAllowed } from './keplerGl/search';
 
 // Constants
 export const INIT = 'INIT';
@@ -48,5 +50,19 @@ export const getThemeName = (state) => getTheme(state).name;
 export const getMapboxToken = (state) => state.app.configuration.mapboxToken;
 export const getBottomRightButtons = (state) => state.app.configuration.bottomRightButtons;
 export const getSearchFilters = (state) => state.app.configuration.searchFilters;
+export const getValidSearchFilters = (state) => {
+  const searchFilters = getSearchFilters(state);
+  const filterIds = getFilters(state).map(({ id }) => id);
+
+  return searchFilters.filter((id) => {
+    const exists = isFilterAllowed(filterIds)({ id });
+    if (!exists) {
+      // eslint-disable-next-line no-console
+      console.warn(`Search filter ${id} doesn't exist.`);
+    }
+
+    return exists;
+  });
+};
 
 export default app;
