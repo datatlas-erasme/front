@@ -10,6 +10,7 @@ import { MapModalLocal, MapModalGobal } from '../components/modal';
 import CustomMapPopover from '../components/popover';
 import { PopHover } from '../components/popover/style';
 import { WrapperModal } from '../components/modal/style';
+import { getClicked, getMapById } from '../store/keplerGl';
 
 const CustomMapPopoverFactory = (...deps) => {
   MapPopoverFactory.deps = [LayerHoverInfoFactory, CoordinateInfoFactory];
@@ -26,7 +27,7 @@ const CustomMapPopoverFactory = (...deps) => {
 
     const dataID = props.layerHoverProp.layer._oldDataUpdateTriggers.getData.datasetId;
 
-    const clicked = useSelector((state) => state.keplerGl.map?.visState?.clicked ?? null);
+    const clicked = useSelector(getClicked);
 
     if (props.layerHoverProp?.layer?.id === 'point_layer') {
       return null;
@@ -68,7 +69,7 @@ const CustomMapPopoverFactory = (...deps) => {
     // lenses
     [visStateLens],
     // mapStateToProps
-    (state) => ({ mapState: state.keplerGl.map1 }),
+    (state) => ({ mapState: getMapById('map1')(state) }),
   )(MapPopoverWrapper);
 };
 

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
 import { useViewport } from '../../../../utils/ViewportConext';
 // import { Override } from '../../../../types/Override';
+import { getLayerByIndex } from '../../../../store/keplerGl';
 import { CheckBoxWrapper, CheckBox, CheckBoxLabel } from './style';
 
 export default function ButtonSwitch() {
@@ -13,7 +14,7 @@ export default function ButtonSwitch() {
   const dispatch = useDispatch();
 
   // Get isVisible from Kepler state
-  const layerGlobalMarket = useSelector((state: any) => state.keplerGl.map.visState.layers[0]);
+  const layerGlobalMarket = useSelector(getLayerByIndex(0));
   const handlechange = () => setIsLayerVisible(!isLayerVisible);
 
   useEffect(() => {

@@ -21,12 +21,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { MapPopoverFactory } from 'erasme-kepler.gl/components';
+import { getClicked } from '../store/keplerGl';
 
 //import CustomLayerHoverInfo from "./CustomLayerHoverInfo"
 
 const IndustriesCustomMapPopoverFactory = (...deps) => {
   const MapSidepanel = (props) => {
-    const clicked = useSelector((state) => state.keplerGl.map?.visState?.clicked ?? null);
+    const clicked = useSelector(getClicked);
     if (!clicked) {
       const MapPopover = MapPopoverFactory(...deps);
 
