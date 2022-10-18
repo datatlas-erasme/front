@@ -114,7 +114,7 @@ const DesktopPanelControl = ({
     return (
       <ul>
         {ParentBtn}
-
+        {searchFilters && <SearchBar filters={searchFilters} />}
         <AnimateHeight
           duration={500}
           height={!isActive ? 0 : 'auto'} // see props documentation bellow
