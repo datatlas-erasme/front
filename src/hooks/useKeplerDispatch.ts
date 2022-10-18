@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { forwardTo } from 'erasme-kepler.gl/actions';
 
-export default function useKeplerDispatch() {
+export default function useKeplerDispatch(id: string = 'map') {
   const dispatch = useDispatch();
 
-  return forwardTo('map', dispatch);
+  return forwardTo(id, dispatch);
 }
