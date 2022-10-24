@@ -39,6 +39,16 @@ yarn link kepler.gl
 yarn build # or yarn start
 ```
 
+### Configuration
+
+__Datatlas__ use 2 configuration files one directly used by __Kepler.gl__ `api/conf/kepler` and another used by __Datatlas__ `api/conf/instance`.
+These files are normally fetched from __Datatlas__ back but you may create these files in your `public/api/conf` directory
+to work locally without running the server. In such case you must adapt your `.env` to fetch from them there :
+```
+REACT_APP_BACKEND_URL='http://localhost:3000'
+```
+
+
 ### By modifying the package.json
 
 This implies pushing a different package.json than the one actually versioned and should be the result of a team decision.
