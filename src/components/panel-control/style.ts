@@ -11,7 +11,7 @@ export const Panel = styled.div`
     display: flex;
     position: ${({ theme }) => theme.Panel.position};
     right: ${({ theme }) => theme.Panel.right};
-    width: 45vw;
+    width: ${({ theme }) => theme.Panel.width};
     height: 100vh;
     justify-content: ${({ theme }) => theme.Panel.justifyContent};
     flex-direction: column;

@@ -10,9 +10,9 @@ export const Button = styled.button`
   font-size: 16px;
   color: white;
   padding: 20px 16px 20px 10px;
-  border-radius: 0px 5px 5px 0px;
+  border-radius: 5px 5px 0px 0px;
   border: none;
-  margin: 0;
+  margin: 15px 0 15px 0;
   transition: all ease-in-out 0.2s;
   cursor: pointer;
   font-weight: 400;
@@ -30,6 +30,11 @@ export const ColorDot = styled.div`
   margin-right: 10px;
 `;
 
+export const ParentBtn = styled(Button)`
+  margin: 0px;
+  border-radius: 0;
+`;
+
 export const ParentBtnFooterContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -43,7 +48,11 @@ export const ParentBtnFooter = styled(Button)`
   padding: 15px 0px;
   display: flex;
   justify-content: center;
+  margin: 0;
+  border-radius: 0;
 `;
+
+export const ChildBtn = styled(Button)``;
 
 /********************** FILTERS SIDE PANEL *********************/
 // .FilterSidePanel {

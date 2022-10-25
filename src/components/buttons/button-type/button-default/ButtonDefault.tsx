@@ -7,7 +7,7 @@ import classnames from 'classnames';
 import { LightenDarkenColor } from 'lighten-darken-color';
 import { Override } from '../../../../types/Override';
 import { List } from '../../../filters-desktop/lists/Lists';
-import { Button, ColorDot, ParentBtnFooter, ParentBtnFooterContainer } from './style';
+import { Button, ColorDot, ParentBtn, ParentBtnFooter, ParentBtnFooterContainer } from './style';
 
 export type ButtonDefaultProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
@@ -81,7 +81,7 @@ const ButtonDefault = ({
   else if (btnType === 'child') {
     return (
       <div>
-        <Button
+        <ParentBtn
           onClick={isActiveState}
           style={{ backgroundColor: LightenDarkenColor(bg, 30), fontSize: textSize }}
           className={classnames('btn', className, { active: !isActive })}
@@ -89,7 +89,7 @@ const ButtonDefault = ({
         >
           Filtrer par {text?.substring(0, 30)}
           <span>{isActive ? '-' : '+'}</span>
-        </Button>
+        </ParentBtn>
         <AnimateHeight
           duration={500}
           height={!isActive ? 0 : 'auto'} // see props documentation bellow

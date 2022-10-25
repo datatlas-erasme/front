@@ -44,6 +44,7 @@ export const Base: DefaultTheme = {
     left: 'auto',
     backgroundColor: '#ffffff00',
     justifyContent: 'flex-start',
+    width: '45vw',
   },
 
   ButtonCollapse: {
@@ -95,6 +96,7 @@ export const datalimentaire: DefaultTheme = {
     left: 0,
     backgroundColor: '#ffffff00',
     justifyContent: 'center',
+    width: '45vw',
   },
 
   ButtonCollapse: {
@@ -143,10 +145,11 @@ export const industries: DefaultTheme = {
     position: 'absolute',
     top: 0,
     bottom: 0,
-    right: 0,
+    right: '2vw',
     left: 'auto',
     backgroundColor: 'none',
     justifyContent: 'flex-start',
+    width: '25vw',
   },
 
   ButtonCollapse: {
