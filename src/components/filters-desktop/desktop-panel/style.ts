@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from '../../../styles/breakpoints';
+import { device } from '../../../styles';
 
 export const BlockFilters = styled.div`
   display: flex;
@@ -21,8 +21,7 @@ export const BlockFilters = styled.div`
 
 export const DomainFilter = styled.ul`
   width: 100%;
-  padding: 0px 30px;
-  // overflow: overlay;
+  padding: 0 30px;
 `;
 
 export const ParentFilter = styled.li`
@@ -66,7 +65,7 @@ export const LayerFilter = styled.ul`
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
     
-    &:-webkit-scrollbar {
+    &::-webkit-scrollbar {
         display: none;
 `;
 
