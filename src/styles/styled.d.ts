@@ -38,10 +38,11 @@ declare module 'styled-components' {
     radii: string[];
 
     Panel: {
+      position: string;
       top: number;
       bottom: number;
-      right: number;
-      left: string;
+      right: number | string;
+      left: number | string;
       backgroundColor: string;
       justifyContent: string;
     };

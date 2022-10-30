@@ -37,6 +37,7 @@ export const Base: DefaultTheme = {
   radii: ['0px', '2px', '4px', '8px', '16px', '20px', '40px'],
 
   Panel: {
+    position: 'absolute',
     top: 0,
     bottom: 0,
     right: 0,
@@ -87,12 +88,13 @@ export const datalimentaire: DefaultTheme = {
   radii: ['0px', '2px', '4px', '8px', '16px', '20px', '40px'],
 
   Panel: {
+    position: 'absolute',
     top: 0,
     bottom: 0,
-    right: 0,
-    left: 'auto',
+    right: 'auto',
+    left: 0,
     backgroundColor: '#ffffff00',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
   },
 
   ButtonCollapse: {
@@ -109,7 +111,7 @@ export const industries: DefaultTheme = {
     secondary: '#df7160',
     darkgray: '#71717E',
     gray: '#c4c4c4',
-    background: '#fcafafa',
+    background: 'none',
     red: '#ff4848',
     blue: '#aad7ff',
   },
@@ -138,11 +140,12 @@ export const industries: DefaultTheme = {
   radii: ['0px', '2px', '4px', '8px', '16px', '20px', '40px'],
 
   Panel: {
+    position: 'absolute',
     top: 0,
     bottom: 0,
     right: 0,
     left: 'auto',
-    backgroundColor: '#ffffff00',
+    backgroundColor: 'none',
     justifyContent: 'flex-start',
   },
 
