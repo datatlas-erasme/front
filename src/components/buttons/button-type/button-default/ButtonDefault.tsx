@@ -15,7 +15,7 @@ export type ButtonDefaultProps = Override<
     text: string;
     bg?: string;
     textSize?: string;
-    btnType?: 'parent' | 'child';
+    btnType?: 'parent' | 'child' | 'sub-child';
     listNames?: string[];
     idFilter?: string;
     layerId?: string;
@@ -74,6 +74,7 @@ const ButtonDefault = ({
           style={{
             backgroundColor: 'black',
             borderRadius: btnActive ? '5px 5px 0px 0px' : '5px 5px 5px 5px',
+            marginBottom: btnActive ? '0px' : '5px',
           }}
         >
           <ColorDot onClick={isLayerVisibleState} style={{ backgroundColor: bg }} />
@@ -104,6 +105,21 @@ const ButtonDefault = ({
             <List listNames={listNames} backgroundColor={bg} idFilter={idFilter} />
           </div>
         </AnimateHeight>
+      </div>
+    );
+  }
+  // Medium button styling + lits display
+  else if (btnType === 'sub-child') {
+    return (
+      <div>
+        <ParentBtn
+          onClick={isActiveState}
+          style={{ backgroundColor: bg, fontSize: textSize }}
+          className={classnames('btn', className, { selected: !isActive })}
+          {...props}
+        >
+          {text?.substring(0, 30)}
+        </ParentBtn>
       </div>
     );
   } else if (btnType === 'parent-footer') {

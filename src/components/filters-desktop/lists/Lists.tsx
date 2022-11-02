@@ -52,7 +52,7 @@ export const List = ({ listNames = [], idFilter, text, backgroundColor }: ListPr
               textSize="12px"
               text={item}
               bg={backgroundColor}
-              btnType={undefined}
+              btnType="sub-child"
               listNames={undefined}
               layerId={undefined}
               iconName={undefined}
