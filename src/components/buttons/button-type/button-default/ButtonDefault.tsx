@@ -125,8 +125,15 @@ const ButtonDefault = ({
   } else if (btnType === 'parent-footer') {
     return (
       <ParentBtnFooterContainer>
-        <ParentBtnFooter onClick={isLayerVisibleState}>Masquer ce calque</ParentBtnFooter>
-        <ParentBtnFooter> A Propos du calque</ParentBtnFooter>
+        <ParentBtnFooter
+          style={{ borderRadius: '0px 0px 0px 5px', borderLeft: 'grey solid 0.1px' }}
+          onClick={isLayerVisibleState}
+        >
+          Masquer ce calque
+        </ParentBtnFooter>
+        <ParentBtnFooter style={{ borderRadius: '0px 0px 5px 0px' }}>
+          A Propos du calque
+        </ParentBtnFooter>
       </ParentBtnFooterContainer>
     );
   } else {
