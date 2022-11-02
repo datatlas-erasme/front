@@ -33,6 +33,9 @@ export const ColorDot = styled.div`
 export const ParentBtn = styled(Button)`
   margin: 0px;
   border-radius: 0;
+  &:hover {
+    filter: brightness(1.2);
+  }
 `;
 
 export const ParentBtnFooterContainer = styled.div`
