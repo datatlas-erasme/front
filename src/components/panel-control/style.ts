@@ -18,6 +18,6 @@ export const Panel = styled.div`
     background-color: ${({ theme }) => theme.colors.background};
   }
   @media ${device.xl} {
-    width: 35vw;
+    width: ${({ theme }) => theme.Panel.xlwidth};
   }
 `;

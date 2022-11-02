@@ -46,6 +46,7 @@ declare module 'styled-components' {
       backgroundColor: string;
       justifyContent: string;
       width: string;
+      xlwidth: string;
     };
 
     ButtonCollapse: {
