@@ -127,6 +127,7 @@ export const ModalColRight = styled.div`
 export const ModalHeading = styled.div`
   display: flex;
   width: 100%;
+  height: fit-content;
   justify-content: space-between;
   div {
     &:first-child {
@@ -256,7 +257,7 @@ export const TitleModal = styled.div`
 
 export const InfoPratiqueGlobal = styled.ul`
   display: block;
-  width: 90%;
+  width: 100vw;
 
   li {
     font-size: ${({ theme }) => theme.fontSizes.xstext};
@@ -264,15 +265,14 @@ export const InfoPratiqueGlobal = styled.ul`
     display: flex;
     margin-top: 15px;
     width: 100%;
-      p {
-        margin-top: 0;
-        margin-left: 10px;
-        &:nth-child(3) {
-          font-size: ${({ theme }) => theme.fontSizes.paragraphe};
-          color: ${({ theme }) => theme.colors.red};
-          font-weight: ${({ theme }) => theme.fontWeights[5]};
-          text-align: center;
-        }
+    p {
+      margin-top: 0;
+      margin-left: 10px;
+      &:nth-child(3) {
+        font-size: ${({ theme }) => theme.fontSizes.paragraphe};
+        color: ${({ theme }) => theme.colors.red};
+        font-weight: ${({ theme }) => theme.fontWeights[5]};
+        text-align: center;
       }
     }
   }
@@ -280,9 +280,6 @@ export const InfoPratiqueGlobal = styled.ul`
   @media ${device.lg} {
     display: flex;
     justify-content: space-around;
-
-    width: 90%;
-    margin: auto;
     padding: 10px 20px !important;
 
     li {
@@ -394,85 +391,7 @@ export const TabsMarket = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-height: 45vh;
+  margin: 0;
   padding: 20px 0;
-  @media ${device.lg} {
-    width: 100%;
-    margin: auto;
-    padding: 10px 20px;
-  }
-`;
-
-export const ModalList = styled.ul`
-  margin: auto;
-  li {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 15px 0;
-    cursor: pointer;
-
-    background-color: ${({ theme }) => (theme ? theme.colors.secondary : theme)};
-
-    h5 {
-      flex: 14;
-      font-size: ${({ theme }) => theme.fontSizes.paragraphe};
-      font-weight : ${({ theme }) => theme.fontWeights[5]}
-      border-bottom: none;
-    }
-    span {
-      flex: 1;
-    }
-    ul {
-      flex: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      li {
-        display: flex;
-        width: auto;
-        padding: 5px;
-        p{
-          font-size: 10px;
-          padding-left: 5px; 
-        }
-        img{
-          width: auto;
-          height: 15px;
-        }
-
-      }
-    }
-  }
-
-  @media ${device.lg} {
-    li {
-      padding: 20px 100px;
-    h5 {
-      flex: 10;
-      font-size: ${({ theme }) => theme.fontSizes.xstitle};
-      font-weight : ${({ theme }) => theme.fontWeights[5]}
-      border-bottom: none;
-    }
-    span {
-      flex: 1;
-    }
-    ul {
-      flex: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      li {
-        display: flex;
-        width: auto;
-        padding: 5px;
-        p{
-          font-size: ${({ theme }) => theme.fontSizes.xstext};
-          padding-left: 5px; 
-        }
-        img{
-          width: auto;
-          height: 20px;
-        }
-
-      }
-    }
-  }
-  }
 `;

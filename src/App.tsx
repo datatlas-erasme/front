@@ -16,7 +16,7 @@ export default function App() {
     return <Loader />;
   }
 
-  const theme = instanceConfiguration?.theme?.name === 'Industries' ? industries : datalimentaire;
+  const theme = instanceConfiguration?.theme?.name === 'industries' ? industries : datalimentaire;
 
   return (
     <ThemeProvider theme={theme}>
@@ -27,7 +27,6 @@ export default function App() {
             path="*"
             element={
               <>
-                {/* {theme === datalimentaire ? : null} */}
                 <Map />
                 <PanelControl />
               </>

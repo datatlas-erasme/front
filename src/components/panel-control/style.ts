@@ -1,11 +1,6 @@
 import styled from 'styled-components';
-import { device } from '../../styles/breakpoints';
+import { device } from '../../styles';
 import px2vw from '../../utils/px2vw';
-
-// get theme from env var or default to datalimentaire
-// const theme = industries ;
-
-// const theme = instance.conf?.theme?.name === 'Industries' ? industries : datalimentaire;
 
 export const Panel = styled.div`
   display: none;
