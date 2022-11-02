@@ -10,7 +10,7 @@ export const Button = styled.button`
   font-size: 16px;
   color: white;
   padding: 20px 16px 20px 10px;
-  border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 5px 5px;
   border: none;
   margin: 15px 0 15px 0;
   transition: all ease-in-out 0.2s;

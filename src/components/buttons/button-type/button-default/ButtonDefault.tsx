@@ -69,7 +69,13 @@ const ButtonDefault = ({
   if (btnType === 'parent') {
     return (
       <div className="btn-parent">
-        <Button {...props} style={{ backgroundColor: 'black' }}>
+        <Button
+          {...props}
+          style={{
+            backgroundColor: 'black',
+            borderRadius: btnActive ? '5px 5px 0px 0px' : '5px 5px 5px 5px',
+          }}
+        >
           <ColorDot onClick={isLayerVisibleState} style={{ backgroundColor: bg }} />
           {text.substring(0, 30)}
           <span>{btnActive ? '-' : '+'}</span>
