@@ -14,6 +14,7 @@ export type ButtonDefaultProps = Override<
   {
     text: string;
     bg?: string;
+    textColor?: string;
     textSize?: string;
     btnType?: 'parent' | 'child' | 'sub-child';
     listNames?: string[];
@@ -28,6 +29,7 @@ export type ButtonDefaultProps = Override<
 const ButtonDefault = ({
   text,
   bg,
+  textColor,
   textSize,
   btnType,
   listNames,
@@ -77,7 +79,7 @@ const ButtonDefault = ({
             marginBottom: btnActive ? '0px' : '5px',
           }}
         >
-          <ColorDot onClick={isLayerVisibleState} style={{ backgroundColor: bg }} />
+          <ColorDot style={{ backgroundColor: bg }} />
           {text.substring(0, 30)}
           <span>{btnActive ? '-' : '+'}</span>
         </Button>
@@ -114,7 +116,7 @@ const ButtonDefault = ({
       <div>
         <ParentBtn
           onClick={isActiveState}
-          style={{ backgroundColor: bg, fontSize: textSize }}
+          style={{ backgroundColor: bg, fontSize: textSize, color: textColor }}
           className={classnames('btn', className, { selected: !isActive })}
           {...props}
         >
@@ -129,7 +131,7 @@ const ButtonDefault = ({
           style={{ borderRadius: '0px 0px 0px 5px', borderLeft: 'grey solid 0.1px' }}
           onClick={isLayerVisibleState}
         >
-          Masquer ce calque
+          {isLayerVisible ? 'Masquer ce calque' : 'Afficher ce calque'}
         </ParentBtnFooter>
         <ParentBtnFooter style={{ borderRadius: '0px 0px 5px 0px' }}>
           A Propos du calque
