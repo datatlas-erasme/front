@@ -39,6 +39,7 @@ const app = handleActions<AppState, any>(
 // Selectors
 export const getTheme = (state) => state.app.configuration.theme;
 export const getThemeName = (state) => getTheme(state).name;
+export const getConfigLayers = (state) => state.app.configuration.layers;
 export const getMapboxToken = (state) => state.app.configuration.mapboxToken;
 export const getBottomRightButtons = (state) => state.app.configuration.bottomRightButtons;
 
