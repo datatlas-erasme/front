@@ -21,7 +21,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle theme={theme} />
+      <GlobalStyle />
       <ViewportProvider>
         <Routes>
           <Route

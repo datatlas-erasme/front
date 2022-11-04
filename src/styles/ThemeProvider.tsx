@@ -1,17 +1,22 @@
 import React, { ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 import useInstanceConfiguration from '../hooks/useInstanceConfiguration';
-import { datalimentaire, industries } from './themes';
+import { datalimentaire, industries, GlobalStyle } from './index';
 
 type ThemeProviderProps = {
   children: ReactNode;
 };
 
-const ThemeProviderDisplay: React.FC<ThemeProviderProps> = ({ children }) => {
+const Theme: React.FC<ThemeProviderProps> = ({ children }) => {
   const instanceConfiguration = useInstanceConfiguration();
   const theme = instanceConfiguration?.theme?.name === 'industries' ? industries : datalimentaire;
 
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      {children}
+    </ThemeProvider>
+  );
 };
 
-export default ThemeProviderDisplay;
+export default Theme;
