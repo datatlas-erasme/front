@@ -22,16 +22,28 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { MapPopoverFactory } from 'erasme-kepler.gl/components';
 import { getConfigLayers } from '../store/app';
-import { getClicked } from '../store/keplerGl';
+import { getClicked, getLayers } from '../store/keplerGl';
 //import CustomLayerHoverInfo from "./CustomLayerHoverInfo"
 
 const IndustriesCustomMapPopoverFactory = (...deps) => {
   const MapSidepanel = (props) => {
+    // Fields declared in the kepler conf panel
+    const fieldsToShow = props.layerHoverProp.fieldsToShow;
+
+    // List of all data fields names
+    const allFields = props.layerHoverProp.fields;
+
+    // All the data related to the point clicked
+    const data = props.layerHoverProp.data;
+
     const configLayers = useSelector(getConfigLayers);
+    const layers = useSelector(getLayers);
+    console.log('layers', layers);
+    console.log('allFields', allFields);
     // get the sidePanelConfig from the configLqyers array
     useEffect(() => {
-      configLayers.forEach((layer) => {
-        console.log(layer.sidePanelMapping);
+      configLayers.forEach((configLayer) => {
+        console.log(configLayer.sidePanelMapping);
       });
     }, [configLayers]);
 
@@ -41,14 +53,6 @@ const IndustriesCustomMapPopoverFactory = (...deps) => {
 
       return <MapPopover {...props} />;
     }
-    // Fields declared in the kepler conf panel
-    const fieldsToShow = props.layerHoverProp.fieldsToShow;
-
-    // List of all data fields names
-    const allFields = props.layerHoverProp.fields;
-
-    // All the data related to the point clicked
-    const data = props.layerHoverProp.data;
 
     const PointFields = allFields.map((field, index) => {
       return fieldsToShow.map((fieldToShow, fieldToShowIndex) => {
