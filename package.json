@@ -17,7 +17,6 @@
     "@types/react-dom": "^17.0.11",
     "classnames": "^2.3.1",
     "erasme-kepler.gl": "^2.5.6",
-    "framer-motion": "^7.6.1",
     "history": "^5.1.0",
     "lighten-darken-color": "^1.0.0",
     "node-polyfill-webpack-plugin": "^2.0.0",
