@@ -16,11 +16,11 @@ export default function MapContainer() {
   const mapboxToken = useSelector(getMapboxToken);
   const themeName = useSelector(getThemeName);
 
-  if (themeName === 'industries') {
-    return (
-      <div style={{ position: 'absolute', width: '100%', height: '100%' }}>
-        <AutoSizer>
-          {({ height, width }) => (
+  return (
+    <div style={{ position: 'absolute', width: '100%', height: '100%' }}>
+      <AutoSizer>
+        {({ height, width }) =>
+          themeName === 'industries' ? (
             <IndustriesKeplerGl
               id="map"
               mapboxApiAccessToken={mapboxToken}
@@ -28,16 +28,7 @@ export default function MapContainer() {
               height={height}
               appName="Datatlas"
             />
-          )}
-          {/* <Logo /> */}
-        </AutoSizer>
-      </div>
-    );
-  } else {
-    return (
-      <div style={{ position: 'absolute', width: '100%', height: '100%' }}>
-        <AutoSizer>
-          {({ height, width }) => (
+          ) : (
             <AlimentaireKeplerGl
               id="map"
               mapboxApiAccessToken={mapboxToken}
@@ -45,10 +36,9 @@ export default function MapContainer() {
               height={height}
               appName="Datatlas"
             />
-          )}
-          {/* <Logo /> */}
-        </AutoSizer>
-      </div>
-    );
-  }
+          )
+        }
+      </AutoSizer>
+    </div>
+  );
 }

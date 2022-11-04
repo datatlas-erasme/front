@@ -36,5 +36,6 @@ export const GlobalStyle = createGlobalStyle`
 
   .map-control, .side-panel--container, .mapbox-attribution-container, .mapboxgl-ctrl {
   display: none !important;
+  }
   
 `;

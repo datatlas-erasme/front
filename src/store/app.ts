@@ -4,10 +4,14 @@ import InstanceConfigurationInterface from '../domain/InstanceConfigurationInter
 // Constants
 export const INIT = 'INIT';
 export const UPDATE_INSTANCE_CONFIGURATION = 'UPDATE_INSTANCE_CONFIGURATION';
+export const SELECT_THEME = 'SELECT_THEME';
 
 // Actions
 export const appInit = createAction(INIT);
 export const updateInstanceConfiguration = createAction(UPDATE_INSTANCE_CONFIGURATION);
+export const selectTheme = () => ({
+  type: SELECT_THEME,
+});
 
 export interface AppState {
   appName: string;
@@ -39,6 +43,7 @@ const app = handleActions<AppState, any>(
 // Selectors
 export const getTheme = (state) => state.app.configuration.theme;
 export const getThemeName = (state) => getTheme(state).name;
+console.log(getThemeName);
 export const getMapboxToken = (state) => state.app.configuration.mapboxToken;
 export const getBottomRightButtons = (state) => state.app.configuration.bottomRightButtons;
 
