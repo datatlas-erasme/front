@@ -48,7 +48,6 @@ const PanelControl = () => {
     });
   }, [layers]);
 
-  console.log(themeName);
 
   const Filters = filterTree.map((value, index) => {
     if (themeName === 'industries') {
