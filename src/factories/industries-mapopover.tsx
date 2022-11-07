@@ -18,7 +18,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import React, { useEffect } from 'react';
+//import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { MapPopoverFactory } from 'erasme-kepler.gl/components';
 import { getConfigLayers } from '../store/app';
@@ -33,21 +33,24 @@ const IndustriesCustomMapPopoverFactory = (...deps) => {
     // List of all data fields names
     const allFields = props.layerHoverProp.fields;
 
+    const dataID = props.layerHoverProp.layer._oldDataUpdateTriggers.getData.datasetId;
+    console.log('dataID', dataID);
+
     // All the data related to the point clicked
     const data = props.layerHoverProp.data;
 
     const configLayers = useSelector(getConfigLayers);
     const layers = useSelector(getLayers);
-    console.log('layers', layers);
-    console.log('allFields', allFields);
     // get the sidePanelConfig from the configLqyers array
-    useEffect(() => {
+    /**useEffect(() => {
       configLayers.forEach((configLayer) => {
         console.log(configLayer.sidePanelMapping);
       });
-    }, [configLayers]);
+    }, [configLayers]);**/
 
+    // get the clicked point from the store
     const clicked = useSelector(getClicked);
+    // if clicked is not null display the sidepanel
     if (!clicked) {
       const MapPopover = MapPopoverFactory(...deps);
 
@@ -55,18 +58,44 @@ const IndustriesCustomMapPopoverFactory = (...deps) => {
     }
 
     const PointFields = allFields.map((field, index) => {
-      return fieldsToShow.map((fieldToShow, fieldToShowIndex) => {
-        if (field.displayName == fieldToShow.name) {
-          console.log('field', field);
-          console.log('index', index);
-          console.log('data', data);
+      // Return all data[index] in divs with the field name as key
+      //console.log('field', field);
+      //console.log('data', data[index]);
+      //console.log('configLayers', configLayers);
+
+      // foreach field in the configLayers check if the name is the same as the dataId variable
+      const currentConfigLayer = configLayers.find((configLayer) => configLayer.name === dataID);
+      console.log('currentConfigLayer', currentConfigLayer.sidePanelMapping);
+      const buffer = Array<{ name: string; value: string; type: string }>();
+      currentConfigLayer.sidePanelMapping.forEach((mapping) => {
+        if (mapping.key === field.name) {
+          console.log('field name', field.name);
+          console.log('field type', field.type);
+          console.log('Data', data[index]);
+          // append object to buffer
+          buffer.push({ name: field.name, value: data[index], type: field.type });
         }
+      });
+
+      console.log('buffer', buffer);
+
+      return buffer.map((item) => {
+        return (
+          <div key={item.name}>
+            <div>{}</div>
+            <span>{item.name}</span>
+            <span>{item.value}</span>
+          </div>
+        );
       });
     });
 
-    return <div className="PointSidePanel"></div>;
-
-    //return <div className="PointSidePanel">{PointFieldsFixImage}<div className='content'>{PointFieldsFix}</div></div>;
+    return (
+      <div>
+        <h1>Custom Sidepanel</h1>
+        {PointFields}
+      </div>
+    );
   };
 
   return MapSidepanel;
