@@ -31,5 +31,9 @@ COPY --from=prod /app/build .
 
 EXPOSE 80
 
+COPY ./entrypoint.sh ./
+
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+
 # Containers run nginx with global directives and daemon off
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["sh", "entrypoint.sh"]
