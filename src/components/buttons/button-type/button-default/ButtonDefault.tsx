@@ -7,15 +7,16 @@ import classnames from 'classnames';
 import { LightenDarkenColor } from 'lighten-darken-color';
 import { Override } from '../../../../types/Override';
 import { List } from '../../../filters-desktop/lists/Lists';
-import { Button, ColorDot, ParentBtnFooter, ParentBtnFooterContainer } from './style';
+import { Button, ColorDot, ParentBtn, ParentBtnFooter, ParentBtnFooterContainer } from './style';
 
 export type ButtonDefaultProps = Override<
   React.ComponentPropsWithoutRef<'button'>,
   {
     text: string;
     bg?: string;
+    textColor?: string;
     textSize?: string;
-    btnType?: 'parent' | 'child';
+    btnType?: 'parent' | 'child' | 'sub-child';
     listNames?: string[];
     idFilter?: string;
     layerId?: string;
@@ -28,6 +29,7 @@ export type ButtonDefaultProps = Override<
 const ButtonDefault = ({
   text,
   bg,
+  textColor,
   textSize,
   btnType,
   listNames,
@@ -69,8 +71,15 @@ const ButtonDefault = ({
   if (btnType === 'parent') {
     return (
       <div className="btn-parent">
-        <Button {...props} style={{ backgroundColor: 'black' }}>
-          <ColorDot onClick={isLayerVisibleState} style={{ backgroundColor: bg }} />
+        <Button
+          {...props}
+          style={{
+            backgroundColor: 'black',
+            borderRadius: btnActive ? '5px 5px 0px 0px' : '5px 5px 5px 5px',
+            marginBottom: btnActive ? '0px' : '5px',
+          }}
+        >
+          <ColorDot style={{ backgroundColor: bg }} />
           {text.substring(0, 30)}
           <span>{btnActive ? '-' : '+'}</span>
         </Button>
@@ -81,7 +90,7 @@ const ButtonDefault = ({
   else if (btnType === 'child') {
     return (
       <div>
-        <Button
+        <ParentBtn
           onClick={isActiveState}
           style={{ backgroundColor: LightenDarkenColor(bg, 30), fontSize: textSize }}
           className={classnames('btn', className, { active: !isActive })}
@@ -89,7 +98,7 @@ const ButtonDefault = ({
         >
           Filtrer par {text?.substring(0, 30)}
           <span>{isActive ? '-' : '+'}</span>
-        </Button>
+        </ParentBtn>
         <AnimateHeight
           duration={500}
           height={!isActive ? 0 : 'auto'} // see props documentation bellow
@@ -100,11 +109,33 @@ const ButtonDefault = ({
         </AnimateHeight>
       </div>
     );
+  }
+  // Medium button styling + lits display
+  else if (btnType === 'sub-child') {
+    return (
+      <div>
+        <ParentBtn
+          onClick={isActiveState}
+          style={{ backgroundColor: bg, fontSize: textSize, color: textColor }}
+          className={classnames('btn', className, { selected: !isActive })}
+          {...props}
+        >
+          {text?.substring(0, 30)}
+        </ParentBtn>
+      </div>
+    );
   } else if (btnType === 'parent-footer') {
     return (
       <ParentBtnFooterContainer>
-        <ParentBtnFooter onClick={isLayerVisibleState}>Masquer ce calque</ParentBtnFooter>
-        <ParentBtnFooter> A Propos du calque</ParentBtnFooter>
+        <ParentBtnFooter
+          style={{ borderRadius: '0px 0px 0px 5px', borderLeft: 'grey solid 0.1px' }}
+          onClick={isLayerVisibleState}
+        >
+          {isLayerVisible ? 'Masquer ce calque' : 'Afficher ce calque'}
+        </ParentBtnFooter>
+        <ParentBtnFooter style={{ borderRadius: '0px 0px 5px 0px' }}>
+          A Propos du calque
+        </ParentBtnFooter>
       </ParentBtnFooterContainer>
     );
   } else {

@@ -40,7 +40,7 @@ export const List = ({ listNames = [], idFilter, text, backgroundColor }: ListPr
     dispatch(setFilter(idFilter, 'value', filtersArray));
   }, [dispatch, idFilter, filtersArray]);
 
-  // return based on theme name
+  // return based on theme name change text color based if filter is active or not
   if (theme === 'industries') {
     return (
       <div>
@@ -52,10 +52,11 @@ export const List = ({ listNames = [], idFilter, text, backgroundColor }: ListPr
               textSize="12px"
               text={item}
               bg={backgroundColor}
-              btnType={undefined}
+              btnType="sub-child"
               listNames={undefined}
               layerId={undefined}
               iconName={undefined}
+              textColor={filtersArray.includes(item) ? 'white' : 'grey'}
             />
           </li>
         ))}

@@ -45,6 +45,8 @@ declare module 'styled-components' {
       left: number | string;
       backgroundColor: string;
       justifyContent: string;
+      width: string;
+      xlwidth: string;
     };
 
     ButtonCollapse: {
