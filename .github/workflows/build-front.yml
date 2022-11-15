@@ -1,4 +1,4 @@
-name: build-industries-dev
+name: build-front-datatlas
 on:
   push:
     branches:
@@ -25,5 +25,5 @@ jobs:
         with:
           push: true
           repository:  
-          tags: erasme/datatlas-industries:dev, erasme/datatlas-industries:${{ github.sha }}
+          tags: erasme/datatlas-front:dev, erasme/datatlas-front:${{ github.sha }}
 
