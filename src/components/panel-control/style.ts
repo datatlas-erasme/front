@@ -17,9 +17,10 @@ export const Panel = styled.div`
     top: 0;
     bottom: 0;
     width: 45vw;
+    width: ${({ theme }) => theme.Panel.width};
     height: 100vh;
   }
   @media ${device.xl} {
-    width: 35vw;
+    width: ${({ theme }) => theme.Panel.xlwidth};
   }
 `;
