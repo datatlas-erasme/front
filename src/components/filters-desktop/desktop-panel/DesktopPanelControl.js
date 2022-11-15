@@ -12,6 +12,8 @@ const DesktopPanelControl = ({
   filtersDomain,
   initialActiveItemIndex,
   closeOtherItemsOnClick,
+  layerIndex,
+  layer,
 }) => {
   const theme = useSelector(getThemeName);
   const datasetLabel = value.label;
@@ -45,7 +47,22 @@ const DesktopPanelControl = ({
 
   // Button related to the first level of the filters
   const ParentBtn = (
-    <ButtonDefault onClick={handleClick} btnType="parent" bg={color} text={datasetLabel} />
+    <ButtonDefault
+      onClick={handleClick}
+      btnActive={isActive}
+      btnType="parent"
+      bg={color}
+      text={datasetLabel}
+    />
+  );
+
+  const ParentBtnFooter = (
+    <ButtonDefault
+      btnType="parent-footer"
+      text={datasetLabel}
+      layerIndex={layerIndex}
+      layer={layer}
+    />
   );
 
   const Domains = Object.keys(filtersDomain).map((filter, index) => {
@@ -53,7 +70,7 @@ const DesktopPanelControl = ({
     const filterItem = filtersDomain[filter].domain;
     const filterId = filtersDomain[filter].dataId;
     if (theme === 'industries') {
-      if (filterId === datasetId) {
+      if (filterId[0] === datasetId) {
         return (
           <div className="filter">
             <li key={index} className="filter-parent">
@@ -101,6 +118,7 @@ const DesktopPanelControl = ({
           height={!isActive ? 0 : 'auto'} // see props documentation bellow
         >
           <>{Domains}</>
+          {ParentBtnFooter}
         </AnimateHeight>
       </ul>
     );

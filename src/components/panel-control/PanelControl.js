@@ -31,11 +31,20 @@ const PanelControl = () => {
 
   const filterTree = useMemo(() => {
     return Object.values(layers).map((value, i) => {
+      const layerIndex = i;
       // Get the color of the point on map and convert it to hex
+      var layer = value;
       var colorRgb = value.config.color;
       var colorHexa = rgbToHex(colorRgb[0], colorRgb[1], colorRgb[2]);
 
-      return { label: value.config.label, id: value.config.dataId, key: i, colorHexa: colorHexa };
+      return {
+        label: value.config.label,
+        id: value.config.dataId,
+        key: i,
+        colorHexa: colorHexa,
+        layerIndex: layerIndex,
+        layer: layer,
+      };
     });
   }, [layers]);
 
@@ -50,6 +59,8 @@ const PanelControl = () => {
           index={index}
           filtersDomain={filtersDomain}
           color={value.colorHexa}
+          layerId={value.layerIndex}
+          layer={value.layer}
         />
       );
     } else {

@@ -2,7 +2,6 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { enhanceReduxMiddleware } from 'erasme-kepler.gl';
 import { taskMiddleware } from 'react-palm/tasks';
-import { logger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import keplerGlReducer from './keplerGl';
 import appReducer from './app';
@@ -22,9 +21,12 @@ const rootReducer = combineReducers({
 export type RootState = ReturnType<typeof rootReducer>;
 
 const middlewares = enhanceReduxMiddleware([thunk, taskMiddleware]);
-const enhancers = [applyMiddleware(...middlewares)];
 
-// Add redux devtools
+const actionsBlacklist = [
+  '@@kepler.gl/MOUSE_MOVE',
+  '@@kepler.gl/UPDATE_MAP',
+  '@@kepler.gl/LAYER_HOVER',
+];
 
 const composeEnhancers = composeWithDevTools({
   actionsBlacklist: [
@@ -34,21 +36,18 @@ const composeEnhancers = composeWithDevTools({
     '@@kepler.gl/LAYER_HOVER',
   ],
 });
-/**
- * comment out code below to enable Redux Devtools
- */
-// if (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
-//   composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-//     actionsBlacklist: [
-//       '@@kepler.gl/MOUSE_MOVE',
-//       '@@kepler.gl/UPDATE_MAP',
-//       '@@kepler.gl/LAYER_HOVER',
-//     ],
-//   });
-// }
 
 if (process.env.NODE_ENV === 'development') {
-  middlewares.push(logger);
+  const { createLogger } = require(`redux-logger`);
+
+  middlewares.push(
+    createLogger({
+      predicate: (getState, { type }) => !actionsBlacklist.includes(type),
+      collapsed: (getState, action, { error }) => !error,
+    }),
+  );
 }
+
+const enhancers = [applyMiddleware(...middlewares)];
 
 export default createStore(rootReducer, initialState, composeEnhancers(...enhancers));

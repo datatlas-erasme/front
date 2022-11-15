@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, connect } from 'react-redux';
+import { useDispatch, connect, useSelector } from 'react-redux';
 import { setFilter } from 'erasme-kepler.gl/actions';
 import { Checkbox, ButtonSelect, ButtonIcon, ButtonDefault } from '../../buttons/button-type';
+import { getThemeName } from '../../../store/app';
 import { ListSelect, ButtonWrapper, ListIconButton, ListCheckbox } from './style';
 
 export type ListProps = {
@@ -9,13 +10,15 @@ export type ListProps = {
   listNames?: string[];
   width?: any;
   backgroundColor?: string;
-  theme?: string;
   btnType?: string;
   layerId?: number;
   className?: string;
   text?: string;
 };
-export const List = ({ listNames = [], idFilter, theme, text }: ListProps) => {
+export const List = ({ listNames = [], idFilter, text, backgroundColor }: ListProps) => {
+  // Get the theme name
+  const theme = useSelector(getThemeName);
+
   const dispatch = useDispatch();
   const [filtersArray, setFiltersArray] = useState<string[]>([]);
 
@@ -46,7 +49,7 @@ export const List = ({ listNames = [], idFilter, theme, text }: ListProps) => {
               key={index}
               textSize="12px"
               text={item}
-              bg={undefined}
+              bg={backgroundColor}
               btnType={undefined}
               listNames={undefined}
               layerId={undefined}
