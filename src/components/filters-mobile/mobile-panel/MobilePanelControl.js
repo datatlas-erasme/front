@@ -12,7 +12,6 @@ const MobilePanelControl = ({ closeOtherItemsOnClick, filtersDomain, initialActi
 
       return;
     }
-
     let newActiveItemIndexes = [activeItemIndexes];
     if (newIndexes) {
       newActiveItemIndexes = newActiveItemIndexes.filter((item) => item !== index);
