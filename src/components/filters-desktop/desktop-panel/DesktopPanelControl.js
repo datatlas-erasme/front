@@ -74,8 +74,8 @@ const DesktopPanelControl = ({
     if (theme === 'industries') {
       if (filterId[0] === datasetId) {
         return (
-          <div className="filter">
-            <li key={index} className="filter-parent">
+          <ul className="filter" key={index}>
+            <li className="filter-parent">
               <ButtonDefault
                 bg={color}
                 btnType="child"
@@ -85,7 +85,7 @@ const DesktopPanelControl = ({
                 theme={theme}
               />
             </li>
-          </div>
+          </ul>
         );
       }
     } else {
@@ -114,7 +114,6 @@ const DesktopPanelControl = ({
     return (
       <ul>
         {ParentBtn}
-
         <AnimateHeight
           duration={500}
           height={!isActive ? 0 : 'auto'} // see props documentation bellow
@@ -130,7 +129,7 @@ const DesktopPanelControl = ({
         <BlockFilters>
           <HeadingFilter>Trouve ton plan Bouffe</HeadingFilter>
           {/* <SearchBar/> */}
-          <DomainFilter>{Domains}</DomainFilter>
+          <DomainFilter>{!!Domains}</DomainFilter>
           <ButtonDay
             dayList={filtersDomain[5].domain}
             text={filtersDomain[5].name[0]}

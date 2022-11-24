@@ -87,7 +87,7 @@ const PanelControl = () => {
 
   return (
     <Panel>
-      {Filters}
+      {!!Filters && Filters}
       <AddButton />
     </Panel>
   );

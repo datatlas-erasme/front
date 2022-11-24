@@ -43,12 +43,11 @@ export const List = ({ listNames = [], idFilter, text, backgroundColor }: ListPr
   // return based on theme name change text color based if filter is active or not
   if (theme === 'industries') {
     return (
-      <div>
+      <ul>
         {listNames?.map((item, index) => (
-          <li onClick={() => setFilterValue(item)}>
+          <li onClick={() => setFilterValue(item)} key={index}>
             <ButtonDefault
               className=""
-              key={index}
               textSize="12px"
               text={item}
               bg={backgroundColor}
@@ -60,7 +59,7 @@ export const List = ({ listNames = [], idFilter, text, backgroundColor }: ListPr
             />
           </li>
         ))}
-      </div>
+      </ul>
     );
   } else {
     return !!text && text[0] === 'type' ? (

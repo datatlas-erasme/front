@@ -29,7 +29,6 @@ export default function MapContainer() {
               appName="Datatlas"
             />
           )}
-          {/* <Logo /> */}
         </AutoSizer>
       </div>
     );
@@ -46,7 +45,6 @@ export default function MapContainer() {
               appName="Datatlas"
             />
           )}
-          {/* <Logo /> */}
         </AutoSizer>
       </div>
     );

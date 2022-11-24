@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { datalimentaire, industries, GlobalStyle } from './styles';
 import useInstanceConfiguration from './hooks/useInstanceConfiguration';
 import { ViewportProvider } from './utils/ViewportConext';
 import Loader from './components/Loader';
-import CursorHandler from './components/CursorHandler';
 
 const Map = React.lazy(() => import('./components/map'));
 const PanelControl = React.lazy(() => import('./components/panel-control'));
 
 export default function App() {
   const instanceConfiguration = useInstanceConfiguration();
-
+  const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(instanceConfiguration);
+  // }, [dispatch]);
   if (!instanceConfiguration) {
     return <Loader />;
   }
@@ -28,9 +31,10 @@ export default function App() {
             path="*"
             element={
               <>
-                <Map />
-                <PanelControl />
-                <CursorHandler />
+                <Suspense fallback={<Loader />}>
+                  <Map />
+                  <PanelControl />
+                </Suspense>
               </>
             }
           />

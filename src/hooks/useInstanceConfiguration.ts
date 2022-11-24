@@ -17,12 +17,9 @@ export default function useInstanceConfiguration() {
   const [instanceConf, setInstanceConf] = useState<InstanceConfigurationInterface | undefined>(
     undefined,
   );
-
   const [parsedConfig, setParsedConfig] = useState<ParsedConfig | undefined>(undefined);
   const [keplerConfLoaded, setKeplerConfLoaded] = useState(false);
-
   const dispatch = useDispatch();
-
   const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   // Retrieve Instance configuration.
@@ -55,7 +52,6 @@ export default function useInstanceConfiguration() {
           config: parsedConfig,
           options: { keepExistingConfig: true },
         };
-
         const promises = instanceConf.layers.map(async (layer) => {
           return fetch(layer.url)
             .then((res) => res.json())
@@ -72,13 +68,11 @@ export default function useInstanceConfiguration() {
 
                   return row;
                 });
-
                 // in processedData append {name : lat, type : 'number'} and same for long
                 processedData.fields.push({ name: 'lat', type: 'number' });
                 processedData.fields.push({ name: 'lng', type: 'number' });
                 processedData.rows = dataRows;
               }
-
               mapData.datasets.push({
                 info: {
                   label: layer.name,
@@ -102,8 +96,9 @@ export default function useInstanceConfiguration() {
           }),
         );
         dispatch(addCustomMapStyle());
-
-        dispatch(appInit());
+        if (keplerConfLoaded) {
+          dispatch(appInit());
+        }
       }
     })();
   }, [dispatch, keplerConfLoaded]);
