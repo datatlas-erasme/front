@@ -18,7 +18,7 @@ export default function ButtonSwitch() {
 
   useEffect(() => {
     if (layerGlobalMarket) {
-      dispatch(layerConfigChange(layerGlobalMarket, { isVisible: isLayerVisible }));
+      dispatch(layerConfigChange(layerGlobalMarket, { isVisible: !isLayerVisible }));
     }
 
     return;
