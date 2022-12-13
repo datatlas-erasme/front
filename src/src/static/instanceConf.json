@@ -10,8 +10,9 @@
     "filterSidePanel": {
       "buttonColorRange": [
         "#BD764D",
+        "#458a46",
         "#DED25E",
-        "#294F8D"
+        "#294F8D" 
     ]
     }
   },
