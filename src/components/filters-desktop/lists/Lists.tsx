@@ -3,7 +3,7 @@ import { useDispatch, connect, useSelector } from 'react-redux';
 import { setFilter } from 'erasme-kepler.gl/actions';
 import { Checkbox, ButtonSelect, ButtonIcon, ButtonDefault } from '../../buttons/button-type';
 // import { Ouverture } from '../../buttons/button-type/button-day/style';
-import { getThemeName } from '../../../store/app';
+import { getThemeName } from '../../../store/app/selectors';
 import { ListSelect, ButtonWrapper, ListIconButton, ListCheckbox } from './style';
 // import { ListCheckbox, LabelCheckbox } from './style';
 

@@ -10,7 +10,7 @@ import { MapModalLocal, MapModalGobal } from '../components/modal';
 import CustomMapPopover from '../components/popover';
 import { PopHover } from '../components/popover/style';
 import { WrapperModal } from '../components/modal/style';
-import { getClicked, getMapById } from '../store/keplerGl';
+import { getClicked, getMapById } from '../store/kepler/selectors';
 
 const CustomMapPopoverFactory = (...deps) => {
   MapPopoverFactory.deps = [LayerHoverInfoFactory, CoordinateInfoFactory];

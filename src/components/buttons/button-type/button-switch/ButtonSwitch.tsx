@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { layerConfigChange } from 'erasme-kepler.gl/actions';
 import { useViewport } from '../../../../utils/ViewportConext';
 // import { Override } from '../../../../types/Override';
-import { getLayerByIndex } from '../../../../store/keplerGl';
+import { getLayerByIndex } from '../../../../store/kepler/selectors';
 import { CheckBoxWrapper, CheckBox, CheckBoxLabel } from './style';
 
 export default function ButtonSwitch() {

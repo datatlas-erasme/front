@@ -5,7 +5,7 @@ import AnimateHeight from 'react-animate-height';
 import { useSelector } from 'react-redux';
 import Collapse from '../collapse';
 import { ButtonDay, ButtonDefault, ButtonSwitch } from '../../buttons/button-type';
-import { getThemeName } from '../../../store/app';
+import { getThemeName } from '../../../store/app/selectors';
 import { BlockFilters, ParentFilter, DomainFilter, HeadingFilter } from './style';
 
 const DesktopPanelControl = ({

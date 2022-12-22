@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { getHoverInfoLayer } from '../store/keplerGl';
+import { getHoverInfoLayer } from '../store/kepler';
 
 const CursorHandler = () => {
   // TODO use a kepler factory to handle cursor in the future

@@ -3,7 +3,7 @@ import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import { MapPopoverFactory, injectComponents } from 'erasme-kepler.gl/components';
 import CustomMapPopoverFactory from '../../factories/map-popover';
 import IndustriesCustomMapPopoverFactory from '../../factories/industries-mapopover';
-import { getMapboxToken, getThemeName } from '../../store/app';
+import { getMapboxToken, getThemeName } from '../../store/app/selectors';
 
 const IndustriesKeplerGl = injectComponents([
   [MapPopoverFactory, IndustriesCustomMapPopoverFactory],

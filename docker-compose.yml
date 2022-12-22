@@ -9,9 +9,9 @@ services:
     ports:
       - 0.0.0.0:3000:3000
     volumes:
-      - ./src:/app/src
-      - ./public:/app/public
-      - ./.env:/app/.env
+      - ./src:/index/src
+      - ./public:/index/public
+      - ./.env:/index/.env
 
     command: npm start
     stdin_open: true

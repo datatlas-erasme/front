@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { IconAdd } from '../../../assets/svg/IconAdd';
-import { getBottomRightButtons, getThemeName } from '../../../store/app';
+import { getBottomRightButtons, getThemeName } from '../../../store/kepler/selectors';
 import { ButtonDefault } from '../../buttons/button-type';
 import { AddPoint, WarpperAddPoint } from './style';
 

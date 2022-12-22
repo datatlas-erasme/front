@@ -3,10 +3,10 @@ import { connect, useSelector } from 'react-redux';
 import { toggleModal, setFilterUpdater } from 'erasme-kepler.gl/actions';
 import { DesktopPanelControl } from '../filters-desktop';
 import { MobilePanelControl } from '../filters-mobile';
-import AddButton from '../buttons/interactiv-button';
+// import AddButton from '../buttons/interactiv-button';
 import { useViewport } from '../../utils/ViewportConext';
-import { getFilters, getLayers } from '../../store/keplerGl';
-import { getThemeName } from '../../store/app';
+import { getFilters, getLayers } from '../../store/kepler/selectors';
+import { getThemeName } from '../../store/app/selectors';
 import { Panel } from './style';
 
 const PanelControl = () => {
@@ -88,7 +88,7 @@ const PanelControl = () => {
   return (
     <Panel>
       {!!Filters && Filters}
-      <AddButton />
+      {/*<AddButton />*/}
     </Panel>
   );
 };

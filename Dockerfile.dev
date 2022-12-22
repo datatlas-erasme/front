@@ -1,7 +1,7 @@
 FROM node:lts as dev
 
-COPY . /app
-WORKDIR /app
+COPY . /index
+WORKDIR /index
 RUN ls
 RUN npm install --legacy-peer-deps
 

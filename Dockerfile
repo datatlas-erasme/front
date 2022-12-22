@@ -1,16 +1,16 @@
 FROM node:lts as prod
 ARG REACT_APP_BACKEND_URL
 
-COPY src /app/src
-COPY public /app/public
-COPY package.json /app
-COPY package-lock.json /app
-COPY .prettierrc /app
-COPY .prettierignore /app
-COPY tsconfig.json /app
-COPY config-overrides.js /app
+COPY src /index/src
+COPY public /index/public
+COPY package.json /index
+COPY package-lock.json /index
+COPY .prettierrc /index
+COPY .prettierignore /index
+COPY tsconfig.json /index
+COPY config-overrides.js /index
 
-WORKDIR /app
+WORKDIR /index
 
 RUN ls
 RUN npm ci --legacy-peer-deps
