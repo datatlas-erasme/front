@@ -117,9 +117,7 @@ const ModalInside = ({ onClick, info }: ModalInsideProps) => {
         </ProductRow>
       </ModalColRight>
       <BottomButton
-        href={
-          'https://demarches.guichet-recette.grandlyon.com/projets-de-crowdsourcing/ajouter-un-marchand/'
-        }
+        href={`https://demarches.guichet-recette.grandlyon.com/projets-de-crowdsourcing/editer-un-marchand/?parametre=${info.identifiant}`}
         target="_blank"
         rel={'noreferrer'}
       >

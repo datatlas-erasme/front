@@ -100,9 +100,7 @@ function MapModalLocal({ data, onClick }: any) {
         </ProductRow>
       </ModalColRight>
       <BottomButton
-        href={
-          'https://demarches.guichet-recette.grandlyon.com/projets-de-crowdsourcing/ajouter-un-marchand/'
-        }
+        href={`https://demarches.guichet-recette.grandlyon.com/projets-de-crowdsourcing/editer-un-marchand/?parametre=${data[1]}`}
         target="_blank"
         rel={'noreferrer'}
       >
@@ -114,6 +112,7 @@ function MapModalLocal({ data, onClick }: any) {
     </>
   );
 }
+
 const mapStateToProps = (state: any) => state;
 const dispatchToProps = (dispatch: any) => ({ dispatch });
 
