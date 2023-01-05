@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { enhanceReduxMiddleware } from 'erasme-kepler.gl';
+import { enhanceReduxMiddleware } from 'kepler.gl';
 import { taskMiddleware } from 'react-palm/tasks';
 import thunk from 'redux-thunk';
 import keplerGlReducer from './keplerGl';

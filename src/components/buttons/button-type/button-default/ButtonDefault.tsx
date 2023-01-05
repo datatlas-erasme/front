@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { layerConfigChange } from 'erasme-kepler.gl/actions';
+import { layerConfigChange } from 'kepler.gl/actions';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 import AnimateHeight from 'react-animate-height';
 import classnames from 'classnames';

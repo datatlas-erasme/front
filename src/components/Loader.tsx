@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProgressBar } from 'erasme-kepler.gl/components';
+import { ProgressBar } from 'kepler.gl/components';
 import styled from 'styled-components';
 import logoGL from '../assets/logo/logo-metropole-grand-lyon.png';
 import { LoaderAnimate } from '../styles/Load';

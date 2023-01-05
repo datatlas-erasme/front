@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { connect, useSelector } from 'react-redux';
-import { toggleModal, setFilterUpdater } from 'erasme-kepler.gl/actions';
+import { toggleModal, setFilterUpdater } from 'kepler.gl/actions';
 import { DesktopPanelControl } from '../filters-desktop';
 import { MobilePanelControl } from '../filters-mobile';
 import MenuButtonMobile from '../buttons/menu-button-mobile';

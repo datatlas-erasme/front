@@ -123,6 +123,8 @@ const DesktopPanelControl = ({
       </ul>
     );
   } else {
+    console.log('filtersDomain', filtersDomain);
+
     return (
       <>
         <BlockFilters>

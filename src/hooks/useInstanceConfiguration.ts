@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { processGeojson } from 'erasme-kepler.gl/processors';
-import { KeplerGlSchema } from 'erasme-kepler.gl/schemas';
-import { AddDataToMapPayload, ProtoDataset } from 'erasme-kepler.gl/src/actions/actions';
-import { ParsedConfig } from 'erasme-kepler.gl/src/schemas';
+import { processGeojson } from 'kepler.gl/processors';
+import { KeplerGlSchema } from 'kepler.gl/schemas';
+import { AddDataToMapPayload, ProtoDataset } from 'kepler.gl/src/actions/actions';
+import { ParsedConfig } from 'kepler.gl/src/schemas';
 import {
   addCustomMapStyle,
   addDataToMap,
   inputMapStyle,
   receiveMapConfig,
-} from 'erasme-kepler.gl/actions';
+} from 'kepler.gl/actions';
 import { appInit, updateInstanceConfiguration } from '../store/app';
 import InstanceConfigurationInterface from '../domain/InstanceConfigurationInterface';
 

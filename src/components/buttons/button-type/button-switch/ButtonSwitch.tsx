@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { layerConfigChange } from 'erasme-kepler.gl/actions';
+import { layerConfigChange } from 'kepler.gl/actions';
 import { getFirstLayers } from '../../../../store/keplerGl';
 import { useViewport } from '../../../../utils/ViewportConext';
 import { CheckBoxWrapper, CheckBox, CheckBoxLabel, CheckBoxTitle } from './style';

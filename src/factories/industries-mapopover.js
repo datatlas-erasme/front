@@ -20,7 +20,7 @@
 
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { MapPopoverFactory } from 'erasme-kepler.gl/components';
+import { MapPopoverFactory } from 'kepler.gl/components';
 import { getClicked } from '../store/keplerGl';
 
 //import CustomLayerHoverInfo from "./CustomLayerHoverInfo"
@@ -40,7 +40,7 @@ const IndustriesCustomMapPopoverFactory = (...deps) => {
     const allFields = props.layerHoverProp.fields;
 
     // All the data related to the point clicked
-    const data = props.layerHoverProp.data;
+    const data = props.layerHoverProp.data.values();
 
     //console.log(allFields)
     //TODO map all fields to fieldToshow

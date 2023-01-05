@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, connect, useSelector } from 'react-redux';
-import { setFilter } from 'erasme-kepler.gl/actions';
+import { setFilter } from 'kepler.gl/actions';
 import { Checkbox, ButtonSelect, ButtonIcon, ButtonDefault } from '../../buttons/button-type';
 import { getThemeName } from '../../../store/app';
 import { ListSelect, ButtonWrapper, ListIconButton, ListCheckbox } from './style';
@@ -16,6 +16,7 @@ export type ListProps = {
   text?: string;
 };
 export const List = ({ listNames = [], idFilter, text, backgroundColor }: ListProps) => {
+  console.log('listNames', listNames);
   // Get the theme name
   const theme = useSelector(getThemeName);
 
@@ -63,42 +64,45 @@ export const List = ({ listNames = [], idFilter, text, backgroundColor }: ListPr
   } else {
     return !!text && text[0] === 'type' ? (
       <ListSelect>
-        {listNames.map((item: string, i: number) => {
-          switch (idFilter) {
-            case 1:
-              return (
-                <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
-                  <ButtonSelect text={item} />
-                </ButtonWrapper>
-              );
-          }
-        })}
+        {listNames &&
+          listNames.map((item: string, i: number) => {
+            switch (idFilter) {
+              case 1:
+                return (
+                  <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                    <ButtonSelect text={item} />
+                  </ButtonWrapper>
+                );
+            }
+          })}
       </ListSelect>
     ) : !!text && text[0] === 'produits' ? (
       <ListIconButton>
-        {listNames.map((item: string, i: number) => {
-          switch (idFilter) {
-            case 3:
-              return (
-                <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
-                  <ButtonIcon text={item} />
-                </ButtonWrapper>
-              );
-          }
-        })}
+        {listNames &&
+          listNames.map((item: string, i: number) => {
+            switch (idFilter) {
+              case 3:
+                return (
+                  <ButtonWrapper key={i} onClick={() => setFilterValue(item)}>
+                    <ButtonIcon text={item} />
+                  </ButtonWrapper>
+                );
+            }
+          })}
       </ListIconButton>
     ) : !!text && text[0] === 'label' ? (
       <ListCheckbox>
-        {listNames.map((item: string, i: number) => {
-          switch (idFilter) {
-            case 4:
-              return (
-                <ButtonWrapper key={i}>
-                  <Checkbox text={item} setFilterValue={() => setFilterValue(item)} />
-                </ButtonWrapper>
-              );
-          }
-        })}
+        {listNames &&
+          listNames.map((item: string, i: number) => {
+            switch (idFilter) {
+              case 4:
+                return (
+                  <ButtonWrapper key={i}>
+                    <Checkbox text={item} setFilterValue={() => setFilterValue(item)} />
+                  </ButtonWrapper>
+                );
+            }
+          })}
       </ListCheckbox>
     ) : null;
   }
