@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { LayerHoverInfoFactory, CoordinateInfoFactory } from 'erasme-kepler.gl/components';
+import { LayerHoverInfoFactory, CoordinateInfoFactory } from 'kepler.gl/components';
 import { ArrowLeft, ArrowRight, Pin } from 'components/common/icons';
 import { injectIntl } from 'react-intl';
 import { FormattedMessage } from 'localization';

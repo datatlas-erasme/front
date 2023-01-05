@@ -28,6 +28,7 @@ import {
 } from './style';
 
 function MapModalLocal({ data, onClick }: any) {
+  console.log('data', data);
   const openingDay = !!data[9] && data[9].map((item: any, i: number) => item);
   const shopIsOpen = OpeningHours(openingDay);
   const translateFR = translateDay(openingDay);
@@ -116,14 +117,15 @@ function MapModalLocal({ data, onClick }: any) {
         <ProductRow>
           <h4>Produits vendus</h4>
           <ul>
-            {data[10].map((item: string, index: number) => {
-              return (
-                <li key={index}>
-                  <img src={queryIcon(item)} alt={item} />
-                  <p>{item}</p>
-                </li>
-              );
-            })}
+            {data[10] &&
+              data[10].map((item: string, index: number) => {
+                return (
+                  <li key={index}>
+                    <img src={queryIcon(item)} alt={item} />
+                    <p>{item}</p>
+                  </li>
+                );
+              })}
           </ul>
         </ProductRow>
       </ModalColRight>

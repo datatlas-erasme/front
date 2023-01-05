@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, connect } from 'react-redux';
-import { setFilter } from 'erasme-kepler.gl/actions';
+import { setFilter } from 'kepler.gl/actions';
 import { ButtonSelect, ButtonDay, ButtonIcon, Checkbox } from '../../buttons/button-type';
 import { reorderDayList } from '../../../utils/reoderDayList';
 import { ListSelect, ButtonWrapper, ListIconButton, ListCheckbox, ListDay } from './style';

@@ -4,8 +4,8 @@ import {
   LayerHoverInfoFactory,
   CoordinateInfoFactory,
   withState,
-} from 'erasme-kepler.gl/components';
-import { visStateLens } from 'erasme-kepler.gl/reducers';
+} from 'kepler.gl/components';
+import { visStateLens } from 'kepler.gl/reducers';
 import CustomMapModal from '../components/modal/Modal';
 import CustomMapPopover from '../components/popover';
 import { PopHover } from '../components/popover/style';
@@ -23,7 +23,7 @@ const CustomMapPopoverFactory = () => {
     const allFields = props.layerHoverProp.fields;
 
     // All the data related to the point clicked
-    const data = props.layerHoverProp.data;
+    const data = props.layerHoverProp.data.values();
 
     const dataID = props.layerHoverProp.layer._oldDataUpdateTriggers.getData.datasetId;
 

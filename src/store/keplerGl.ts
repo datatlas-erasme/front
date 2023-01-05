@@ -1,5 +1,5 @@
-import { keplerGlReducer, uiStateUpdaters } from 'erasme-kepler.gl';
-import { KeplerGlState } from 'erasme-kepler.gl/src/reducers/core';
+import { keplerGlReducer, uiStateUpdaters } from 'kepler.gl';
+import { KeplerGlState } from 'kepler.gl/src/reducers/core';
 import { Reducer } from 'redux';
 
 // Reducer

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setFilter } from 'erasme-kepler.gl/actions';
+import { setFilter } from 'kepler.gl/actions';
 import classnames from 'classnames';
 import { useViewport } from '../../../../utils/ViewportConext';
 import { Override } from '../../../../types/Override';
@@ -56,7 +56,8 @@ export default function ButtonDay({ dayList = [], idFilter, text }: DayProps) {
     }
   }, [dispatch, idFilter, filtersArray]);
 
-  const newDayList = reorderDayList(dayList, 0, 6, 0, 3, 5, 4);
+  console.log('dayList', dayList);
+  const newDayList = reorderDayList(dayList || [], 0, 6, 0, 3, 5, 4);
 
   return width < breakpoint ? (
     <Ouverture>
