@@ -54,6 +54,10 @@ export const getValidSearchFilters = (state) => {
   const searchFilters = getSearchFilters(state);
   const filterIds = getFilters(state).map(({ id }) => id);
 
+  if (!searchFilters) {
+    return null;
+  }
+
   return searchFilters.filter((id) => {
     const exists = isFilterAllowed(filterIds)({ id });
     if (!exists) {
