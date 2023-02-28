@@ -4,12 +4,7 @@ import { processGeojson } from 'erasme-kepler.gl/processors';
 import { KeplerGlSchema } from 'erasme-kepler.gl/schemas';
 import { AddDataToMapPayload, ProtoDataset } from 'erasme-kepler.gl/src/actions/actions';
 import { ParsedConfig } from 'erasme-kepler.gl/src/schemas';
-import {
-  addCustomMapStyle,
-  addDataToMap,
-  inputMapStyle,
-  receiveMapConfig,
-} from 'erasme-kepler.gl/actions';
+import { addCustomMapStyle, addDataToMap, inputMapStyle } from 'erasme-kepler.gl/actions';
 import { appInit, updateInstanceConfiguration } from '../store/app';
 import InstanceConfigurationInterface from '../domain/InstanceConfigurationInterface';
 
@@ -42,7 +37,6 @@ export default function useInstanceConfiguration() {
       .then((config) => {
         const parsedConfig = KeplerGlSchema.parseSavedConfig(config);
         setParsedConfig(parsedConfig);
-        dispatch(receiveMapConfig(parsedConfig));
         setKeplerConfLoaded(true);
       });
   }, [dispatch]);
@@ -54,7 +48,7 @@ export default function useInstanceConfiguration() {
         const mapData: AddDataToMapPayload & { datasets: ProtoDataset[] } = {
           datasets: [],
           config: parsedConfig,
-          options: { keepExistingConfig: true },
+          options: { keepExistingConfig: false, autoCreateLayers: true },
         };
 
         const promises = instanceConf.layers.map(async (layer) => {
