@@ -63,6 +63,15 @@ const keplerGl: Reducer<KeplerGlState> = keplerGlReducer.initialState({
     },
   },
   visState: {},
+  mapState: {
+    bearing: 0,
+    dragRotate: false,
+    latitude: 45.758507,
+    longitude: 4.852149,
+    pitch: 0,
+    zoom: 9,
+    isSplit: false,
+  },
 });
 
 // Selectors
