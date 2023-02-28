@@ -50,4 +50,5 @@ if (process.env.NODE_ENV === 'development') {
 
 const enhancers = [applyMiddleware(...middlewares)];
 
+// @ts-ignore
 export default createStore(rootReducer, initialState, composeEnhancers(...enhancers));
