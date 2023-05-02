@@ -75,7 +75,10 @@ const keplerGl: Reducer<KeplerGlState> = keplerGlReducer.initialState({
 });
 
 // Selectors
-export const getMapById = (id: string) => (state) => state.keplerGl[id];
+export const getMapById =
+  (id: string = 'map') =>
+  (state) =>
+    state.keplerGl[id];
 export const getVisState = (state) => state.keplerGl.map?.visState ?? {};
 export const getHoverInfo = (state) => getVisState(state).hoverInfo;
 export const getHoverInfoLayer = (state) => getHoverInfo(state)?.layer ?? null;

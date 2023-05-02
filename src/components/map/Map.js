@@ -27,6 +27,7 @@ export default function MapContainer() {
               width={width}
               height={height}
               appName="Datatlas"
+              mint={false}
             />
           )}
         </AutoSizer>
@@ -45,6 +46,7 @@ export default function MapContainer() {
                 width={width}
                 height={height}
                 appName="Datatlas"
+                mint={false}
               />
             )}
           </AutoSizer>

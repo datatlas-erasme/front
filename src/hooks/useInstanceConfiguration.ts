@@ -4,7 +4,12 @@ import { processGeojson } from 'erasme-kepler.gl/processors';
 import { KeplerGlSchema } from 'erasme-kepler.gl/schemas';
 import { AddDataToMapPayload, ProtoDataset } from 'erasme-kepler.gl/src/actions/actions';
 import { ParsedConfig } from 'erasme-kepler.gl/src/schemas';
-import { addCustomMapStyle, addDataToMap, inputMapStyle } from 'erasme-kepler.gl/actions';
+import {
+  addCustomMapStyle,
+  addDataToMap,
+  inputMapStyle,
+  registerEntry,
+} from 'erasme-kepler.gl/actions';
 import { appInit, updateInstanceConfiguration } from '../store/app';
 import InstanceConfigurationInterface from '../domain/InstanceConfigurationInterface';
 
@@ -17,6 +22,18 @@ export default function useInstanceConfiguration() {
   const [keplerConfLoaded, setKeplerConfLoaded] = useState(false);
 
   const dispatch = useDispatch();
+
+  dispatch(
+    registerEntry({
+      id: 'map',
+      initialUiState: undefined,
+      mapStylesReplaceDefault: undefined,
+      mapboxApiAccessToken: process.env.REACT_APP_MAPBOX_TOKEN,
+      mapboxApiUrl: undefined,
+      mint: true,
+      test: 'ddd',
+    }),
+  );
 
   const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
