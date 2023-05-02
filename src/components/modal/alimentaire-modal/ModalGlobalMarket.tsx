@@ -10,9 +10,9 @@ import Tabs from '../../tabs';
 import Tab from '../../tabs/Tab';
 import TabContent from '../../tabs/TabContent';
 import { TabContextProvider } from '../../tabs/TabContext';
+import ModalInside from '../alimentaire-modal/ModalInside';
 import { ModalHeading, InfoPratiqueGlobal, BottomButton, TabsMarket, TitleModal } from './style';
 import { StyledModalPicture } from './ModalPicture';
-import ModalInside from '../alimentaire-modal/ModalInside';
 
 const TabNavList = ['Producteur', 'Revendeur', 'Tous'];
 
