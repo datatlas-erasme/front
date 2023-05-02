@@ -52,11 +52,11 @@ export const getBottomRightButtons = (state) => state.app.configuration.bottomRi
 export const getSearchFilters = (state) => state.app.configuration.searchFilters;
 export const getValidSearchFilters = (state) => {
   const searchFilters = getSearchFilters(state);
-  const filterIds = getFilters(state).map(({ id }) => id);
-
   if (!searchFilters) {
     return null;
   }
+
+  const filterIds = getFilters(state).map(({ id }) => id);
 
   return searchFilters.filter((id) => {
     const exists = isFilterAllowed(filterIds)({ id });
