@@ -6,7 +6,7 @@ export const WrapperModal = styled.div`
   flex-wrap: wrap;
 
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100vw;
   height: 96vh;
