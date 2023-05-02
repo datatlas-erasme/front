@@ -42,7 +42,6 @@ const ModalPicture = ({ onClick, ...props }: ModalPictureProps) => (
 export const StyledModalPicture = styled(ModalPicture)`
   background-color: white;
   display: block;
-  position: absolute;
   right: 0;
 
   ${CloseButton} {

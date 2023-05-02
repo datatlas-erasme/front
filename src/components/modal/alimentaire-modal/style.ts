@@ -85,6 +85,7 @@ export const TitleModal = styled.div`
 
 export const ModalHeading = styled.div`
   display: flex;
+  height: fit-content;
   width: 100%;
   justify-content: space-between;
   ${TitleModal} {
@@ -227,7 +228,7 @@ export const InfoPratique = styled.ul`
 
 export const InfoPratiqueGlobal = styled.ul`
   display: block;
-  width: 90%;
+  width: 100%;
 
   li {
     font-size: ${({ theme }) => theme.fontSizes.xstext};
@@ -252,7 +253,7 @@ export const InfoPratiqueGlobal = styled.ul`
     display: flex;
     justify-content: space-around;
 
-    width: 90%;
+    width: 100%;
     margin: auto;
     padding: 10px 20px !important;
 
