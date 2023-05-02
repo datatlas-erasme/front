@@ -58,11 +58,59 @@ export const WrapperModal = styled.div`
   }
 `;
 
-export const ModalColLeft = styled.div`
+export const TitleModal = styled.div`
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  h2 {
+    font-size: ${({ theme }) => theme.fontSizes.xltitle};
+    line-height: ${({ theme }) => theme.lineHeights.title};
+  }
+
+  p {
+    font-size: ${({ theme }) => theme.fontSizes.paragraphe};
+    align-self: flex-start;
+  }
+
+  svg {
+    height: auto;
+  }
+
+  @media ${device.lg} {
+    padding-top: 30px;
+    padding-left: 30px;
+  }
+`;
+
+export const ModalHeading = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  ${TitleModal} {
+    display: flex;
+    h2 {
+      font-size: ${({ theme }) => theme.fontSizes.xltitle};
+      line-height: ${({ theme }) => theme.lineHeights.title};
+    }
+  }
+  @media ${device.lg} {
+    ${TitleModal} {
+      padding: 30px 0 0 30px;
+      h2 {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}`;
+
+export const ModalColumn = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+`;
 
+export const ModalColLeft = styled(ModalColumn)`
   a {
     button {
       width: 200px;
@@ -92,11 +140,7 @@ export const ModalColLeft = styled.div`
   }
 `;
 
-export const ModalColRight = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-
+export const ModalColRight = styled(ModalColumn)`
   img {
     display: none;
   }
@@ -118,60 +162,10 @@ export const ModalColRight = styled.div`
 
     svg {
       height: 2em;
-      color: white;
       cursor: pointer;
     }
   }
 `;
-
-export const ModalHeading = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  div {
-    &:first-child {
-      h2 {
-        font-size: ${({ theme }) => theme.fontSizes.xltitle};
-        line-height: ${({ theme }) => theme.lineHeights.title};
-      }
-    }
-    &:last-child {
-      img {
-        display: none;
-      }
-      svg {
-        position: absolute;
-        height: 2em;
-        color: ${({ theme }) => theme.colors.primary};
-        right: 25px;
-        top: 15px;
-      }
-    }
-  }
-  @media ${device.lg} {
-    div {
-      width: 40%;
-      &:first-child {
-          padding: 30px 0 0 30px;
-          h2 {
-            margin-bottom: 10px;
-          }
-      }
-      &:last-child {
-        img {
-          display: flex;
-          width: 100%;
-          border-radius: 0 ${({ theme }) => theme.radii[5]} 0 80px;
-        }
-        svg {
-          height: 2em;
-          color: white;
-          cursor: pointer;
-        }
-      }
-    }
-  }
-}`;
 
 export const ProvenanceList = styled.div`
   margin: 20px 0;
@@ -228,29 +222,6 @@ export const InfoPratique = styled.ul`
   @media ${device.lg} {
     margin: auto;
     width: 80%;
-  }
-`;
-
-export const TitleModal = styled.div`
-  flex-direction: column;
-  justify-content: center;
-  h2 {
-    font-size: ${({ theme }) => theme.fontSizes.xltitle};
-    line-height: ${({ theme }) => theme.lineHeights.title};
-  }
-
-  p {
-    font-size: ${({ theme }) => theme.fontSizes.paragraphe};
-  }
-
-  svg {
-    height: auto;
-  }
-
-  @media ${device.lg} {
-    flex-direction: row;
-    padding-top: 30px;
-    padding-left: 30px;
   }
 `;
 

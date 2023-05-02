@@ -1,6 +1,4 @@
 import { connect } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import { queryIcon } from '../../../utils/queryIcon';
 import { MarketProducer, MarketDealer } from '../../../assets/svg/types';
@@ -10,6 +8,7 @@ import PictoPoi from '../../../assets/icon/icon-poi.png';
 import PictoPen from '../../../assets/icon/icon-pen.png';
 import { OpeningHours } from '../../../utils/opening-hours';
 import { translateDay } from '../../../utils/translateDay';
+import { StyledModalPicture } from './ModalPicture';
 import {
   ModalColLeft,
   ModalColRight,
@@ -55,16 +54,7 @@ const ModalInside = ({ onClick, info }: ModalInsideProps) => {
           {!!info && <h2>{info.nom}</h2>}
           <p>{info.type}</p>
         </TitleModal>
-        <div>
-          <FontAwesomeIcon icon={faXmark} onClick={onClick} />
-          <img
-            alt={'Unsplash'}
-            src={
-              'https://images.unsplash.com/photo-1543083477-4f785aeafaa9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-            }
-          />
-        </div>
-
+        <StyledModalPicture onClick={onClick} />
         {!!info.url ? (
           <a href={info.url} target={'_blank'} rel={'noreferrer'}>
             <button>En savoir plus</button>

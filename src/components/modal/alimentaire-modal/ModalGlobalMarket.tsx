@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useSelector } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { getLayers } from '../../../store/keplerGl';
 import PictoTime from '../../../assets/icon/icon-time.png';
 import PictoPoi from '../../../assets/icon/icon-poi.png';
@@ -10,8 +8,9 @@ import { OpeningHours } from '../../../utils/opening-hours';
 import { translateDay } from '../../../utils/translateDay';
 import Tab from './tabs';
 import Tabs from './tabs/Tabs';
-import { ModalHeading, InfoPratiqueGlobal, BottomButton, TabsMarket } from './style';
+import { ModalHeading, InfoPratiqueGlobal, BottomButton, TabsMarket, TitleModal } from './style';
 import TabContent from './tabs/TabContent';
+import { StyledModalPicture } from './ModalPicture';
 import { ModalInside } from './index';
 
 function ModalGlobalMarket({ data, onClick }: any) {
@@ -49,19 +48,11 @@ function ModalGlobalMarket({ data, onClick }: any) {
   return (
     <>
       <ModalHeading>
-        <div>
-          <h2>Marché </h2>
+        <TitleModal>
+          <h2>Marché</h2>
           <h3>{data[2]}</h3>
-        </div>
-        <div>
-          <FontAwesomeIcon icon={faXmark} onClick={onClick} />
-          <img
-            alt={'Unsplash'}
-            src={
-              'https://images.unsplash.com/photo-1543083477-4f785aeafaa9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-            }
-          />
-        </div>
+        </TitleModal>
+        <StyledModalPicture onClick={onClick} />
       </ModalHeading>
       <InfoPratiqueGlobal>
         <li>

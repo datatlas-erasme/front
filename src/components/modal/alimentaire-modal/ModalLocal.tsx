@@ -1,14 +1,5 @@
+import React from 'react';
 import { connect } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import {
-  FarmSale,
-  ProducerShop,
-  Amap,
-  MarketProducer,
-  Solidarity,
-  MarketDealer,
-} from '../../../assets/svg/types/index';
 import PictoTime from '../../../assets/icon/icon-time.png';
 import PictoPoi from '../../../assets/icon/icon-poi.png';
 import PictoPen from '../../../assets/icon/icon-pen.png';
@@ -26,6 +17,8 @@ import {
   BottomButton,
   TitleModal,
 } from './style';
+import { StyledModalPicture } from './ModalPicture';
+import { WhoIcon } from './WhoIcon';
 
 function MapModalLocal({ data, onClick }: any) {
   const openingDay = !!data[9] && data[9].map((item: any, i: number) => item);
@@ -36,36 +29,15 @@ function MapModalLocal({ data, onClick }: any) {
     <>
       <ModalHeading>
         <TitleModal>
-          <span>
-            {data[6] === 'AMAP' ? (
-              <Amap />
-            ) : data[6] === 'Magasin de producteurs' ? (
-              <ProducerShop />
-            ) : data[6] === 'Revendeur du marché (Achète des produits et les revend)' ? (
-              <MarketDealer />
-            ) : data[6] === 'Epicerie sociale et solidaire' ? (
-              <Solidarity />
-            ) : data[6] === 'Producteur du marché (Cultive ses produits et les vend)' ? (
-              <MarketProducer />
-            ) : data[6] === 'Vente à la ferme' ? (
-              <FarmSale />
-            ) : (
-              ''
-            )}
-          </span>
-          {!!data[0] && <h2>{data[2]}</h2>}
-          <p>{data[6]} </p>
+          {!!data[0] && (
+            <>
+              <WhoIcon type={data[6]} />
+              <h2>{data[2]}</h2>
+            </>
+          )}
+          <p>{data[6]}</p>
         </TitleModal>
-        <div>
-          <FontAwesomeIcon icon={faXmark} onClick={onClick} />
-          <img
-            alt={'Unsplash'}
-            src={
-              'https://images.unsplash.com/photo-1543083477-4f785aeafaa9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-            }
-          />
-        </div>
-
+        <StyledModalPicture onClick={onClick} />
         {!!data[14] ? (
           <a href={data[14]} target={'_blank'} rel={'noreferrer'}>
             <button>En savoir plus</button>
