@@ -1,3 +1,5 @@
+> **⚠️ Deprecated:** this project moved to a *monorepo* and is now maintained at https://github.com/datatlas-erasme/datatlas
+
 # 🌍 DatAtlas
 DatAtlas allows you to create a map of the territory on the fly by embedding data from different sources: open sourced data but also crowdsourced data
 
