@@ -3,15 +3,17 @@ services:
   datagora_datatlas_front:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
       #target: dev
     restart: always
     ports:
-      - 0.0.0.0:3000:3000
-    volumes:
-      - ./src:/app/src
-      - ./public:/app/public
-      - ./.env:/app/.env
-
-    command: npm start
+      - 80:80
+    #volumes:
+      #- ./src:/app/src
+      #- ./public:/app/public
+      #- ./.env:/app/.env
+      #- ./test:/usr/share/nginx/html/static/js
+    #command: npm start
     stdin_open: true
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:8000
